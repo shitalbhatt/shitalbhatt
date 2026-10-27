@@ -86,3 +86,6 @@ pre code{background:none;padding:0;color:inherit}
 .btn.ghost{background:none;color:var(--accent);border:1px solid var(--accent);margin-left:8px}
 footer{border-top:1px solid var(--line);padding:24px 16px;text-align:center;color:var(--muted);font-size:13px}
 @media (max-width:560px){.top{gap:8px;padding:8px 12px}}
+.tablewrap{overflow-x:auto}
+td[rowspan]{vertical-align:middle;color:var(--accent);font-weight:600}
+th{text-align:left}
