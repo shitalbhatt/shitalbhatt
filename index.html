@@ -603,7 +603,7 @@
   <h2>Code cheat sheet</h2>
   <p class="note">The exam allows one A4 sheet, one side. These are the patterns used across the labs.</p>
   <div class="tabs" id="codetabs">
-    <button class="on" data-t="t1">Summary</button><button data-t="t2">Plots</button><button data-t="t3">Relations</button><button data-t="t4">Quality</button><button data-t="t5">Outliers</button><button data-t="t6">Encode</button>
+    <button class="on" data-t="t1">Summary</button><button data-t="t2">Plots</button><button data-t="t3">Relations</button><button data-t="t4">Quality</button><button data-t="t5">Outliers</button><button data-t="t6">Encode</button><button data-t="t7">Module 4</button>
   </div>
   <div class="pane on" id="t1"><pre><code>df.info(); df.describe(); df.isna().sum()
 df.duplicated().sum(); df.T.duplicated().sum()   # dup rows / dup columns
@@ -666,6 +666,31 @@ from sklearn.model_selection import train_test_split
 train_test_split(X, y, test_size=.2, random_state=42, stratify=y)
 DecisionTreeClassifier(max_depth=5, class_weight='balanced')
 from sklearn.metrics import classification_report   # check recall per class</code></pre></div>
+  <div class="pane" id="t7"><pre><code>from sklearn.preprocessing import PowerTransformer, StandardScaler, MinMaxScaler, RobustScaler
+np.log1p(X); X.skew(); X.kurt()
+PowerTransformer(method='box-cox', standardize=False).fit_transform(X)  # x > 0; 'yeo-johnson' otherwise
+StandardScaler().fit_transform(X); MinMaxScaler().fit_transform(X); RobustScaler().fit_transform(X)
+
+df['TotalPages'] = df.Admin + df.Info + df.Product                 # total
+df['AvgTime'] = df.Duration / df.TotalPages.replace(0, np.nan)    # ratio, guard /0
+df['HasPV'] = (df.PageValues > 0).astype(int)                      # flag
+df['band'] = pd.qcut(df.Duration, 4, labels=['S','M','L','XL'])   # band
+from sklearn.preprocessing import PolynomialFeatures
+PolynomialFeatures(degree=2, include_bias=False)
+
+from sklearn.feature_selection import VarianceThreshold, SelectKBest, f_classif, mutual_info_classif, RFE
+SelectKBest(f_classif, k=8).fit(X_tr, y_tr)          # filter, train rows only
+RFE(LogisticRegression(), n_features_to_select=8).fit(X_tr, y_tr)   # wrapper
+LogisticRegression(penalty='l1', solver='liblinear', C=.05)         # embedded
+
+vif(X.values, i)                                      # VIF > 10 serious
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+Z = StandardScaler().fit_transform(X)                 # scale first
+p = PCA().fit(Z); p.explained_variance_ratio_.cumsum(); p.components_  # loadings
+LDA(n_components=2).fit(X_tr, y_tr)                   # classes - 1
+from sklearn.manifold import TSNE                      # pictures only
+TSNE(2, random_state=42).fit_transform(Z)</code></pre></div>
 </section>
 
 <!-- EXAM -->
@@ -711,7 +736,7 @@ from sklearn.metrics import classification_report   # check recall per class</co
 </main>
 
 <footer>
-  <p>Built from the DATA209 course folders (syllabus, lecture decks L1–22, labs, pre-exam handout). Module 4 is from the syllabus only. Course by Dr. Shital D. Bhatt, Vidyashilp University.</p>
+  <p>Built from the DATA209 course folders (syllabus, lecture decks L1–28, labs, pre-exam handout, course plan document). L29–30 is from the syllabus only. Course by Dr. Shital D. Bhatt, Vidyashilp University.</p>
 </footer>
 <script src="script.js"></script>
 </body>

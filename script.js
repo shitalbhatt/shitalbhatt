@@ -52,6 +52,18 @@
     ['Target encoding must be computed on:', ['The whole dataset', 'Training rows only', 'Test rows only', 'Any rows'], 1, 'Using all rows leaks the answer into the features (data leakage).'],
     ['The pre-exam handout says an answer earns full marks when:', ['Code alone runs', 'Concept, code/output and dataset-specific interpretation are all right', 'It is long', 'It cites a textbook'], 1, 'Half marks if only the explanation or only the code is right.'],
     ['You found 4000 in a column of values near 250–310. The correct first step is to:', ['Delete it silently', 'Ask why: error, rare real value, or different population', 'Replace with mean', 'Ignore it'], 1, 'A flag is a question, not a verdict. Deleting silently is one of the six costly mistakes.']
+    ['After a log transform, a symmetric column (skew 0.06) becomes skew −1.14 and gains 559 IQR outliers. What is the lesson?', ['Log always helps', 'Do not transform already symmetric data', 'Outliers are good', 'Use MinMax instead'], 1, 'Check skew first. Log over-corrects and can invent outliers.'],
+    ['Which scaler changes the skewness of a feature?', ['StandardScaler', 'MinMaxScaler', 'RobustScaler', 'None of them'], 3, 'Scaling is linear, so shape (skew, kurtosis) never changes. Only a transform does.'],
+    ['Why did MinMax put 96% of population values below 0.10?', ['Population is normal', 'One extreme value (35,682) sets the max', 'Missing values', 'Wrong formula'], 1, 'One extreme sets the maximum and squeezes everyone else. Use Robust scaling or transform first.'],
+    ['Box-Cox requires the data to be:', ['Negative', 'Strictly positive', 'Categorical', 'Already scaled'], 1, 'Use Yeo-Johnson for zeros or negatives.'],
+    ['A HasPageValue flag gave buy rates of 56.3% vs 3.9%. This is which feature recipe?', ['Ratio', 'Band', 'Flag', 'Polynomial'], 2, 'A condition turned into 1/0.'],
+    ['Degree-3 polynomial expansion of 85 features gave 109,735 columns. The main risk is:', ['Under-fitting', 'Curse of dimensionality and over-fitting', 'Missing values', 'Leakage only'], 1, 'Too many columns for 12,330 rows: train score rises, test score falls.'],
+    ['Which selection family trains the model hundreds of times?', ['Filter', 'Wrapper', 'Embedded', 'Variance threshold'], 1, 'Forward, backward and RFE refit repeatedly: best small set, slowest.'],
+    ['Features must be selected using which rows?', ['All rows', 'Test rows', 'Training rows only', 'Any rows'], 2, 'Using test rows to choose features leaks information.'],
+    ['VIF of 15.9 for density means:', ['Independent feature', 'Serious multicollinearity', 'Acceptable', 'Missing data'], 1, 'VIF > 10 is serious. Drop it or use PCA.'],
+    ['Why scale before PCA?', ['PCA needs positive data', 'Units with big variance dominate PC1', 'To use labels', 'To remove outliers'], 1, 'Unscaled, total sulfur dioxide made PC1 95% from units alone.'],
+    ['With 3 classes, LDA gives at most how many components?', ['1', '2', '3', 'Number of features'], 1, 'Classes − 1.'],
+    ['Which method is for pictures only, never for feeding a model?', ['PCA', 'LDA', 't-SNE', 'VIF'], 2, 'Axes are meaningless and t-SNE cannot place new rows.'],
   ];
   var i = 0, score = 0, answered = false;
   var card = document.getElementById('qcard'), next = document.getElementById('qnext');
