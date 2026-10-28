@@ -1,2 +1,2 @@
-videos/output_all/*.mp4
-videos/output_all/uploaded.json
+output_all/*.mp4
+output_all/uploaded.json
