@@ -8,7 +8,9 @@ Setup (once):
 
 usage: python3 upload_to_youtube.py <folder with the .mp4/.srt files and upload_manifest.json> [--limit N]
 
-Videos are uploaded as PRIVATE so you can review them in YouTube Studio and publish when ready.
+Videos are uploaded as PRIVATE and scheduled: each manifest entry has a publishAt time, so YouTube makes it public
+automatically on that date. (Create your 4 playlists in YouTube Studio first; to add videos to them automatically, put each
+playlist's ID in a "playlistId" field in upload_manifest.json, otherwise add them in Studio.)
 Note: a new API project gets about 10,000 quota units a day and each upload costs about 1,600,
 so expect roughly 6 uploads a day; re-run the script each day, it skips videos already uploaded.
 """
@@ -28,9 +30,13 @@ n = 0
 for it in json.load(open(os.path.join(folder, "upload_manifest.json"))):
     if it["file"] in done or n >= limit:
         continue
+    status = {"privacyStatus": it["privacyStatus"], "selfDeclaredMadeForKids": it["madeForKids"],
+              "containsSyntheticMedia": it["containsSyntheticMedia"]}
+    if it.get("publishAt"):  # schedule: video stays private, then goes public automatically at this time
+        status["privacyStatus"] = "private"
+        status["publishAt"] = it["publishAt"]
     body = {"snippet": {"title": it["title"], "description": it["description"], "tags": it["tags"], "categoryId": it["categoryId"]},
-            "status": {"privacyStatus": it["privacyStatus"], "selfDeclaredMadeForKids": it["madeForKids"],
-                       "containsSyntheticMedia": it["containsSyntheticMedia"]}}
+            "status": status}
     req = yt.videos().insert(part="snippet,status", body=body,
                              media_body=MediaFileUpload(os.path.join(folder, it["file"]), chunksize=-1, resumable=True))
     resp = None
@@ -39,6 +45,14 @@ for it in json.load(open(os.path.join(folder, "upload_manifest.json"))):
     vid = resp["id"]
     yt.captions().insert(part="snippet", body={"snippet": {"videoId": vid, "language": "en", "name": "English"}},
                          media_body=MediaFileUpload(os.path.join(folder, it["captions"]))).execute()
+    if it.get("thumbnail") and os.path.exists(os.path.join(folder, it["thumbnail"])):
+        try:  # needs a verified channel (youtube.com/verify); skipped otherwise
+            yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(os.path.join(folder, it["thumbnail"]))).execute()
+        except Exception as e:
+            print("thumbnail not set:", e)
+    if it.get("playlistId"):
+        yt.playlistItems().insert(part="snippet", body={"snippet": {"playlistId": it["playlistId"],
+            "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()
     done[it["file"]] = vid
     json.dump(done, open(done_path, "w"), indent=1)
     print("uploaded", it["title"], "->", f"https://youtu.be/{vid}")

@@ -62,7 +62,7 @@ def ts(t):
 
 for i, s in enumerate(slides, 1):
     if "image" in s:  # ready-made slide image instead of a PDF page
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", s["image"], "-vf", "scale=1280:720",
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", s["image"], "-vf", "scale=%d:%d" % tuple(spec.get("size", [1280, 720])),
                         f"{OUT}/img/{i:03}.png"], check=True)
     else:
         render(s["pdf"], s["page"], f"{OUT}/img/{i:03}.png")
