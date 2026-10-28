@@ -1,0 +1,15 @@
+00:00 Intro
+00:25 Why missing values matter
+00:54 MCAR, MAR, MNAR
+01:31 MAR proven in the data
+02:07 Lab: load and count gaps
+02:29 Lab: crosstab proves MAR
+02:51 Disguised missing values
+03:22 Three imputation strategies
+03:50 Mean and median imputation
+04:15 KNN imputation
+04:47 Regression imputation
+05:18 Distribution comparison
+05:35 Comparing the strategies
+06:00 Key takeaways
+06:27 Try it yourself
