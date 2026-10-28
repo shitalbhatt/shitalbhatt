@@ -1,0 +1,144 @@
+{
+ "out_name": "L08_Graphical_EDA_Categorical_and_Anomalies",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 16,
+   "chapter": "The histogram",
+   "text": "Now graphical E D A for numerical variables. Plot type one is the histogram. It splits the range into bins and counts how many rows fall into each, the most direct picture of a distribution's shape. Tall bars mean common values. It is the best way to take a first, honest look at any numerical column."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 17,
+   "chapter": "Histograms of all six",
+   "text": "Order quantity and discount show flat, evenly spread bars, visually confirming their near-zero skewness. Sales, unit price and shipping cost show one towering bar near zero and an almost invisible tail, the picture behind their extreme skewness numbers. And profit shows a sharp spike near zero with real mass on both the negative and positive side, confirming the loss-making orders."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 18,
+   "chapter": "The density plot",
+   "text": "Plot type two is the density plot, built with kernel density estimation. It is a smoothed histogram, a continuous curve instead of bars. It removes the arbitrary choice of bin width and gives a cleaner picture, but smoothing can hide small real spikes that a histogram shows, so the two complement each other."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 19,
+   "chapter": "Density plots of all six",
+   "text": "Order quantity's curve confirms a genuinely flat, near-uniform shape. Profit shows a sharp, narrow peak straddling zero, distinct from the one-sided skew of sales or unit price. Sales and unit price again collapse into a flat line squashed against zero. Density plots handle moderate skew well, but not this level of it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 20,
+   "chapter": "The boxplot",
+   "text": "Plot type three is the boxplot. It packs five numbers into one picture: minimum, Q one, median, Q three and maximum, plus individually plotted outlier points. The box spans the middle fifty percent, whiskers show the normal range, and dots beyond them are flagged outliers. It is best for comparing spread and spotting outliers across several features side by side."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 21,
+   "chapter": "Boxplots of all six",
+   "text": "Order quantity and discount have honest, well-formed boxes with essentially no outliers. Profit's box straddles zero with outlier dots stretching both ways, large losses on one side and large gains on the other. Sales, unit price and shipping cost have boxes crushed toward zero, exactly as their dispersion numbers warned."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 22,
+   "chapter": "The violin plot",
+   "text": "Plot type four is the violin plot. It mirrors a density curve on both sides of a central boxplot, so you see the full distribution shape and the five-number summary together. A boxplot alone can hide whether data is single-peaked, multi-peaked or lopsided; the violin reveals it. Use it when the shape itself is part of the story."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 23,
+   "chapter": "Violin plots of all six",
+   "text": "Order quantity has the most rectangular, even violin body, the clearest visual confirmation of a uniform shape. Profit's violin is narrow and symmetric around zero, unlike the one-sided needles of sales or unit price. Sales, unit price and shipping cost appear as needle-thin spikes. The violin plot cannot rescue a shape this extreme any more than the density plot could."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 24,
+   "chapter": "Distribution comparisons",
+   "text": "Plot type five overlays the same feature's density curve for several categories. Curves that overlap heavily mean the category barely affects the feature; curves that separate mean the category is a real driver. It is an early visual check of whether a categorical feature is worth investigating as a predictor."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 25,
+   "chapter": "Profit by product category",
+   "text": "All three categories centre close to zero, with gains and losses in each. Technology shows a visibly wider spread, bigger wins and bigger losses. Average profit confirms it: technology averages four hundred twenty nine dollars per order, more than six times furniture's sixty eight dollars."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 26,
+   "chapter": "Shipping cost by ship mode",
+   "text": "Delivery truck shows the widest spread and highest typical shipping cost. Regular air and express air cluster at lower costs, with express air slightly higher. This is a sensible pattern: heavier or bulkier shipments that need truck delivery naturally cost more."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 28,
+   "chapter": "Comparison: unit price",
+   "text": "Now compare the two approaches. For unit price, the non-graphical view said skewness fourteen, kurtosis two seventy one, mean more than four times the median, ten percent of rows flagged as outliers. The graphical view showed one towering bar, a boxplot crushed flat with a wall of outlier dots past sixty seven hundred dollars, and a needle violin. Combined: most items are inexpensive, but a small set of high-end products pulls every average sharply upward."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 29,
+   "chapter": "Comparison: order quantity",
+   "text": "For order quantity, skewness is about zero, mean and median sit almost on top of each other, kurtosis is negative one point two one, and zero percent are outliers. The histogram is rectangular across one to fifty, the boxplot has no outlier dots, and the violin is the most uniform. The number and the picture agree closely, a rare, reassuring case."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 30,
+   "chapter": "The overall lesson",
+   "text": "The overall lesson. When they agree, as with order quantity, you can trust either technique. When they diverge in detail, as with unit price, the skewness number warned of extreme skew, but only the boxplot showed that the entire spread lives in the outlier dots, not the box. Non-graphical statistics are fast and precise but abstract; plots are intuitive but can hide detail. Always use both together."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 32,
+   "chapter": "Frequency tables",
+   "text": "Now categorical variables. Plot type six is the frequency table: a count and percentage for each category, the categorical equivalent of describe. The biggest number is the most common category, and a category with a tiny count is a warning for later grouped analysis. It is the very first check on any categorical column."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 33,
+   "chapter": "Frequency tables of all three",
+   "text": "Product category: office supplies is the majority, four thousand six hundred ten orders, fifty five percent; furniture is smallest at twenty percent. Ship mode: regular air dominates at seventy five percent; express air is rarest at twelve percent. Customer segment: corporate is largest at thirty seven percent, with the other three fairly close."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 34,
+   "chapter": "The bar plot",
+   "text": "Plot type seven is the bar plot. It turns a frequency table into a picture, one bar per category, so the eye compares heights far faster than numbers in a table. It is best for presenting frequencies, or for comparing a summary statistic, like average profit, across categories."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 35,
+   "chapter": "Bar plots of all three",
+   "text": "Product category shows office supplies towering over the other two. Ship mode shows a steep drop after regular air, since most orders default to standard shipping. Customer segment shows a real but modest lead for corporate over three fairly even segments."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 36,
+   "chapter": "The pie chart",
+   "text": "Plot type eight is the pie chart, a part-to-whole view. A caution: pie charts get hard to read past four or five slices, and are poor at comparing similar-sized slices. Product category, with exactly three groups, fits well. A variable with eight categories is better shown as a bar plot."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 37,
+   "chapter": "Product category pie",
+   "text": "Office supplies alone accounts for well over half of every order. Technology and furniture together make up less than half, despite being two categories. Seeing this part-to-whole makes the dominance of office supplies easier to feel than the bar plot alone."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 39,
+   "chapter": "Detecting anomalies",
+   "text": "Finally, anomalies. The rule: compute Q one, Q three and the I Q R, and flag anything below Q one minus one point five I Q R, or above Q three plus one point five I Q R. This non-graphical rule has a graphical twin: the same fences are what a boxplot draws as whiskers. And not every outlier is an error: a twenty seven thousand dollar profit and a fourteen thousand dollar loss are both genuine business events."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 40,
+   "chapter": "Anomalies counted",
+   "text": "Profit has one thousand seven hundred four outliers, twenty percent of rows, the highest rate, capturing both large gains and large losses. Sales has twelve percent, shipping cost and unit price about ten to twelve percent. Discount has just three outliers, and order quantity has none. Profit's outliers are exactly the extreme wins and losses that help explain why over half of orders lose money."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L7-8.pdf",
+   "page": 41,
+   "chapter": "Recap",
+   "text": "To recap: we applied three non-graphical technique families and eight plot types to every feature, matching every result with its plot and every plot with its number. The techniques agree on order quantity and reinforce each other on the skewed features: the numbers flag that something is unusual, and the plots show exactly what and why. Next up: correlation, covariance and scatterplots. Thanks for watching."
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "out_name": "L26_Feature_Selection",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 18,
+   "chapter": "Feature selection: three families",
+   "text": "Now part two, feature selection. The goal is a smaller set of columns that predicts as well: simpler, faster, less over-fitting, and easier to explain. There are three families. Filter methods score each feature before the model and keep the top k. Wrapper methods try subsets around the model, train, score, and repeat. Embedded methods select inside the model, with a penalty or importance."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 19,
+   "chapter": "Filter methods",
+   "text": "Filter methods score each feature on its own. Variance threshold removes almost-constant features. Pearson correlation keeps large absolute correlation with the target. The A N O V A F-test suits numeric features and a categorical target. Chi-square suits categorical features. Mutual information works for any types. Filters are very fast, model-free, and a good first screen, but they ignore interactions and keep near-duplicates. Caution: variance depends on scale, so tiny-valued columns look constant even when useful."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 20,
+   "chapter": "Filter example",
+   "text": "A filter example: A N O V A F-score, top eight. Log page values, has page value, page values, and the two page value interaction terms are all versions of the same signal, and a filter scores each feature alone so it happily keeps all five. Month November never makes the list, though models find it useful."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 21,
+   "chapter": "Wrapper methods",
+   "text": "Wrapper methods let the model choose. Forward selection starts empty and adds the feature that improves the score most. Backward elimination starts with all and removes the feature whose loss hurts least. Recursive feature elimination fits, drops the feature with the smallest weight, refits, and repeats. The strength: they see interactions and redundancy, and usually find the best small subset. The weakness: they are slow, training the model hundreds of times, and can over-fit the selection."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 22,
+   "chapter": "Embedded methods",
+   "text": "Embedded methods select while training. L one, or Lasso, adds a penalty that pushes weak coefficients to exactly zero; a smaller C means a stronger penalty and fewer features. Here, twenty of eighty five features are kept, with log page values and has page value the largest. Tree importance is the second approach: random forests record how much each feature splits the data well, and you keep the top ones."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 23,
+   "chapter": "Filter vs wrapper vs embedded",
+   "text": "Compare the three. Filter uses a statistic, is fastest, does not see interactions, and its main risk is keeping duplicates; it is a first screen of many features. Wrapper trains many times, is slowest, sees interactions and redundancy, and its risk is over-fitting the selection; use it to fine-tune a short list. Embedded trains once, is medium speed, partly sees interactions, is tied to one model type, and is the everyday default."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 24,
+   "chapter": "A practical workflow",
+   "text": "A practical selection workflow in four steps. Clean: drop constant and duplicate columns. Screen: filter to a shortlist with correlation or mutual information. Choose: embedded L one or a wrapper on the shortlist. Check: score on unseen test rows. The golden rule: select features using the training rows only. If the test rows help choose the features, the test score is no longer honest. That is data leakage."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 25,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. Construct and interact: build features that state the pattern directly, and test each one. Polynomial features grow as C of n plus d choose d minus one, so use low degree, scale, then select. Too many columns means a sparse space, weak distances and over-fitting. And filter is a fast screen, wrapper gives the best small set, embedded is the everyday default. Thanks for watching."
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "out_name": "P15-16_Lab_Data_Quality_Part_A_Audit_to_Validity",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to the lab for sessions fifteen and sixteen: data quality, integration and validation in Python. We run every lecture topic, accuracy, completeness, consistency, validity, integration, duplicates, encoding, validation rules and scaling, on a real dataset, with the code and the output. This is part A, from the audit to validity."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 2,
+   "chapter": "Lab roadmap",
+   "text": "The roadmap has twelve steps, from a messy merged file to a validated, scaled dataset. Audit; accuracy; completeness; consistency; validity; integration; duplicates; removal; encoding; validation; scale; and finally the same code on a second dataset."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 3,
+   "chapter": "Lab datasets",
+   "text": "We use two real files. The primary is a two-source merge of the New York City Airbnb listings: source A is the Analytics export with forty eight thousand eight hundred ninety five listings, and source B is a Finance export of one thousand of the same listings, with its own price field. Three hundred of those were exported with lowercase borough and room type, and seven hundred are exact copies. They were concatenated, the way two teams' files often land in one pipeline. The second dataset is Online Shoppers Purchasing Intention, with twelve thousand three hundred thirty rows."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 4,
+   "chapter": "Setup",
+   "text": "Load the libraries, pandas, numpy, matplotlib and Standard Scaler, then read the lab file. The columns include I D, name, host, neighbourhood group, room type, price, minimum nights, reviews, availability, and a price U S D column."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 5,
+   "chapter": "Part 1: data quality audit",
+   "text": "Profile first: five commands cover the whole dataset with no loops. The shape is forty nine thousand eight hundred ninety five rows by seventeen columns. The total number of missing cells is twenty thousand five hundred seventy three. Duplicated sum finds seven hundred exact duplicate rows. And transposing then calling duplicated finds exact duplicate columns: one, price U S D."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 6,
+   "chapter": "One audit table",
+   "text": "One table gives the type, gaps and distinct values for every column. Notice ten borough labels for five boroughs, and six room type labels for three types. The audit already exposes a consistency problem."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 7,
+   "chapter": "Dimension 1: accuracy",
+   "text": "Accuracy needs a reference. Our proxy is the median price of listings with the same borough and room type, the peer median. Group by borough and room type, transform with the median, and compute each price's ratio to its peer median. Sorting by the ratio shows a private room in Queens at ten thousand dollars, against a peer median of fifty nine."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 8,
+   "chapter": "Flag, do not delete",
+   "text": "Now flag suspicious values, but do not delete them yet. Eleven listings are priced at zero dollars a night. Sixty six are priced more than twenty times their peer median. Fourteen have a minimum stay longer than a year. Why flag instead of delete? The true price is unknown, and deleting real listings biases the data. Record the suspicion in a column and decide on capping or removal in the outlier session."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 9,
+   "chapter": "Dimension 2: completeness",
+   "text": "Completeness asks how much is missing, column by column. Reviews per month and last review are each missing about twenty point six percent, while host name and name are almost complete. At row level, only seventy nine point three eight percent of rows have no gap at all."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 10,
+   "chapter": "Why is it missing",
+   "text": "Check the reason. A cross-tab shows that every listing with zero reviews has no last review date, and every listing with reviews has one. That is structural, not random. A listing with no reviews cannot have a last-review date. The correct fill, which we cover in the next session, is reviews per month equals zero, not the column mean."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 11,
+   "chapter": "Dimension 3: consistency across rows",
+   "text": "Consistency across rows: one borough, two spellings. Value counts shows ten labels for five real boroughs, with lowercase manhattan, brooklyn, queens, bronx and staten island sitting beside the proper-case versions. A group by price therefore gives ten groups instead of five, splitting the statistics."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 12,
+   "chapter": "Consistency across columns and sources",
+   "text": "Consistency across columns: the price and price U S D columns are equal, the same fact stored twice. Across related fields: zero rows break the rule that zero reviews means no last review date. Across sources: the same listing I D appears as Manhattan Private room in one source and lowercase in another."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 13,
+   "chapter": "Dimension 4: validity",
+   "text": "Validity: write the rules first, then test every row against every rule. Here is a rule table: price at least zero, minimum nights at least one, latitude and longitude inside the city's bounding box, availability between zero and three sixty five, and room type and borough in the allowed sets. Counting failures per rule, five rows fail the latitude box, three hundred fail room type and three hundred fail borough. In total, three hundred five rows fail any rule."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 14,
+   "chapter": "Validity vs accuracy",
+   "text": "A value can pass one check and fail the other. The private room at ten thousand dollars passes every validity rule, but it is wrong. A latitude of forty point four nine nine eight fails the box, but it is a real listing in Staten Island. And lowercase brooklyn fails the set check, yet it is the right borough. Validity asks, is this possible, and is checked against a rule. Accuracy asks, is this correct, and is checked against reality. Rules need review too."
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+ "out_name": "L01_Why_We_Explore_Before_We_Conclude",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to Data two oh nine, Advanced Exploratory Data Analysis. In these first two lectures we build the foundation of the whole course: how to move from raw data to numbers you can actually trust. We start with why we explore data, then look at sampling, bias and variance."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 2,
+   "chapter": "Roadmap",
+   "text": "Over two lectures we cover six ideas. The role of E D A in the data science lifecycle, exploratory versus confirmatory analysis, and sampling bias. Then summary statistics, the shape of a distribution, and robust statistics like the median and the I Q R. This video covers the first three, plus the idea of bias and variance."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 4,
+   "chapter": "The idea behind EDA",
+   "text": "John Tukey introduced exploratory data analysis in nineteen seventy seven as its own discipline. The idea is to look at data with an open mind, using pictures and resistant summaries, so that the data can surprise you. Think of E D A as detective work, and confirmatory analysis as the trial that comes afterwards."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 5,
+   "chapter": "Role of EDA in the lifecycle",
+   "text": "E D A is not stage two of a project. It runs through the whole lifecycle. Every arrow going into the exploration band is a question you answer by looking at data, and every arrow coming out is a decision you can defend in your report. You explore when you collect, when you clean, when you model, and when you evaluate."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 6,
+   "chapter": "What EDA buys you",
+   "text": "Exploration gives you five concrete things. Sanity: does the file contain what the documentation claims? Quality: missing values, duplicates, impossible values. Structure: shapes, relationships, clusters and trends. Hypotheses worth testing later. And modelling decisions, such as transformations, features, and what a sensible baseline looks like."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 7,
+   "chapter": "Worked example: Pima diabetes",
+   "text": "Here is five minutes of looking. A quick describe call on seven hundred sixty eight patient records shows minimum values that are medically impossible: a glucose of zero, a blood pressure of zero. These were never missing in the file. Missingness had been encoded as zero. A model trained on this untouched would learn that no test predicts health. No algorithm tuning recovers from that, but five minutes of E D A does."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 8,
+   "chapter": "Exploratory vs confirmatory",
+   "text": "These are two different jobs with two different sets of rules. Exploratory analysis asks what is going on, allows unlimited looks, and produces candidate hypotheses. Confirmatory analysis asks whether one specific claim is supported, gets one pre-specified look, and produces p-values. The fatal mistake in exploration is refusing to look. The fatal mistake in confirmation is testing a hypothesis that the same data suggested."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 9,
+   "chapter": "How professionals keep them apart",
+   "text": "Professionals follow four habits. First, split the data and hold out a confirmation set before you plot anything. Second, write the hypothesis down before testing. Third, label every claim in the report as exploratory or confirmatory. Fourth, adjust for multiple testing when one dataset has to carry many tests. In this course, your final project must label each headline claim this way."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 10,
+   "chapter": "Population, frame, sample, estimate",
+   "text": "Four things people call the data are not the same. The target population is everyone the claim is about. The sampling frame is the list you could actually draw from. The sample is the rows you ended up with, and the estimate is the number you compute. The gap between population and frame is coverage error. The Online Shoppers data has no row for a person who never visited, so it says nothing about why they stayed away."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 11,
+   "chapter": "Six ways samples go wrong",
+   "text": "A sample can stop representing the population in six ways. Selection bias, self-selection, and survivorship bias in the top row. Non-response bias, undercoverage, and measurement bias in the bottom row. For example, product reviews come from delighted and furious customers, while the indifferent majority stays silent."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 12,
+   "chapter": "Two cases worth remembering",
+   "text": "Two cases to remember. In nineteen thirty six, the Literary Digest mailed ten million ballots and got over two million replies, yet predicted the wrong winner, because its address lists skewed wealthy. And in the Second World War, Abraham Wald pointed out that bullet holes on returning aircraft showed where planes could survive a hit. The missing rows were the planes that never came back. Always ask: what would a row look like that could never have been recorded?"
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 13,
+   "chapter": "Bias and variance",
+   "text": "Now a second big idea: two ways of being wrong. Bias is where you aim. Variance is how steady your hand is."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 14,
+   "chapter": "The dartboard",
+   "text": "One picture holds the whole idea. Low bias and low variance means tight darts on the bullseye. High bias means tight darts in the wrong place. High variance means darts scattered everywhere. The top right, high bias and high variance, is the worst place to be: wrong, and confident about it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 15,
+   "chapter": "Systematic vs random error",
+   "text": "Bias is systematic error. You are off in the same direction every time, like a scale that reads two hundred grams heavy. It does not shrink with more data. Variance is random error. Two samples of fifty give two different means. It does shrink as data grows, roughly like one over the square root of n."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 16,
+   "chapter": "More data cures only one",
+   "text": "This chart shows error as the sample grows from one hundred to ten thousand. The random error curve falls, but slowly: four times the data only halves it. The bias line never moves. Past a point, collecting more data only shrinks the error you were not worried about."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 17,
+   "chapter": "Sense one: in your data",
+   "text": "In sampling, bias means the sample is systematically unlike the population, for example when only satisfied customers reply. Variance means the sample is fair but small, so fifty customers give three point nine stars and another fifty give four point two. A big biased sample is more dangerous than a small random one, because a narrow margin of error makes the wrong answer look precise."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 18,
+   "chapter": "Sense two: in your model",
+   "text": "The same words describe models. A model that is too simple underfits: high bias, low variance. A model that is too flexible overfits: it passes through every point, including the noise, so different data gives a wildly different model. The best model sits in between. Same ten data points; the only thing that changed is how much freedom the model had."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 19,
+   "chapter": "Decomposing prediction error",
+   "text": "Expected prediction error equals bias squared, plus variance, plus irreducible noise. Bias is fixed by adding capacity. Variance is fixed by removing freedom: regularisation, pruning, more training data. Noise cannot be fixed by any model. It sets the floor on how good you can get."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 20,
+   "chapter": "The trade-off, drawn",
+   "text": "Here is the trade-off. On the left, simple models, where bias dominates. On the right, flexible models, where variance dominates. The total error you actually pay is U-shaped, and cross-validation is how you find the bottom of that U."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 21,
+   "chapter": "Diagnosis",
+   "text": "How do you tell which one you have? High bias shows high training error and high test error that is close to it; more data barely helps. High variance shows very low training error and much higher test error; more data helps a lot. The quick test: does the gap between training and test error worry you more than the level of both?"
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 22,
+   "chapter": "An important caution",
+   "text": "One caution. The trade-off is about estimation, not collection. Regularisation, cross-validation and more training rows all work on error inside your model. None of them repairs a sample that never contained the people you care about. Sampling bias is fixed at the design stage, or not at all."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 23,
+   "chapter": "Remember this much",
+   "text": "Remember this: bias repeats, variance reshuffles. More data shrinks variance and leaves bias where it was. In models, complexity trades one for the other. In samples, only better design fixes bias."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 24,
+   "chapter": "Recap and practice",
+   "text": "To recap: E D A is a habit that recurs at every stage. Exploration generates hypotheses; confirmation tests them, never on the same rows. And sample size fixes noise, while only sample design fixes bias. Before the next class, load the Online Shoppers dataset and write the two-blank sentence: this sample can support claims about, blank, and cannot support claims about, blank."
+  }
+ ]
+}

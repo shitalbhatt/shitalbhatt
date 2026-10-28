@@ -23,7 +23,7 @@ from sklearn.impute import KNNImputer
 from sklearn.linear_model import LinearRegression
 
 CSV, OUT = sys.argv[1], sys.argv[2]
-VOICE = os.environ.get("VOICE", "en-US-AndrewNeural")
+VOICE = os.environ.get("VOICE", "en-US-JennyNeural")  # female; e.g. en-IN-NeerjaNeural, en-US-AriaNeural
 os.makedirs(f"{OUT}/slides", exist_ok=True)
 os.makedirs(f"{OUT}/audio", exist_ok=True)
 os.makedirs(f"{OUT}/clips", exist_ok=True)
@@ -497,13 +497,24 @@ def ts(t):
     return f"{h:02}:{m:02}:{t % 60:06.3f}".replace(".", ",")
 
 
+async def _all_tts():
+    sem = asyncio.Semaphore(6)
+
+    async def one(i, text):
+        mp3 = f"{OUT}/audio/{i:02}.mp3"
+        if os.path.exists(mp3) and os.path.exists(mp3 + ".txt") and open(mp3 + ".txt").read() == text + VOICE:
+            return
+        async with sem:
+            await tts(text, mp3)
+        open(mp3 + ".txt", "w").write(text + VOICE)
+    await asyncio.gather(*(one(i, t) for i, (_, t) in enumerate(slides, 1)))
+
+
+asyncio.run(_all_tts())
 srt, t0, clips, chapters = [], 0.0, [], []
 for i, (fn, text) in enumerate(slides, 1):
     img = fn()
     mp3 = f"{OUT}/audio/{i:02}.mp3"
-    if not (os.path.exists(mp3) and os.path.exists(mp3 + ".txt") and open(mp3 + ".txt").read() == text):
-        asyncio.run(tts(text, mp3))
-        open(mp3 + ".txt", "w").write(text)
     d_audio = dur(mp3)
     pad = 0.7
     clip = f"{OUT}/clips/{i:02}.mp4"

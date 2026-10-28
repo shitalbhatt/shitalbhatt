@@ -1,0 +1,72 @@
+{
+ "out_name": "P26_Lab_Feature_Selection_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 14,
+   "chapter": "Prepare X and y",
+   "text": "Now feature selection. Prepare X and y: one-hot encode the six categorical columns, giving a matrix of twelve thousand three hundred thirty rows by eighty five columns. Split with stratification, and fit the scaler on training rows only. All selection uses training rows only."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 15,
+   "chapter": "Filter 1: variance and correlation",
+   "text": "Filter one: variance and correlation. A variance threshold of zero point oh one flags twenty three near-constant columns, though rates look constant only because of their scale, so apply this to zero-one dummies, not raw rates. For correlation, take the upper triangle and list the most redundant pairs: product related and total pages at zero point nine nine seven, and others above zero point nine. Pairs above point nine say the same thing, so keep one of each."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 16,
+   "chapter": "Filter 2: ANOVA and mutual information",
+   "text": "Filter two: the A N O V A F-test and mutual information, both through Select K Best. Both rank log page values, has page value and page values at the top, followed by the two interaction terms and exit rates. Two different statistics agree on the same signal."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 17,
+   "chapter": "Wrapper: RFE and forward selection",
+   "text": "Wrapper methods: recursive feature elimination, about seventeen seconds, and forward selection, about twenty five seconds. R F E picks page values, has page value, bounce and exit rates, and month November, among others. Forward selection picks a different set, including total pages, product share and month March and May. The wrappers take much longer than filters because they train the model many times."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 18,
+   "chapter": "Embedded: L1 and random forest",
+   "text": "Embedded methods: an L one penalty with C of point oh two keeps twenty of eighty five coefficients non-zero. A random forest gives feature importances, with log page values at zero point one three two and page values at zero point one one seven at the top. We keep the top ten."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 19,
+   "chapter": "Compare every subset",
+   "text": "Compare every subset with the same model. We collect all seven feature lists in a dictionary, define an evaluate function that fits logistic regression on train and scores test R O C A U C and F one, and apply it to each list with one call, no loop needed."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 20,
+   "chapter": "Result",
+   "text": "The result: ten well-chosen features are about as good as all eighty five. Forward selection with ten features scores zero point nine one nine, higher than all eighty five features at point nine one eight. L one with twenty features gets point nine one five, R F E point nine oh seven. The filters and random forest top ten drop to about point eight six five, because their lists repeat the page-value signal five times. Month November is chosen only by model-based methods."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 21,
+   "chapter": "Which features do methods agree on",
+   "text": "Which features do the methods agree on? A cross-tab counts votes out of six methods. Log page values, page value times Q four and page values get all six votes. Exit rates, has page value and page value times returning get five. The page-value family is picked by every method, the strongest evidence in the data. Features with one or two votes depend on the method used."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 22,
+   "chapter": "Same steps on Pima diabetes",
+   "text": "The same steps on the Pima diabetes data. Zeros in glucose, blood pressure, skin thickness, insulin and BMI mean not measured, so replace them with missing and fill with the median. Construct flags for high glucose and obesity, a ratio, a log, and two interactions. The flags split the diabetes rate from twelve percent up to seventy six percent. But test A U C did not rise: zero point eight two three nine baseline versus zero point eight two three two. Glucose, BMI and age already carry the signal. Always test."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 23,
+   "chapter": "Pima: five features",
+   "text": "On Pima, five selected features are about as good as all fourteen. Forward selection with five features scores point eight two two against point eight two three for all. Glucose is chosen by every method, and five features stay within point oh two A U C of all fourteen."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 24,
+   "chapter": "What the lab showed",
+   "text": "What the lab showed. Constructed features and interactions took test A U C from point eight five five to point nine oh four with the same model. Degree three polynomials on four hundred rows gave train point nine nine six and test point seven four three: the curse in action. Forward selection found that ten of eighty five columns give the full-model A U C. And the same pattern worked on the Pima diabetes data. Thanks for watching."
+  }
+ ]
+}
