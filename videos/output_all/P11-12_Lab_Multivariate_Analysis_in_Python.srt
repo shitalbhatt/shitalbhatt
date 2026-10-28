@@ -1,0 +1,180 @@
+1
+00:00:00,000 --> 00:00:02,885
+Welcome to practicals eleven and twelve:
+
+2
+00:00:02,885 --> 00:00:05,193
+multivariate analysis in Python.
+
+3
+00:00:05,193 --> 00:00:14,568
+We use K-Means for structure discovery, the silhouette score, visualising groups, and pairplots, on the Superstore orders dataset.
+
+4
+00:00:15,368 --> 00:00:26,543
+New in this lab are the variance inflation factor function from stats models, Standard Scaler for scaling, K Means for clustering, and silhouette score for cluster quality.
+
+5
+00:00:26,543 --> 00:00:30,896
+We load the Superstore data and drop the rows with a blank segment.
+
+6
+00:00:31,696 --> 00:00:33,945
+Same as practical nine and ten:
+
+7
+00:00:33,945 --> 00:00:39,024
+select the numeric columns and drop postal code, because it is an I D.
+
+8
+00:00:39,024 --> 00:00:44,320
+We use sales, quantity, discount and profit together throughout this lab.
+
+9
+00:00:45,120 --> 00:00:50,072
+Step one for multicollinearity is the correlation matrix and heatmap.
+
+10
+00:00:50,072 --> 00:00:55,526
+Look for any cell close to plus or minus one between two different features.
+
+11
+00:00:55,526 --> 00:00:59,688
+No pairwise correlation here is strong, a good first sign.
+
+12
+00:01:00,488 --> 00:01:02,162
+Step two computes V I F.
+
+13
+00:01:02,162 --> 00:01:12,901
+There is no single vectorised command, so we call variance inflation factor once per column with a short list comprehension, the standard idiom in Python.
+
+14
+00:01:12,901 --> 00:01:23,013
+The V I Fs are one point three six for sales, one point oh four for quantity, one point oh six for discount and one point three seven for profit.
+
+15
+00:01:23,013 --> 00:01:30,056
+All are close to one, well under five, so it is safe to use all four features together in clustering.
+
+16
+00:01:30,856 --> 00:01:33,436
+Before clustering, scale the features.
+
+17
+00:01:33,436 --> 00:01:43,211
+Standard Scaler rescales every feature to mean zero and standard deviation one, and fit transform learns the scaling and applies it in one step.
+
+18
+00:01:43,211 --> 00:01:54,616
+Without scaling, sales, up to twenty two thousand dollars, would completely dominate discount, which runs zero to point eight, and K-Means would cluster on sales alone.
+
+19
+00:01:55,416 --> 00:01:58,338
+Now implement K-Means with three clusters.
+
+20
+00:01:58,338 --> 00:02:02,026
+Random state forty two makes the result reproducible.
+
+21
+00:02:02,026 --> 00:02:05,922
+N init of ten runs ten random starts and keeps the best.
+
+22
+00:02:05,922 --> 00:02:10,792
+Fit predict fits the model and returns each order's group in one step.
+
+23
+00:02:10,792 --> 00:02:22,968
+The result is three very different group sizes, about sixty nine hundred, two thousand and one thousand seventy orders, already hinting at genuinely different kinds of orders.
+
+24
+00:02:23,768 --> 00:02:28,690
+To choose k, loop over k from two to six and print the silhouette score.
+
+25
+00:02:28,690 --> 00:02:33,545
+This is the one place a loop is the simplest way to compare candidates.
+
+26
+00:02:33,545 --> 00:02:42,501
+The scores are zero point five oh four, point four seven three, point four three one, point four three seven and point three eight.
+
+27
+00:02:42,501 --> 00:02:51,320
+k equals two scores highest, but k equals three is a close second and gives three interpretable groups, so we proceed with three.
+
+28
+00:02:52,120 --> 00:03:03,400
+Colour a scatterplot of sales against profit by cluster using the hue argument, and draw a pairplot with hue to see every pair of features coloured by cluster, in one command.
+
+29
+00:03:04,200 --> 00:03:06,937
+Name the groups with grouped statistics:
+
+30
+00:03:06,937 --> 00:03:10,291
+group by cluster and average all numeric columns.
+
+31
+00:03:10,291 --> 00:03:18,503
+Cluster zero is everyday orders, cluster one is heavy-discount, loss-making, and cluster two is high-value, high-profit.
+
+32
+00:03:18,503 --> 00:03:26,784
+Then cross-tabulate clusters against category with row percentages to sanity check that the groups make real-world sense.
+
+33
+00:03:27,584 --> 00:03:29,989
+The same pattern works on Titanic.
+
+34
+00:03:29,989 --> 00:03:35,508
+All four features, age, fare and family counts, come back with V I F near one.
+
+35
+00:03:35,508 --> 00:03:42,158
+The silhouette score for three clusters is about zero point four eight, similar to Superstore.
+
+36
+00:03:42,158 --> 00:03:54,752
+One cluster is older, high-fare passengers with few family members; another is younger passengers travelling with larger families; the third is mid-age, low-fare solo travellers.
+
+37
+00:03:55,552 --> 00:03:56,926
+Your cheat sheet.
+
+38
+00:03:56,926 --> 00:03:58,381
+Multicollinearity:
+
+39
+00:03:58,381 --> 00:04:03,070
+correlation heatmap, then V I F with a list comprehension.
+
+40
+00:04:03,070 --> 00:04:03,716
+K-Means:
+
+41
+00:04:03,716 --> 00:04:10,506
+scale with Standard Scaler, fit K Means, assign clusters, and score with silhouette.
+
+42
+00:04:10,506 --> 00:04:12,446
+Visualise and interpret:
+
+43
+00:04:12,446 --> 00:04:18,105
+scatterplot and pairplot with hue, and group by cluster for the means.
+
+44
+00:04:18,105 --> 00:04:20,287
+Try it on your own dataset.
+
+45
+00:04:20,287 --> 00:04:21,904
+Thanks for watching.
+

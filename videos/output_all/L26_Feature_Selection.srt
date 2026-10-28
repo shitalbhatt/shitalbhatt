@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:02,370
+Now part two, feature selection.
+
+2
+00:00:02,370 --> 00:00:06,739
+The goal is a smaller set of columns that predicts as well:
+
+3
+00:00:06,739 --> 00:00:11,034
+simpler, faster, less over-fitting, and easier to explain.
+
+4
+00:00:11,034 --> 00:00:12,885
+There are three families.
+
+5
+00:00:12,885 --> 00:00:18,069
+Filter methods score each feature before the model and keep the top k.
+
+6
+00:00:18,069 --> 00:00:23,326
+Wrapper methods try subsets around the model, train, score, and repeat.
+
+7
+00:00:23,326 --> 00:00:28,584
+Embedded methods select inside the model, with a penalty or importance.
+
+8
+00:00:29,384 --> 00:00:32,773
+Filter methods score each feature on its own.
+
+9
+00:00:32,773 --> 00:00:36,689
+Variance threshold removes almost-constant features.
+
+10
+00:00:36,689 --> 00:00:41,885
+Pearson correlation keeps large absolute correlation with the target.
+
+11
+00:00:41,885 --> 00:00:47,082
+The A N O V A F-test suits numeric features and a categorical target.
+
+12
+00:00:47,082 --> 00:00:49,943
+Chi-square suits categorical features.
+
+13
+00:00:49,943 --> 00:00:52,880
+Mutual information works for any types.
+
+14
+00:00:52,880 --> 00:01:01,466
+Filters are very fast, model-free, and a good first screen, but they ignore interactions and keep near-duplicates.
+
+15
+00:01:01,466 --> 00:01:02,068
+Caution:
+
+16
+00:01:02,068 --> 00:01:08,168
+variance depends on scale, so tiny-valued columns look constant even when useful.
+
+17
+00:01:08,968 --> 00:01:10,247
+A filter example:
+
+18
+00:01:10,247 --> 00:01:12,429
+A N O V A F-score, top eight.
+
+19
+00:01:12,429 --> 00:01:26,874
+Log page values, has page value, page values, and the two page value interaction terms are all versions of the same signal, and a filter scores each feature alone so it happily keeps all five.
+
+20
+00:01:26,874 --> 00:01:31,840
+Month November never makes the list, though models find it useful.
+
+21
+00:01:32,640 --> 00:01:35,179
+Wrapper methods let the model choose.
+
+22
+00:01:35,179 --> 00:01:40,736
+Forward selection starts empty and adds the feature that improves the score most.
+
+23
+00:01:40,736 --> 00:01:46,500
+Backward elimination starts with all and removes the feature whose loss hurts least.
+
+24
+00:01:46,500 --> 00:01:53,361
+Recursive feature elimination fits, drops the feature with the smallest weight, refits, and repeats.
+
+25
+00:01:53,361 --> 00:01:54,253
+The strength:
+
+26
+00:01:54,253 --> 00:01:59,536
+they see interactions and redundancy, and usually find the best small subset.
+
+27
+00:01:59,536 --> 00:02:00,428
+The weakness:
+
+28
+00:02:00,428 --> 00:02:06,192
+they are slow, training the model hundreds of times, and can over-fit the selection.
+
+29
+00:02:06,992 --> 00:02:09,758
+Embedded methods select while training.
+
+30
+00:02:09,758 --> 00:02:19,334
+L one, or Lasso, adds a penalty that pushes weak coefficients to exactly zero; a smaller C means a stronger penalty and fewer features.
+
+31
+00:02:19,334 --> 00:02:26,356
+Here, twenty of eighty five features are kept, with log page values and has page value the largest.
+
+32
+00:02:26,356 --> 00:02:29,122
+Tree importance is the second approach:
+
+33
+00:02:29,122 --> 00:02:35,648
+random forests record how much each feature splits the data well, and you keep the top ones.
+
+34
+00:02:36,448 --> 00:02:37,719
+Compare the three.
+
+35
+00:02:37,719 --> 00:02:47,816
+Filter uses a statistic, is fastest, does not see interactions, and its main risk is keeping duplicates; it is a first screen of many features.
+
+36
+00:02:47,816 --> 00:02:58,407
+Wrapper trains many times, is slowest, sees interactions and redundancy, and its risk is over-fitting the selection; use it to fine-tune a short list.
+
+37
+00:02:58,407 --> 00:03:06,880
+Embedded trains once, is medium speed, partly sees interactions, is tied to one model type, and is the everyday default.
+
+38
+00:03:07,680 --> 00:03:11,310
+A practical selection workflow in four steps.
+
+39
+00:03:11,310 --> 00:03:11,794
+Clean:
+
+40
+00:03:11,794 --> 00:03:14,698
+drop constant and duplicate columns.
+
+41
+00:03:14,698 --> 00:03:15,262
+Screen:
+
+42
+00:03:15,262 --> 00:03:20,183
+filter to a shortlist with correlation or mutual information.
+
+43
+00:03:20,183 --> 00:03:20,747
+Choose:
+
+44
+00:03:20,747 --> 00:03:24,377
+embedded L one or a wrapper on the shortlist.
+
+45
+00:03:24,377 --> 00:03:24,861
+Check:
+
+46
+00:03:24,861 --> 00:03:26,958
+score on unseen test rows.
+
+47
+00:03:26,958 --> 00:03:28,249
+The golden rule:
+
+48
+00:03:28,249 --> 00:03:31,878
+select features using the training rows only.
+
+49
+00:03:31,878 --> 00:03:38,170
+If the test rows help choose the features, the test score is no longer honest.
+
+50
+00:03:38,170 --> 00:03:39,864
+That is data leakage.
+
+51
+00:03:40,664 --> 00:03:41,734
+Key takeaways.
+
+52
+00:03:41,734 --> 00:03:43,492
+Construct and interact:
+
+53
+00:03:43,492 --> 00:03:48,536
+build features that state the pattern directly, and test each one.
+
+54
+00:03:48,536 --> 00:03:56,179
+Polynomial features grow as C of n plus d choose d minus one, so use low degree, scale, then select.
+
+55
+00:03:56,179 --> 00:04:01,606
+Too many columns means a sparse space, weak distances and over-fitting.
+
+56
+00:04:01,606 --> 00:04:08,943
+And filter is a fast screen, wrapper gives the best small set, embedded is the everyday default.
+
+57
+00:04:08,943 --> 00:04:10,472
+Thanks for watching.
+

@@ -1,0 +1,360 @@
+1
+00:00:00,000 --> 00:00:02,785
+Part B starts with integration logic.
+
+2
+00:00:02,785 --> 00:00:03,914
+The four steps:
+
+3
+00:00:03,914 --> 00:00:09,258
+match a shared key, align the schemas, resolve conflicts, and re-audit.
+
+4
+00:00:09,258 --> 00:00:13,022
+We split the file back into source A and source B.
+
+5
+00:00:13,022 --> 00:00:17,839
+All of B's I Ds are found in A, and the I Ds are unique in each.
+
+6
+00:00:17,839 --> 00:00:25,968
+Source A has the price column, source B has price U S D, so we rename it, and now the schemas are identical.
+
+7
+00:00:26,768 --> 00:00:27,493
+Step three:
+
+8
+00:00:27,493 --> 00:00:31,449
+merge on the key with an outer join and an indicator column.
+
+9
+00:00:31,449 --> 00:00:37,779
+Forty seven thousand eight hundred ninety five rows are in A only, and one thousand are in both.
+
+10
+00:00:37,779 --> 00:00:46,878
+Counting conflicts in the matched rows gives three hundred borough conflicts, three hundred room type conflicts, and zero price conflicts.
+
+11
+00:00:46,878 --> 00:00:51,032
+They are case differences only, so we keep source A's spelling.
+
+12
+00:00:51,032 --> 00:00:56,768
+The result is forty eight thousand eight hundred ninety five rows with zero duplicates.
+
+13
+00:00:57,568 --> 00:00:59,753
+Duplicates come in three kinds.
+
+14
+00:00:59,753 --> 00:01:03,277
+Exact duplicates, where every column is identical:
+
+15
+00:01:03,277 --> 00:01:04,616
+seven hundred rows.
+
+16
+00:01:04,616 --> 00:01:07,646
+Same key duplicates, where the I D repeats:
+
+17
+00:01:07,646 --> 00:01:13,425
+one thousand rows, the seven hundred copies plus the three hundred lowercase rows.
+
+18
+00:01:13,425 --> 00:01:14,835
+And near-duplicates:
+
+19
+00:01:14,835 --> 00:01:22,305
+lowercase and trim the name, collapse extra spaces, and look for the same host with the same cleaned name.
+
+20
+00:01:22,305 --> 00:01:28,648
+That gives four hundred eighty one candidates, which should be reviewed, not auto-deleted.
+
+21
+00:01:29,448 --> 00:01:33,034
+Rows and columns need two different one-line fixes.
+
+22
+00:01:33,034 --> 00:01:36,339
+For rows, drop duplicates keeps the first copy:
+
+23
+00:01:36,339 --> 00:01:43,793
+rows go from forty nine thousand eight hundred ninety five to forty nine thousand one hundred ninety five.
+
+24
+00:01:43,793 --> 00:01:50,051
+For columns, transpose, find duplicates, and keep the non-duplicate columns with a tilde:
+
+25
+00:01:50,051 --> 00:01:53,918
+seventeen columns become sixteen, dropping price U S D.
+
+26
+00:01:53,918 --> 00:02:00,528
+Three hundred repeated I Ds remain, because the lowercase copies are not yet exact duplicates.
+
+27
+00:02:01,328 --> 00:02:05,200
+Standardise categories across the whole column at once.
+
+28
+00:02:05,200 --> 00:02:13,506
+Strip whitespace and apply title case to the borough, capitalise the room type, and collapse extra spaces in the name.
+
+29
+00:02:13,506 --> 00:02:19,560
+Distinct borough labels drop from ten to five, and room type labels from six to three.
+
+30
+00:02:19,560 --> 00:02:23,432
+For messy codes, use a mapping dictionary with replace.
+
+31
+00:02:24,232 --> 00:02:28,108
+Standardising created three hundred new exact duplicates.
+
+32
+00:02:28,108 --> 00:02:36,064
+Brooklyn in lowercase is not equal to Brooklyn in title case, and that hid three hundred copies from drop duplicates.
+
+33
+00:02:36,064 --> 00:02:40,348
+After title case they became exact duplicates, so we drop them:
+
+34
+00:02:40,348 --> 00:02:48,984
+forty eight thousand eight hundred ninety five true unique listings, identical to the correctly integrated table from part six.
+
+35
+00:02:48,984 --> 00:02:53,608
+Order matters, so the audit must run again after each cleaning step.
+
+36
+00:02:54,408 --> 00:02:58,327
+Now one reusable rule table to re-run on every load.
+
+37
+00:02:58,327 --> 00:03:04,659
+Range rules like price at least zero and availability from zero to three sixty five.
+
+38
+00:03:04,659 --> 00:03:07,598
+Type rules like price being an integer.
+
+39
+00:03:07,598 --> 00:03:10,538
+Uniqueness rules like I D being unique.
+
+40
+00:03:10,538 --> 00:03:14,683
+And set rules like room type being in the allowed list.
+
+41
+00:03:14,683 --> 00:03:17,472
+All twelve rules pass after cleaning.
+
+42
+00:03:18,272 --> 00:03:20,320
+Standardisation for scale.
+
+43
+00:03:20,320 --> 00:03:21,029
+Step one:
+
+44
+00:03:21,029 --> 00:03:24,652
+measure skew for every numeric column at once.
+
+45
+00:03:24,652 --> 00:03:29,063
+Price has a skew of nineteen, minimum nights twenty two.
+
+46
+00:03:29,063 --> 00:03:37,333
+You can log all skewed columns in one line using log one p, adding a suffix, and joining the result back.
+
+47
+00:03:37,333 --> 00:03:41,744
+After the log, price skew drops to zero point five five.
+
+48
+00:03:42,544 --> 00:03:46,563
+Here is log one p taming the long right tail of price.
+
+49
+00:03:46,563 --> 00:03:52,592
+The raw price histogram is crushed against zero with skew nineteen point one two.
+
+50
+00:03:52,592 --> 00:03:58,694
+After log one p, the shape is much more symmetric, with skew zero point five five.
+
+51
+00:03:58,694 --> 00:04:03,160
+Log of one plus x is safe for the eleven zero-dollar prices.
+
+52
+00:04:03,960 --> 00:04:04,614
+Step two:
+
+53
+00:04:04,614 --> 00:04:12,613
+Standard Scaler puts every feature on one scale, with z equal to x minus the mean over the standard deviation.
+
+54
+00:04:12,613 --> 00:04:23,519
+Price had a mean of one fifty two and a standard deviation of two forty before; after scaling every z column has mean zero and standard deviation one.
+
+55
+00:04:23,519 --> 00:04:29,627
+Do not scale identifiers and coordinates like I D, host I D, latitude and longitude.
+
+56
+00:04:29,627 --> 00:04:35,880
+And log first, then scale, so outliers do not set the new mean and standard deviation.
+
+57
+00:04:36,680 --> 00:04:39,389
+Here is the whole lab in one table.
+
+58
+00:04:39,389 --> 00:04:39,776
+Rows:
+
+59
+00:04:39,776 --> 00:04:47,982
+forty nine thousand eight hundred ninety five raw, forty eight thousand eight hundred ninety five cleaned.
+
+60
+00:04:47,982 --> 00:04:50,846
+Duplicate rows seven hundred to zero.
+
+61
+00:04:50,846 --> 00:04:53,168
+Duplicate columns one to zero.
+
+62
+00:04:53,168 --> 00:04:55,877
+Repeated I Ds one thousand to zero.
+
+63
+00:04:55,877 --> 00:04:57,967
+Borough labels ten to five.
+
+64
+00:04:57,967 --> 00:05:00,290
+Room type labels six to three.
+
+65
+00:05:00,290 --> 00:05:04,779
+Price skew nineteen to zero point five five after the log.
+
+66
+00:05:04,779 --> 00:05:08,108
+And twelve of twelve validation rules pass.
+
+67
+00:05:08,108 --> 00:05:08,960
+Still open:
+
+68
+00:05:08,960 --> 00:05:17,552
+missing values in the next session, and the flagged zero and ten thousand dollar prices in the outlier session.
+
+69
+00:05:18,352 --> 00:05:24,026
+The same code works on a second dataset, Online Shoppers Purchasing Intention:
+
+70
+00:05:24,026 --> 00:05:31,737
+twelve thousand three hundred thirty rows, zero missing cells, and one hundred twenty five duplicate rows.
+
+71
+00:05:31,737 --> 00:05:32,683
+Two findings.
+
+72
+00:05:32,683 --> 00:05:33,556
+Consistency:
+
+73
+00:05:33,556 --> 00:05:39,885
+nine months use three-letter codes, but June is spelled out, so we replace it with Jun.
+
+74
+00:05:39,885 --> 00:05:40,831
+Completeness:
+
+75
+00:05:40,831 --> 00:05:44,686
+zero empty cells, yet January and April never appear.
+
+76
+00:05:44,686 --> 00:05:46,432
+Coverage gaps count too.
+
+77
+00:05:47,232 --> 00:05:51,243
+On the shoppers data, validity rules show zero failures.
+
+78
+00:05:51,243 --> 00:06:01,342
+For accuracy, twenty two sessions spent more than four hours on product pages, with a maximum of seventeen point eight hours, worth flagging.
+
+79
+00:06:01,342 --> 00:06:06,498
+After dropping duplicates we have twelve thousand two hundred five rows.
+
+80
+00:06:06,498 --> 00:06:07,788
+And watch the log:
+
+81
+00:06:07,788 --> 00:06:16,526
+product related duration skew goes from seven point two five to minus one point four three, so log one p can over-correct.
+
+82
+00:06:16,526 --> 00:06:19,104
+Re-check skew after every transform.
+
+83
+00:06:19,904 --> 00:06:20,982
+Key takeaways.
+
+84
+00:06:20,982 --> 00:06:27,680
+Audit first, with shape, isnull sum, duplicated sum and the transposed duplicate check.
+
+85
+00:06:27,680 --> 00:06:35,996
+Validity is checked against rules, accuracy against reality; the ten thousand dollar room passes every rule.
+
+86
+00:06:35,996 --> 00:06:41,847
+Completeness includes why data is missing and which categories never appear.
+
+87
+00:06:41,847 --> 00:06:47,083
+Integrate on a key, align schemas, resolve conflicts, then re-audit.
+
+88
+00:06:47,083 --> 00:06:53,550
+Standardising labels can create new duplicates, so re-run the audit after every fix.
+
+89
+00:06:53,550 --> 00:06:56,476
+And log first, standard scaler second.
+
+90
+00:06:56,476 --> 00:06:58,016
+Thanks for watching.
+

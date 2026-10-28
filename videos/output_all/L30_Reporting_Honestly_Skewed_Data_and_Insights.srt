@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:01,201
+Lecture thirty:
+
+2
+00:00:01,201 --> 00:00:03,203
+skewed data and insights.
+
+3
+00:00:03,203 --> 00:00:08,088
+Only fifteen point six percent of sessions end in a purchase.
+
+4
+00:00:08,888 --> 00:00:10,425
+The accuracy paradox:
+
+5
+00:00:10,425 --> 00:00:18,477
+a model that always says no buy has eighty four point four percent accuracy, yet finds zero percent of buyers.
+
+6
+00:00:18,477 --> 00:00:22,942
+With a skewed target, accuracy mostly measures the big class.
+
+7
+00:00:22,942 --> 00:00:30,920
+Report recall, which is buyers found, F one, and R O C A U C, and always compare with the always-no baseline.
+
+8
+00:00:31,720 --> 00:00:33,312
+Sampling skewed data:
+
+9
+00:00:33,312 --> 00:00:36,117
+take a small sample for a quick look.
+
+10
+00:00:36,117 --> 00:00:45,290
+A random two percent sample, two hundred forty four rows, has eighteen percent buyers, versus the true fifteen point six.
+
+11
+00:00:45,290 --> 00:00:52,719
+A stratified sample, taking the same fraction from each class, keeps the mix at fifteen point six.
+
+12
+00:00:52,719 --> 00:00:55,752
+In pandas, group by Revenue then sample.
+
+13
+00:00:55,752 --> 00:00:56,813
+The same idea:
+
+14
+00:00:56,813 --> 00:01:03,712
+stratify equals y in train test split keeps fifteen point six percent buyers in both parts.
+
+15
+00:01:04,512 --> 00:01:07,117
+Three ways to handle skew in training.
+
+16
+00:01:07,117 --> 00:01:13,014
+With no change, accuracy is point eight eight nine but recall only point four one six.
+
+17
+00:01:13,014 --> 00:01:21,310
+With class weight balanced, recall is point seven eight five and F one point six two three, and no extra rows are needed.
+
+18
+00:01:21,310 --> 00:01:28,441
+Under-sampling and over-sampling give similar recall of point seven eight five and point seven nine one.
+
+19
+00:01:28,441 --> 00:01:32,006
+A small drop in accuracy, and recall nearly doubles.
+
+20
+00:01:32,006 --> 00:01:39,000
+Do it only on training rows, because resampling before the split is the leak from lecture twenty nine.
+
+21
+00:01:39,800 --> 00:01:42,177
+Translating E D A into insights:
+
+22
+00:01:42,177 --> 00:01:45,073
+observation, evidence, meaning, action.
+
+23
+00:01:45,073 --> 00:01:47,004
+Valued pages drive buying:
+
+24
+00:01:47,004 --> 00:01:53,911
+fifty six point three percent versus three point nine; intent shows on product pages; action:
+
+25
+00:01:53,911 --> 00:01:56,213
+push visitors to product pages.
+
+26
+00:01:56,213 --> 00:01:57,773
+November is the peak:
+
+27
+00:01:57,773 --> 00:02:06,462
+twenty five point five percent, versus twenty point nine in October; holiday shopping; plan stock and ads for Q four.
+
+28
+00:02:06,462 --> 00:02:08,096
+New visitors buy more:
+
+29
+00:02:08,096 --> 00:02:15,522
+twenty four point nine versus fourteen point one; first visits are purposeful; offer a welcome deal.
+
+30
+00:02:15,522 --> 00:02:16,191
+The test:
+
+31
+00:02:16,191 --> 00:02:19,904
+a manager can act on it without reading your code.
+
+32
+00:02:20,704 --> 00:02:23,998
+The course review, the full pipeline.
+
+33
+00:02:23,998 --> 00:02:24,354
+One:
+
+34
+00:02:24,354 --> 00:02:28,450
+load and audit, duplicates and missing values.
+
+35
+00:02:28,450 --> 00:02:28,806
+Two:
+
+36
+00:02:28,806 --> 00:02:32,279
+E D A and hypotheses, refine then test.
+
+37
+00:02:32,279 --> 00:02:32,813
+Three:
+
+38
+00:02:32,813 --> 00:02:37,354
+features, from lectures twenty five and twenty six.
+
+39
+00:02:37,354 --> 00:02:37,799
+Four:
+
+40
+00:02:37,799 --> 00:02:40,381
+reduce, with P C A and V I F.
+
+41
+00:02:40,381 --> 00:02:40,826
+Five:
+
+42
+00:02:40,826 --> 00:02:43,675
+split, stratified eighty twenty.
+
+43
+00:02:43,675 --> 00:02:44,031
+Six:
+
+44
+00:02:44,031 --> 00:02:48,483
+pipeline plus cross-validation, fit on train only.
+
+45
+00:02:48,483 --> 00:02:49,017
+Seven:
+
+46
+00:02:49,017 --> 00:02:52,579
+test once, with recall, F one and A U C.
+
+47
+00:02:52,579 --> 00:02:53,113
+Eight:
+
+48
+00:02:53,113 --> 00:02:58,010
+insights, observation to evidence to meaning to action.
+
+49
+00:02:58,010 --> 00:02:59,434
+The final model:
+
+50
+00:02:59,434 --> 00:03:08,872
+C V R O C A U C of point nine zero, test recall point seven eight five, and the top signal is page values.
+
+51
+00:03:09,672 --> 00:03:10,841
+Key takeaways.
+
+52
+00:03:10,841 --> 00:03:15,017
+Refine hypotheses and set the decision rule first.
+
+53
+00:03:15,017 --> 00:03:19,359
+Split first, cross-validate on train, and test once.
+
+54
+00:03:19,359 --> 00:03:21,447
+Leakage makes scores lie:
+
+55
+00:03:21,447 --> 00:03:26,123
+point nine nine two versus an honest point six six five.
+
+56
+00:03:26,123 --> 00:03:31,802
+For skewed data, judge by recall and F one, and resample train only.
+
+57
+00:03:31,802 --> 00:03:36,562
+And an insight is observation, evidence, meaning, action.
+
+58
+00:03:36,562 --> 00:03:38,232
+Thanks for watching.
+

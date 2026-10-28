@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:02,669
+Welcome to practicals nine and ten:
+
+2
+00:00:02,669 --> 00:00:04,880
+bivariate analysis in Python.
+
+3
+00:00:04,880 --> 00:00:13,800
+We build a correlation matrix, heatmaps and cross-tabs, and generate hypotheses, using the Superstore orders dataset.
+
+4
+00:00:14,600 --> 00:00:19,675
+First load the dataset and import pandas, numpy, seaborn and matplotlib.
+
+5
+00:00:19,675 --> 00:00:26,936
+We use the latin one encoding to handle special characters, and drop the few rows with a blank segment.
+
+6
+00:00:27,736 --> 00:00:31,111
+Next identify numeric and categorical features.
+
+7
+00:00:31,111 --> 00:00:42,315
+Select dtypes with include number picks every numeric column in one command; then we drop postal code, because it is a number but an I D, not a measurement.
+
+8
+00:00:42,315 --> 00:00:46,696
+The numeric columns are sales, quantity, discount and profit.
+
+9
+00:00:46,696 --> 00:00:52,010
+For categoricals we choose columns with a manageable number of categories:
+
+10
+00:00:52,010 --> 00:00:55,888
+ship mode, segment, region, category and sub-category.
+
+11
+00:00:56,688 --> 00:01:03,150
+One command, cov, computes covariance between every pair of the four numeric features at once.
+
+12
+00:01:03,150 --> 00:01:04,319
+Notice the units:
+
+13
+00:01:04,319 --> 00:01:17,794
+the covariance of sales and profit is about seventy thousand, and the sign is meaningful, but the huge number is not comparable to the covariance of discount and profit, about minus ten point six.
+
+14
+00:01:17,794 --> 00:01:20,544
+That is why we compute correlation next.
+
+15
+00:01:21,344 --> 00:01:26,330
+Correlation by default is Pearson; pass method equals spearman for ranks.
+
+16
+00:01:26,330 --> 00:01:30,564
+Sales and profit are moderate positive, about zero point five.
+
+17
+00:01:30,564 --> 00:01:33,091
+Sales and quantity are weak positive.
+
+18
+00:01:33,091 --> 00:01:40,809
+And discount with profit jumps from minus zero point two two to minus zero point five four once we rank the data:
+
+19
+00:01:40,809 --> 00:01:47,024
+a few heavily discounted, deeply negative-profit orders were flattening the Pearson number.
+
+20
+00:01:47,824 --> 00:01:51,702
+A heatmap of the correlation matrix is one seaborn call.
+
+21
+00:01:51,702 --> 00:01:59,944
+Annot true prints each value, and fixing the colour scale from minus one to plus one makes intensity always comparable.
+
+22
+00:02:00,744 --> 00:02:05,535
+A scatterplot shows one pair and the shape a correlation number can hide.
+
+23
+00:02:05,535 --> 00:02:15,576
+A pairplot draws a scatterplot for every pair of numeric features, plus a histogram per feature on the diagonal, covering all pairs at once with no loop.
+
+24
+00:02:16,376 --> 00:02:21,235
+Pandas crosstab counts orders in every segment by ship mode combination.
+
+25
+00:02:21,235 --> 00:02:28,455
+Normalize equals index turns each row into percentages, comparing ship-mode mix within each segment fairly.
+
+26
+00:02:28,455 --> 00:02:37,160
+All three segments cluster near fifty nine to sixty percent standard class, so shipping preference looks similar across segments.
+
+27
+00:02:37,960 --> 00:02:41,028
+The same shading idea applies to a cross-tab:
+
+28
+00:02:41,028 --> 00:02:42,459
+pass it to a heatmap.
+
+29
+00:02:42,459 --> 00:02:50,776
+And calling plot with kind bar and stacked true directly on a cross-tab turns counts into a stacked bar chart in one line.
+
+30
+00:02:51,576 --> 00:03:01,720
+For categorical against numerical, group by category and take the mean of all four numeric columns in one line, or aggregate mean and standard deviation.
+
+31
+00:03:01,720 --> 00:03:10,008
+Technology has the highest average profit despite the lowest average discount, while furniture has the lowest average profit.
+
+32
+00:03:10,808 --> 00:03:15,692
+A boxplot of profit by category shows the full distribution per group.
+
+33
+00:03:15,692 --> 00:03:21,344
+A bar plot with the mean estimator compares average sales by segment at a glance.
+
+34
+00:03:22,144 --> 00:03:24,872
+Now turn findings into hypotheses.
+
+35
+00:03:24,872 --> 00:03:25,354
+H one:
+
+36
+00:03:25,354 --> 00:03:33,538
+discount hurts profit, with Spearman r of minus zero point five four, strongest in the Central region.
+
+37
+00:03:33,538 --> 00:03:34,020
+H two:
+
+38
+00:03:34,020 --> 00:03:38,272
+category drives profitability more than sales volume.
+
+39
+00:03:38,272 --> 00:03:38,914
+H three:
+
+40
+00:03:38,914 --> 00:03:43,408
+ship-mode preference is independent of customer segment.
+
+41
+00:03:43,408 --> 00:03:43,969
+H four:
+
+42
+00:03:43,969 --> 00:03:50,469
+regional discounting policy varies, a policy effect and not a product-mix effect.
+
+43
+00:03:50,469 --> 00:03:54,160
+These are hypotheses to test, not conclusions.
+
+44
+00:03:54,960 --> 00:03:59,342
+The same six commands work on a different dataset, Titanic.
+
+45
+00:03:59,342 --> 00:04:11,372
+Correlation of age, fare and family counts; a cross-tab of sex by survived with row percentages; grouped means by passenger class; and a boxplot of fare by class.
+
+46
+00:04:11,372 --> 00:04:20,210
+Female passengers survived at a far higher rate than male passengers, and first-class passengers paid far higher fares.
+
+47
+00:04:20,210 --> 00:04:22,512
+Same pattern, new column names.
+
+48
+00:04:23,312 --> 00:04:25,207
+Your code cheat sheet.
+
+49
+00:04:25,207 --> 00:04:27,360
+Numerical with numerical:
+
+50
+00:04:27,360 --> 00:04:33,302
+cov, corr with optional Spearman, a heatmap, scatterplot or pairplot.
+
+51
+00:04:33,302 --> 00:04:35,799
+Categorical with categorical:
+
+52
+00:04:35,799 --> 00:04:40,105
+crosstab with normalize, a heatmap, a stacked bar.
+
+53
+00:04:40,105 --> 00:04:42,430
+Categorical with numerical:
+
+54
+00:04:42,430 --> 00:04:46,822
+group by with mean or aggregate, boxplot, bar plot.
+
+55
+00:04:46,822 --> 00:04:49,406
+Try these on your own dataset.
+
+56
+00:04:49,406 --> 00:04:51,128
+Thanks for watching.
+

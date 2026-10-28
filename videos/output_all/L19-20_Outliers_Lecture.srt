@@ -1,0 +1,456 @@
+1
+00:00:00,000 --> 00:00:03,057
+Welcome to lectures nineteen and twenty:
+
+2
+00:00:03,057 --> 00:00:03,745
+outliers.
+
+3
+00:00:03,745 --> 00:00:09,096
+What they are, why they happen, how to find them, and how to fix them.
+
+4
+00:00:09,896 --> 00:00:11,570
+Here is the session map.
+
+5
+00:00:11,570 --> 00:00:27,470
+The lecture covers what an outlier is, why outliers occur, four types, how to find them with box plots, Z-scores, I Q R and machine learning models, why outliers spoil results, how to fix them, and what happens if we do nothing.
+
+6
+00:00:27,470 --> 00:00:34,304
+The practical applies all of this to New York City Airbnb data and repeats it on a second dataset.
+
+7
+00:00:35,104 --> 00:00:40,699
+An outlier is a value that is very far from the other values in the same column.
+
+8
+00:00:40,699 --> 00:00:43,496
+It is unusual, but not always a mistake.
+
+9
+00:00:43,496 --> 00:00:44,055
+Example:
+
+10
+00:00:44,055 --> 00:00:51,608
+seven staff earn thirty to forty five thousand rupees a month, and the director earns five hundred thousand.
+
+11
+00:00:51,608 --> 00:00:56,713
+The mean is ninety five thousand, but the median is thirty nine thousand.
+
+12
+00:00:56,713 --> 00:01:02,518
+One person pushed the mean up two and a half times while the median hardly changed.
+
+13
+00:01:02,518 --> 00:01:08,392
+Mean and standard deviation are easily pulled by outliers; median and I Q R are not.
+
+14
+00:01:09,192 --> 00:01:14,645
+In the real Airbnb data, in most columns the mean is much bigger than the median.
+
+15
+00:01:14,645 --> 00:01:25,551
+Price has a mean of one fifty three but a median of one oh six, with a maximum of ten thousand dollars per night, while a typical home costs only one hundred six.
+
+16
+00:01:25,551 --> 00:01:30,264
+Minimum nights, reviews and host listing counts show the same pattern:
+
+17
+00:01:30,264 --> 00:01:33,024
+a few very large values pull the mean up.
+
+18
+00:01:33,824 --> 00:01:34,678
+Four causes.
+
+19
+00:01:34,678 --> 00:01:36,030
+A data-entry error:
+
+20
+00:01:36,030 --> 00:01:43,646
+eleven homes with a price of zero, and fourteen homes asking for more than three hundred sixty five nights.
+
+21
+00:01:43,646 --> 00:01:44,927
+A genuine extreme:
+
+22
+00:01:44,927 --> 00:01:51,332
+two hundred thirty nine luxury homes above a thousand dollars a night, real but very rare.
+
+23
+00:01:51,332 --> 00:01:52,613
+A measurement cap:
+
+24
+00:01:52,613 --> 00:02:02,648
+nine hundred sixty five California districts stored at exactly five hundred thousand and one, where the value was stopped at a maximum limit.
+
+25
+00:02:02,648 --> 00:02:04,570
+And a different population:
+
+26
+00:02:04,570 --> 00:02:09,908
+one host owns three hundred twenty seven homes, a company and not a person.
+
+27
+00:02:09,908 --> 00:02:10,904
+First ask why.
+
+28
+00:02:11,704 --> 00:02:13,109
+There are four types.
+
+29
+00:02:13,109 --> 00:02:19,332
+Global outliers are very far from all other values, like three homes at ten thousand dollars.
+
+30
+00:02:19,332 --> 00:02:26,894
+Contextual outliers are normal overall but odd for their group, like two hundred fifty dollars for a shared room.
+
+31
+00:02:26,894 --> 00:02:35,125
+Collective outliers are each normal but odd as a group, like one host listing forty eight rooms at exactly two thirty nine.
+
+32
+00:02:35,125 --> 00:02:44,560
+And multivariate outliers have each column normal but the combination odd, like eleven point eight reviews a month but only fifteen in total.
+
+33
+00:02:45,360 --> 00:02:48,906
+Contextual outliers need each group checked separately.
+
+34
+00:02:48,906 --> 00:03:01,350
+The upper fence is three hundred ninety two dollars for entire homes, only one sixty two for private rooms, and one thirty eight for shared rooms, versus three thirty four for the whole column.
+
+35
+00:03:01,350 --> 00:03:08,765
+One thousand twenty one homes are too costly for their room type but look normal when all rooms are mixed together.
+
+36
+00:03:08,765 --> 00:03:13,536
+One limit for everyone misses them; a separate limit per group finds them.
+
+37
+00:03:14,336 --> 00:03:16,500
+Three ways to find outliers.
+
+38
+00:03:16,500 --> 00:03:17,736
+Look at a chart:
+
+39
+00:03:17,736 --> 00:03:22,991
+a box plot, a histogram or a scatter plot, and always do this first.
+
+40
+00:03:22,991 --> 00:03:24,382
+Use a simple rule:
+
+41
+00:03:24,382 --> 00:03:32,496
+Z-score greater than three, the I Q R fences, or the modified Z-score, which checks one column at a time.
+
+42
+00:03:32,496 --> 00:03:42,310
+Or use a machine learning model, like Isolation Forest, Local Outlier Factor or D B S C A N, which check many columns together.
+
+43
+00:03:42,310 --> 00:03:47,024
+Start with a chart, then a rule, then a model if you need it.
+
+44
+00:03:47,824 --> 00:03:50,414
+The box plot finds outliers by eye.
+
+45
+00:03:50,414 --> 00:04:01,809
+The box holds the middle fifty percent of values, the red line is the median, whiskers show the normal range, and the orange dots are outliers outside it.
+
+46
+00:04:01,809 --> 00:04:05,434
+Five of six columns have many dots above the box.
+
+47
+00:04:05,434 --> 00:04:07,432
+Only availability has none.
+
+48
+00:04:08,232 --> 00:04:16,476
+The Z-score is the value minus the mean over the standard deviation, the number of standard deviations from the mean.
+
+49
+00:04:16,476 --> 00:04:20,633
+If it is above three in absolute value, call it an outlier.
+
+50
+00:04:20,633 --> 00:04:29,299
+Use it when data looks like a bell curve; avoid it when data has a long tail on one side, because outliers hide themselves.
+
+51
+00:04:29,299 --> 00:04:39,163
+For price, ten thousand dollars gives a Z of forty one, an outlier, but five hundred dollars gives only one point four five, not an outlier.
+
+52
+00:04:39,163 --> 00:04:43,109
+The Z limit is only eight hundred seventy three dollars.
+
+53
+00:04:43,109 --> 00:04:48,816
+A safer version uses the median, the modified Z, flagging above three point five.
+
+54
+00:04:49,616 --> 00:04:52,616
+The I Q R rule uses the box plot fences.
+
+55
+00:04:52,616 --> 00:04:58,992
+Q one is sixty nine and Q three is one seventy five, so the I Q R is one hundred six.
+
+56
+00:04:58,992 --> 00:05:05,667
+The upper fence is Q three plus one point five I Q R, which is three thirty four dollars.
+
+57
+00:05:05,667 --> 00:05:10,168
+The lower fence is below zero, so there are no low outliers.
+
+58
+00:05:10,168 --> 00:05:15,343
+Big values do not move Q one and Q three, so this rule is not fooled.
+
+59
+00:05:15,343 --> 00:05:23,144
+It flags two thousand nine hundred seventy two price outliers, almost eight times more than the Z-score.
+
+60
+00:05:23,944 --> 00:05:27,633
+Comparing Z-score and I Q R on all six features:
+
+61
+00:05:27,633 --> 00:05:34,320
+every column has a long right tail, and Z-score always finds fewer outliers than I Q R.
+
+62
+00:05:34,320 --> 00:05:41,313
+For minimum nights, I Q R flags over six thousand, Z-score only three hundred twenty seven.
+
+63
+00:05:41,313 --> 00:05:43,696
+On long-tailed data, use I Q R.
+
+64
+00:05:44,496 --> 00:05:46,783
+Why does Z-score miss outliers?
+
+65
+00:05:46,783 --> 00:05:47,963
+This is masking.
+
+66
+00:05:47,963 --> 00:05:53,495
+Three ten thousand dollar homes make the standard deviation big, two forty.
+
+67
+00:05:53,495 --> 00:05:58,659
+A big standard deviation pushes the Z limit up to eight seventy three.
+
+68
+00:05:58,659 --> 00:06:03,380
+The outliers stretch the ruler that measures them, so they hide.
+
+69
+00:06:03,380 --> 00:06:07,585
+Q one and Q three do not stretch, so I Q R is not fooled.
+
+70
+00:06:07,585 --> 00:06:18,502
+Two thousand five hundred eighty four homes priced between three thirty four and eight seventy three are outliers by I Q R but invisible to Z-score.
+
+71
+00:06:18,502 --> 00:06:19,387
+Simple rule:
+
+72
+00:06:19,387 --> 00:06:23,592
+Z-score for bell-shaped data, I Q R for long-tailed data.
+
+73
+00:06:24,392 --> 00:06:27,587
+Three models find outliers using many columns.
+
+74
+00:06:27,587 --> 00:06:37,170
+Isolation Forest keeps cutting the data at random, and odd points get separated very quickly; you set the percentage of outliers expected.
+
+75
+00:06:37,170 --> 00:06:44,393
+Local Outlier Factor flags a point far more alone than its neighbours; you set the number of neighbours.
+
+76
+00:06:44,393 --> 00:06:51,824
+D B S C A N makes clusters, and points that fit no group are outliers; you set the group distance and size.
+
+77
+00:06:52,624 --> 00:06:53,763
+Compare them.
+
+78
+00:06:53,763 --> 00:07:01,734
+Z-score and I Q R look at one column; Isolation Forest, L O F and D B S C A N look at many.
+
+79
+00:07:01,734 --> 00:07:06,377
+Isolation Forest always flags the percentage you set.
+
+80
+00:07:06,377 --> 00:07:08,479
+L O F needs scaled data.
+
+81
+00:07:08,479 --> 00:07:12,070
+D B S C A N changes with its eps setting.
+
+82
+00:07:12,070 --> 00:07:18,553
+All three models give minus one for an outlier and one for a normal point.
+
+83
+00:07:18,553 --> 00:07:19,516
+One column:
+
+84
+00:07:19,516 --> 00:07:20,480
+use a rule.
+
+85
+00:07:20,480 --> 00:07:22,845
+An odd mix of many columns:
+
+86
+00:07:22,845 --> 00:07:23,896
+use a model.
+
+87
+00:07:24,696 --> 00:07:26,324
+If we ignore outliers:
+
+88
+00:07:26,324 --> 00:07:33,502
+one, the mean is wrong; the mean price of one fifty three is forty four percent above the median.
+
+89
+00:07:33,502 --> 00:07:41,495
+Two, the spread looks too big; the standard deviation is two forty before and only eighty four after fixing.
+
+90
+00:07:41,495 --> 00:07:47,711
+Three, very lopsided data; a skew of nineteen breaks tests that expect a bell curve.
+
+91
+00:07:47,711 --> 00:07:52,225
+Four, a regression line gets pulled; one bad row can flip it.
+
+92
+00:07:52,225 --> 00:07:58,738
+Five, distance-based methods like K N N and K-Means are controlled by a few huge values.
+
+93
+00:07:58,738 --> 00:08:04,584
+Six, error scores like M S E square the errors, so a few rows decide the score.
+
+94
+00:08:05,384 --> 00:08:06,729
+Nine ways to fix.
+
+95
+00:08:06,729 --> 00:08:09,578
+Remove the row, for a clear mistake.
+
+96
+00:08:09,578 --> 00:08:14,642
+Cap at the I Q R fence, to keep every row but shrink big values.
+
+97
+00:08:14,642 --> 00:08:18,124
+Winsorise at the top and bottom one percent.
+
+98
+00:08:18,124 --> 00:08:23,188
+Replace with the median, or the group median when groups differ.
+
+99
+00:08:23,188 --> 00:08:29,914
+Replace using K N N or regression when similar rows or other columns predict it well.
+
+100
+00:08:29,914 --> 00:08:34,424
+Take a log of one plus x for real but very spread values.
+
+101
+00:08:34,424 --> 00:08:40,517
+Or flag with a zero-one column when the outlier itself is useful information.
+
+102
+00:08:40,517 --> 00:08:42,416
+Only removal loses rows.
+
+103
+00:08:43,216 --> 00:08:43,981
+Which fix?
+
+104
+00:08:43,981 --> 00:08:45,051
+First ask why.
+
+105
+00:08:45,051 --> 00:08:48,874
+A price of zero or minimum nights of twelve fifty:
+
+106
+00:08:48,874 --> 00:08:50,097
+is it a mistake?
+
+107
+00:08:50,097 --> 00:08:54,761
+Correct it if you can, otherwise remove it or use the median.
+
+108
+00:08:54,761 --> 00:08:57,742
+A ten thousand dollar luxury penthouse:
+
+109
+00:08:57,742 --> 00:08:58,583
+is it real?
+
+110
+00:08:58,583 --> 00:09:03,782
+Keep it, but cap it or use the log so it does not control the model.
+
+111
+00:09:03,782 --> 00:09:07,911
+A house value stored at five hundred thousand and one:
+
+112
+00:09:07,911 --> 00:09:08,981
+is it a limit?
+
+113
+00:09:08,981 --> 00:09:14,180
+Mark it with a flag or drop it, since we do not know the true value.
+
+114
+00:09:14,180 --> 00:09:18,232
+Do not delete a value just because a rule flagged it.
+

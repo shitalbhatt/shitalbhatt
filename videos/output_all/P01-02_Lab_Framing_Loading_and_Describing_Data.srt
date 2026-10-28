@@ -1,0 +1,272 @@
+1
+00:00:00,000 --> 00:00:02,452
+Welcome to practicals one and two.
+
+2
+00:00:02,452 --> 00:00:06,203
+Today we go from a vague question to a distribution.
+
+3
+00:00:06,203 --> 00:00:13,488
+We frame the problem, load data, name our variables, describe the numbers, and visualise their shape.
+
+4
+00:00:14,288 --> 00:00:16,195
+The path has four stages.
+
+5
+00:00:16,195 --> 00:00:17,338
+Frame and load:
+
+6
+00:00:17,338 --> 00:00:22,067
+write a problem statement, then take a first look at the data.
+
+7
+00:00:22,067 --> 00:00:23,592
+Name your variables:
+
+8
+00:00:23,592 --> 00:00:27,405
+what you are explaining and what might explain it.
+
+9
+00:00:27,405 --> 00:00:29,007
+Describe the numbers:
+
+10
+00:00:29,007 --> 00:00:32,972
+mean versus median, variance versus I Q R, skewness.
+
+11
+00:00:32,972 --> 00:00:38,768
+And see the shape with histograms, boxplots, density plots and pivot tables.
+
+12
+00:00:39,568 --> 00:00:43,808
+Before you load a single row, put your question into words.
+
+13
+00:00:43,808 --> 00:00:45,892
+What question am I answering?
+
+14
+00:00:45,892 --> 00:00:47,832
+What is one row in my data?
+
+15
+00:00:47,832 --> 00:00:49,916
+What outcome am I explaining?
+
+16
+00:00:49,916 --> 00:00:52,719
+And what would an answer let me decide?
+
+17
+00:00:52,719 --> 00:00:53,581
+For example:
+
+18
+00:00:53,581 --> 00:00:59,690
+do customers who receive a discount email spend more per month than those who do not?
+
+19
+00:00:59,690 --> 00:01:04,936
+A problem statement earns its place only if the answer changes an action.
+
+20
+00:01:05,736 --> 00:01:09,353
+Now load the data and confirm what actually arrived.
+
+21
+00:01:09,353 --> 00:01:10,118
+Five steps:
+
+22
+00:01:10,118 --> 00:01:19,369
+read the file with read C S V, check the shape, preview rows with head, check data types, and count missing values with isna dot sum.
+
+23
+00:01:19,369 --> 00:01:28,968
+Do this every time, even for a dataset you have seen before, because column names, types and row counts change more often than you expect.
+
+24
+00:01:29,768 --> 00:01:34,794
+Next, decide what you are trying to explain and what might explain it.
+
+25
+00:01:34,794 --> 00:01:40,969
+The dependent variable, Y, is the outcome, such as monthly spend, exam score or churn.
+
+26
+00:01:40,969 --> 00:01:48,940
+The independent variables, X, are the factors that might influence it, such as a discount email or study hours.
+
+27
+00:01:48,940 --> 00:01:50,017
+The quick test:
+
+28
+00:01:50,017 --> 00:01:56,192
+if I built a chart with this on the y axis, would the rest of my analysis point at it?
+
+29
+00:01:56,992 --> 00:02:02,692
+Our running example is six hundred customers' monthly spend, which is right-skewed.
+
+30
+00:02:02,692 --> 00:02:08,392
+The mean is thirty eight sixty three dollars; the median is thirty four fifty nine.
+
+31
+00:02:08,392 --> 00:02:13,268
+A few big spenders drag the mean upward, while the median barely moves.
+
+32
+00:02:13,268 --> 00:02:17,320
+Mean greater than median tells us the data is pulled right.
+
+33
+00:02:18,120 --> 00:02:25,920
+For spread we compare standard deviation, twenty dollars fifty five, with the I Q R, twenty three fifty.
+
+34
+00:02:25,920 --> 00:02:30,795
+Standard deviation uses every value and is sensitive to outliers.
+
+35
+00:02:30,795 --> 00:02:34,995
+The I Q R covers the middle fifty percent and is robust.
+
+36
+00:02:34,995 --> 00:02:36,045
+Rule of thumb:
+
+37
+00:02:36,045 --> 00:02:40,920
+if the data has outliers or skew, lead with the median and I Q R.
+
+38
+00:02:41,720 --> 00:02:47,282
+You can read the shape without plotting, just by comparing mean and median.
+
+39
+00:02:47,282 --> 00:02:50,323
+Mean below median means a long left tail.
+
+40
+00:02:50,323 --> 00:02:53,437
+Mean about equal to median means balanced.
+
+41
+00:02:53,437 --> 00:02:56,552
+Mean above median means a long right tail.
+
+42
+00:02:57,352 --> 00:03:00,149
+Plot the same distribution three ways.
+
+43
+00:03:00,149 --> 00:03:03,608
+A histogram is best for spotting overall shape.
+
+44
+00:03:03,608 --> 00:03:07,730
+A boxplot shows the median and I Q R and flags outliers.
+
+45
+00:03:07,730 --> 00:03:13,691
+A density curve is a smoothed histogram, best for comparing shapes across groups.
+
+46
+00:03:13,691 --> 00:03:18,328
+Each view highlights something different, so use more than one.
+
+47
+00:03:19,128 --> 00:03:20,762
+A pivot table answers:
+
+48
+00:03:20,762 --> 00:03:25,293
+what is the average, total or count, broken down by category?
+
+49
+00:03:25,293 --> 00:03:29,156
+You choose rows, columns, values and an aggregation.
+
+50
+00:03:29,156 --> 00:03:38,069
+In this example, East sells more widgets than gadgets while South is the reverse, a pattern a single average would hide.
+
+51
+00:03:38,069 --> 00:03:41,040
+In pandas it is one call to pivot table.
+
+52
+00:03:41,840 --> 00:03:43,939
+Here is your cheat sheet.
+
+53
+00:03:43,939 --> 00:03:46,710
+Question and unit of observation:
+
+54
+00:03:46,710 --> 00:03:48,222
+problem statement.
+
+55
+00:03:48,222 --> 00:03:50,321
+Explain versus explainer:
+
+56
+00:03:50,321 --> 00:03:53,344
+dependent and independent variables.
+
+57
+00:03:53,344 --> 00:03:56,703
+Is the typical value pulled by outliers:
+
+58
+00:03:56,703 --> 00:03:58,718
+compare mean and median.
+
+59
+00:03:58,718 --> 00:04:00,482
+Is the spread robust:
+
+60
+00:04:00,482 --> 00:04:03,589
+compare standard deviation and I Q R.
+
+61
+00:04:03,589 --> 00:04:05,520
+Which way does it lean:
+
+62
+00:04:05,520 --> 00:04:06,276
+skewness.
+
+63
+00:04:06,276 --> 00:04:08,207
+What does it look like:
+
+64
+00:04:08,207 --> 00:04:10,558
+histogram, boxplot, density.
+
+65
+00:04:10,558 --> 00:04:12,658
+And the summary by group:
+
+66
+00:04:12,658 --> 00:04:13,833
+a pivot table.
+
+67
+00:04:13,833 --> 00:04:16,353
+Try these on your own dataset.
+
+68
+00:04:16,353 --> 00:04:18,032
+Thanks for watching.
+

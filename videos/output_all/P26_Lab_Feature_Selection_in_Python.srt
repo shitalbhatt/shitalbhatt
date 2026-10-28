@@ -1,0 +1,224 @@
+1
+00:00:00,000 --> 00:00:01,648
+Now feature selection.
+
+2
+00:00:01,648 --> 00:00:02,847
+Prepare X and y:
+
+3
+00:00:02,847 --> 00:00:12,435
+one-hot encode the six categorical columns, giving a matrix of twelve thousand three hundred thirty rows by eighty five columns.
+
+4
+00:00:12,435 --> 00:00:17,529
+Split with stratification, and fit the scaler on training rows only.
+
+5
+00:00:17,529 --> 00:00:20,376
+All selection uses training rows only.
+
+6
+00:00:21,176 --> 00:00:21,935
+Filter one:
+
+7
+00:00:21,935 --> 00:00:23,661
+variance and correlation.
+
+8
+00:00:23,661 --> 00:00:36,705
+A variance threshold of zero point oh one flags twenty three near-constant columns, though rates look constant only because of their scale, so apply this to zero-one dummies, not raw rates.
+
+9
+00:00:36,705 --> 00:00:41,882
+For correlation, take the upper triangle and list the most redundant pairs:
+
+10
+00:00:41,882 --> 00:00:48,508
+product related and total pages at zero point nine nine seven, and others above zero point nine.
+
+11
+00:00:48,508 --> 00:00:52,856
+Pairs above point nine say the same thing, so keep one of each.
+
+12
+00:00:53,656 --> 00:00:54,492
+Filter two:
+
+13
+00:00:54,492 --> 00:00:59,967
+the A N O V A F-test and mutual information, both through Select K Best.
+
+14
+00:00:59,967 --> 00:01:09,318
+Both rank log page values, has page value and page values at the top, followed by the two interaction terms and exit rates.
+
+15
+00:01:09,318 --> 00:01:13,120
+Two different statistics agree on the same signal.
+
+16
+00:01:13,920 --> 00:01:15,066
+Wrapper methods:
+
+17
+00:01:15,066 --> 00:01:22,589
+recursive feature elimination, about seventeen seconds, and forward selection, about twenty five seconds.
+
+18
+00:01:22,589 --> 00:01:29,538
+R F E picks page values, has page value, bounce and exit rates, and month November, among others.
+
+19
+00:01:29,538 --> 00:01:36,846
+Forward selection picks a different set, including total pages, product share and month March and May.
+
+20
+00:01:36,846 --> 00:01:42,792
+The wrappers take much longer than filters because they train the model many times.
+
+21
+00:01:43,592 --> 00:01:44,852
+Embedded methods:
+
+22
+00:01:44,852 --> 00:01:51,521
+an L one penalty with C of point oh two keeps twenty of eighty five coefficients non-zero.
+
+23
+00:01:51,521 --> 00:02:02,414
+A random forest gives feature importances, with log page values at zero point one three two and page values at zero point one one seven at the top.
+
+24
+00:02:02,414 --> 00:02:03,896
+We keep the top ten.
+
+25
+00:02:04,696 --> 00:02:07,540
+Compare every subset with the same model.
+
+26
+00:02:07,540 --> 00:02:22,384
+We collect all seven feature lists in a dictionary, define an evaluate function that fits logistic regression on train and scores test R O C A U C and F one, and apply it to each list with one call, no loop needed.
+
+27
+00:02:23,184 --> 00:02:23,944
+The result:
+
+28
+00:02:23,944 --> 00:02:28,231
+ten well-chosen features are about as good as all eighty five.
+
+29
+00:02:28,231 --> 00:02:37,218
+Forward selection with ten features scores zero point nine one nine, higher than all eighty five features at point nine one eight.
+
+30
+00:02:37,218 --> 00:02:42,680
+L one with twenty features gets point nine one five, R F E point nine oh seven.
+
+31
+00:02:42,680 --> 00:02:51,944
+The filters and random forest top ten drop to about point eight six five, because their lists repeat the page-value signal five times.
+
+32
+00:02:51,944 --> 00:02:55,608
+Month November is chosen only by model-based methods.
+
+33
+00:02:56,408 --> 00:02:59,385
+Which features do the methods agree on?
+
+34
+00:02:59,385 --> 00:03:02,743
+A cross-tab counts votes out of six methods.
+
+35
+00:03:02,743 --> 00:03:08,468
+Log page values, page value times Q four and page values get all six votes.
+
+36
+00:03:08,468 --> 00:03:13,582
+Exit rates, has page value and page value times returning get five.
+
+37
+00:03:13,582 --> 00:03:19,993
+The page-value family is picked by every method, the strongest evidence in the data.
+
+38
+00:03:19,993 --> 00:03:24,344
+Features with one or two votes depend on the method used.
+
+39
+00:03:25,144 --> 00:03:28,284
+The same steps on the Pima diabetes data.
+
+40
+00:03:28,284 --> 00:03:38,929
+Zeros in glucose, blood pressure, skin thickness, insulin and BMI mean not measured, so replace them with missing and fill with the median.
+
+41
+00:03:38,929 --> 00:03:45,285
+Construct flags for high glucose and obesity, a ratio, a log, and two interactions.
+
+42
+00:03:45,285 --> 00:03:51,412
+The flags split the diabetes rate from twelve percent up to seventy six percent.
+
+43
+00:03:51,412 --> 00:03:53,556
+But test A U C did not rise:
+
+44
+00:03:53,556 --> 00:03:59,606
+zero point eight two three nine baseline versus zero point eight two three two.
+
+45
+00:03:59,606 --> 00:04:03,129
+Glucose, BMI and age already carry the signal.
+
+46
+00:04:03,129 --> 00:04:04,048
+Always test.
+
+47
+00:04:04,848 --> 00:04:09,375
+On Pima, five selected features are about as good as all fourteen.
+
+48
+00:04:09,375 --> 00:04:16,372
+Forward selection with five features scores point eight two two against point eight two three for all.
+
+49
+00:04:16,372 --> 00:04:23,232
+Glucose is chosen by every method, and five features stay within point oh two A U C of all fourteen.
+
+50
+00:04:24,032 --> 00:04:25,437
+What the lab showed.
+
+51
+00:04:25,437 --> 00:04:34,079
+Constructed features and interactions took test A U C from point eight five five to point nine oh four with the same model.
+
+52
+00:04:34,079 --> 00:04:41,738
+Degree three polynomials on four hundred rows gave train point nine nine six and test point seven four three:
+
+53
+00:04:41,738 --> 00:04:43,143
+the curse in action.
+
+54
+00:04:43,143 --> 00:04:48,905
+Forward selection found that ten of eighty five columns give the full-model A U C.
+
+55
+00:04:48,905 --> 00:04:52,699
+And the same pattern worked on the Pima diabetes data.
+
+56
+00:04:52,699 --> 00:04:54,104
+Thanks for watching.
+

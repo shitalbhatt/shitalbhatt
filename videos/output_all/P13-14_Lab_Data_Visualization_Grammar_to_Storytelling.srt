@@ -1,0 +1,316 @@
+1
+00:00:00,000 --> 00:00:03,065
+Welcome to practicals thirteen and fourteen:
+
+2
+00:00:03,065 --> 00:00:05,085
+data visualization in Python.
+
+3
+00:00:05,085 --> 00:00:14,697
+We cover the Grammar of Graphics, good versus misleading plots, visualizing non-numeric data, dashboard logic, and storytelling with data.
+
+4
+00:00:14,697 --> 00:00:21,384
+We use the Superstore retail orders dataset, with nine thousand nine hundred ninety four orders.
+
+5
+00:00:22,184 --> 00:00:23,130
+First, setup.
+
+6
+00:00:23,130 --> 00:00:31,931
+Import pandas, numpy, seaborn and matplotlib, plus squarify for treemaps, network x for network diagrams, and word cloud.
+
+7
+00:00:31,931 --> 00:00:37,460
+Load the Superstore file the same way as in earlier labs, with one addition:
+
+8
+00:00:37,460 --> 00:00:45,752
+convert the order date from plain text into a real datetime type, which we need for the monthly trend chart later.
+
+9
+00:00:46,552 --> 00:00:47,450
+Section two:
+
+10
+00:00:47,450 --> 00:00:51,717
+the Grammar of Graphics, building a chart layer by layer.
+
+11
+00:00:51,717 --> 00:00:54,486
+Every chart is composed the same way:
+
+12
+00:00:54,486 --> 00:01:02,495
+data, then aesthetics such as x, y and colour, then geometry, the plot type, then scale labels and a theme.
+
+13
+00:01:02,495 --> 00:01:07,360
+Once you can name these layers, you can build or debug any chart.
+
+14
+00:01:08,160 --> 00:01:11,167
+Here is one chart mapped to the grammar.
+
+15
+00:01:11,167 --> 00:01:13,647
+The data layer is the data frame.
+
+16
+00:01:13,647 --> 00:01:19,661
+The aesthetics layer is x equals category, y equals sales, and colour by region.
+
+17
+00:01:19,661 --> 00:01:25,224
+The geometry layer is the bar plot itself, with the mean as the estimator.
+
+18
+00:01:25,224 --> 00:01:27,554
+Then we add a title and labels.
+
+19
+00:01:27,554 --> 00:01:33,192
+Reading the code layer by layer is exactly how you would build or debug it.
+
+20
+00:01:33,992 --> 00:01:36,878
+Facets repeat the same chart once per group.
+
+21
+00:01:36,878 --> 00:01:49,670
+With col equals region and col wrap equals two, we get one small bar chart of average profit by segment for each region, arranged in a grid, from one line of code instead of four separate charts.
+
+22
+00:01:49,670 --> 00:01:54,656
+This is the grammar's answer to how do I compare a chart across many groups.
+
+23
+00:01:55,456 --> 00:01:56,512
+Section three:
+
+24
+00:01:56,512 --> 00:01:58,699
+good versus misleading plots.
+
+25
+00:01:58,699 --> 00:02:05,639
+The same data, drawn two different ways, can leave a viewer with very different impressions.
+
+26
+00:02:05,639 --> 00:02:09,184
+The most common culprit is the y axis baseline.
+
+27
+00:02:09,984 --> 00:02:19,138
+On the left, the y axis is forced to start at point one oh, making Central's discount look several times taller than West's.
+
+28
+00:02:19,138 --> 00:02:25,191
+On the right, the axis starts at zero and shows the true, much smaller difference.
+
+29
+00:02:25,191 --> 00:02:27,184
+Same data, different story.
+
+30
+00:02:27,184 --> 00:02:31,392
+When bars encode a quantity, the axis must start at zero.
+
+31
+00:02:32,192 --> 00:02:33,144
+Section four:
+
+32
+00:02:33,144 --> 00:02:35,266
+visualizing non-numeric data.
+
+33
+00:02:35,266 --> 00:02:44,416
+Numeric summaries like mean and correlation do not apply to categories, hierarchies or text, so each needs its own technique.
+
+34
+00:02:44,416 --> 00:02:47,271
+For categories, use a sorted bar chart.
+
+35
+00:02:47,271 --> 00:02:56,275
+The order argument sorts bars by value instead of alphabetically, so Phones and Chairs lead and Fasteners and Labels trail.
+
+36
+00:02:56,275 --> 00:03:00,008
+Sorting lets the pattern make the point on its own.
+
+37
+00:03:00,808 --> 00:03:03,527
+For hierarchical data, use a treemap.
+
+38
+00:03:03,527 --> 00:03:09,479
+Squarify draws one rectangle per category, with area proportional to total sales.
+
+39
+00:03:09,479 --> 00:03:19,840
+Technology, furniture and office supplies are close in size, which a treemap makes easy to compare without reading exact numbers off an axis.
+
+40
+00:03:20,640 --> 00:03:22,555
+For text, use a word cloud.
+
+41
+00:03:22,555 --> 00:03:31,564
+Join every product name into one long string, and word cloud counts word frequency and sizes each word by how often it appears.
+
+42
+00:03:31,564 --> 00:03:38,232
+It is good for a quick skim of what dominates a text field, though not for precise comparison.
+
+43
+00:03:39,032 --> 00:03:41,890
+For relationships, use a network diagram.
+
+44
+00:03:41,890 --> 00:03:48,095
+We connect each of the top fifteen customers to every sub-category they have bought from.
+
+45
+00:03:48,095 --> 00:03:54,090
+That makes a bipartite network, with two kinds of nodes, customers and sub-categories.
+
+46
+00:03:54,090 --> 00:03:59,528
+It shows which sub-categories are shared across customers and which are niche.
+
+47
+00:04:00,328 --> 00:04:01,243
+Section five:
+
+48
+00:04:01,243 --> 00:04:02,370
+dashboard logic.
+
+49
+00:04:02,370 --> 00:04:07,790
+A dashboard is several panels sharing one figure, organised around a purpose:
+
+50
+00:04:07,790 --> 00:04:10,818
+key numbers first, supporting detail below.
+
+51
+00:04:10,818 --> 00:04:12,155
+Here is the layout.
+
+52
+00:04:12,155 --> 00:04:23,842
+Add gridspec reserves a three by three grid, with a shorter top row for the three K P I cards, and a taller row below with a wide trend panel and a smaller mix panel.
+
+53
+00:04:23,842 --> 00:04:27,080
+Each add subplot claims a region of that grid.
+
+54
+00:04:27,080 --> 00:04:29,966
+Then each panel is filled the normal way:
+
+55
+00:04:29,966 --> 00:04:41,934
+ax text for the K P I cards showing orders, total sales and total profit, a seaborn line plot for the monthly sales trend, and a bar plot for the sales share by category.
+
+56
+00:04:41,934 --> 00:04:48,904
+The only new idea is that every plotting call targets a specific panel instead of the whole figure.
+
+57
+00:04:49,704 --> 00:04:50,555
+Section six:
+
+58
+00:04:50,555 --> 00:04:52,187
+storytelling with data.
+
+59
+00:04:52,187 --> 00:04:55,168
+First, highlight the one bar that matters.
+
+60
+00:04:55,168 --> 00:05:02,263
+A short list comprehension picks one strong colour for Central and a muted grey for every other bar:
+
+61
+00:05:02,263 --> 00:05:03,541
+gray out the rest.
+
+62
+00:05:03,541 --> 00:05:12,552
+And the chart title states the insight, Central's discount rate stands out from the rest, instead of just naming the variables.
+
+63
+00:05:13,352 --> 00:05:17,120
+Second, annotate the key moment directly on the chart.
+
+64
+00:05:17,120 --> 00:05:25,215
+Idx min finds the exact month where profit was lowest, so we let the data locate the annotation instead of guessing.
+
+65
+00:05:25,215 --> 00:05:29,681
+Then annotate draws a label and an arrow pointing at that point.
+
+66
+00:05:29,681 --> 00:05:34,496
+A short label at the key moment saves the viewer from hunting for it.
+
+67
+00:05:35,296 --> 00:05:36,384
+Section seven:
+
+68
+00:05:36,384 --> 00:05:40,192
+the same techniques on a second dataset, Titanic.
+
+69
+00:05:40,192 --> 00:05:42,913
+The same grammar pattern as before:
+
+70
+00:05:42,913 --> 00:05:50,296
+data, aesthetics with passenger class on x, fare on y and sex as colour, and bars for geometry.
+
+71
+00:05:51,096 --> 00:05:56,903
+And the same treemap pattern, now showing the relative size of each passenger class.
+
+72
+00:05:56,903 --> 00:06:02,640
+Swap the data frame and column names, and the same techniques apply to any dataset.
+
+73
+00:06:03,440 --> 00:06:05,130
+To practise, try these.
+
+74
+00:06:05,130 --> 00:06:11,742
+Rebuild the grammar bar chart with region on the x axis and see whether the story changes.
+
+75
+00:06:11,742 --> 00:06:16,297
+Make a treemap of sub-category sales within a single category.
+
+76
+00:06:16,297 --> 00:06:23,718
+And redraw the discount chart with an honest axis and a highlighted bar, then write an insight title.
+
+77
+00:06:23,718 --> 00:06:35,988
+The code patterns in this lab, layered charts, honest axes, treemaps, word clouds, network diagrams, gridspec dashboards and annotated highlights, are general purpose.
+
+78
+00:06:35,988 --> 00:06:40,323
+Swap the data and the same techniques apply to any dataset.
+
+79
+00:06:40,323 --> 00:06:41,792
+Thanks for watching.
+

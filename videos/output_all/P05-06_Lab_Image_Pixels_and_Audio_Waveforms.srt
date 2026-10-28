@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,669
+Welcome to practicals five and six:
+
+2
+00:00:02,669 --> 00:00:04,347
+from files to numbers.
+
+3
+00:00:04,347 --> 00:00:09,456
+We plot an image's pixel distribution and an audio clip's waveform.
+
+4
+00:00:10,256 --> 00:00:16,056
+Once you load them, an image or an audio clip behaves like any other numeric dataset.
+
+5
+00:00:16,056 --> 00:00:23,698
+An image is a grid of pixels, height by width by channels, each pixel three numbers from zero to two fifty five.
+
+6
+00:00:23,698 --> 00:00:31,614
+An audio clip is a list of amplitude samples over time at a fixed sample rate, like twenty two thousand fifty hertz.
+
+7
+00:00:31,614 --> 00:00:38,096
+So an image has a fixed array shape, and audio is a time series where order and spacing matter.
+
+8
+00:00:38,896 --> 00:00:44,019
+Step one is to load the file and look at its shape before plotting anything.
+
+9
+00:00:44,019 --> 00:00:55,817
+Our sample image is four hundred by three hundred pixels, R G B, so the array shape is three hundred, four hundred, three, with values from zero to two fifty five per channel.
+
+10
+00:00:55,817 --> 00:00:57,233
+The code is one line:
+
+11
+00:00:57,233 --> 00:01:00,064
+convert the opened image to a numpy array.
+
+12
+00:01:00,864 --> 00:01:01,519
+Step two:
+
+13
+00:01:01,519 --> 00:01:07,126
+flatten each colour channel and count how many pixels fall at each intensity.
+
+14
+00:01:07,126 --> 00:01:11,277
+Each tall spike is one flat-coloured region in the scene:
+
+15
+00:01:11,277 --> 00:01:13,243
+sky, ground, sun, mountain.
+
+16
+00:01:13,243 --> 00:01:21,399
+A natural photo usually gives a smoother, more spread-out histogram because real lighting varies pixel to pixel.
+
+17
+00:01:21,399 --> 00:01:26,496
+In code, convert to greyscale, flatten, and call hist with fifty bins.
+
+18
+00:01:27,296 --> 00:01:27,931
+Step one:
+
+19
+00:01:27,931 --> 00:01:29,271
+load the wave file.
+
+20
+00:01:29,271 --> 00:01:33,291
+Each sample is one amplitude reading at a moment in time.
+
+21
+00:01:33,291 --> 00:01:44,645
+Our clip has a sample rate of twenty two thousand fifty hertz, lasts two seconds, and has forty four thousand one hundred samples stored as sixteen bit integers.
+
+22
+00:01:44,645 --> 00:01:51,698
+Build a time axis by dividing the sample index by the sample rate, then plot amplitude against time.
+
+23
+00:01:51,698 --> 00:01:53,955
+The shape is a plucked envelope:
+
+24
+00:01:53,955 --> 00:01:56,000
+a quick rise and a slow fade.
+
+25
+00:01:56,800 --> 00:01:57,402
+Step two:
+
+26
+00:01:57,402 --> 00:02:02,619
+average the amplitude in small time windows to see the trend the eye picks up.
+
+27
+00:02:02,619 --> 00:02:12,786
+Bucket the samples into hundred millisecond windows and average the absolute amplitude in each, exactly like a rolling average on any other time series.
+
+28
+00:02:12,786 --> 00:02:17,200
+This is the same trend concept as monthly sales, applied to sound.
+
+29
+00:02:18,000 --> 00:02:20,834
+Two new data shapes, same old toolkit.
+
+30
+00:02:20,834 --> 00:02:21,505
+For both:
+
+31
+00:02:21,505 --> 00:02:27,919
+load the file, turn it into numbers, check shape and range, and plot the distribution.
+
+32
+00:02:27,919 --> 00:02:35,898
+For images, use P I L open, then numpy array, then a histogram per channel; peaks mean flat colour regions.
+
+33
+00:02:35,898 --> 00:02:47,084
+For audio, read the wave file into a one-dimensional array, check sample rate and duration, and plot amplitude over time; the envelope shows loudness.
+
+34
+00:02:47,084 --> 00:02:48,576
+Thanks for watching.
+

@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:02,563
+Welcome to lectures seven and eight:
+
+2
+00:00:02,563 --> 00:00:07,831
+numerical and categorical variables, non-graphical versus graphical E D A.
+
+3
+00:00:07,831 --> 00:00:14,808
+We apply every technique to every feature of one large real dataset, the Superstore retail orders.
+
+4
+00:00:15,608 --> 00:00:27,404
+Our dataset has eight thousand three hundred ninety nine real retail orders for office supplies, technology and furniture, with full sales, discount and shipping detail.
+
+5
+00:00:27,404 --> 00:00:35,152
+Everyone understands buying something online, and unlike Titanic or Iris, most students have never analysed it.
+
+6
+00:00:35,152 --> 00:00:43,319
+We separate non-graphical, statistical E D A from graphical, visual E D A, apply both to every feature, then compare.
+
+7
+00:00:43,319 --> 00:00:49,112
+Numbers first for precision, plots second for shape, then check that the two agree.
+
+8
+00:00:49,912 --> 00:00:52,401
+There are six numerical features.
+
+9
+00:00:52,401 --> 00:00:55,343
+Sales is the dollar value of the order.
+
+10
+00:00:55,343 --> 00:00:59,869
+Profit is the dollar profit or loss, and it can be negative.
+
+11
+00:00:59,869 --> 00:01:04,470
+Discount is the rate, from zero to about twenty five percent.
+
+12
+00:01:04,470 --> 00:01:07,789
+Order quantity runs from one to fifty units.
+
+13
+00:01:07,789 --> 00:01:12,088
+Unit price is the price of a single unit before discount.
+
+14
+00:01:12,088 --> 00:01:15,784
+And shipping cost is the dollar cost of shipping.
+
+15
+00:01:16,584 --> 00:01:19,069
+And three categorical features.
+
+16
+00:01:19,069 --> 00:01:20,432
+Product category:
+
+17
+00:01:20,432 --> 00:01:23,719
+office supplies, technology or furniture.
+
+18
+00:01:23,719 --> 00:01:24,520
+Ship mode:
+
+19
+00:01:24,520 --> 00:01:27,968
+regular air, delivery truck or express air.
+
+20
+00:01:27,968 --> 00:01:29,651
+And customer segment:
+
+21
+00:01:29,651 --> 00:01:33,740
+consumer, corporate, home office or small business.
+
+22
+00:01:33,740 --> 00:01:39,672
+Together they describe what was bought, how it shipped, and who bought it.
+
+23
+00:01:40,472 --> 00:01:48,336
+The very first non-graphical check on any dataset is counting empty cells, before any statistic or plot.
+
+24
+00:01:48,336 --> 00:01:51,512
+One line does it for every column at once:
+
+25
+00:01:51,512 --> 00:01:53,024
+df dot isna dot sum.
+
+26
+00:01:53,824 --> 00:02:02,013
+Product base margin is missing for sixty three orders, just zero point seven five percent, a small and easily flagged gap.
+
+27
+00:02:02,013 --> 00:02:10,336
+Every one of the six numerical features we use today has zero missing values, and the categorical features are complete too.
+
+28
+00:02:11,136 --> 00:02:13,745
+Technique one is central tendency.
+
+29
+00:02:13,745 --> 00:02:18,655
+The mean is the arithmetic average and is sensitive to extremes.
+
+30
+00:02:18,655 --> 00:02:22,645
+The median is the middle value and resists extremes.
+
+31
+00:02:22,645 --> 00:02:25,407
+The mode is the most frequent value.
+
+32
+00:02:25,407 --> 00:02:28,707
+Each is one line for all numerical columns:
+
+33
+00:02:28,707 --> 00:02:31,392
+mean, median, mode, no loop needed.
+
+34
+00:02:32,192 --> 00:02:35,473
+Profit shows the most dramatic gap of any feature:
+
+35
+00:02:35,473 --> 00:02:40,656
+the mean is one hundred eighty one dollars while the median is minus one fifty.
+
+36
+00:02:40,656 --> 00:02:44,331
+The average and the typical order tell opposite stories.
+
+37
+00:02:44,331 --> 00:02:48,530
+Order quantity and discount have mean and median close together.
+
+38
+00:02:48,530 --> 00:02:54,632
+And sales and unit price have a mean far above the median, a first hint of strong right skew.
+
+39
+00:02:55,432 --> 00:02:57,519
+Technique two is dispersion.
+
+40
+00:02:57,519 --> 00:03:01,618
+Standard deviation is the typical spread from the mean.
+
+41
+00:03:01,618 --> 00:03:06,760
+Range is maximum minus minimum and is sensitive to one extreme value.
+
+42
+00:03:06,760 --> 00:03:13,840
+The I Q R is Q three minus Q one, the spread of the middle fifty percent, and resists extremes.
+
+43
+00:03:13,840 --> 00:03:18,088
+Again one line computes each statistic for every feature.
+
+44
+00:03:18,888 --> 00:03:26,534
+Sales has a standard deviation of thirty five eighty five, more than twice its I Q R of fifteen sixty six.
+
+45
+00:03:26,534 --> 00:03:30,646
+A handful of very large orders are stretching the spread.
+
+46
+00:03:30,646 --> 00:03:37,571
+Profit's standard deviation is over four times its I Q R, the same pattern for gains and losses.
+
+47
+00:03:37,571 --> 00:03:42,837
+Order quantity's standard deviation and I Q R are in sensible proportion:
+
+48
+00:03:42,837 --> 00:03:44,568
+well-behaved dispersion.
+
+49
+00:03:45,368 --> 00:03:47,070
+Technique three is shape.
+
+50
+00:03:47,070 --> 00:03:54,692
+Skewness of zero means symmetric, positive means a long right tail, and the further from zero the more lopsided.
+
+51
+00:03:54,692 --> 00:03:57,551
+Kurtosis measures how heavy the tails are:
+
+52
+00:03:57,551 --> 00:04:04,085
+very high kurtosis means extreme values are far more common than a normal distribution predicts.
+
+53
+00:04:04,085 --> 00:04:07,760
+Skew and kurtosis are one line each for every feature.
+
+54
+00:04:08,560 --> 00:04:17,675
+Unit price is extraordinarily skewed, fourteen point one three, with kurtosis of two seventy one, the most extreme feature.
+
+55
+00:04:17,675 --> 00:04:24,864
+Sales, skew five point four, and profit, skew three point six five, are also dramatically skewed.
+
+56
+00:04:24,864 --> 00:04:30,496
+Order quantity and discount sit almost exactly at zero, genuinely symmetric.
+
+57
+00:04:31,296 --> 00:04:39,314
+Ranked by skewness, unit price towers over every other feature, so extreme that it barely fits on the same chart.
+
+58
+00:04:39,314 --> 00:04:42,152
+Order quantity and discount sit at zero.
+
+59
+00:04:42,152 --> 00:04:50,595
+The numbers tell us sales, profit and unit price are wildly skewed, but they cannot show us what that shape looks like.
+
+60
+00:04:50,595 --> 00:04:52,440
+For that we need pictures.
+

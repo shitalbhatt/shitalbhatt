@@ -1,0 +1,448 @@
+1
+00:00:00,000 --> 00:00:02,760
+Welcome to lectures thirteen and fourteen:
+
+2
+00:00:02,760 --> 00:00:04,009
+data visualization.
+
+3
+00:00:04,009 --> 00:00:18,072
+We will learn how charts are built using the Grammar of Graphics, how to tell good charts from misleading ones, how to visualize non-numeric data, how dashboards are organised, and how to turn a chart into a story.
+
+4
+00:00:18,072 --> 00:00:20,832
+This also prepares you for assignment one.
+
+5
+00:00:21,632 --> 00:00:23,210
+Five ideas today.
+
+6
+00:00:23,210 --> 00:00:23,581
+One:
+
+7
+00:00:23,581 --> 00:00:28,780
+the Grammar of Graphics, building any chart from layers.
+
+8
+00:00:28,780 --> 00:00:29,151
+Two:
+
+9
+00:00:29,151 --> 00:00:31,936
+good versus misleading charts.
+
+10
+00:00:31,936 --> 00:00:32,493
+Three:
+
+11
+00:00:32,493 --> 00:00:39,920
+visualizing non-numeric data such as categories, hierarchies, text and networks.
+
+12
+00:00:39,920 --> 00:00:40,384
+Four:
+
+13
+00:00:40,384 --> 00:00:41,869
+dashboard logic.
+
+14
+00:00:41,869 --> 00:00:42,705
+And five:
+
+15
+00:00:42,705 --> 00:00:44,840
+storytelling with data.
+
+16
+00:00:45,640 --> 00:00:47,119
+Why visualize at all?
+
+17
+00:00:47,119 --> 00:00:58,034
+These four datasets, known as Anscombe's quartet, have the same mean, the same variance, the same correlation of point eight two, and the same fitted line.
+
+18
+00:00:58,034 --> 00:01:00,499
+Yet they look completely different:
+
+19
+00:01:00,499 --> 00:01:07,540
+a clean linear trend, a curve, a line with one outlier, and a vertical stack with one extreme point.
+
+20
+00:01:07,540 --> 00:01:11,836
+Summary statistics compress, and compression hides structure.
+
+21
+00:01:11,836 --> 00:01:14,512
+Only the picture shows the difference.
+
+22
+00:01:15,312 --> 00:01:20,341
+The Grammar of Graphics says every chart is built from layers.
+
+23
+00:01:20,341 --> 00:01:22,855
+The data is the table you plot.
+
+24
+00:01:22,855 --> 00:01:28,370
+Aesthetics decide which column controls x, y, colour, size or shape.
+
+25
+00:01:28,370 --> 00:01:31,776
+Geometry is the shape that draws the data:
+
+26
+00:01:31,776 --> 00:01:34,129
+points, lines, bars or boxes.
+
+27
+00:01:34,129 --> 00:01:40,293
+And scales, labels and theme control axis ranges, titles, colours and fonts.
+
+28
+00:01:40,293 --> 00:01:45,240
+If you can name the layers, you can build or debug any chart.
+
+29
+00:01:46,040 --> 00:01:49,263
+Not all visual channels are equally accurate.
+
+30
+00:01:49,263 --> 00:01:58,501
+People judge position on a common scale best, then length, then angle and slope, then area, and colour intensity least precisely.
+
+31
+00:01:58,501 --> 00:02:03,801
+That is why bar charts and dot plots beat pie charts for comparing values.
+
+32
+00:02:03,801 --> 00:02:08,384
+Put your most important comparison on the most accurate channel.
+
+33
+00:02:09,184 --> 00:02:13,586
+Choose the geometry from the question you are asking.
+
+34
+00:02:13,586 --> 00:02:16,078
+How is one number distributed:
+
+35
+00:02:16,078 --> 00:02:18,652
+histogram, density or box plot.
+
+36
+00:02:18,652 --> 00:02:20,812
+How do two numbers relate:
+
+37
+00:02:20,812 --> 00:02:21,891
+scatter plot.
+
+38
+00:02:21,891 --> 00:02:24,798
+How does a number change over time:
+
+39
+00:02:24,798 --> 00:02:25,712
+line chart.
+
+40
+00:02:25,712 --> 00:02:27,539
+How do groups compare:
+
+41
+00:02:27,539 --> 00:02:29,533
+bar, box or violin plot.
+
+42
+00:02:29,533 --> 00:02:32,024
+How do two categories overlap:
+
+43
+00:02:32,024 --> 00:02:34,101
+a heatmap of a cross-tab.
+
+44
+00:02:34,101 --> 00:02:35,762
+And part of a whole:
+
+45
+00:02:35,762 --> 00:02:37,672
+stacked bar or treemap.
+
+46
+00:02:38,472 --> 00:02:44,144
+Facets, also called small multiples, repeat the same chart once per group in a grid.
+
+47
+00:02:44,144 --> 00:02:49,006
+Every panel shares the same axes, so groups can be compared at a glance.
+
+48
+00:02:49,006 --> 00:03:00,552
+It takes one line of code, for example col equals the grouping column in seaborn, and it is almost always better than piling many lines or colours onto one cluttered plot.
+
+49
+00:03:01,352 --> 00:03:03,999
+Now, good versus misleading charts.
+
+50
+00:03:03,999 --> 00:03:07,326
+The most common trick is the truncated axis.
+
+51
+00:03:07,326 --> 00:03:11,561
+These two bar charts show exactly the same four numbers.
+
+52
+00:03:11,561 --> 00:03:18,745
+On the left the axis starts at ninety five, so a five percent rise looks like a five-fold jump.
+
+53
+00:03:18,745 --> 00:03:24,114
+On the right the axis starts at zero and shows the true, modest change.
+
+54
+00:03:24,114 --> 00:03:28,424
+When bars encode a quantity, the axis must start at zero.
+
+55
+00:03:29,224 --> 00:03:32,014
+Charts can also mislead in other ways.
+
+56
+00:03:32,014 --> 00:03:35,538
+Dual axes can be scaled to fake any correlation.
+
+57
+00:03:35,538 --> 00:03:40,164
+A cherry-picked range shows only the dates that suit the story.
+
+58
+00:03:40,164 --> 00:03:42,146
+Distorted areas exaggerate:
+
+59
+00:03:42,146 --> 00:03:45,597
+doubling a circle's radius quadruples its area.
+
+60
+00:03:45,597 --> 00:03:50,150
+Clutter and three-D effects hide the data and bend the values.
+
+61
+00:03:50,150 --> 00:03:56,464
+And missing context, with no baseline, sample size or source, leaves viewers guessing.
+
+62
+00:03:57,264 --> 00:03:59,536
+Principles of an honest chart.
+
+63
+00:03:59,536 --> 00:04:04,004
+Start bar charts at zero; line charts may zoom, but say so.
+
+64
+00:04:04,004 --> 00:04:07,942
+Label axes with units and give an informative title.
+
+65
+00:04:07,942 --> 00:04:13,092
+Use colour with purpose and check it works for colour-blind readers.
+
+66
+00:04:13,092 --> 00:04:19,529
+Remove decoration that carries no data, such as heavy gridlines, three-D and shadows.
+
+67
+00:04:19,529 --> 00:04:23,088
+And always show the sample size and the source.
+
+68
+00:04:23,888 --> 00:04:31,374
+Mean and correlation do not apply to categories, hierarchies or text, so each needs its own picture.
+
+69
+00:04:31,374 --> 00:04:37,737
+For categorical data, use a sorted bar chart, sorted by value and not alphabetically.
+
+70
+00:04:37,737 --> 00:04:44,400
+For hierarchical data, use a treemap, where area shows share and nesting shows structure.
+
+71
+00:04:44,400 --> 00:04:49,340
+For text, use a word cloud or, better, a word-frequency bar chart.
+
+72
+00:04:49,340 --> 00:04:55,928
+And for relationships, use a network diagram, where nodes are items and edges are links.
+
+73
+00:04:56,728 --> 00:04:57,968
+Dashboard logic.
+
+74
+00:04:57,968 --> 00:05:04,477
+A dashboard is several panels sharing one figure, organised around a single purpose.
+
+75
+00:05:04,477 --> 00:05:09,049
+Start with the audience and the decision they have to make.
+
+76
+00:05:09,049 --> 00:05:13,001
+Put the key numbers first, in a row of K P I cards.
+
+77
+00:05:13,001 --> 00:05:15,171
+Add supporting detail below:
+
+78
+00:05:15,171 --> 00:05:18,271
+a trend, a breakdown and one comparison.
+
+79
+00:05:18,271 --> 00:05:25,090
+And keep the design consistent, with the same colours, scales and filters across panels.
+
+80
+00:05:25,090 --> 00:05:27,880
+Fewer panels, each with a clear job.
+
+81
+00:05:28,680 --> 00:05:32,275
+Storytelling with data turns a chart into a message.
+
+82
+00:05:32,275 --> 00:05:39,881
+Let the title state the insight, such as Central's discount stands out, rather than just naming the variables.
+
+83
+00:05:39,881 --> 00:05:41,263
+Highlight one thing:
+
+84
+00:05:41,263 --> 00:05:44,720
+gray out the rest and colour the bar that matters.
+
+85
+00:05:44,720 --> 00:05:47,901
+Annotate the key moment directly on the chart.
+
+86
+00:05:47,901 --> 00:05:48,869
+And declutter:
+
+87
+00:05:48,869 --> 00:05:52,464
+remove everything that does not support the message.
+
+88
+00:05:53,264 --> 00:05:56,216
+A simple story structure has three parts.
+
+89
+00:05:56,216 --> 00:05:56,792
+Context:
+
+90
+00:05:56,792 --> 00:06:00,032
+what is the situation and why does it matter.
+
+91
+00:06:00,032 --> 00:06:00,680
+Conflict:
+
+92
+00:06:00,680 --> 00:06:04,496
+what did the data reveal that is surprising or wrong.
+
+93
+00:06:04,496 --> 00:06:05,576
+And resolution:
+
+94
+00:06:05,576 --> 00:06:09,464
+what action do you recommend, and what will it change.
+
+95
+00:06:09,464 --> 00:06:14,576
+Every chart in your presentation should serve one of these three parts.
+
+96
+00:06:15,376 --> 00:06:20,591
+To prepare for assignment one, structure your presentation like this.
+
+97
+00:06:20,591 --> 00:06:25,881
+A problem statement with the question, unit of observation and target.
+
+98
+00:06:25,881 --> 00:06:26,863
+A data audit:
+
+99
+00:06:26,863 --> 00:06:31,247
+shape, types, missing values, duplicates and hidden zeros.
+
+100
+00:06:31,247 --> 00:06:35,025
+Univariate and bivariate E D A with honest charts.
+
+101
+00:06:35,025 --> 00:06:38,502
+Two or three hypotheses, labelled exploratory.
+
+102
+00:06:38,502 --> 00:06:45,303
+And a story, with insight titles, one highlighted finding per slide, and a recommendation.
+
+103
+00:06:45,303 --> 00:06:50,896
+Every chart needs an honest axis, labels with units, and an insight title.
+
+104
+00:06:51,696 --> 00:06:52,804
+Key takeaways.
+
+105
+00:06:52,804 --> 00:06:58,424
+Statistics hide structure, so always plot; remember Anscombe's quartet.
+
+106
+00:06:58,424 --> 00:07:03,173
+Every chart is data, aesthetics, geometry, scales and theme.
+
+107
+00:07:03,173 --> 00:07:08,239
+Choose the geometry from the question and use facets for groups.
+
+108
+00:07:08,239 --> 00:07:13,305
+Start bar axes at zero and avoid decoration that bends the data.
+
+109
+00:07:13,305 --> 00:07:18,767
+Categories, hierarchies, text and networks each have a natural chart.
+
+110
+00:07:18,767 --> 00:07:23,674
+And dashboards have one purpose, while stories have a message.
+
+111
+00:07:23,674 --> 00:07:27,553
+In the lab you will build all of these in Python.
+
+112
+00:07:27,553 --> 00:07:29,136
+Thanks for watching.
+

@@ -1,0 +1,392 @@
+1
+00:00:00,000 --> 00:00:03,253
+Now graphical E D A for numerical variables.
+
+2
+00:00:03,253 --> 00:00:05,545
+Plot type one is the histogram.
+
+3
+00:00:05,545 --> 00:00:14,492
+It splits the range into bins and counts how many rows fall into each, the most direct picture of a distribution's shape.
+
+4
+00:00:14,492 --> 00:00:16,636
+Tall bars mean common values.
+
+5
+00:00:16,636 --> 00:00:21,960
+It is the best way to take a first, honest look at any numerical column.
+
+6
+00:00:22,760 --> 00:00:29,686
+Order quantity and discount show flat, evenly spread bars, visually confirming their near-zero skewness.
+
+7
+00:00:29,686 --> 00:00:39,542
+Sales, unit price and shipping cost show one towering bar near zero and an almost invisible tail, the picture behind their extreme skewness numbers.
+
+8
+00:00:39,542 --> 00:00:48,200
+And profit shows a sharp spike near zero with real mass on both the negative and positive side, confirming the loss-making orders.
+
+9
+00:00:49,000 --> 00:00:53,728
+Plot type two is the density plot, built with kernel density estimation.
+
+10
+00:00:53,728 --> 00:00:57,865
+It is a smoothed histogram, a continuous curve instead of bars.
+
+11
+00:00:57,865 --> 00:01:09,160
+It removes the arbitrary choice of bin width and gives a cleaner picture, but smoothing can hide small real spikes that a histogram shows, so the two complement each other.
+
+12
+00:01:09,960 --> 00:01:14,912
+Order quantity's curve confirms a genuinely flat, near-uniform shape.
+
+13
+00:01:14,912 --> 00:01:22,592
+Profit shows a sharp, narrow peak straddling zero, distinct from the one-sided skew of sales or unit price.
+
+14
+00:01:22,592 --> 00:01:27,975
+Sales and unit price again collapse into a flat line squashed against zero.
+
+15
+00:01:27,975 --> 00:01:32,712
+Density plots handle moderate skew well, but not this level of it.
+
+16
+00:01:33,512 --> 00:01:35,734
+Plot type three is the boxplot.
+
+17
+00:01:35,734 --> 00:01:38,529
+It packs five numbers into one picture:
+
+18
+00:01:38,529 --> 00:01:44,692
+minimum, Q one, median, Q three and maximum, plus individually plotted outlier points.
+
+19
+00:01:44,692 --> 00:01:52,862
+The box spans the middle fifty percent, whiskers show the normal range, and dots beyond them are flagged outliers.
+
+20
+00:01:52,862 --> 00:01:59,384
+It is best for comparing spread and spotting outliers across several features side by side.
+
+21
+00:02:00,184 --> 00:02:06,224
+Order quantity and discount have honest, well-formed boxes with essentially no outliers.
+
+22
+00:02:06,224 --> 00:02:14,597
+Profit's box straddles zero with outlier dots stretching both ways, large losses on one side and large gains on the other.
+
+23
+00:02:14,597 --> 00:02:22,216
+Sales, unit price and shipping cost have boxes crushed toward zero, exactly as their dispersion numbers warned.
+
+24
+00:02:23,016 --> 00:02:25,349
+Plot type four is the violin plot.
+
+25
+00:02:25,349 --> 00:02:34,888
+It mirrors a density curve on both sides of a central boxplot, so you see the full distribution shape and the five-number summary together.
+
+26
+00:02:34,888 --> 00:02:42,025
+A boxplot alone can hide whether data is single-peaked, multi-peaked or lopsided; the violin reveals it.
+
+27
+00:02:42,025 --> 00:02:45,456
+Use it when the shape itself is part of the story.
+
+28
+00:02:46,256 --> 00:02:54,132
+Order quantity has the most rectangular, even violin body, the clearest visual confirmation of a uniform shape.
+
+29
+00:02:54,132 --> 00:03:01,583
+Profit's violin is narrow and symmetric around zero, unlike the one-sided needles of sales or unit price.
+
+30
+00:03:01,583 --> 00:03:06,196
+Sales, unit price and shipping cost appear as needle-thin spikes.
+
+31
+00:03:06,196 --> 00:03:12,440
+The violin plot cannot rescue a shape this extreme any more than the density plot could.
+
+32
+00:03:13,240 --> 00:03:18,261
+Plot type five overlays the same feature's density curve for several categories.
+
+33
+00:03:18,261 --> 00:03:26,419
+Curves that overlap heavily mean the category barely affects the feature; curves that separate mean the category is a real driver.
+
+34
+00:03:26,419 --> 00:03:32,632
+It is an early visual check of whether a categorical feature is worth investigating as a predictor.
+
+35
+00:03:33,432 --> 00:03:38,505
+All three categories centre close to zero, with gains and losses in each.
+
+36
+00:03:38,505 --> 00:03:43,439
+Technology shows a visibly wider spread, bigger wins and bigger losses.
+
+37
+00:03:43,439 --> 00:03:45,315
+Average profit confirms it:
+
+38
+00:03:45,315 --> 00:03:53,376
+technology averages four hundred twenty nine dollars per order, more than six times furniture's sixty eight dollars.
+
+39
+00:03:54,176 --> 00:03:59,243
+Delivery truck shows the widest spread and highest typical shipping cost.
+
+40
+00:03:59,243 --> 00:04:05,142
+Regular air and express air cluster at lower costs, with express air slightly higher.
+
+41
+00:04:05,142 --> 00:04:07,016
+This is a sensible pattern:
+
+42
+00:04:07,016 --> 00:04:12,152
+heavier or bulkier shipments that need truck delivery naturally cost more.
+
+43
+00:04:12,952 --> 00:04:15,089
+Now compare the two approaches.
+
+44
+00:04:15,089 --> 00:04:26,604
+For unit price, the non-graphical view said skewness fourteen, kurtosis two seventy one, mean more than four times the median, ten percent of rows flagged as outliers.
+
+45
+00:04:26,604 --> 00:04:36,877
+The graphical view showed one towering bar, a boxplot crushed flat with a wall of outlier dots past sixty seven hundred dollars, and a needle violin.
+
+46
+00:04:36,877 --> 00:04:37,497
+Combined:
+
+47
+00:04:37,497 --> 00:04:44,392
+most items are inexpensive, but a small set of high-end products pulls every average sharply upward.
+
+48
+00:04:45,192 --> 00:04:56,804
+For order quantity, skewness is about zero, mean and median sit almost on top of each other, kurtosis is negative one point two one, and zero percent are outliers.
+
+49
+00:04:56,804 --> 00:05:05,210
+The histogram is rectangular across one to fifty, the boxplot has no outlier dots, and the violin is the most uniform.
+
+50
+00:05:05,210 --> 00:05:09,912
+The number and the picture agree closely, a rare, reassuring case.
+
+51
+00:05:10,712 --> 00:05:12,054
+The overall lesson.
+
+52
+00:05:12,054 --> 00:05:17,138
+When they agree, as with order quantity, you can trust either technique.
+
+53
+00:05:17,138 --> 00:05:30,061
+When they diverge in detail, as with unit price, the skewness number warned of extreme skew, but only the boxplot showed that the entire spread lives in the outlier dots, not the box.
+
+54
+00:05:30,061 --> 00:05:37,123
+Non-graphical statistics are fast and precise but abstract; plots are intuitive but can hide detail.
+
+55
+00:05:37,123 --> 00:05:38,888
+Always use both together.
+
+56
+00:05:39,688 --> 00:05:41,531
+Now categorical variables.
+
+57
+00:05:41,531 --> 00:05:44,153
+Plot type six is the frequency table:
+
+58
+00:05:44,153 --> 00:05:49,893
+a count and percentage for each category, the categorical equivalent of describe.
+
+59
+00:05:49,893 --> 00:05:58,468
+The biggest number is the most common category, and a category with a tiny count is a warning for later grouped analysis.
+
+60
+00:05:58,468 --> 00:06:02,224
+It is the very first check on any categorical column.
+
+61
+00:06:03,024 --> 00:06:04,223
+Product category:
+
+62
+00:06:04,223 --> 00:06:13,462
+office supplies is the majority, four thousand six hundred ten orders, fifty five percent; furniture is smallest at twenty percent.
+
+63
+00:06:13,462 --> 00:06:14,167
+Ship mode:
+
+64
+00:06:14,167 --> 00:06:20,303
+regular air dominates at seventy five percent; express air is rarest at twelve percent.
+
+65
+00:06:20,303 --> 00:06:21,502
+Customer segment:
+
+66
+00:06:21,502 --> 00:06:27,144
+corporate is largest at thirty seven percent, with the other three fairly close.
+
+67
+00:06:27,944 --> 00:06:30,195
+Plot type seven is the bar plot.
+
+68
+00:06:30,195 --> 00:06:39,200
+It turns a frequency table into a picture, one bar per category, so the eye compares heights far faster than numbers in a table.
+
+69
+00:06:39,200 --> 00:06:47,360
+It is best for presenting frequencies, or for comparing a summary statistic, like average profit, across categories.
+
+70
+00:06:48,160 --> 00:06:52,642
+Product category shows office supplies towering over the other two.
+
+71
+00:06:52,642 --> 00:06:58,997
+Ship mode shows a steep drop after regular air, since most orders default to standard shipping.
+
+72
+00:06:58,997 --> 00:07:05,152
+Customer segment shows a real but modest lead for corporate over three fairly even segments.
+
+73
+00:07:05,952 --> 00:07:10,051
+Plot type eight is the pie chart, a part-to-whole view.
+
+74
+00:07:10,051 --> 00:07:10,797
+A caution:
+
+75
+00:07:10,797 --> 00:07:18,325
+pie charts get hard to read past four or five slices, and are poor at comparing similar-sized slices.
+
+76
+00:07:18,325 --> 00:07:22,424
+Product category, with exactly three groups, fits well.
+
+77
+00:07:22,424 --> 00:07:27,120
+A variable with eight categories is better shown as a bar plot.
+
+78
+00:07:27,920 --> 00:07:32,137
+Office supplies alone accounts for well over half of every order.
+
+79
+00:07:32,137 --> 00:07:37,781
+Technology and furniture together make up less than half, despite being two categories.
+
+80
+00:07:37,781 --> 00:07:44,528
+Seeing this part-to-whole makes the dominance of office supplies easier to feel than the bar plot alone.
+
+81
+00:07:45,328 --> 00:07:46,767
+Finally, anomalies.
+
+82
+00:07:46,767 --> 00:07:47,448
+The rule:
+
+83
+00:07:47,448 --> 00:07:57,974
+compute Q one, Q three and the I Q R, and flag anything below Q one minus one point five I Q R, or above Q three plus one point five I Q R.
+
+84
+00:07:57,974 --> 00:08:01,382
+This non-graphical rule has a graphical twin:
+
+85
+00:08:01,382 --> 00:08:05,395
+the same fences are what a boxplot draws as whiskers.
+
+86
+00:08:05,395 --> 00:08:07,970
+And not every outlier is an error:
+
+87
+00:08:07,970 --> 00:08:16,072
+a twenty seven thousand dollar profit and a fourteen thousand dollar loss are both genuine business events.
+
+88
+00:08:16,872 --> 00:08:26,475
+Profit has one thousand seven hundred four outliers, twenty percent of rows, the highest rate, capturing both large gains and large losses.
+
+89
+00:08:26,475 --> 00:08:32,209
+Sales has twelve percent, shipping cost and unit price about ten to twelve percent.
+
+90
+00:08:32,209 --> 00:08:36,492
+Discount has just three outliers, and order quantity has none.
+
+91
+00:08:36,492 --> 00:08:44,160
+Profit's outliers are exactly the extreme wins and losses that help explain why over half of orders lose money.
+
+92
+00:08:44,960 --> 00:08:45,573
+To recap:
+
+93
+00:08:45,573 --> 00:08:56,204
+we applied three non-graphical technique families and eight plot types to every feature, matching every result with its plot and every plot with its number.
+
+94
+00:08:56,204 --> 00:09:02,133
+The techniques agree on order quantity and reinforce each other on the skewed features:
+
+95
+00:09:02,133 --> 00:09:07,858
+the numbers flag that something is unusual, and the plots show exactly what and why.
+
+96
+00:09:07,858 --> 00:09:08,403
+Next up:
+
+97
+00:09:08,403 --> 00:09:11,197
+correlation, covariance and scatterplots.
+
+98
+00:09:11,197 --> 00:09:12,560
+Thanks for watching.
+

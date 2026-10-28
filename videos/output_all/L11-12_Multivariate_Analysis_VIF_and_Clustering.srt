@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:02,741
+Welcome to lectures eleven and twelve:
+
+2
+00:00:02,741 --> 00:00:04,328
+multivariate analysis.
+
+3
+00:00:04,328 --> 00:00:13,344
+We cover multicollinearity and V I F, then discovering groups with clustering and K-Means, and how to interpret the clusters.
+
+4
+00:00:14,144 --> 00:00:17,009
+So far we compared features two at a time.
+
+5
+00:00:17,009 --> 00:00:26,286
+Real datasets rarely explain themselves through a single pair; patterns often appear only when several features are considered together.
+
+6
+00:00:26,286 --> 00:00:27,787
+Two things can happen.
+
+7
+00:00:27,787 --> 00:00:34,609
+Redundant features carry almost the same information, wasting model capacity and distorting results:
+
+8
+00:00:34,609 --> 00:00:36,382
+that is multicollinearity.
+
+9
+00:00:36,382 --> 00:00:43,682
+And records can form hidden groupings across several features at once, invisible in any single scatterplot:
+
+10
+00:00:43,682 --> 00:00:45,728
+that is what clustering finds.
+
+11
+00:00:46,528 --> 00:00:56,551
+Multicollinearity occurs when one feature can be predicted with high accuracy from a combination of the others, so it adds little independent information.
+
+12
+00:00:56,551 --> 00:01:05,402
+It distorts distance-based methods like clustering, inflates the importance of a repeated signal, and makes results harder to interpret.
+
+13
+00:01:05,402 --> 00:01:07,419
+A pairwise check is not enough:
+
+14
+00:01:07,419 --> 00:01:14,123
+two features can look uncorrelated individually, yet still be predictable from several others together.
+
+15
+00:01:14,123 --> 00:01:18,809
+We need a measure that compares each feature to all the others combined.
+
+16
+00:01:18,809 --> 00:01:19,720
+That is V I F.
+
+17
+00:01:20,520 --> 00:01:23,502
+V I F equals one over one minus R squared.
+
+18
+00:01:23,502 --> 00:01:29,538
+For each feature, we fit a mini-regression predicting it from all the other features.
+
+19
+00:01:29,538 --> 00:01:36,710
+If the others predict it well, R squared is high and V I F is high, meaning the feature is redundant.
+
+20
+00:01:36,710 --> 00:01:40,687
+A V I F of one means no correlation with other features.
+
+21
+00:01:40,687 --> 00:01:44,167
+One to five is moderate and generally acceptable.
+
+22
+00:01:44,167 --> 00:01:47,291
+Five to ten is high and worth investigating.
+
+23
+00:01:47,291 --> 00:01:53,256
+Above ten is severe multicollinearity, and you should consider dropping the feature.
+
+24
+00:01:54,056 --> 00:02:02,410
+Once we have confirmed the features are independent enough to trust, a natural next question is about the rows, not the columns:
+
+25
+00:02:02,410 --> 00:02:09,198
+do orders naturally cluster into distinct kinds, without us telling the data what those kinds should be?
+
+26
+00:02:09,198 --> 00:02:12,462
+In supervised learning we already know the labels.
+
+27
+00:02:12,462 --> 00:02:20,816
+In unsupervised learning, or clustering, no labels exist, and the algorithm groups records purely by similarity across features.
+
+28
+00:02:21,616 --> 00:02:24,028
+In clustering, no labels are given.
+
+29
+00:02:24,028 --> 00:02:30,714
+The algorithm discovers structure using only how similar records are across the numeric features.
+
+30
+00:02:30,714 --> 00:02:32,989
+We use it here purely to explore:
+
+31
+00:02:32,989 --> 00:02:36,849
+does structure exist, and what distinguishes each group?
+
+32
+00:02:36,849 --> 00:02:44,224
+We are not building a predictive model or classifying new orders, just describing the data we already have.
+
+33
+00:02:45,024 --> 00:02:46,988
+K-Means follows five steps.
+
+34
+00:02:46,988 --> 00:02:50,115
+Choose k, the number of groups to look for.
+
+35
+00:02:50,115 --> 00:02:54,406
+Place k centres, initially at random, in the feature space.
+
+36
+00:02:54,406 --> 00:02:57,461
+Assign every record to the nearest centre.
+
+37
+00:02:57,461 --> 00:03:01,534
+Update each centre to the average position of its group.
+
+38
+00:03:01,534 --> 00:03:06,407
+Repeat the assign and update steps until assignments stop changing.
+
+39
+00:03:06,407 --> 00:03:16,008
+In this course we use it only to describe existing data; the centres summarise patterns, they do not predict labels for new records.
+
+40
+00:03:16,808 --> 00:03:19,926
+K-Means measures how far apart two records are.
+
+41
+00:03:19,926 --> 00:03:30,208
+If features are on very different scales, the largest-scale feature silently dominates that distance, and the algorithm clusters on that one feature alone.
+
+42
+00:03:30,208 --> 00:03:36,709
+Sales ranges up to twenty two thousand dollars, while discount runs only from zero to point eight.
+
+43
+00:03:36,709 --> 00:03:45,200
+The fix is Standard Scaler, which rescales every feature to mean zero and standard deviation one, so all features count equally.
+
+44
+00:03:46,000 --> 00:03:48,480
+K-Means needs k decided in advance.
+
+45
+00:03:48,480 --> 00:03:51,455
+The silhouette score helps judge a choice:
+
+46
+00:03:51,455 --> 00:03:58,185
+for each point it compares how close it is to its own cluster versus the nearest other cluster.
+
+47
+00:03:58,185 --> 00:04:03,782
+Minus one is poor separation, zero is ambiguous, plus one is strong separation.
+
+48
+00:04:03,782 --> 00:04:09,733
+Here k equals two scores highest, but only splits orders into smaller versus larger.
+
+49
+00:04:09,733 --> 00:04:15,968
+k equals three is a close second and yields three clearly interpretable business groups.
+
+50
+00:04:15,968 --> 00:04:19,864
+The statistically best k is not always the most useful.
+
+51
+00:04:20,664 --> 00:04:29,605
+To see the clusters, colour a scatterplot by cluster using the hue argument for a quick check that clusters correspond to a visible pattern.
+
+52
+00:04:29,605 --> 00:04:39,120
+A pairplot with hue shows every pair of features at once, each coloured by cluster, the fastest way to see separation across all dimensions together.
+
+53
+00:04:39,920 --> 00:04:42,888
+A cluster number means nothing on its own.
+
+54
+00:04:42,888 --> 00:04:47,764
+Interpretation reuses the grouped statistics from bivariate analysis:
+
+55
+00:04:47,764 --> 00:04:51,439
+group by cluster instead of by an existing category.
+
+56
+00:04:51,439 --> 00:04:55,679
+Cluster zero, sixty nine hundred orders, is everyday orders.
+
+57
+00:04:55,679 --> 00:05:02,533
+Cluster two is high-value, high-profit orders averaging six hundred thirty four dollars in sales.
+
+58
+00:05:02,533 --> 00:05:04,795
+And cluster one is the standout:
+
+59
+00:05:04,795 --> 00:05:12,215
+heavy discounts averaging sixty six percent, with an average loss of one hundred seven dollars per order.
+
+60
+00:05:12,215 --> 00:05:15,253
+That becomes a hypothesis to test formally:
+
+61
+00:05:15,253 --> 00:05:18,151
+is this discount policy destroying value?
+
+62
+00:05:18,151 --> 00:05:23,168
+Cross-tabulate clusters against an existing category as a sanity check.
+
+63
+00:05:23,968 --> 00:05:24,980
+Four cautions.
+
+64
+00:05:24,980 --> 00:05:30,760
+K-Means is not a prediction model in this course; it describes existing records.
+
+65
+00:05:30,760 --> 00:05:33,073
+And k is chosen, not discovered:
+
+66
+00:05:33,073 --> 00:05:36,758
+the silhouette score only helps compare candidates.
+
+67
+00:05:36,758 --> 00:05:42,828
+It is sensitive to scale and outliers, so always scale first and check for outliers.
+
+68
+00:05:42,828 --> 00:05:45,212
+And clusters need a sanity check:
+
+69
+00:05:45,212 --> 00:05:50,776
+a statistically tight cluster is only useful if it also makes business sense.
+
+70
+00:05:51,576 --> 00:05:52,578
+Key takeaways.
+
+71
+00:05:52,578 --> 00:05:56,585
+Multivariate analysis studies several features together.
+
+72
+00:05:56,585 --> 00:06:05,815
+Multicollinearity means a feature is largely redundant given the others, checked with correlation and more rigorously with V I F:
+
+73
+00:06:05,815 --> 00:06:11,110
+near one is ideal, above five is worth investigating, above ten is severe.
+
+74
+00:06:11,110 --> 00:06:16,548
+K-Means discovers groups without labels, for exploration and not prediction.
+
+75
+00:06:16,548 --> 00:06:17,908
+Always scale first.
+
+76
+00:06:17,908 --> 00:06:24,276
+The silhouette score compares values of k, but the highest is not always the most useful.
+
+77
+00:06:24,276 --> 00:06:32,719
+And a cluster is meaningful only after you interpret it with grouped statistics and check it against known categories.
+
+78
+00:06:32,719 --> 00:06:33,864
+Next is the lab.
+
