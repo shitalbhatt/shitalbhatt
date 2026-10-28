@@ -276,5 +276,5 @@ const slides = [
     n: "Point students to the chapters on second-order time response in the Unit 2 textbook. Encourage solving the textbook problems on time-domain specifications. Remind them to use MATLAB to check their answers. Thank the class." },
 ];
 
-build({ theme, pal, title: "Control Systems — Unit 2: Second-Order Time Response", footer: "Control Systems (22EEG53)  |  Prof. Mitesh Astik", file: "../Control_Systems_Unit2_Second_Order_Time_Response.pptx", slides, boldFirst: true })
+build({ theme, pal, title: "Control Systems — Unit 2: Second-Order Time Response", footer: "Control Systems (22EEG53)  |  Prof. Mitesh Astik", file: "../Control_Systems/CS_U2b_Second_Order_Time_Response.pptx", slides, boldFirst: true })
   .then(() => console.log("control done")).catch(e => { console.error(e); process.exit(1); });

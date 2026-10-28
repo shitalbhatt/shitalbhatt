@@ -223,5 +223,5 @@ const slides = [
     n: "Direct students to the AC fundamentals chapters of Hughes for extra problems. Ask them to solve three problems on RMS and average values and one on phasor addition. Thank the class and preview the next lecture on series circuits and power factor." },
 ];
 
-build({ theme, pal, title: "BEEE — Unit 1: Sinusoidal AC Fundamentals", footer: "Basic Electrical and Electronics Engineering  |  Prof. Mitesh Astik", file: "../BEEE_Unit1_Sinusoidal_AC_Fundamentals.pptx", slides })
+build({ theme, pal, title: "BEEE — Unit 1: Sinusoidal AC Fundamentals", footer: "Basic Electrical and Electronics Engineering  |  Prof. Mitesh Astik", file: "../BEEE/BEEE_U1b_Sinusoidal_AC_and_Phasors.pptx", slides })
   .then(() => console.log("beee done")).catch(e => { console.error(e); process.exit(1); });

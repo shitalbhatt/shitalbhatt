@@ -111,7 +111,7 @@ async function build(cfg) {
       const ex = sl.kind === "ex";
       const tw = ex ? 5.1 : 4.3, fx = ex ? 5.75 : 4.95, fw = ex ? 3.75 : 4.55;
       s.addText(bullets(sl.b), { x: 0.5, y: 1.25, w: tw, h: 3.1, fontSize: 14, color: pal.ink, fontFace: BODY, valign: "top", margin: 0, isTextBox: true, objectName: "Bullets" });
-      if (sl.fig) s.addImage({ data: await png(sl.fig), x: fx, y: 1.25, w: fw, h: 3.1, objectName: "Diagram", altText: sl.alt || sl.t });
+      if (sl.fig) { const m = /width="(\d+)" height="(\d+)"/.exec(sl.fig), ar = m ? m[1] / m[2] : fw / 3.1; let iw = fw, ih = fw / ar; if (ih > 3.1) { ih = 3.1; iw = 3.1 * ar; } s.addImage({ data: await png(sl.fig), x: fx + (fw - iw) / 2, y: 1.25 + (3.1 - ih) / 2, w: iw, h: ih, objectName: "Diagram", altText: sl.alt || sl.t }); }
       if (sl.f) strip(s, sl.f);
     } else if (sl.kind === "mistakes") {
       const col = (x, head, arr, color) => {
@@ -143,7 +143,22 @@ async function build(cfg) {
     }
     s.addNotes(sl.n);
   }
+  if (cfg.md) require("fs").writeFileSync(cfg.md, mdTable(cfg));
   await pres.writeFile({ fileName: cfg.file });
   await applyTheme(cfg.file, theme);
 }
-module.exports = { Plot, ptext, arrowPx, rectPx, svg, build, esc };
+function mdTable(cfg) {
+  const c = s => String(s).replace(/\|/g, "∣").replace(/\n/g, "<br>");
+  const head = `# ${cfg.title}\n\n${cfg.mdMeta || ""}\n\n| Slide No | Title | Bullets | Visual | Speaker Notes |\n|---|---|---|---|---|\n`;
+  const rows = cfg.slides.map((s, i) => {
+    let b = [];
+    if (s.kind === "title") b = [s.title, ...s.sub];
+    else if (s.kind === "mistakes") b = [...s.bad.map(x => "✕ " + x), ...s.good.map(x => "✓ " + x)];
+    else if (s.kind === "quiz") b = s.q.map((q, k) => `Q${k + 1}. ${q.q} ${q.o} **Ans: ${q.a}**`);
+    else if (s.kind === "refs") b = s.refs.map(r => `${r[0]} — ${r[1]}`);
+    else { b = (s.b || []).map(x => "• " + x); if (s.f) b.push(...s.f.map((x, k) => (k === 0 ? "**Formula/Key:** " : "") + x)); }
+    return `| ${i + 1} | ${c(s.t || s.title)} | ${b.map(c).join("<br>")} | ${c(s.vis || "")} | ${c(s.n)} |`;
+  });
+  return head + rows.join("\n") + "\n";
+}
+module.exports = { mdTable, Plot, ptext, arrowPx, rectPx, svg, build, esc };
