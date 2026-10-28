@@ -1,5 +1,32 @@
 [
  {
+  "file": "C00_Course_Introduction_and_Roadmap_DATA209.mp4",
+  "captions": "C00_Course_Introduction_and_Roadmap_DATA209.srt",
+  "title": "DATA209 Advanced Exploratory Data Analysis Course Roadmap: Modules, Assessment and Reading List",
+  "description": "DATA209 Advanced Exploratory Data Analysis Course Roadmap: Modules, Assessment and Reading List\n\nIn this video you will learn what the course covers, the four outcomes, the 16-week schedule, how assessment works, the tools used and the books to read.\n\nCHAPTERS\n00:00 Introduction\n01:13 Course outcomes\n01:41 The four modules\n02:41 Assessment\n03:44 How to use these videos\n04:07 Reading list\n04:34 Summary\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #start #here",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "start here",
+   "full course roadmap",
+   "modules",
+   "assessment",
+   "reading list"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/C00_Course_Introduction_and_Roadmap_DATA209.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2026-11-16T18:30:00+05:30"
+ },
+ {
   "file": "L01_Why_We_Explore_Before_We_Conclude.mp4",
   "captions": "L01_Why_We_Explore_Before_We_Conclude.srt",
   "title": "What is EDA? Exploratory vs Confirmatory Analysis, Sampling Bias and Bias-Variance",
@@ -23,7 +50,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L01_Why_We_Explore_Before_We_Conclude.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-02T18:30:00+05:30"
+  "publishAt": "2026-11-18T18:30:00+05:30"
  },
  {
   "file": "L02_Distributions_Summaries_Robust_Statistics.mp4",
@@ -52,7 +79,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L02_Distributions_Summaries_Robust_Statistics.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-04T18:30:00+05:30"
+  "publishAt": "2026-11-20T18:30:00+05:30"
  },
  {
   "file": "P01-02_Lab_Framing_Loading_and_Describing_Data.mp4",
@@ -82,7 +109,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P01-02_Lab_Framing_Loading_and_Describing_Data.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-06T18:30:00+05:30"
+  "publishAt": "2026-11-23T18:30:00+05:30"
  },
  {
   "file": "P01-02_Worked_Example_California_Housing.mp4",
@@ -111,7 +138,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P01-02_Worked_Example_California_Housing.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-09T18:30:00+05:30"
+  "publishAt": "2026-11-25T18:30:00+05:30"
  },
  {
   "file": "L03-04_Data_Types_and_Structures.mp4",
@@ -142,7 +169,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L03-04_Data_Types_and_Structures.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-11T18:30:00+05:30"
+  "publishAt": "2026-11-27T18:30:00+05:30"
  },
  {
   "file": "P03-04_Lab_Spotting_Data_Types_and_Structure.mp4",
@@ -169,7 +196,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P03-04_Lab_Spotting_Data_Types_and_Structure.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-13T18:30:00+05:30"
+  "publishAt": "2026-11-30T18:30:00+05:30"
  },
  {
   "file": "L05-06_Images_Audio_Dimensionality_and_Ethics.mp4",
@@ -197,7 +224,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L05-06_Images_Audio_Dimensionality_and_Ethics.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-16T18:30:00+05:30"
+  "publishAt": "2026-12-02T18:30:00+05:30"
  },
  {
   "file": "P05-06_Lab_Image_Pixels_and_Audio_Waveforms.mp4",
@@ -225,7 +252,36 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P05-06_Lab_Image_Pixels_and_Audio_Waveforms.png",
   "playlist": "Module 1 - Statistical and Data Foundations for EDA",
-  "publishAt": "2026-11-18T18:30:00+05:30"
+  "publishAt": "2026-12-04T18:30:00+05:30"
+ },
+ {
+  "file": "R1_Module_1_Revision_Foundations.mp4",
+  "captions": "R1_Module_1_Revision_Foundations.srt",
+  "title": "Module 1 Revision: EDA Foundations, Distributions, Data Types and Data Bias (With Self-Test Questions)",
+  "description": "Module 1 Revision: EDA Foundations, Distributions, Data Types and Data Bias (With Self-Test Questions)\n\nIn this video you will learn a recap of lectures 1 to 6 and five self-test questions on EDA foundations, robust statistics, data types, dimensionality and bias.\n\nCHAPTERS\n00:00 Introduction\n00:17 Lectures 1 and 2\n00:45 Lectures 3 and 4\n01:13 Lectures 5 and 6\n01:40 Labs\n02:02 Test yourself\n03:08 Summary\n\nPLAYLIST: Module 1 - Statistical and Data Foundations for EDA\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #module #revision",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "module 1 revision",
+   "test yourself",
+   "eda foundations",
+   "distributions",
+   "data types",
+   "data bias",
+   "with self-test questions"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/R1_Module_1_Revision_Foundations.png",
+  "playlist": "Module 1 - Statistical and Data Foundations for EDA",
+  "publishAt": "2026-12-07T18:30:00+05:30"
  },
  {
   "file": "L07_Non_Graphical_EDA_Superstore.mp4",
@@ -254,7 +310,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L07_Non_Graphical_EDA_Superstore.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-11-20T18:30:00+05:30"
+  "publishAt": "2026-12-09T18:30:00+05:30"
  },
  {
   "file": "L08_Graphical_EDA_Categorical_and_Anomalies.mp4",
@@ -283,7 +339,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L08_Graphical_EDA_Categorical_and_Anomalies.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-11-23T18:30:00+05:30"
+  "publishAt": "2026-12-11T18:30:00+05:30"
  },
  {
   "file": "P07-08_Lab_Univariate_EDA_Superstore.mp4",
@@ -309,7 +365,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P07-08_Lab_Univariate_EDA_Superstore.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-11-25T18:30:00+05:30"
+  "publishAt": "2026-12-14T18:30:00+05:30"
  },
  {
   "file": "L09-10_Bivariate_Analysis.mp4",
@@ -337,7 +393,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L09-10_Bivariate_Analysis.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-11-27T18:30:00+05:30"
+  "publishAt": "2026-12-16T18:30:00+05:30"
  },
  {
   "file": "P09-10_Lab_Bivariate_Analysis_in_Python.mp4",
@@ -366,7 +422,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P09-10_Lab_Bivariate_Analysis_in_Python.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-11-30T18:30:00+05:30"
+  "publishAt": "2026-12-18T18:30:00+05:30"
  },
  {
   "file": "L11-12_Multivariate_Analysis_VIF_and_Clustering.mp4",
@@ -393,7 +449,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L11-12_Multivariate_Analysis_VIF_and_Clustering.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-12-02T18:30:00+05:30"
+  "publishAt": "2026-12-21T18:30:00+05:30"
  },
  {
   "file": "P11-12_Lab_Multivariate_Analysis_in_Python.mp4",
@@ -421,7 +477,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P11-12_Lab_Multivariate_Analysis_in_Python.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-12-04T18:30:00+05:30"
+  "publishAt": "2026-12-23T18:30:00+05:30"
  },
  {
   "file": "L13-14_Data_Visualization_Grammar_to_Storytelling_Lecture.mp4",
@@ -448,7 +504,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L13-14_Data_Visualization_Grammar_to_Storytelling_Lecture.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-12-07T18:30:00+05:30"
+  "publishAt": "2026-12-25T18:30:00+05:30"
  },
  {
   "file": "P13-14_Lab_Data_Visualization_Grammar_to_Storytelling.mp4",
@@ -478,7 +534,62 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P13-14_Lab_Data_Visualization_Grammar_to_Storytelling.png",
   "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-  "publishAt": "2026-12-09T18:30:00+05:30"
+  "publishAt": "2026-12-28T18:30:00+05:30"
+ },
+ {
+  "file": "A1_Assignment_1_Guide_EDA_Mini_Project.mp4",
+  "captions": "A1_Assignment_1_Guide_EDA_Mini_Project.srt",
+  "title": "Assignment 1 Guide: How to Plan and Present an EDA Mini Project in Python",
+  "description": "Assignment 1 Guide: How to Plan and Present an EDA Mini Project in Python\n\nIn this video you will learn how to choose a dataset, structure the analysis, avoid common mistakes and present an EDA mini project as a story.\n\nCHAPTERS\n00:00 Introduction\n00:40 Structure\n01:04 Choosing data\n01:54 Presenting\n02:18 Checklist\n02:43 Mistakes\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #mini",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "eda mini project",
+   "assignment 1 guide",
+   "how to plan",
+   "present an eda mini project in python"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/A1_Assignment_1_Guide_EDA_Mini_Project.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2026-12-30T18:30:00+05:30"
+ },
+ {
+  "file": "R2_Module_2_Revision_Core_Advanced_EDA.mp4",
+  "captions": "R2_Module_2_Revision_Core_Advanced_EDA.srt",
+  "title": "Module 2 Revision: Univariate, Bivariate and Multivariate EDA and Visualization (With Self-Test Questions)",
+  "description": "Module 2 Revision: Univariate, Bivariate and Multivariate EDA and Visualization (With Self-Test Questions)\n\nIn this video you will learn a recap of lectures 7 to 14 and five self-test questions on graphical and non-graphical EDA, correlation, VIF, K-Means and honest charts.\n\nCHAPTERS\n00:00 Introduction\n00:16 Lectures 7 and 8\n00:48 Lectures 9 and 10\n01:23 Lectures 11 and 12\n01:53 Lectures 13 and 14\n02:27 Labs\n02:51 Test yourself\n04:04 Summary\n\nPLAYLIST: Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #module #revision",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "module 2 revision",
+   "test yourself",
+   "univariate",
+   "bivariate",
+   "multivariate eda",
+   "visualization",
+   "with self-test questions"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/R2_Module_2_Revision_Core_Advanced_EDA.png",
+  "playlist": "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
+  "publishAt": "2027-01-01T18:30:00+05:30"
  },
  {
   "file": "L15-16_Data_Quality_Integration_and_Validation_Lecture.mp4",
@@ -508,7 +619,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L15-16_Data_Quality_Integration_and_Validation_Lecture.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-11T18:30:00+05:30"
+  "publishAt": "2027-01-04T18:30:00+05:30"
  },
  {
   "file": "P15-16_Lab_Data_Quality_Part_A_Audit_to_Validity.mp4",
@@ -538,7 +649,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P15-16_Lab_Data_Quality_Part_A_Audit_to_Validity.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-14T18:30:00+05:30"
+  "publishAt": "2027-01-06T18:30:00+05:30"
  },
  {
   "file": "P15-16_Lab_Data_Quality_Part_B_Integration_to_Scale.mp4",
@@ -566,7 +677,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P15-16_Lab_Data_Quality_Part_B_Integration_to_Scale.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-16T18:30:00+05:30"
+  "publishAt": "2027-01-08T18:30:00+05:30"
  },
  {
   "file": "L17-18_Missing_Values_Lecture_and_Lab.mp4",
@@ -595,7 +706,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L17-18_Missing_Values_Lecture_and_Lab.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-18T18:30:00+05:30"
+  "publishAt": "2027-01-11T18:30:00+05:30"
  },
  {
   "file": "L19-20_Outliers_Lecture.mp4",
@@ -622,7 +733,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L19-20_Outliers_Lecture.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-21T18:30:00+05:30"
+  "publishAt": "2027-01-13T18:30:00+05:30"
  },
  {
   "file": "P19-20_Lab_Outliers_in_Python.mp4",
@@ -651,7 +762,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P19-20_Lab_Outliers_in_Python.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-23T18:30:00+05:30"
+  "publishAt": "2027-01-15T18:30:00+05:30"
  },
  {
   "file": "L21-22_Encoding_and_Imbalanced_Classes_Lecture.mp4",
@@ -681,7 +792,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L21-22_Encoding_and_Imbalanced_Classes_Lecture.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-25T18:30:00+05:30"
+  "publishAt": "2027-01-18T18:30:00+05:30"
  },
  {
   "file": "P21-22_Lab_Encoding_and_Imbalance_in_Python.mp4",
@@ -707,7 +818,62 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P21-22_Lab_Encoding_and_Imbalance_in_Python.png",
   "playlist": "Module 3 - Data Quality and Anomaly Management",
-  "publishAt": "2026-12-28T18:30:00+05:30"
+  "publishAt": "2027-01-20T18:30:00+05:30"
+ },
+ {
+  "file": "A2_Assignment_2_Guide_Data_Quality_Mini_Project.mp4",
+  "captions": "A2_Assignment_2_Guide_Data_Quality_Mini_Project.srt",
+  "title": "Assignment 2 Guide: Data Quality and Anomaly Handling Mini Project in Python",
+  "description": "Assignment 2 Guide: Data Quality and Anomaly Handling Mini Project in Python\n\nIn this video you will learn how to audit, clean, impute, treat outliers, encode and validate a dataset, and how to show before-and-after evidence.\n\nCHAPTERS\n00:00 Introduction\n00:40 Pipeline\n01:06 Documenting\n01:32 Before and after\n02:00 Avoid leakage\n02:20 Checklist\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #data #quality",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "data quality project",
+   "assignment 2 guide",
+   "data quality",
+   "anomaly handling mini project in python"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/A2_Assignment_2_Guide_Data_Quality_Mini_Project.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2027-01-22T18:30:00+05:30"
+ },
+ {
+  "file": "R3_Module_3_Revision_Data_Quality_and_Anomalies.mp4",
+  "captions": "R3_Module_3_Revision_Data_Quality_and_Anomalies.srt",
+  "title": "Module 3 Revision: Data Quality, Missing Values, Outliers and Encoding (With Self-Test Questions)",
+  "description": "Module 3 Revision: Data Quality, Missing Values, Outliers and Encoding (With Self-Test Questions)\n\nIn this video you will learn a recap of lectures 15 to 22 and five self-test questions on data quality, imputation, outliers, encoding and class imbalance.\n\nCHAPTERS\n00:00 Introduction\n00:17 Lectures 15 and 16\n00:48 Lectures 17 and 18\n01:13 Lectures 19 and 20\n01:45 Lectures 21 and 22\n02:13 Labs\n02:38 Test yourself\n03:48 Summary\n\nPLAYLIST: Module 3 - Data Quality and Anomaly Management\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #module #revision",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "module 3 revision",
+   "test yourself",
+   "data quality",
+   "missing values",
+   "outliers",
+   "encoding",
+   "with self-test questions"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/R3_Module_3_Revision_Data_Quality_and_Anomalies.png",
+  "playlist": "Module 3 - Data Quality and Anomaly Management",
+  "publishAt": "2027-01-25T18:30:00+05:30"
  },
  {
   "file": "L23-24_Transformation_and_Scaling_Lecture.mp4",
@@ -737,7 +903,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L23-24_Transformation_and_Scaling_Lecture.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2026-12-30T18:30:00+05:30"
+  "publishAt": "2027-01-27T18:30:00+05:30"
  },
  {
   "file": "P23-24_Lab_Transformation_and_Scaling_in_Python.mp4",
@@ -765,7 +931,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P23-24_Lab_Transformation_and_Scaling_in_Python.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-01T18:30:00+05:30"
+  "publishAt": "2027-01-29T18:30:00+05:30"
  },
  {
   "file": "L25_Feature_Engineering.mp4",
@@ -793,7 +959,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L25_Feature_Engineering.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-04T18:30:00+05:30"
+  "publishAt": "2027-02-01T18:30:00+05:30"
  },
  {
   "file": "L26_Feature_Selection.mp4",
@@ -823,7 +989,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L26_Feature_Selection.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-06T18:30:00+05:30"
+  "publishAt": "2027-02-03T18:30:00+05:30"
  },
  {
   "file": "P25_Lab_Feature_Engineering_in_Python.mp4",
@@ -852,7 +1018,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P25_Lab_Feature_Engineering_in_Python.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-08T18:30:00+05:30"
+  "publishAt": "2027-02-05T18:30:00+05:30"
  },
  {
   "file": "P26_Lab_Feature_Selection_in_Python.mp4",
@@ -880,7 +1046,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P26_Lab_Feature_Selection_in_Python.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-11T18:30:00+05:30"
+  "publishAt": "2027-02-08T18:30:00+05:30"
  },
  {
   "file": "L27-28_Dimensionality_Reduction_Lecture.mp4",
@@ -908,7 +1074,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L27-28_Dimensionality_Reduction_Lecture.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-13T18:30:00+05:30"
+  "publishAt": "2027-02-10T18:30:00+05:30"
  },
  {
   "file": "P27-28_Lab_PCA_in_Python.mp4",
@@ -938,7 +1104,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P27-28_Lab_PCA_in_Python.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-15T18:30:00+05:30"
+  "publishAt": "2027-02-12T18:30:00+05:30"
  },
  {
   "file": "L29_Testing_Honestly_Hypotheses_CV_and_Leakage.mp4",
@@ -965,7 +1131,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L29_Testing_Honestly_Hypotheses_CV_and_Leakage.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-18T18:30:00+05:30"
+  "publishAt": "2027-02-15T18:30:00+05:30"
  },
  {
   "file": "L30_Reporting_Honestly_Skewed_Data_and_Insights.mp4",
@@ -991,7 +1157,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/L30_Reporting_Honestly_Skewed_Data_and_Insights.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-20T18:30:00+05:30"
+  "publishAt": "2027-02-17T18:30:00+05:30"
  },
  {
   "file": "P29_Lab_Full_Pipeline_in_Python.mp4",
@@ -1019,7 +1185,7 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P29_Lab_Full_Pipeline_in_Python.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-22T18:30:00+05:30"
+  "publishAt": "2027-02-19T18:30:00+05:30"
  },
  {
   "file": "P30_Lab_Industry_Style_Submission.mp4",
@@ -1045,6 +1211,116 @@
   "containsSyntheticMedia": true,
   "thumbnail": "thumbs/P30_Lab_Industry_Style_Submission.png",
   "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
-  "publishAt": "2027-01-25T18:30:00+05:30"
+  "publishAt": "2027-02-22T18:30:00+05:30"
+ },
+ {
+  "file": "R4_Module_4_Revision_Features_Transformation_Pipeline.mp4",
+  "captions": "R4_Module_4_Revision_Features_Transformation_Pipeline.srt",
+  "title": "Module 4 Revision: Transformation, Feature Engineering, PCA and ML Pipelines (With Self-Test Questions)",
+  "description": "Module 4 Revision: Transformation, Feature Engineering, PCA and ML Pipelines (With Self-Test Questions)\n\nIn this video you will learn a recap of lectures 23 to 30 and five self-test questions on transformation, scaling, feature engineering, PCA, leakage and pipelines.\n\nCHAPTERS\n00:00 Introduction\n00:18 Lectures 23 and 24\n00:50 Lectures 25 and 26\n01:17 Lectures 27 and 28\n01:46 Lectures 29 and 30\n02:18 Labs\n02:40 Test yourself\n03:54 Summary\n\nPLAYLIST: Module 4 - Feature Engineering, Transformation and Pipelines\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #module #revision",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "module 4 revision",
+   "test yourself",
+   "transformation",
+   "feature engineering",
+   "ml pipelines",
+   "with self-test questions"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/R4_Module_4_Revision_Features_Transformation_Pipeline.png",
+  "playlist": "Module 4 - Feature Engineering, Transformation and Pipelines",
+  "publishAt": "2027-02-24T18:30:00+05:30"
+ },
+ {
+  "file": "LA_Lab_Assessment_Preparation_EDA_Checklist.mp4",
+  "captions": "LA_Lab_Assessment_Preparation_EDA_Checklist.srt",
+  "title": "Lab Assessment Preparation: 10-Step Python EDA Routine and Code Cheat Sheet",
+  "description": "Lab Assessment Preparation: 10-Step Python EDA Routine and Code Cheat Sheet\n\nIn this video you will learn a 10-step Python EDA routine, the core code snippets, time management tips and a readiness checklist for a lab assessment.\n\nCHAPTERS\n00:00 Introduction\n00:38 The 10-step routine\n01:14 Core snippets\n02:14 Cleaning snippets\n02:33 Time and mistakes\n02:56 Self-check\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #lab #exam",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "lab exam prep",
+   "10-step routine",
+   "lab assessment preparation",
+   "10-step python eda routine",
+   "code cheat sheet"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/LA_Lab_Assessment_Preparation_EDA_Checklist.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2027-02-26T18:30:00+05:30"
+ },
+ {
+  "file": "FP_Final_Project_Guide_From_Data_to_Insights.mp4",
+  "captions": "FP_Final_Project_Guide_From_Data_to_Insights.srt",
+  "title": "Final Project Guide: From Raw Data to Insights, Structure, Checklist and Presentation",
+  "description": "Final Project Guide: From Raw Data to Insights, Structure, Checklist and Presentation\n\nIn this video you will learn how to choose a dataset, structure a 12-part notebook, label claims as exploratory or confirmatory, prepare data without leakage and present a story.\n\nCHAPTERS\n00:00 Introduction\n00:44 Choose data\n01:14 Structure\n01:49 Exploratory vs confirmatory\n02:14 Data preparation\n02:43 Presenting\n03:11 Checklist\n03:38 Final tips\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #final #project",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "final project",
+   "data to insights",
+   "final project guide",
+   "from raw data to insights",
+   "structure",
+   "checklist",
+   "presentation"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/FP_Final_Project_Guide_From_Data_to_Insights.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2027-03-01T18:30:00+05:30"
+ },
+ {
+  "file": "W_Complete_EDA_Workflow_in_One_Video.mp4",
+  "captions": "W_Complete_EDA_Workflow_in_One_Video.srt",
+  "title": "The Complete EDA Workflow in One Video: 12 Steps From Question to Insight",
+  "description": "The Complete EDA Workflow in One Video: 12 Steps From Question to Insight\n\nIn this video you will learn the complete exploratory data analysis workflow in twelve steps, with the tools and the lectures for each.\n\nCHAPTERS\n00:00 Introduction\n00:14 Steps 1 to 4\n00:44 Steps 5 to 8\n01:13 Steps 9 to 12\n01:43 Four golden rules\n02:10 What next\n\nPLAYLIST: Course Guides - Roadmap, Assignments, Revision and Exams\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\nNotebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. Slides are from the course material; narration is AI-generated.\n\n#python #datascience #eda #steps",
+  "tags": [
+   "exploratory data analysis",
+   "EDA",
+   "data science",
+   "python",
+   "pandas",
+   "DATA209",
+   "data analysis tutorial",
+   "eda in 12 steps",
+   "the whole syllabus",
+   "the complete eda workflow in one video",
+   "12 steps from question to insight"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "thumbnail": "thumbs/W_Complete_EDA_Workflow_in_One_Video.png",
+  "playlist": "Course Guides - Roadmap, Assignments, Revision and Exams",
+  "publishAt": "2027-03-03T18:30:00+05:30"
  }
 ]

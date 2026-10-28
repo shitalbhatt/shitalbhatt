@@ -17,13 +17,21 @@ for l in open(f"{HERE}/marketing/meta.txt"):
         meta[k] = dict(title=title, big=big, sub=sub, learn=learn, hook=h, p1=p1, p2=p2)
 
 PL = ["Module 1 - Statistical and Data Foundations for EDA", "Module 2 - Univariate, Bivariate, Multivariate EDA and Visualization",
-      "Module 3 - Data Quality and Anomaly Management", "Module 4 - Feature Engineering, Transformation and Pipelines"]
-MODCOL = [("#0b3c6f", "#1d7fd1"), ("#0b5b52", "#19b394"), ("#7a3b0a", "#f08a24"), ("#3d1d73", "#8b5cf6")]
+      "Module 3 - Data Quality and Anomaly Management", "Module 4 - Feature Engineering, Transformation and Pipelines",
+      "Course Guides - Roadmap, Assignments, Revision and Exams"]
+MODCOL = [("#0b3c6f", "#1d7fd1"), ("#0b5b52", "#19b394"), ("#7a3b0a", "#f08a24"), ("#3d1d73", "#8b5cf6"), ("#7a1030", "#e11d6a")]
+# extras: key -> (position in syllabus order, module index, badge text, kind letter)
+EXTRA = {"C00": (0.0, 4, "START HERE", "G"), "R1": (3.5, 0, "REVISION M1", "G"), "A1": (7.2, 4, "ASSIGNMENT 1", "G"),
+         "R2": (7.5, 1, "REVISION M2", "G"), "A2": (11.2, 4, "ASSIGNMENT 2", "G"), "R3": (11.5, 2, "REVISION M3", "G"),
+         "R4": (15.5, 3, "REVISION M4", "G"), "LA": (15.6, 4, "LAB EXAM", "G"), "FP": (15.7, 4, "FINAL PROJECT", "G"),
+         "W": (15.8, 4, "FULL COURSE", "G")}
 
 
 def info(file):
     name = file[:-4]
     key = next(k for k in meta if name.startswith(k))
+    if key in EXTRA:
+        return name, key, "G", EXTRA[key][0], EXTRA[key][1]
     n = int(re.match(r"[LP](\d+)", name).group(1))
     mod = 0 if n <= 6 else 1 if n <= 14 else 2 if n <= 22 else 3
     return name, key, name[0], n, mod
@@ -74,7 +82,7 @@ def thumb(name, kind, code, mod, m):
     for p in pts:
         od.ellipse((p[0] - 10, p[1] - 10, p[0] + 10, p[1] + 10), fill=(255, 255, 255, 230))
     im = Image.alpha_composite(im, ov); d = ImageDraw.Draw(im)
-    badge = f"{'LECTURE' if kind == 'L' else 'LAB'}  {code}"
+    badge = EXTRA[code][2] if kind == "G" else f"{'LECTURE' if kind == 'L' else 'LAB'}  {code}"
     d.rounded_rectangle((50, 46, 50 + d.textlength(badge, font=fb(34)) + 44, 112), radius=14, fill="#ffffff")
     d.text((72, 56), badge, font=fb(34), fill=c1)
     text = m["big"].upper()
@@ -97,7 +105,7 @@ def short_slides(name, kind, code, mod, m):
     c1, c2 = MODCOL[mod]
     out = []
     cards = [("QUICK TIP", m["hook"], 96), ("POINT 1", m["p1"], 80), ("POINT 2", m["p2"], 80),
-             ("FULL LESSON ON THE CHANNEL", f"{m['big'].title()}\n{kind == 'L' and 'Lecture' or 'Lab'} {code}", 70)]
+             ("FULL LESSON ON THE CHANNEL", f"{m['big'].title()}\n{'Lecture' if kind == 'L' else 'Lab' if kind == 'P' else 'Course guide'} {code}", 70)]
     for i, (tag, text, size) in enumerate(cards, 1):
         im = gradient(1080, 1920, c1, c2); d = ImageDraw.Draw(im)
         d.text((70, 150), tag, font=fb(46), fill="#fbbf24")
@@ -135,9 +143,10 @@ def hashtags(m):
 items = []
 for it in manifest:
     name, key, kind, n, mod = info(it["file"])
-    items.append((((n + 1) // 2), 0 if kind == "L" else 1, name, it, key, kind, n, mod))
+    pos = n if kind == "G" else (n + 1) // 2
+    items.append((pos, 0 if kind in "LG" else 1, name, it, key, kind, n, mod))
 items.sort(key=lambda x: (x[0], x[1], x[2]))
-start = dt.date(2026, 11, 2)  # a Monday
+start = dt.date.fromisoformat(os.environ.get('START', '2026-11-16'))  # first publish date; must be a Monday (env START=YYYY-MM-DD)
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 slots = []
 d0 = start
@@ -153,7 +162,7 @@ for slot, (_, _, name, it, key, kind, n, mod) in zip(slots, items):
     code = name.split("_")[0].replace("-", "-")
     thumb_path = thumb(name, kind, code, mod, m)
     chap = it["description"].split("CHAPTERS\n")[1].split("\n\n")[0] if "CHAPTERS\n" in it["description"] else ""
-    desc = (f"{m['title']}\n\nIn this {'lecture' if kind == 'L' else 'lab'} you will learn {m['learn']}.\n\n"
+    desc = (f"{m['title']}\n\nIn this {'lecture' if kind == 'L' else 'lab' if kind == 'P' else 'video'} you will learn {m['learn']}.\n\n"
             f"CHAPTERS\n{chap}\n\nPLAYLIST: {PL[mod]}\nCourse: Advanced Exploratory Data Analysis (DATA209), B.Tech Data Science.\n"
             "Notebook and dataset: ADD YOUR LINK HERE\n\nIf this helped, subscribe and share it with a classmate. "
             "Slides are from the course material; narration is AI-generated.\n\n" + hashtags(m))
@@ -177,7 +186,7 @@ json.dump(new_manifest, open(f"{OUTD}/upload_manifest.json", "w"), indent=1)
 with open(f"{HERE}/marketing/publishing_calendar.csv", "w", newline="") as f:
     w = csv.writer(f); w.writerow(["Publish date", "Time", "Video file", "Title", "Playlist", "Short goes out", "Short file"]); w.writerows(rows)
 with open(f"{HERE}/marketing/publishing_calendar.md", "w") as f:
-    f.write("# 3-month publishing calendar\n\nTimes are 18:30 Indian Standard Time (change the hour in `make_marketing.py` for another time zone). "
+    f.write("# Publishing calendar\n\nTimes are 18:30 Indian Standard Time (change the hour in `make_marketing.py` for another time zone). "
             "3 long videos per week (Mon, Wed, Fri) in syllabus order, each followed by its Short the next day at 12:00.\n\n"
             "| Date | Video | Playlist | Short |\n|---|---|---|---|\n")
     for r in rows:

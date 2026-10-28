@@ -1,5 +1,22 @@
 [
  {
+  "file": "S_C00_Course_Introduction_and_Roadmap_DATA209.mp4",
+  "title": "Here is the whole EDA course on one page. #Shorts",
+  "description": "Here is the whole EDA course on one page.\n\nFull lesson: DATA209 Advanced Exploratory Data Analysis Course Roadmap: Modules, Assessment and Reading List\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-17T12:00:00+05:30",
+  "captions": null
+ },
+ {
   "file": "S_L01_Why_We_Explore_Before_We_Conclude.mp4",
   "title": "More data fixes noise, but it never fixes bias. #Shorts",
   "description": "More data fixes noise, but it never fixes bias.\n\nFull lesson: What is EDA? Exploratory vs Confirmatory Analysis, Sampling Bias and Bias-Variance\n\n#Shorts #python #datascience #eda",
@@ -13,7 +30,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-03T12:00:00+05:30",
+  "publishAt": "2026-11-19T12:00:00+05:30",
   "captions": null
  },
  {
@@ -30,7 +47,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-05T12:00:00+05:30",
+  "publishAt": "2026-11-21T12:00:00+05:30",
   "captions": null
  },
  {
@@ -47,7 +64,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-07T12:00:00+05:30",
+  "publishAt": "2026-11-24T12:00:00+05:30",
   "captions": null
  },
  {
@@ -64,7 +81,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-10T12:00:00+05:30",
+  "publishAt": "2026-11-26T12:00:00+05:30",
   "captions": null
  },
  {
@@ -81,7 +98,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-12T12:00:00+05:30",
+  "publishAt": "2026-11-28T12:00:00+05:30",
   "captions": null
  },
  {
@@ -98,7 +115,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-14T12:00:00+05:30",
+  "publishAt": "2026-12-01T12:00:00+05:30",
   "captions": null
  },
  {
@@ -115,7 +132,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-17T12:00:00+05:30",
+  "publishAt": "2026-12-03T12:00:00+05:30",
   "captions": null
  },
  {
@@ -132,7 +149,24 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-19T12:00:00+05:30",
+  "publishAt": "2026-12-05T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R1_Module_1_Revision_Foundations.mp4",
+  "title": "Mean 95, median 39. What does that tell you? #Shorts",
+  "description": "Mean 95, median 39. What does that tell you?\n\nFull lesson: Module 1 Revision: EDA Foundations, Distributions, Data Types and Data Bias (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-08T12:00:00+05:30",
   "captions": null
  },
  {
@@ -149,7 +183,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-21T12:00:00+05:30",
+  "publishAt": "2026-12-10T12:00:00+05:30",
   "captions": null
  },
  {
@@ -166,7 +200,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-24T12:00:00+05:30",
+  "publishAt": "2026-12-12T12:00:00+05:30",
   "captions": null
  },
  {
@@ -183,7 +217,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-26T12:00:00+05:30",
+  "publishAt": "2026-12-15T12:00:00+05:30",
   "captions": null
  },
  {
@@ -200,7 +234,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-11-28T12:00:00+05:30",
+  "publishAt": "2026-12-17T12:00:00+05:30",
   "captions": null
  },
  {
@@ -217,7 +251,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-01T12:00:00+05:30",
+  "publishAt": "2026-12-19T12:00:00+05:30",
   "captions": null
  },
  {
@@ -234,7 +268,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-03T12:00:00+05:30",
+  "publishAt": "2026-12-22T12:00:00+05:30",
   "captions": null
  },
  {
@@ -251,7 +285,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-05T12:00:00+05:30",
+  "publishAt": "2026-12-24T12:00:00+05:30",
   "captions": null
  },
  {
@@ -268,7 +302,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-08T12:00:00+05:30",
+  "publishAt": "2026-12-26T12:00:00+05:30",
   "captions": null
  },
  {
@@ -285,7 +319,41 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-10T12:00:00+05:30",
+  "publishAt": "2026-12-29T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_A1_Assignment_1_Guide_EDA_Mini_Project.mp4",
+  "title": "Pair every statistic with a picture. #Shorts",
+  "description": "Pair every statistic with a picture.\n\nFull lesson: Assignment 1 Guide: How to Plan and Present an EDA Mini Project in Python\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-31T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R2_Module_2_Revision_Core_Advanced_EDA.mp4",
+  "title": "Pearson says minus 0.22. Spearman says minus 0.54. Why? #Shorts",
+  "description": "Pearson says minus 0.22. Spearman says minus 0.54. Why?\n\nFull lesson: Module 2 Revision: Univariate, Bivariate and Multivariate EDA and Visualization (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-02T12:00:00+05:30",
   "captions": null
  },
  {
@@ -302,7 +370,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-12T12:00:00+05:30",
+  "publishAt": "2027-01-05T12:00:00+05:30",
   "captions": null
  },
  {
@@ -319,7 +387,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-15T12:00:00+05:30",
+  "publishAt": "2027-01-07T12:00:00+05:30",
   "captions": null
  },
  {
@@ -336,7 +404,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-17T12:00:00+05:30",
+  "publishAt": "2027-01-09T12:00:00+05:30",
   "captions": null
  },
  {
@@ -353,7 +421,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-19T12:00:00+05:30",
+  "publishAt": "2027-01-12T12:00:00+05:30",
   "captions": null
  },
  {
@@ -370,7 +438,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-22T12:00:00+05:30",
+  "publishAt": "2027-01-14T12:00:00+05:30",
   "captions": null
  },
  {
@@ -387,7 +455,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-24T12:00:00+05:30",
+  "publishAt": "2027-01-16T12:00:00+05:30",
   "captions": null
  },
  {
@@ -404,7 +472,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-26T12:00:00+05:30",
+  "publishAt": "2027-01-19T12:00:00+05:30",
   "captions": null
  },
  {
@@ -421,7 +489,41 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-29T12:00:00+05:30",
+  "publishAt": "2027-01-21T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_A2_Assignment_2_Guide_Data_Quality_Mini_Project.mp4",
+  "title": "Do not just say you cleaned the data. Show the numbers. #Shorts",
+  "description": "Do not just say you cleaned the data. Show the numbers.\n\nFull lesson: Assignment 2 Guide: Data Quality and Anomaly Handling Mini Project in Python\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-23T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R3_Module_3_Revision_Data_Quality_and_Anomalies.mp4",
+  "title": "Can you explain why your data is missing? #Shorts",
+  "description": "Can you explain why your data is missing?\n\nFull lesson: Module 3 Revision: Data Quality, Missing Values, Outliers and Encoding (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-26T12:00:00+05:30",
   "captions": null
  },
  {
@@ -438,7 +540,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2026-12-31T12:00:00+05:30",
+  "publishAt": "2027-01-28T12:00:00+05:30",
   "captions": null
  },
  {
@@ -455,7 +557,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-02T12:00:00+05:30",
+  "publishAt": "2027-01-30T12:00:00+05:30",
   "captions": null
  },
  {
@@ -472,7 +574,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-05T12:00:00+05:30",
+  "publishAt": "2027-02-02T12:00:00+05:30",
   "captions": null
  },
  {
@@ -489,7 +591,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-07T12:00:00+05:30",
+  "publishAt": "2027-02-04T12:00:00+05:30",
   "captions": null
  },
  {
@@ -506,7 +608,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-09T12:00:00+05:30",
+  "publishAt": "2027-02-06T12:00:00+05:30",
   "captions": null
  },
  {
@@ -523,7 +625,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-12T12:00:00+05:30",
+  "publishAt": "2027-02-09T12:00:00+05:30",
   "captions": null
  },
  {
@@ -540,7 +642,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-14T12:00:00+05:30",
+  "publishAt": "2027-02-11T12:00:00+05:30",
   "captions": null
  },
  {
@@ -557,7 +659,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-16T12:00:00+05:30",
+  "publishAt": "2027-02-13T12:00:00+05:30",
   "captions": null
  },
  {
@@ -574,7 +676,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-19T12:00:00+05:30",
+  "publishAt": "2027-02-16T12:00:00+05:30",
   "captions": null
  },
  {
@@ -591,7 +693,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-21T12:00:00+05:30",
+  "publishAt": "2027-02-18T12:00:00+05:30",
   "captions": null
  },
  {
@@ -608,7 +710,7 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-23T12:00:00+05:30",
+  "publishAt": "2027-02-20T12:00:00+05:30",
   "captions": null
  },
  {
@@ -625,7 +727,75 @@
   "privacyStatus": "private",
   "madeForKids": false,
   "containsSyntheticMedia": true,
-  "publishAt": "2027-01-26T12:00:00+05:30",
+  "publishAt": "2027-02-23T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R4_Module_4_Revision_Features_Transformation_Pipeline.mp4",
+  "title": "Why does MinMax squeeze 96 percent of values below 0.1? #Shorts",
+  "description": "Why does MinMax squeeze 96 percent of values below 0.1?\n\nFull lesson: Module 4 Revision: Transformation, Feature Engineering, PCA and ML Pipelines (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-25T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_LA_Lab_Assessment_Preparation_EDA_Checklist.mp4",
+  "title": "Never start a lab exam from a blank page. #Shorts",
+  "description": "Never start a lab exam from a blank page.\n\nFull lesson: Lab Assessment Preparation: 10-Step Python EDA Routine and Code Cheat Sheet\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-27T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_FP_Final_Project_Guide_From_Data_to_Insights.mp4",
+  "title": "One focused question, done well. #Shorts",
+  "description": "One focused question, done well.\n\nFull lesson: Final Project Guide: From Raw Data to Insights, Structure, Checklist and Presentation\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-03-02T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_W_Complete_EDA_Workflow_in_One_Video.mp4",
+  "title": "Thirty lectures in twelve steps. #Shorts",
+  "description": "Thirty lectures in twelve steps.\n\nFull lesson: The Complete EDA Workflow in One Video: 12 Steps From Question to Insight\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-03-04T12:00:00+05:30",
   "captions": null
  }
 ]

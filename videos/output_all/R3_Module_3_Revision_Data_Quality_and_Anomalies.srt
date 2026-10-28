@@ -1,0 +1,236 @@
+1
+00:00:00,000 --> 00:00:06,320
+This is the revision for module three, Data Quality Engineering and Anomaly Management.
+
+2
+00:00:06,320 --> 00:00:07,483
+The takeaway is:
+
+3
+00:00:07,483 --> 00:00:10,170
+create a reliable analytical dataset.
+
+4
+00:00:10,170 --> 00:00:16,200
+We recap lectures fifteen to twenty two and finish with questions to test yourself.
+
+5
+00:00:17,000 --> 00:00:20,370
+Lectures fifteen and sixteen, data quality.
+
+6
+00:00:20,370 --> 00:00:26,093
+The four dimensions are accuracy, completeness, consistency and validity.
+
+7
+00:00:26,093 --> 00:00:31,031
+Validity is checked against rules and accuracy against reality.
+
+8
+00:00:31,031 --> 00:00:36,831
+Integrate sources on a key, align schemas, resolve conflicts and re-audit.
+
+9
+00:00:36,831 --> 00:00:40,202
+Detect exact, same-key and near duplicates.
+
+10
+00:00:40,202 --> 00:00:47,648
+Standardise encoding, but standardising can create new duplicates, so re-audit after every fix.
+
+11
+00:00:48,448 --> 00:00:52,177
+Lectures seventeen and eighteen, missing values.
+
+12
+00:00:52,177 --> 00:00:56,217
+The three mechanisms are M C A R, M A R and M N A R.
+
+13
+00:00:56,217 --> 00:01:00,490
+Prove M A R with a crosstab against an observed column.
+
+14
+00:01:00,490 --> 00:01:03,520
+Convert disguised missing values first.
+
+15
+00:01:03,520 --> 00:01:12,688
+Compare mean, median, K N N and regression imputation by the variance each retains, since every fill shrinks variance.
+
+16
+00:01:13,488 --> 00:01:16,724
+Lectures nineteen and twenty, outliers.
+
+17
+00:01:16,724 --> 00:01:24,608
+They come from mistakes, rare real values, limits, or a different population, so ask why first.
+
+18
+00:01:24,608 --> 00:01:31,579
+Z-score works for bell-shaped data but masks outliers in long tails; I Q R is safer.
+
+19
+00:01:31,579 --> 00:01:37,636
+Models like Isolation Forest, L O F and D B S C A N look at many columns.
+
+20
+00:01:37,636 --> 00:01:38,715
+Fix by cause:
+
+21
+00:01:38,715 --> 00:01:44,856
+remove, cap, winsorise, impute, log or flag, and compare before and after.
+
+22
+00:01:45,656 --> 00:01:49,938
+Lectures twenty one and twenty two, encoding and imbalance.
+
+23
+00:01:49,938 --> 00:01:51,390
+Models need numbers.
+
+24
+00:01:51,390 --> 00:02:05,252
+Use one-hot for nominal data and your own map for ordinal data, keep k minus one dummies, use frequency or target encoding for many categories, and use training rows only for target encoding.
+
+25
+00:02:05,252 --> 00:02:12,728
+For rare classes, stratify, use class weights or resampling on training rows only, and judge by recall.
+
+26
+00:02:13,528 --> 00:02:15,293
+The labs for this module:
+
+27
+00:02:15,293 --> 00:02:21,433
+practicals fifteen and sixteen audit, integrate, dedupe and scale a merged Airbnb file.
+
+28
+00:02:21,433 --> 00:02:25,739
+Practicals seventeen and eighteen compare imputation methods.
+
+29
+00:02:25,739 --> 00:02:32,868
+Practicals nineteen and twenty detect and treat outliers and measure model accuracy before and after.
+
+30
+00:02:32,868 --> 00:02:37,456
+Practicals twenty one and twenty two encode and handle imbalance.
+
+31
+00:02:38,256 --> 00:02:40,126
+Test yourself, part one.
+
+32
+00:02:40,126 --> 00:02:41,139
+Question one:
+
+33
+00:02:41,139 --> 00:02:44,489
+every missing review rate has zero reviews.
+
+34
+00:02:44,489 --> 00:02:47,762
+Which mechanism, and how did you prove it?
+
+35
+00:02:47,762 --> 00:02:48,307
+Answer:
+
+36
+00:02:48,307 --> 00:02:52,982
+M A R, proved by a crosstab of missing against zero reviews.
+
+37
+00:02:52,982 --> 00:02:53,995
+Question two:
+
+38
+00:02:53,995 --> 00:02:58,670
+why does Z-score miss many outliers in a long-tailed column?
+
+39
+00:02:58,670 --> 00:02:59,216
+Answer:
+
+40
+00:02:59,216 --> 00:03:06,384
+the outliers inflate the standard deviation and push the limit out, so they mask themselves.
+
+41
+00:03:07,184 --> 00:03:09,143
+Test yourself, part two.
+
+42
+00:03:09,143 --> 00:03:10,368
+Question three:
+
+43
+00:03:10,368 --> 00:03:15,429
+after title-casing a column, drop duplicates removes new rows.
+
+44
+00:03:15,429 --> 00:03:15,755
+Why?
+
+45
+00:03:15,755 --> 00:03:16,326
+Answer:
+
+46
+00:03:16,326 --> 00:03:23,428
+lowercase and proper-case versions became exact copies, so audit again after every fix.
+
+47
+00:03:23,428 --> 00:03:24,571
+Question four:
+
+48
+00:03:24,571 --> 00:03:30,285
+accuracy dropped when you added class weights, yet the model improved.
+
+49
+00:03:30,285 --> 00:03:30,611
+Why?
+
+50
+00:03:30,611 --> 00:03:31,183
+Answer:
+
+51
+00:03:31,183 --> 00:03:37,223
+recall on the rare class rose, and accuracy mostly measures the big class.
+
+52
+00:03:37,223 --> 00:03:38,366
+Question five:
+
+53
+00:03:38,366 --> 00:03:42,448
+why should target encoding use only training rows?
+
+54
+00:03:42,448 --> 00:03:43,019
+Answer:
+
+55
+00:03:43,019 --> 00:03:48,080
+otherwise the encoding peeks at the answers, which is leakage.
+
+56
+00:03:48,880 --> 00:03:50,716
+That is module three.
+
+57
+00:03:50,716 --> 00:04:04,878
+Audit, then diagnose, then fix, then validate; explain why data is missing before filling it; fix outliers by cause; encode by type; and re-audit after every fix.
+
+58
+00:04:04,878 --> 00:04:06,452
+Next, module four.
+
+59
+00:04:06,452 --> 00:04:08,200
+Thanks for watching.
+

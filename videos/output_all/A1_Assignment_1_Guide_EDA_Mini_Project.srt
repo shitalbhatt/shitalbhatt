@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:07,220
+This video is a general guide to your first assignment, the E D A mini project that you present around week seven.
+
+2
+00:00:07,220 --> 00:00:11,464
+Always follow your own assignment brief for the exact requirements.
+
+3
+00:00:11,464 --> 00:00:17,544
+This guide shows how to structure your work, using what you have learned in modules one and two.
+
+4
+00:00:18,344 --> 00:00:23,090
+The assignment is a formative mini project worth twenty five percent.
+
+5
+00:00:23,090 --> 00:00:25,223
+It covers outcomes one and two:
+
+6
+00:00:25,223 --> 00:00:34,854
+analysing the statistical and structural characteristics of a dataset, and applying univariate, bivariate and multivariate E D A techniques.
+
+7
+00:00:34,854 --> 00:00:39,944
+You present your findings, so both the analysis and the explanation count.
+
+8
+00:00:40,744 --> 00:00:42,848
+Follow a clear structure.
+
+9
+00:00:42,848 --> 00:00:45,458
+Start with a problem statement.
+
+10
+00:00:45,458 --> 00:00:46,973
+Then a data audit.
+
+11
+00:00:46,973 --> 00:00:54,128
+Then univariate analysis, bivariate analysis, and where suitable a multivariate step.
+
+12
+00:00:54,128 --> 00:00:55,475
+Then hypotheses.
+
+13
+00:00:55,475 --> 00:00:59,011
+And finally a story with a recommendation.
+
+14
+00:00:59,011 --> 00:01:03,304
+Each stage maps to a lecture you have already seen.
+
+15
+00:01:04,104 --> 00:01:06,186
+Choose your dataset carefully.
+
+16
+00:01:06,186 --> 00:01:14,097
+Pick a dataset with enough rows, a mix of numeric and categorical columns, and a question that matters to someone.
+
+17
+00:01:14,097 --> 00:01:20,343
+Check that you may use the data, and that it is not just a toy example everyone else uses.
+
+18
+00:01:20,343 --> 00:01:21,939
+Write the one sentence:
+
+19
+00:01:21,939 --> 00:01:27,768
+this sample can support claims about, blank, and cannot support claims about, blank.
+
+20
+00:01:28,568 --> 00:01:32,224
+In the analysis, pair every statistic with a plot.
+
+21
+00:01:32,224 --> 00:01:36,611
+For skewed columns, report median and I Q R beside the mean.
+
+22
+00:01:36,611 --> 00:01:42,680
+Check outliers with the one point five I Q R rule and state what you did with them.
+
+23
+00:01:42,680 --> 00:01:47,725
+Use correlation with a scatter plot, and cross-tabs with percentages.
+
+24
+00:01:47,725 --> 00:01:53,648
+Remember that correlation is not causation, so label your findings as hypotheses.
+
+25
+00:01:54,448 --> 00:01:56,691
+Make the presentation a story.
+
+26
+00:01:56,691 --> 00:01:57,289
+Context:
+
+27
+00:01:57,289 --> 00:02:01,475
+what situation is the data about and why does it matter?
+
+28
+00:02:01,475 --> 00:02:02,148
+Conflict:
+
+29
+00:02:02,148 --> 00:02:06,110
+what did the data reveal that is surprising or wrong?
+
+30
+00:02:06,110 --> 00:02:06,932
+Resolution:
+
+31
+00:02:06,932 --> 00:02:08,577
+what do you recommend?
+
+32
+00:02:08,577 --> 00:02:17,248
+Use one chart per message, an insight title on each slide, an honest axis, and highlight the one thing that matters.
+
+33
+00:02:18,048 --> 00:02:20,996
+Use this checklist before you submit.
+
+34
+00:02:20,996 --> 00:02:22,748
+Is the problem stated?
+
+35
+00:02:22,748 --> 00:02:27,209
+Are duplicates, missing values and hidden zeros handled?
+
+36
+00:02:27,209 --> 00:02:30,237
+Do charts have honest axes and labels?
+
+37
+00:02:30,237 --> 00:02:32,786
+Are skew and outliers explained?
+
+38
+00:02:32,786 --> 00:02:35,654
+Are hypotheses labelled exploratory?
+
+39
+00:02:35,654 --> 00:02:38,761
+Does every slide have an insight title?
+
+40
+00:02:38,761 --> 00:02:42,744
+And can you explain every number if you are asked?
+
+41
+00:02:43,544 --> 00:02:45,344
+Common mistakes to avoid:
+
+42
+00:02:45,344 --> 00:03:00,392
+deleting outliers silently, reporting the mean of a skewed column, trusting one plot, treating zeros or nine ninety nine as real values, using truncated bar charts, and making claims the sample cannot support.
+
+43
+00:03:00,392 --> 00:03:02,624
+Good luck with your assignment.
+
+44
+00:03:02,624 --> 00:03:04,064
+Thanks for watching.
+

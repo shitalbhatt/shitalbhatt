@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:07,182
+This video is a general guide to your second assignment, the data quality mini project around week eleven.
+
+2
+00:00:07,182 --> 00:00:11,722
+Always follow your own assignment brief for the exact requirements.
+
+3
+00:00:11,722 --> 00:00:14,635
+This guide shows how to apply module three:
+
+4
+00:00:14,635 --> 00:00:18,768
+auditing, cleaning, imputing, treating outliers and encoding.
+
+5
+00:00:19,568 --> 00:00:25,721
+The assignment is a formative mini project worth twenty five percent, mapped to outcome three:
+
+6
+00:00:25,721 --> 00:00:33,510
+design and implement pre-processing and transformation strategies that improve data quality and analytical reliability.
+
+7
+00:00:33,510 --> 00:00:35,146
+The key idea is evidence:
+
+8
+00:00:35,146 --> 00:00:39,728
+show the problem, show your fix, and show the result before and after.
+
+9
+00:00:40,528 --> 00:00:43,398
+Follow the module three pipeline.
+
+10
+00:00:43,398 --> 00:00:44,702
+Audit the data.
+
+11
+00:00:44,702 --> 00:00:47,659
+Check the four quality dimensions.
+
+12
+00:00:47,659 --> 00:00:51,137
+Integrate sources and remove duplicates.
+
+13
+00:00:51,137 --> 00:00:55,920
+Handle missing values and explain why they are missing.
+
+14
+00:00:55,920 --> 00:00:58,181
+Detect and treat outliers.
+
+15
+00:00:58,181 --> 00:01:02,094
+Encode categories and handle class imbalance.
+
+16
+00:01:02,094 --> 00:01:03,833
+Validate with rules.
+
+17
+00:01:03,833 --> 00:01:05,920
+And document every step.
+
+18
+00:01:06,720 --> 00:01:10,009
+For every problem you find, record it in a log:
+
+19
+00:01:10,009 --> 00:01:15,257
+what it is, how many rows, why you think it happened, and what you decided.
+
+20
+00:01:15,257 --> 00:01:18,336
+Flag suspicious values before deleting them.
+
+21
+00:01:18,336 --> 00:01:25,404
+Disguised missing values such as zero or nine ninety nine should be converted to real missing values.
+
+22
+00:01:25,404 --> 00:01:31,632
+Re-run the audit after every fix, because standardising labels can create new duplicates.
+
+23
+00:01:32,432 --> 00:01:37,299
+When you fix missing values or outliers, compare before and after.
+
+24
+00:01:37,299 --> 00:01:44,525
+For missing values compare variance retained across mean, median, K N N and regression imputation.
+
+25
+00:01:44,525 --> 00:01:52,562
+For outliers compare mean, standard deviation and skew before and after, and a model score such as R squared.
+
+26
+00:01:52,562 --> 00:01:55,880
+For encoding, justify one-hot versus ordinal.
+
+27
+00:01:55,880 --> 00:01:58,977
+Do not just say that you cleaned the data:
+
+28
+00:01:58,977 --> 00:01:59,936
+show numbers.
+
+29
+00:02:00,736 --> 00:02:01,768
+Avoid leakage.
+
+30
+00:02:01,768 --> 00:02:09,432
+Split the data before you fit scalers, imputers or resampling, and fit every step on training rows only.
+
+31
+00:02:09,432 --> 00:02:16,138
+Remember that every treatment is a choice that changes results, so explain why you made it.
+
+32
+00:02:16,138 --> 00:02:19,528
+State the limitations of your cleaned dataset.
+
+33
+00:02:20,328 --> 00:02:22,658
+Here is a final checklist.
+
+34
+00:02:22,658 --> 00:02:24,003
+Audit complete.
+
+35
+00:02:24,003 --> 00:02:26,423
+Quality dimensions checked.
+
+36
+00:02:26,423 --> 00:02:28,126
+Duplicates handled.
+
+37
+00:02:28,126 --> 00:02:32,877
+Missing values explained and imputed with comparison.
+
+38
+00:02:32,877 --> 00:02:36,104
+Outliers handled with a stated rule.
+
+39
+00:02:36,104 --> 00:02:39,779
+Categories encoded and imbalance checked.
+
+40
+00:02:39,779 --> 00:02:41,213
+Rules validated.
+
+41
+00:02:41,213 --> 00:02:44,081
+Before and after evidence shown.
+
+42
+00:02:44,081 --> 00:02:46,591
+A data quality log included.
+
+43
+00:02:46,591 --> 00:02:49,728
+Good luck, and thanks for watching.
+

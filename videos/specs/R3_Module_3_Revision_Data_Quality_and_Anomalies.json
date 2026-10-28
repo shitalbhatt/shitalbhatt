@@ -1,0 +1,60 @@
+{
+ "out_name": "R3_Module_3_Revision_Data_Quality_and_Anomalies",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This is the revision for module three, Data Quality Engineering and Anomaly Management. The takeaway is: create a reliable analytical dataset. We recap lectures fifteen to twenty two and finish with questions to test yourself.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/02.png",
+   "chapter": "Lectures 15 and 16",
+   "text": "Lectures fifteen and sixteen, data quality. The four dimensions are accuracy, completeness, consistency and validity. Validity is checked against rules and accuracy against reality. Integrate sources on a key, align schemas, resolve conflicts and re-audit. Detect exact, same-key and near duplicates. Standardise encoding, but standardising can create new duplicates, so re-audit after every fix.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/03.png",
+   "chapter": "Lectures 17 and 18",
+   "text": "Lectures seventeen and eighteen, missing values. The three mechanisms are M C A R, M A R and M N A R. Prove M A R with a crosstab against an observed column. Convert disguised missing values first. Compare mean, median, K N N and regression imputation by the variance each retains, since every fill shrinks variance.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/04.png",
+   "chapter": "Lectures 19 and 20",
+   "text": "Lectures nineteen and twenty, outliers. They come from mistakes, rare real values, limits, or a different population, so ask why first. Z-score works for bell-shaped data but masks outliers in long tails; I Q R is safer. Models like Isolation Forest, L O F and D B S C A N look at many columns. Fix by cause: remove, cap, winsorise, impute, log or flag, and compare before and after.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/05.png",
+   "chapter": "Lectures 21 and 22",
+   "text": "Lectures twenty one and twenty two, encoding and imbalance. Models need numbers. Use one-hot for nominal data and your own map for ordinal data, keep k minus one dummies, use frequency or target encoding for many categories, and use training rows only for target encoding. For rare classes, stratify, use class weights or resampling on training rows only, and judge by recall.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/06.png",
+   "chapter": "Labs",
+   "text": "The labs for this module: practicals fifteen and sixteen audit, integrate, dedupe and scale a merged Airbnb file. Practicals seventeen and eighteen compare imputation methods. Practicals nineteen and twenty detect and treat outliers and measure model accuracy before and after. Practicals twenty one and twenty two encode and handle imbalance.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/07.png",
+   "chapter": "Test yourself",
+   "text": "Test yourself, part one. Question one: every missing review rate has zero reviews. Which mechanism, and how did you prove it? Answer: M A R, proved by a crosstab of missing against zero reviews. Question two: why does Z-score miss many outliers in a long-tailed column? Answer: the outliers inflate the standard deviation and push the limit out, so they mask themselves.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/08.png",
+   "chapter": null,
+   "text": "Test yourself, part two. Question three: after title-casing a column, drop duplicates removes new rows. Why? Answer: lowercase and proper-case versions became exact copies, so audit again after every fix. Question four: accuracy dropped when you added class weights, yet the model improved. Why? Answer: recall on the rare class rose, and accuracy mostly measures the big class. Question five: why should target encoding use only training rows? Answer: otherwise the encoding peeks at the answers, which is leakage.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R3/slides/09.png",
+   "chapter": "Summary",
+   "text": "That is module three. Audit, then diagnose, then fix, then validate; explain why data is missing before filling it; fix outliers by cause; encode by type; and re-audit after every fix. Next, module four. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "out_name": "R2_Module_2_Revision_Core_Advanced_EDA",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This is the revision for module two, Core Advanced E D A. The takeaway is: apply graphical and non-graphical exploratory techniques. We recap lectures seven to fourteen and finish with questions to test yourself.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/02.png",
+   "chapter": "Lectures 7 and 8",
+   "text": "Lectures seven and eight. Non-graphical E D A uses central tendency, dispersion and shape statistics, each in one line for every numeric feature. Graphical E D A adds histogram, density, boxplot, violin and distribution comparisons for numbers, and frequency tables, bar plots and pie charts for categories. The one point five I Q R rule is the non-graphical twin of the boxplot whisker. Always use statistics and plots together.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/03.png",
+   "chapter": "Lectures 9 and 10",
+   "text": "Lectures nine and ten, bivariate analysis. Covariance shows direction but depends on units. Correlation rescales it to minus one to plus one. Pearson catches linear patterns; Spearman catches any monotonic pattern and resists outliers. Cross-tabs, with row percentages, are the categorical correlation matrix. For a number across groups use grouped statistics and boxplots. Correlation is not causation, and beware Simpson's paradox.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/04.png",
+   "chapter": "Lectures 11 and 12",
+   "text": "Lectures eleven and twelve, multivariate analysis. Multicollinearity means a feature is predictable from the others. V I F equals one over one minus R squared: above five investigate, above ten is severe. K-Means finds groups without labels. Scale first, choose k using the silhouette score but also usefulness, and interpret clusters with grouped statistics. It is exploratory, not a prediction model.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/05.png",
+   "chapter": "Lectures 13 and 14",
+   "text": "Lectures thirteen and fourteen, visualization. Anscombe's quartet shows that statistics hide structure. A chart is data, aesthetics, geometry, scales and theme. Choose the geometry from the question, use facets for groups, start bar axes at zero, and avoid dual axes and clutter. Use treemaps, word clouds and networks for non-numeric data. A dashboard has one purpose, and a story has context, conflict and resolution.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/06.png",
+   "chapter": "Labs",
+   "text": "The labs for this module: practicals seven and eight did univariate E D A on Superstore. Practicals nine and ten built correlation matrices, heatmaps and cross-tabs. Practicals eleven and twelve did V I F and K-Means. Practicals thirteen and fourteen are the assignment one presentation, supported by the visualization lab.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/07.png",
+   "chapter": "Test yourself",
+   "text": "Test yourself, part one. Question one: profit has a mean of one eighty one dollars and a median of minus one fifty. What does this suggest? Answer: a few very profitable orders pull the mean up while most orders lose money. Question two: Pearson is minus point two two but Spearman is minus point five four. Why? Answer: a few extreme points flatten the straight-line number, while ranks reveal the monotonic relationship.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/08.png",
+   "chapter": null,
+   "text": "Test yourself, part two. Question three: a feature has a V I F of twelve. What do you do? Answer: it is severely collinear, so drop it, combine features, or use P C A. Question four: the silhouette score is highest at k equals two, but k equals three is more interpretable. Which do you pick? Answer: justify with usefulness; the best statistic is not always the most useful k. Question five: why does a truncated bar chart mislead? Answer: bar length encodes value, so a non-zero baseline exaggerates differences.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R2/slides/09.png",
+   "chapter": "Summary",
+   "text": "That is module two. Use statistics and plots together; pick the technique from the pair of variable types; check collinearity before clustering; and make charts honest and purposeful. Next, module three: data quality. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

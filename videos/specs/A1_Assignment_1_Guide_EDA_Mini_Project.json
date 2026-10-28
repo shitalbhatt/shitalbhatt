@@ -1,0 +1,54 @@
+{
+ "out_name": "A1_Assignment_1_Guide_EDA_Mini_Project",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This video is a general guide to your first assignment, the E D A mini project that you present around week seven. Always follow your own assignment brief for the exact requirements. This guide shows how to structure your work, using what you have learned in modules one and two.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/02.png",
+   "chapter": null,
+   "text": "The assignment is a formative mini project worth twenty five percent. It covers outcomes one and two: analysing the statistical and structural characteristics of a dataset, and applying univariate, bivariate and multivariate E D A techniques. You present your findings, so both the analysis and the explanation count.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/03.png",
+   "chapter": "Structure",
+   "text": "Follow a clear structure. Start with a problem statement. Then a data audit. Then univariate analysis, bivariate analysis, and where suitable a multivariate step. Then hypotheses. And finally a story with a recommendation. Each stage maps to a lecture you have already seen.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/04.png",
+   "chapter": "Choosing data",
+   "text": "Choose your dataset carefully. Pick a dataset with enough rows, a mix of numeric and categorical columns, and a question that matters to someone. Check that you may use the data, and that it is not just a toy example everyone else uses. Write the one sentence: this sample can support claims about, blank, and cannot support claims about, blank.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/05.png",
+   "chapter": null,
+   "text": "In the analysis, pair every statistic with a plot. For skewed columns, report median and I Q R beside the mean. Check outliers with the one point five I Q R rule and state what you did with them. Use correlation with a scatter plot, and cross-tabs with percentages. Remember that correlation is not causation, so label your findings as hypotheses.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/06.png",
+   "chapter": "Presenting",
+   "text": "Make the presentation a story. Context: what situation is the data about and why does it matter? Conflict: what did the data reveal that is surprising or wrong? Resolution: what do you recommend? Use one chart per message, an insight title on each slide, an honest axis, and highlight the one thing that matters.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/07.png",
+   "chapter": "Checklist",
+   "text": "Use this checklist before you submit. Is the problem stated? Are duplicates, missing values and hidden zeros handled? Do charts have honest axes and labels? Are skew and outliers explained? Are hypotheses labelled exploratory? Does every slide have an insight title? And can you explain every number if you are asked?",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A1/slides/08.png",
+   "chapter": "Mistakes",
+   "text": "Common mistakes to avoid: deleting outliers silently, reporting the mean of a skewed column, trusting one plot, treating zeros or nine ninety nine as real values, using truncated bar charts, and making claims the sample cannot support. Good luck with your assignment. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}
