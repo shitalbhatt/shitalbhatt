@@ -1,0 +1,62 @@
+Mesh Analysis & Nodal Analysis Explained | Solve DC Circuits Step by Step with Solved Example | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 9:15
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Inside your phone charger, your laptop, even an electric vehicle battery pack, current flows through many loops at once. How do engineers find every current without building the circuit? Two methods. Let us learn both.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to apply Kirchhoff's laws, write mesh equations, write nodal equations, and decide which method is faster for a given circuit. Let us begin.
+
+[0:35] SCENE 1: THE FOUNDATION, KCL AND KVL
+Both methods stand on two laws by Kirchhoff. Kirchhoff's current law says that at any node, the current entering equals the current leaving. Charge does not pile up at a junction. Kirchhoff's voltage law says that going around any closed loop, the algebraic sum of voltages is zero. Energy gained from sources equals energy lost in resistors.
+
+Think of water in pipes. At a pipe junction, the water coming in must equal the water going out. And if water goes up a hill with a pump and comes down through pipes, the height it gains must equal the height it loses. Voltage is like water pressure, and current is like water flow.
+
+One sign rule will save you marks. Current always enters the positive side of a resistor, so the resistor causes a voltage drop equal to I into R in the direction of the current. Mesh analysis uses KVL. Nodal analysis uses KCL. Same physics, different unknowns. Keep these two laws in mind, because every step we do next is just one of them.
+
+[1:50] SCENE 2: MESH ANALYSIS, STEP BY STEP
+Mesh analysis. A mesh is a loop with no other loop inside it. Step one: assign a clockwise current to each mesh, I1, I2, and so on. Step two: write KVL for each mesh. Add up every resistor drop and equate it to the source voltage.
+
+Here is the key idea. A resistor shared by two meshes carries the difference of the two mesh currents, I1 minus I2, in the first mesh, and I2 minus I1 in the second. A source that pushes current in the same direction as your mesh arrow is positive, otherwise it is negative.
+
+Step three: you get as many equations as meshes. Solve them by substitution or by Cramer's rule. Step four: branch currents follow directly from the mesh currents.
+
+A small tip. Why clockwise for every mesh? Because when all mesh currents circulate in the same direction, a shared resistor always sees them opposing each other, and the equations become neat and symmetric. The coefficient of I1 in mesh 1 is the total resistance of that mesh, and the coupling term is always negative. This pattern helps you write the equations quickly, and also helps you spot mistakes.
+
+[3:13] SCENE 3: NODAL ANALYSIS, STEP BY STEP
+Nodal analysis flips the viewpoint. Instead of loop currents, our unknowns are node voltages. Step one: choose a reference node, usually the one with the most branches, and call it zero volts. Step two: label the remaining nodes, V1, V2, and so on. Step three: apply KCL at each of them. Write every branch current as the voltage at one end minus the voltage at the other end, divided by the resistance.
+
+Step four: solve for the node voltages. Once you know them, every branch current and every power is one line of arithmetic.
+
+Notice one thing. In nodal analysis, we never have to worry about loop direction. We simply say: assume all currents leave the node, write each one as voltage difference by resistance, and add them to zero. The sign takes care of itself. If a branch has a source, the voltage at the far end of its resistor is the source voltage, not the node voltage.
+
+[4:21] SCENE 4: MESH OR NODAL? CHOOSING THE FASTER METHOD
+Which method should you choose? Count the unknowns. A mesh needs one equation per mesh. A node needs one equation per non-reference node. Pick the method that gives fewer equations. Circuits with many parallel branches usually suit nodal analysis. Circuits with many series loops suit mesh analysis. Our example has two meshes but only one unknown node, so nodal is quicker, but I will solve it by mesh first and verify by nodal.
+
+Three common mistakes to avoid. One, getting the source sign wrong: always ask whether the source pushes current along your mesh arrow or against it. Two, forgetting that a shared resistor carries a difference of currents, not the sum. Three, forgetting units. Volts, ohms and amperes: check them at every line.
+
+[5:15] SOLVED NUMERICAL
+Time for a numerical. The circuit has a 10 volt source in series with 2 ohm on the left, a 4 ohm resistor in the middle, and a 6 ohm resistor in series with a 5 volt battery on the right. Both sources have their positive terminal at the top. Find the current in every branch, then verify the answer.
+
+Step one. Assign clockwise mesh currents I1 on the left and I2 on the right. Step two. KVL for mesh 1: the source gives 10 volts, the drops are 2 I1 plus 4 into I1 minus I2. So 6 I1 minus 4 I2 equals 10.
+
+KVL for mesh 2. The 5 volt battery pushes current upward, against our clockwise arrow, so it enters with a negative sign. The drops are 4 into I2 minus I1, plus 6 I2, equals minus 5. That simplifies to minus 4 I1 plus 10 I2 equals minus 5.
+
+Step three. Solve using Cramer's rule. The determinant is 6 into 10 minus minus 4 into minus 4, which is 60 minus 16, equals 44. I1 equals 10 into 10 minus 4 into 5, divided by 44, equals 80 by 44, which is 1.818 ampere. I2 equals 6 into minus 5, minus minus 4 into 10, divided by 44, equals 10 by 44, which is 0.227 ampere.
+
+Step four. The current in the middle 4 ohm resistor is I1 minus I2, equals 1.591 ampere, downward. Its voltage is 6.364 volts.
+
+Now verify by nodal analysis. Take the bottom wire as zero volts and call the top node VA. KCL: current from the left branch, 10 minus VA by 2, equals VA by 4 plus VA minus 5 by 6. Multiply by 12: 60 minus 6 VA equals 5 VA minus 10. So 11 VA equals 70, and VA equals 6.364 volts. Exactly the voltage across the 4 ohm resistor. The methods agree.
+
+Finally, a power check. The 10 volt source delivers 18.18 watts. The resistors dissipate 6.61, 10.12 and 0.31 watts, total 17.04. The 5 volt battery is being charged, since current enters its positive terminal, and absorbs 1.14 watts. 17.04 plus 1.14 is 18.18. Power balances. Two different methods, one power check, one answer. That is how an engineer builds confidence in a result.
+
+[7:57] RECAP
+Let us recap in five points. One: KCL at a node, KVL around a loop. Two: in mesh analysis, assign clockwise currents, write KVL, and remember a shared resistor carries I1 minus I2. Three: in nodal analysis, fix a reference node, write KCL, and use branch current equals voltage difference by R. Four: choose the method that gives fewer equations. Five: always verify with a second method or a power balance.
+
+[8:27] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 12 volt source with 3 ohm on the left, a 6 ohm in the middle, and a 3 ohm on the right with no source. Find the current in the 6 ohm resistor. Question two: in today's example, reverse the 5 volt battery and find VA. Answers are in the pinned comment.
+
+In the next video, we move to alternating current: how a coil generates a sine wave, and what RMS value and phasors really mean. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

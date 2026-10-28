@@ -1,0 +1,56 @@
+Lag, Lead & Lag-Lead Compensators | RC Network Design with Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:30
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Suppose your system is stable but too oscillatory, or accurate but too slow. You cannot replace the plant. So what do you do? You add a small circuit in the loop, called a compensator, to reshape the response.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to state why compensators are used, compare lead and lag networks, design an RC lead network, and explain the lag-lead network. Let us begin.
+
+[0:36] SCENE 1: WHY COMPENSATE? AND THE LEAD COMPENSATOR
+We use a compensator when the plant itself cannot be changed. The lead compensator has the form one plus alpha T s, divided by one plus T s, with alpha greater than one. Its zero at minus one by alpha T is nearer the origin than its pole at minus one by T. The result is that it adds positive phase, a phase lead, in the middle of the frequency range.
+
+The maximum lead, phi max, is the inverse sine of alpha minus 1 over alpha plus 1. It occurs at the centre frequency, omega m, equal to 1 by T root alpha. The magnitude rises by 20 log alpha between the zero and the pole. The effects: more phase margin, more bandwidth, a faster and better-damped response. The price: higher gain at high frequencies, so it amplifies noise.
+
+A useful rule of thumb: a single lead network can provide up to about 60 degrees of phase lead. If you need more than that, use two lead networks in cascade.
+
+[1:48] SCENE 2: THE LAG COMPENSATOR
+The lag compensator is the mirror image: one plus T s, divided by one plus beta T s, with beta greater than one. Now the pole is nearer to the origin than the zero. The DC gain is one, but at high frequencies, the gain falls to one by beta. The phase is negative in the middle range, with a maximum lag of the inverse sine of beta minus 1 over beta plus 1.
+
+What is it good for? The lag compensator lets us attenuate the high-frequency gain, so that we can afford to raise the low-frequency gain and reduce steady-state error, without destroying the phase margin. The price: a slower response, since the bandwidth goes down.
+
+[2:39] SCENE 3: RC IMPLEMENTATION AND LAG-LEAD
+These compensators are easily built with resistors and capacitors. In the RC lag network, the transfer function is one plus s R2 C, divided by one plus s times R1 plus R2, times C. In the RC lead network, the transfer function is one by alpha, times one plus s alpha T, divided by one plus s T. Here alpha equals R1 plus R2 over R2, and T equals R1 R2 C over R1 plus R2. The factor one by alpha is a loss that an amplifier can restore.
+
+The lag-lead compensator joins both. The lag section improves steady-state accuracy at low frequency. The lead section adds phase near the crossover and improves the transient response. Use it when you need both improvements together, for example a better accuracy and a faster response.
+
+[3:36] SOLVED NUMERICAL
+Part A: design a lead network that gives a maximum phase lead of 45 degrees at 10 radians per second. Part B: analyse an RC lag network with R1 equal to 90 kilo-ohm, R2 equal to 10 kilo-ohm, and C equal to 100 microfarad.
+
+Part A, step one: alpha. Sine of 45 degrees is 0.7071, which equals alpha minus 1 over alpha plus 1. Solving, alpha equals 1 plus 0.7071, divided by 1 minus 0.7071, which is 1.7071 by 0.2929, equals 5.83.
+
+Step two: the time constant. Omega m equals 1 by T root alpha. Root of 5.83 is 2.414. So T equals 1 by 10 into 2.414, equals 0.0414 seconds. And alpha T is 0.241 seconds. The compensator is one plus 0.241 s, divided by one plus 0.0414 s. Check: the zero is at 4.14 and the pole at 24.1 radians per second. The geometric mean is root of 4.14 into 24.1, which is exactly 10. Good.
+
+Step three: components. Alpha equals R1 plus R2, over R2, equals 5.83. Choose R2 as 1 kilo-ohm, then R1 is 4.83 kilo-ohm. T equals R1 R2 C over R1 plus R2. R1 R2 over R1 plus R2 is 0.828 kilo-ohm. So C equals 0.0414 by 828, equals 50 microfarad. At omega m, the network gain is 1 by root alpha, which is 0.414, that is minus 7.66 decibels, and an amplifier can compensate that.
+
+Part B. R2 into C is 10 kilo-ohm times 100 microfarad, equals 1 second. R1 plus R2, times C, is 100 kilo-ohm times 100 microfarad, equals 10 seconds. So the transfer function is one plus s, divided by one plus 10 s. Beta is 10. The zero is at 1 radian per second, the pole at 0.1 radian per second.
+
+The centre frequency is 1 by root 1 into 10, equals 0.316 radians per second. The maximum phase lag is minus inverse sine of 9 by 11, equals minus 54.9 degrees. The gain at this frequency is minus 10 decibels, and at high frequencies the gain settles at 0.1, that is minus 20 decibels. DC gain remains one.
+
+[6:06] COMMON MISTAKES AND EXAM TIPS
+Four traps. One: for the lead network the zero is nearer to the origin, and for the lag network the pole is nearer. Students often swap these. A quick memory: lead leads, so the phase-adding zero comes first. Two: the centre frequency is the geometric mean of the zero and pole frequencies, not the arithmetic mean.
+
+Three: the passive RC lead network has a gain loss of one by alpha at low frequencies. Real designs include an amplifier to restore the loss. Four: a lag compensator is not for speeding up the system. It is for accuracy. If the problem says make it faster, use a lead.
+
+In the lab, Experiments 9 and 10 build exactly these two networks, so it helps to carry the component values from this video into the lab and compare the measured Bode data.
+
+[7:05] RECAP
+Let us recap in five points. One: a compensator is a small network added in the loop to reshape the response Two: the lead network adds phase, with a maximum of inverse sine of alpha minus 1 over alpha plus 1 Three: lead improves speed and phase margin, while lag improves accuracy but slows the response Four: the centre frequency is the geometric mean of the pole and zero Five: the lag-lead network gives both better accuracy and a better transient response
+
+[7:40] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a lead network has alpha equal to 3. Find the maximum phase lead, and the centre frequency for T equal to 0.1 seconds. Question two: an RC lag network has R1 equal to 9 kilo-ohm, R2 equal to 1 kilo-ohm, and C equal to 10 microfarad. Find the transfer function, beta, and the high-frequency gain. Answers are in the pinned comment.
+
+In the next video, we study the most widely used controllers in industry: proportional, integral and derivative, and how to tune them. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

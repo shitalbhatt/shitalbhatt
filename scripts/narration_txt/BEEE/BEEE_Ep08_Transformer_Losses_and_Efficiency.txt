@@ -1,0 +1,58 @@
+Transformer Losses & Efficiency | Condition for Maximum Efficiency | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:20
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A transformer is one of the most efficient machines ever made, often above ninety-eight percent. But for a huge power transformer, even a two percent loss means megawatts of heat. So where do the losses come from, and how do we minimise them?
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to list the losses in a transformer, calculate efficiency, derive the condition for maximum efficiency, and solve a numerical. Let us begin.
+
+[0:38] SCENE 1: IRON LOSS AND COPPER LOSS
+There are two main losses in a transformer. The iron loss, or core loss, has two parts. Hysteresis loss is due to the repeated magnetisation and demagnetisation of the core, proportional to the area of the B-H loop. Eddy-current loss comes from circulating currents induced in the core, which we reduce with thin laminations. Both depend on the supply voltage and frequency, but not on the load. So the iron loss is constant from no load to full load.
+
+The copper loss is the I squared R heat in the windings. It depends on the load current, and varies with the square of the load. At half the load current, the copper loss is a quarter. There are also small stray losses in the tank and in the structure, which we usually ignore. Since a transformer has no moving parts, it has no friction or windage loss, which explains its high efficiency.
+
+A quick check on the iron loss: if you double the frequency at constant flux density, the hysteresis loss doubles, and the eddy loss goes up four times.
+
+[1:55] SCENE 2: EFFICIENCY
+Efficiency is the ratio of the output power to the input power. The input equals the output plus the losses. So efficiency equals output divided by output plus iron loss plus copper loss. If the transformer is operated at a fraction x of the full load, with the same power factor, the output becomes x times S times cosine phi. The iron loss does not change, but the copper loss becomes x squared times the full-load copper loss.
+
+In practice, the iron loss is found from the open-circuit test, and the full-load copper loss from the short-circuit test. Then we can compute the efficiency at any load, without actually loading the transformer.
+
+[2:43] SCENE 3: CONDITION FOR MAXIMUM EFFICIENCY
+At what load is the efficiency highest? Divide the numerator and denominator by x S cos phi: efficiency is output over output plus losses, so it is maximum when the loss per unit output, P i by x plus x P cu, is minimum. Differentiate with respect to x and equate to zero. We get P i equal to x squared times P cu. That is, the efficiency is maximum when the iron loss equals the copper loss.
+
+The load fraction at maximum efficiency is x equal to root of P i by P cu at full load. Transformers in distribution networks run at partial load most of the time, so they are designed with a low iron loss, to give maximum efficiency at 50 to 70 percent load.
+
+[3:39] SOLVED NUMERICAL
+Let us solve one. A 25 kilovolt-ampere transformer has an iron loss of 350 watts, and a full-load copper loss of 550 watts. Find the efficiency at full load and at half load, both at 0.8 power factor, and the load at which the efficiency is maximum.
+
+Full load. Output equals 25,000 into 0.8, equals 20,000 watts. Total loss equals 350 plus 550, equals 900 watts. Efficiency equals 20,000 by 20,900, equals 95.69 percent.
+
+Half load. Output equals 10,000 watts. The copper loss becomes one-quarter of 550, which is 137.5 watts. Total loss equals 350 plus 137.5, equals 487.5 watts. Efficiency equals 10,000 divided by 10,487.5, equals 95.35 percent.
+
+Maximum efficiency. The load fraction x equals root of 350 by 550, equals 0.798. The load is 0.798 into 25, equals 19.94 kilovolt-ampere. At this load, the copper loss equals the iron loss, 350 watts, and the total loss is 700 watts. The output is 0.798 into 20,000, equals 15,954 watts. Efficiency equals 15,954 by 16,654, equals 95.80 percent.
+
+Notice how flat the curve is: 95.35 at half load, 95.80 at the best, 95.69 at full load. A transformer keeps a high efficiency over a wide range of loads.
+
+[5:03] COMMON MISTAKES AND EXAM TIPS
+Four points. One: the output in watts is kilovolt-ampere times the power factor. Do not forget the power factor. Two: the iron loss does not change with the load. Three: the copper loss changes with x squared, not x. Four: the maximum efficiency does not occur at full load unless the iron loss equals the full-load copper loss.
+
+And note, the maximum efficiency is different for different power factors, because it changes the output. But the load fraction at which it occurs is the same.
+
+In a real power plant, transformers are chosen so that their maximum efficiency matches the typical load. Over a year, that saves a great deal of energy.
+
+How do we actually find the two losses in a laboratory? Without loading the transformer, using two tests. In the open-circuit test, the rated voltage is applied to the low-voltage winding, with the high-voltage winding open. The current is very small, so the copper loss is negligible, and the input power equals the iron loss. In the short-circuit test, the high-voltage winding is supplied with a reduced voltage, only a few percent of the rated value, until the rated current flows, with the low-voltage winding shorted. The flux is then very low, so the iron loss is negligible, and the input power equals the full-load copper loss.
+
+These two tests are economical: they need only a small amount of power, yet give the full-load efficiency. For distribution transformers that are loaded lightly most of the day, designers also look at the all-day efficiency, which is the ratio of the energy output to the energy input over 24 hours.
+
+[6:59] RECAP
+Let us recap in five points. One: iron loss is constant and comes from hysteresis and eddy currents Two: copper loss varies as the square of the load Three: efficiency at fraction x of load is x S cos phi over x S cos phi plus P i plus x squared P cu Four: efficiency is maximum when iron loss equals copper loss Five: the load fraction at maximum efficiency is the root of iron loss by full load copper loss
+
+[7:34] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 10 kilovolt-ampere transformer has an iron loss of 150 watts and a full load copper loss of 250 watts. Find the efficiency at full load and unity power factor. Question two: for the same transformer, find the load fraction at maximum efficiency. Answers are in the pinned comment.
+
+In the next video, we move on to the DC motor: how it works, the back emf and its significance, and the torque equation. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

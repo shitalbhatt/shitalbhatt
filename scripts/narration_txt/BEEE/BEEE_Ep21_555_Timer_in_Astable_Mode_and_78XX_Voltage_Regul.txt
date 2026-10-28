@@ -1,0 +1,56 @@
+555 Timer Astable Multivibrator & 78XX Voltage Regulator | Frequency, Duty Cycle | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:44
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A blinking LED on a toy, a siren, a clock pulse for a circuit: all of these can be built around one eight-pin chip invented in the early 1970s, the 555 timer. And the steady 5 volts that powers your microcontroller often comes from another famous three-pin chip, the 7805. Let us learn both.
+
+[0:23] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain the 555 astable circuit, calculate frequency and duty cycle, describe 78XX regulators, and solve a numerical. Let us begin.
+
+[0:42] SCENE 1: INSIDE THE 555 TIMER
+The 555 timer gets its name from three 5 kilo-ohm resistors in a voltage divider inside it. They create two reference levels: two thirds of the supply and one third of the supply. Two comparators watch an external capacitor voltage. The threshold comparator on pin 6 senses when the voltage exceeds two thirds of V C C. The trigger comparator on pin 2 senses when it falls below one third.
+
+The comparators set and reset a flip-flop whose output drives pin 3. A transistor connected to pin 7 discharges the capacitor when the output is low. With just two resistors and a capacitor outside, this arrangement creates a continuous square wave: the astable mode.
+
+[1:31] SCENE 2: ASTABLE MODE: OPERATION
+In astable mode, pins 2 and 6 are tied together and connected to the capacitor. When the power is switched on, the capacitor charges through R 1 plus R 2. While its voltage is below two thirds of the supply, the output is high. When it reaches two thirds, the upper comparator resets the flip-flop, the output goes low, and the discharge transistor turns on. Now the capacitor discharges through R 2 into pin 7. When its voltage falls to one third of the supply, the lower comparator sets the flip-flop, and the cycle repeats.
+
+The high time is 0.693 times R 1 plus R 2, times C. The low time is 0.693 times R 2 times C. The total period is 0.693 times R 1 plus 2 R 2, times C. So the frequency is 1.44 divided by R 1 plus 2 R 2, times C. The duty cycle is R 1 plus R 2, divided by R 1 plus 2 R 2, always greater than 50 percent in this simple circuit. To get close to 50 percent, make R 1 much smaller than R 2.
+
+[2:51] SCENE 3: 78XX FIXED VOLTAGE REGULATORS
+The 78XX series are three-terminal fixed positive voltage regulators. The last two digits give the output voltage: 7805 for 5 volts, 7812 for 12 volts, and so on. The three pins are input, common ground, and output. Inside, there is a reference, an error amplifier, a series pass transistor, and protection against overheating and short circuits.
+
+The input must be at least about 2 volts higher than the output, called the dropout. So a 7805 needs at least 7 volts at its input. Small capacitors, about 0.33 microfarad at the input and 0.1 at the output, keep it stable. The regulator behaves like a series pass transistor, so the extra voltage appears across it, and the power dissipated is the voltage difference times the load current. For high currents, a heat sink is essential. The complementary 79XX series gives negative voltages.
+
+For better efficiency at large voltage differences, switching regulators are used. But for low-noise, low-cost designs, the 78XX linear regulator is still very popular.
+
+[4:02] SOLVED NUMERICAL
+Part A. A 555 astable circuit has R 1 equal to 1 kilo-ohm, R 2 equal to 10 kilo-ohm, and C equal to 0.1 microfarad. Find the output frequency, the high and low times, and the duty cycle. Part B. A 7805 regulator is fed from 12 volts and drives a 100 ohm load. Find the load current and the power dissipated in the regulator.
+
+Part A, step one: R 1 plus 2 R 2 equals 1 plus 20, equals 21 kilo-ohm. The period T equals 0.693 into 21 kilo-ohm into 0.1 microfarad. That is 0.693 into 2.1 milliseconds, equals 1.455 milliseconds. So the frequency is about 687 hertz. The formula 1.44 over 21 kilo-ohm times 0.1 microfarad gives 686 hertz, which is the same within rounding.
+
+Step two: the high time is 0.693 into 11 kilo-ohm into 0.1 microfarad, equals 0.762 milliseconds. The low time is 0.693 into 10 kilo-ohm into 0.1 microfarad, equals 0.693 milliseconds. Together, 1.455 milliseconds.
+
+Step three: the duty cycle is 0.762 divided by 1.455, which is 52.4 percent. This agrees with R 1 plus R 2 over R 1 plus 2 R 2, which is 11 over 21.
+
+Part B. The output is 5 volts, so the load current is 5 by 100, equals 50 milliamperes. The regulator drops 12 minus 5, equals 7 volts, so it dissipates 7 into 0.05, equals 0.35 watt. This is small, and the regulator stays cool. But for a load current of 500 milliamperes, the dissipation would be 3.5 watts, and a heat sink would be essential. That is the price of a linear regulator: the extra voltage turns directly into heat.
+
+Both of these chips are cheap and simple, which is why they have been used for decades.
+
+[6:07] COMMON MISTAKES AND EXAM TIPS
+Four points. One: the 0.693 factor is the natural logarithm of 2, from charging between one third and two thirds of the supply. Two: in the basic astable circuit, the duty cycle is always above 50 percent, because the capacitor charges through R 1 plus R 2 but discharges only through R 2. Three: check the dropout. A 7805 needs at least 7 volts at the input, or the output will fall below 5 volts.
+
+Four: always add the recommended capacitors close to the regulator pins, otherwise it may oscillate. And check the power dissipation: a regulator that runs too hot will shut down, thanks to its thermal protection.
+
+Real-life use: the 555 generates clocks, flashes LEDs, drives buzzers and makes simple tone generators. The 78XX family provides the stable supply for countless microcontroller boards.
+
+[7:05] RECAP
+Let us recap in five points. One: the 555 uses a three resistor divider to set the one third and two thirds levels Two: in astable mode the high time is 0.693 R 1 plus R 2 times C, and the low time is 0.693 R 2 C Three: the frequency is 1.44 over R 1 plus 2 R 2 times C, and the duty cycle is R 1 plus R 2 over R 1 plus 2 R 2 Four: the 78XX gives a fixed positive voltage, and the input must be at least 2 volts above the output Five: the regulator dissipates V in minus V out times the load current, so a heat sink may be needed
+
+[7:56] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 555 astable has R 1 equal to 2.2 kilo-ohm, R 2 equal to 22 kilo-ohm and C equal to 10 nanofarad. Find the frequency. Question two: a 7805 is fed from 9 volts and supplies 200 milliamperes. Find the power dissipated in the regulator. Answers are in the pinned comment.
+
+Congratulations. You have completed all five units of Basic Electrical and Electronics Engineering. Revise with the practice questions in each video, and all the best for your examinations. If this helped, like, subscribe, and share it with your classmates. Thank you, and all the best for your exams.
+

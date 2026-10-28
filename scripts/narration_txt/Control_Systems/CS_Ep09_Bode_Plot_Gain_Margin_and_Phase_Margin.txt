@@ -1,0 +1,60 @@
+Bode Plot Step by Step | Gain Margin & Phase Margin | Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:23
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+How do engineers know how close an aircraft autopilot is to going unstable, without ever risking a flight? They read two numbers from a graph: the gain margin and the phase margin.
+
+[0:14] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to draw an asymptotic Bode plot, find gain and phase crossover frequencies, calculate GM and PM, and judge stability from the margins. Let us begin.
+
+[0:33] SCENE 1: WHAT IS A BODE PLOT?
+A Bode plot is two graphs drawn on the same logarithmic frequency axis. The top graph is the magnitude of G of j omega in decibels, which is 20 log base 10 of the magnitude. The bottom graph is the phase angle in degrees. The logarithmic axis lets us show a very wide range of frequencies, and, more importantly, converts multiplication into addition. If G is a product of several simple factors, the Bode plot is just the sum of their plots.
+
+A decade means a factor of ten in frequency, for example 1 to 10, or 10 to 100. We express slopes in decibels per decade.
+
+[1:19] SCENE 2: THE BUILDING BLOCKS AND THEIR SLOPES
+Every transfer function is built from a few basic factors. A constant K contributes 20 log K decibels, flat, and zero phase. An integrator, one by s, gives a straight line with a slope of minus 20 decibels per decade, which passes through 0 dB at omega equal to 1, and a constant phase of minus 90 degrees.
+
+A simple pole, one by 1 plus s T, is flat at 0 dB until the corner frequency, omega equal to 1 by T. After the corner the slope becomes minus 20 decibels per decade. At the corner, the actual curve is 3 decibels below the asymptote. Its phase goes from 0 to minus 90 degrees, passing through minus 45 at the corner. A simple zero does exactly the opposite: plus 20 decibels per decade and phase going from 0 to plus 90 degrees.
+
+[2:20] SCENE 3: GAIN MARGIN AND PHASE MARGIN
+Now the two numbers from the hook. The gain crossover frequency is where the magnitude crosses 0 decibels. The phase margin is 180 degrees plus the phase of G at that frequency. It is how much extra phase lag the system can tolerate before instability.
+
+The phase crossover frequency is where the phase equals minus 180 degrees. The gain margin is the amount of extra gain, in decibels, that can be added before the magnitude at that frequency touches 0 dB. For a stable system, both margins must be positive. As a rule of thumb, a good design has a gain margin of more than 6 decibels, and a phase margin of 30 to 60 degrees.
+
+A useful approximation for second-order systems: damping ratio is roughly the phase margin in degrees divided by 100. So a phase margin of 47 degrees suggests a zeta of about 0.47.
+
+[3:23] SOLVED NUMERICAL
+Draw the Bode plot and find the stability margins for G of s H of s equals 10 divided by s into 1 plus 0.1 s into 1 plus 0.01 s.
+
+Step one: the corner frequencies are 1 by 0.1, which is 10 radians per second, and 1 by 0.01, which is 100 radians per second.
+
+Step two: the magnitude asymptotes. At low frequency, the integrator gives a slope of minus 20 decibels per decade. At omega equal to 1, the gain is 20 log of 10, which is 20 decibels. This line continues until 10 radians per second, where it reaches 0 decibels. From 10 to 100 the slope is minus 40, and beyond 100, minus 60 decibels per decade.
+
+Step three: the gain crossover. The asymptote hits 0 dB at 10, but the real curve is 3 decibels lower at the corner, so the actual crossover is slightly below 10. Solving the magnitude equation exactly gives omega g c equal to 7.84 radians per second.
+
+Step four: phase margin. The phase at that frequency is minus 90 degrees, minus inverse tan of 0.784, minus inverse tan of 0.0784. That is minus 90, minus 38.1, minus 4.5, equals minus 132.6 degrees. So the phase margin is 180 minus 132.6, equals 47.4 degrees.
+
+Step five: phase crossover. The phase is minus 180 when the two inverse tangents add up to 90 degrees, which happens at omega equal to 1 by root of 0.1 into 0.01, equals 31.62 radians per second. The magnitude there is 10 divided by 31.62 into root 11 into root 1.1, which is 0.0909. So the gain margin is 1 by 0.0909, equals 11, or 20.8 decibels.
+
+Both margins are positive: gain margin 20.8 decibels, phase margin 47.4 degrees. The system is stable with a comfortable margin.
+
+[5:32] COMMON MISTAKES AND EXAM TIPS
+Four points for drawing Bode plots. One: always convert the transfer function into time-constant form, one plus s T, before reading corner frequencies. A factor like s plus 10 must be written as 10 into 1 plus s by 10.
+
+Two: the corner frequency is one by T, not T. Three: the phase margin is 180 degrees plus the phase of G at the gain crossover, where the phase is negative. Four: the asymptotic plot is only approximate. If your exam question needs exact values, compute the magnitude equation at the frequency directly, as we did for omega g c.
+
+And remember what the margins tell us physically. A small phase margin means the closed-loop step response will be very oscillatory. A phase margin of about 60 degrees corresponds to a damping ratio of about 0.6, which is a well-behaved response.
+
+A last link. The Bode margins come from the Nyquist stability criterion, which relates the encirclement of the minus 1 point to stability. For most practical open-loop systems, the margin check is enough, but for conditionally stable systems the margins alone can mislead. In such a case, examine the complete plot.
+
+[6:54] RECAP
+Let us recap in five points. One: a Bode plot has magnitude in decibels and phase in degrees on a log frequency axis Two: an integrator has minus 20 dB per decade, a pole adds minus 20 after its corner, and a zero adds plus 20 Three: phase margin is measured at the gain crossover as 180 plus the phase Four: gain margin is measured at the phase crossover as minus 20 log of the magnitude Five: a system is stable if both gain margin and phase margin are positive
+
+[7:33] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: G of s equal to 10 by s into 1 plus 0.1 s. Find the gain crossover frequency, phase margin and gain margin. Question two: G of s equal to 100 into 1 plus 0.1 s, divided by s into 1 plus s. List the corner frequencies and the slope of each segment. Answers are in the pinned comment.
+
+In the next video, we begin Unit 4, stability: how to check, without finding roots, whether a system is stable, using the Routh-Hurwitz criterion. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

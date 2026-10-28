@@ -1,0 +1,66 @@
+MATLAB Lab: Effect of Adding Poles and Zeros on System Stability | Control Systems Experiment 2
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:15
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Add one extra pole to your system, and the response can change from smooth to wildly oscillatory. Add a zero, and it can change again. Today we see why, with MATLAB doing the hard work.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to add poles and zeros to a loop in MATLAB, compare closed-loop poles and overshoot, find the gain that makes the system unstable, and explain the effects. Let us begin.
+
+[0:37] SCENE 1: THE THREE SYSTEMS
+We use three systems, all with unity feedback. The base system has the open-loop transfer function 4 over s into s plus 2. The second adds a pole at minus 10, and the gain is adjusted to 40 so that the low-frequency behaviour is the same. The third adds a zero at minus 1 to the base system. We compare their closed-loop poles and step responses.
+
+[1:05] SCENE 2: THE MATLAB CODE
+Define the base system G0 as tf of 4 over the vector 1, 2, 0. For the second system, multiply s into s plus 2 by s plus 10 using conv, with numerator 40. For the third, the numerator is the vector 4, 4, which is 4 s plus 4. Close the loops with the feedback command and unity feedback. Then plot all three on the same graph by passing them to the step command.
+
+Use pole to display the closed-loop poles, stepinfo to read the specifications, and pzmap to see the poles and zeros on the s-plane.
+
+The feedback command takes the open-loop system and the feedback path. For unity feedback, the second argument is simply one.
+
+[1:56] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to study the effect of adding poles and zeros to the open-loop transfer function on the closed-loop response and stability. You will need: a computer with MATLAB and the Control System Toolbox.
+
+The procedure has the following steps. Step 1: define the three open-loop transfer functions. Step 2: close each loop with unity feedback using the feedback command. Step 3: plot the three step responses on one graph. Step 4: record the closed-loop poles and the step information for each. Step 5: sweep the gain K of the three-pole system, and note the value at which the poles reach the imaginary axis. Step 6: write each observation together with its reason.
+
+[2:47] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Run the script. The base system has closed-loop poles at minus 1 plus or minus j 1.73. Zeta is 0.5 and omega n is 2. The overshoot is 16.3 percent and the settling time is about 4 seconds.
+
+Now add the pole at minus 10. The poles become minus 10.45 and a complex pair at minus 0.774 plus or minus j 1.80. The complex pair has moved closer to the imaginary axis, so the damping is smaller. The overshoot increases to about 25 percent, and the settling time to 4.4 seconds. Lesson: adding a pole, which adds lag, reduces stability.
+
+Now add the zero at minus 1. The closed-loop poles become minus 0.764 and minus 5.236. Both real, so no oscillation at all, and the overshoot is 0. The settling time drops to about 3.4 seconds. But be careful: the zero does not cancel anything here, it just changes where the poles land. In general, a zero in the left half-plane adds phase lead and tends to increase the speed.
+
+Finally, stability against gain. With three poles, the characteristic equation is s cubed plus 12 s squared plus 20 s plus K. The Routh array shows stability for K below 240. At K equal to 240 the poles are at plus or minus j 4.47. At 300 the poles move into the right half-plane, and the step response is a growing oscillation. This is why adding poles limits the gain.
+
+[4:30] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Use one table for the three systems and one for the gain sweep.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[5:03] VIVA QUESTIONS AND MODEL ANSWERS
+Before you go to the viva, test yourself. Pause after each question and answer it aloud.
+
+Question 1. What is the effect of adding a pole in the left half-plane to the open-loop transfer function? It adds phase lag, reduces relative stability, and increases the overshoot.
+
+Question 2. And a zero in the left half-plane? It adds phase lead and usually makes the response faster, and can reduce overshoot.
+
+Question 3. Why does the three-pole system become unstable at a high gain? Because the closed-loop poles move to the right and cross the imaginary axis at K equal to 240.
+
+Question 4. How do you find the critical gain? From the Routh array, or from the root locus.
+
+Question 5. Which MATLAB commands did you use? tf, conv, feedback, step, stepinfo, pole and pzmap.
+
+[6:00] COMMON LAB MISTAKES AND VIVA TIPS
+Four tips for your record. One: use conv to multiply polynomials like s into s plus 2 into s plus 10. Typing them by hand invites errors. Two: when comparing systems, keep the low-frequency gain comparable, otherwise you are comparing different systems.
+
+Three: always inspect the closed-loop poles, not just the open-loop poles. Four: for each observation, write the reason. For example: adding a pole at minus 10 increased the overshoot because it added phase lag and pushed the dominant poles toward the imaginary axis. A viva question may be, what happens when you keep adding poles? The answer: the critical gain falls, and the system eventually becomes unstable.
+
+[6:47] RECAP
+Let us recap in five points. One: adding a pole adds lag, and usually reduces stability and increases the overshoot Two: adding a left half-plane zero adds phase lead and usually makes the response faster Three: the feedback command closes the loop Four: pzmap shows the poles and zeros on the s-plane Five: with more poles, the critical gain for stability becomes smaller
+
+[7:14] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: find the range of K for stability if G equals K over s into s plus 2 into s plus 10 in a unity loop. Verify with MATLAB. Question two: add a zero at s equals minus 5 to G equal to 4 over s into s plus 2, written as G equal to 4 into 0.2 s plus 1, over s into s plus 2. Predict the closed-loop poles and damping ratio, then check with MATLAB. Answers are in the pinned comment.
+
+In the next video, we draw the root locus in MATLAB and verify the breakaway point and the imaginary axis crossing from the root locus video. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

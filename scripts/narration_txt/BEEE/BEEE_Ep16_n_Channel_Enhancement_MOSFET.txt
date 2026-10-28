@@ -1,0 +1,56 @@
+n-Channel Enhancement MOSFET | Working, Regions, Characteristics | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:46
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Your phone has billions of transistors on a chip smaller than your fingernail. They are almost all MOSFETs. Why this one? Because it needs almost no input current, and it can be made extremely small. Let us see how it works.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to describe MOSFET construction, explain channel formation and threshold voltage, write drain current equations in each region, and solve a numerical. Let us begin.
+
+[0:38] SCENE 1: CONSTRUCTION AND CHANNEL FORMATION
+The n-channel enhancement MOSFET is built on a p-type substrate, with two heavily doped n regions: the source and the drain. Above the region between them is a very thin layer of silicon dioxide, an insulator, and above that the metal gate. Since the gate is insulated, essentially no current flows into it, so the input resistance is extremely high.
+
+With zero voltage on the gate, there is no connection between source and drain; two back-to-back diodes block the current. This is why it is called an enhancement type. As a positive voltage is applied to the gate, it attracts electrons to the surface under the oxide, and repels holes. Once V G S exceeds the threshold voltage, V th, enough electrons gather to form a thin n-type channel connecting the source and drain. Current can now flow.
+
+[1:37] SCENE 2: OPERATING REGIONS AND CHARACTERISTICS
+The behaviour depends on V G S and V D S. If V G S is below V th, there is no channel and the drain current is zero: cutoff. If V G S is above V th and V D S is small, the channel acts like a resistor, and the current rises with V D S. This is the triode or ohmic region, valid when V D S is less than V G S minus V th. As V D S increases, the channel gets pinched near the drain. When V D S reaches V G S minus V th, the current stops rising, and the device enters saturation.
+
+In saturation, the drain current is k by 2 times V G S minus V th, squared. It depends only on V G S, not on V D S. The constant k depends on the process and the width to length ratio of the channel. In the triode region, the expression includes V D S, and the MOSFET behaves as a voltage-controlled resistor.
+
+For switching, the MOSFET works in cutoff and triode. For amplifiers, it works in saturation.
+
+In saturation, the real device has a slight increase of current with V D S, called channel-length modulation. We neglect it in this course.
+
+[3:09] SCENE 3: MOSFET VS BJT
+How does the MOSFET compare with the BJT? The MOSFET is voltage controlled, with almost no input current and a very high input resistance. It is small, uses little power, and is simple to fabricate in huge numbers. That is why it dominates digital integrated circuits. The BJT is current controlled and needs a base current, but it gives a higher gain for the same current and is still widely used in analogue circuits.
+
+A practical caution: the thin oxide layer can be damaged by static electricity. Handle MOSFETs with care, and use anti-static precautions.
+
+[3:49] SOLVED NUMERICAL
+A MOSFET has k equal to 2 milliampere per volt squared, and a threshold voltage of 2 volts. Part A: find the drain current in saturation for V G S equal to 3 and 4 volts. Part B: in a circuit with V D D equal to 10 volts and a 1.5 kilo-ohm drain resistor, find the operating point for V G S equal to 4 volts, and for 6 volts.
+
+Part A. I D equals k by 2, which is 1 milliampere per volt squared, times V G S minus 2, squared. At V G S equal to 3, I D equals 1 milliampere. At 4 volts, I D equals 4 milliamperes. Notice that doubling the overdrive, from 1 to 2 volts, quadruples the current.
+
+Part B, V G S equal to 4 volts. Assume saturation: I D is 4 milliamperes. The drop across the drain resistor is 1.5 kilo-ohm times 4 milliampere, equals 6 volts, so V D S equals 4 volts. Check: V G S minus V th is 2 volts, and V D S of 4 is greater, so saturation holds.
+
+V G S equal to 6 volts. Assume saturation: I D would be 1 times 4 squared, equals 16 milliamperes. The drop across the resistor would be 24 volts, more than the supply, so V D S would be negative. Impossible, so the device is in the triode region.
+
+In the triode region, I D equals 2 milliamperes times 4 V D S minus V D S squared by 2. And I D also equals 10 minus V D S, divided by 1.5 kilo-ohm. Equating, and multiplying by 1,500: 10 minus V D S equals 12 V D S minus 1.5 V D S squared. So 1.5 V D S squared minus 13 V D S plus 10 equals 0. The roots are 0.853 and 7.8; the smaller one is valid, because it satisfies V D S less than 4. So V D S equals 0.853 volts, and I D equals 6.1 milliamperes. The MOSFET is acting almost like a closed switch, with a small drop.
+
+[6:20] COMMON MISTAKES AND EXAM TIPS
+Four points. One: always check the assumed region after solving. If you assume saturation, you must verify V D S is at least V G S minus V th. Two: in saturation, the current depends on the square of the overdrive voltage, V G S minus V th. Three: when solving quadratics in the triode region, discard the root that violates the region condition, as we did.
+
+Four: do not confuse MOSFET saturation with BJT saturation. In a BJT, saturation means the switch is ON. In a MOSFET, saturation means the current is constant, which is the amplifier region. For a MOSFET switch, the ON state is the triode region.
+
+Real-life use: power MOSFETs switch heavy loads, like motors and LED lighting, with very small losses, and the MOSFETs in a processor switch billions of times per second.
+
+[7:19] RECAP
+Let us recap in five points. One: the MOSFET has an insulated gate, and a channel forms when V G S exceeds the threshold Two: below the threshold the MOSFET is in cutoff Three: triode and saturation are separated by V D S equal to V G S minus V th Four: in saturation the drain current is k by 2 times V G S minus V th squared Five: as a switch it uses cutoff and triode, and as an amplifier it uses saturation
+
+[7:55] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: same MOSFET with k equal to 2 milliampere per volt squared and V th equal to 2 volts, V G S equal to 3.5 volts in saturation. Find I D. Question two: for V G S equal to 1.5 volts and V th equal to 2 volts, what is I D, and in which region is the MOSFET? Answers are in the pinned comment.
+
+In the next video, we use the MOSFET as an amplifier with a DC load line, and as a digital inverter. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

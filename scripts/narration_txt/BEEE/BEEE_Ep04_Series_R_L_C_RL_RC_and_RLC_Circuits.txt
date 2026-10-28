@@ -1,0 +1,58 @@
+Series RLC Circuit Analysis | Impedance, Phase Angle, Resonance | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:06
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Why does a ceiling fan's speed regulator or a tube-light choke work the way it does? The answer lies in how inductors and capacitors respond to AC. Today we build up from the resistor to the full RLC circuit.
+
+[0:17] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to find reactance and impedance, analyse RL, RC and RLC circuits, draw phasor diagrams, and explain resonance. Let us begin.
+
+[0:36] SCENE 1: R, L AND C ON AC: REACTANCE
+On AC, a resistor opposes current by R, with voltage and current in phase. An inductor opposes the current by its inductive reactance, X L equals omega L, which is two pi f L, and the current lags the voltage by 90 degrees. A capacitor opposes current by its capacitive reactance, X C equals one by omega C, and the current leads by 90 degrees.
+
+Look at how they depend on frequency. X L increases with frequency, so an inductor blocks high frequencies. X C decreases with frequency, so a capacitor blocks low frequencies, and passes high ones. At DC, with zero frequency, an inductor is a short circuit and a capacitor is an open circuit.
+
+[1:25] SCENE 2: RL AND RC SERIES CIRCUITS
+In a series circuit, the same current flows through all elements, so we take the current as the reference phasor. In a series RL circuit, the resistor voltage is in phase with the current, and the inductor voltage leads by 90 degrees. The total voltage is the phasor sum, and its magnitude is the square root of V R squared plus V L squared. The impedance is Z equal to R plus j X L, with magnitude root of R squared plus X L squared, and the current lags the voltage by tan inverse of X L by R.
+
+For a series RC circuit, replace X L with minus X C. The impedance is R minus j X C, and the current leads the voltage by tan inverse of X C by R. The power factor, in both cases, is cosine of phi, equal to R divided by Z.
+
+[2:29] SCENE 3: SERIES RLC CIRCUIT AND RESONANCE
+In the series RLC circuit, the inductor and capacitor voltages are in opposite directions. The net reactance is X L minus X C. So Z equals R plus j times X L minus X C, and its magnitude is root of R squared plus X L minus X C whole squared. If X L is greater, the circuit is inductive and the current lags. If X C is greater, it is capacitive and the current leads.
+
+When X L equals X C, the circuit is at resonance. The impedance is minimum, equal to R. The current is maximum, equal to V by R. The power factor is unity. The resonant frequency is f naught equal to one by two pi root of L C. At resonance, the voltages across L and C can each be much larger than the supply voltage, so a high-voltage hazard exists in practice.
+
+Quality factor Q is the ratio of the reactive voltage to the supply voltage at resonance, which equals X L by R. A high Q means a sharp resonance peak, and radio tuners rely on it.
+
+[3:48] SOLVED NUMERICAL
+Time for a numerical. A 230 volt, 50 hertz supply is applied across a series circuit of R equal to 30 ohm, L equal to 159.15 millihenry, and C equal to 159.15 microfarad. Find the impedance, the current, the voltage across each element, the power factor, and the resonant frequency.
+
+Step one: the reactances. X L equals 2 pi into 50 into 0.15915, which is 50 ohm. X C equals one divided by 2 pi into 50 into 159.15 microfarad, which is 20 ohm.
+
+Step two: the impedance. Z equals 30 plus j times 50 minus 20, equals 30 plus j 30. The magnitude is root of 900 plus 900, which is 42.43 ohm, and the angle is 45 degrees. The circuit is inductive.
+
+Step three: the current. I equals 230 by 42.43, equals 5.42 ampere, lagging the voltage by 45 degrees.
+
+Step four: the voltages. V R equals 5.42 into 30, equals 162.6 volts. V L equals 5.42 into 50, equals 271.1 volts. V C equals 5.42 into 20, equals 108.4 volts. Notice V L is more than the supply voltage of 230 volts! Check with phasors: V L minus V C is 162.7, and root of 162.6 squared plus 162.7 squared is 230 volts. It adds up.
+
+Step five: the power factor is cosine of 45 degrees, equal to 0.707 lagging.
+
+Step six: the resonant frequency. f naught equals one by 2 pi root of L C. L into C is 0.15915 into 159.15 microfarad, equal to 2.533 times 10 to the power minus 5. Its root is 0.00503. So f naught equals 31.6 hertz. Our 50 hertz supply is above resonance, and that is why X L is greater than X C.
+
+[5:50] COMMON MISTAKES AND EXAM TIPS
+Four points. One: in a series circuit, the current is the common quantity. Draw it as the reference. Two: V L and V C point in opposite directions, so they subtract. Three: always use omega equal to 2 pi f in the reactance formulas. Students often forget the 2 pi.
+
+Four: convert units. Millihenry means 10 to the minus 3, and microfarad means 10 to the minus 6. A single wrong power of ten changes the reactance by a thousand times.
+
+A final tip: if you cannot decide whether the circuit is inductive or capacitive, compare X L and X C. Larger X L: inductive, current lags. Larger X C: capacitive, current leads.
+
+[6:39] RECAP
+Let us recap in five points. One: inductive reactance is two pi f L and capacitive reactance is one by two pi f C Two: in an RL circuit the current lags, in an RC circuit it leads, and Z equals R plus or minus j X Three: in a series RLC circuit Z equals R plus j times X L minus X C Four: at resonance X L equals X C, the impedance is minimum, and the power factor is one Five: the voltage drops add as phasors, not arithmetically
+
+[7:18] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: R equal to 8 ohm in series with X L equal to 6 ohm on 100 volts. Find Z, I and the power factor. Question two: R equal to 10 ohm in series with a capacitor with X C equal to 10 ohm, on 100 volts, 50 hertz. Find I, the phase angle, and C. Answers are in the pinned comment.
+
+In the next video, we find real, reactive and apparent power, and learn how to improve the power factor. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

@@ -1,0 +1,623 @@
+﻿Course,Type,Code,Unit,YouTube title,Duration,Script file,Thumbnail text,10 tags,Description with chapters
+Control Systems (22EEG53),Lecture,CS-Ep01,Unit 1: Mathematical modelling of physical systems,Transfer Function of Mass-Spring-Damper System | Force-Voltage Analogy with Solved Numerical | Control Systems,9:43,Control_Systems/CS_Ep01_Transfer_Function_of_Mass_Spring_Damper_System_E.docx,WHY DOES A BIKE KEEP BOUNCING?  |  s²  +  3s  +  4  |  Transfer Function in 10 min,"control systems, transfer function, mass spring damper, force voltage analogy, mechanical translational system, analogous systems, Laplace transform, 22EEG53, engineering control systems, Prof Mitesh Astik","In this lecture, Prof. Mitesh Astik explains how to model a mass-spring-damper system, derive its transfer function X(s)/F(s), build the force-voltage and force-current analogies with a series RLC circuit, and solves a complete numerical (natural frequency, damping ratio, poles and steady-state displacement). Ideal for 22EEG53 Control Systems, Unit 1.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:37 What Is A Transfer Function?
+2:04 Modelling The Mass-Spring-Damper
+3:51 Electrical System And The Force-Voltage Analogy
+4:55 The Force-Current Analogy (Quick Table)
+5:43 Solved Numerical
+8:22 Recap
+8:59 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep02,Unit 1: Block diagram reduction techniques,"Block Diagram Reduction | Cascade, Parallel, Feedback & Shifting Rules with Solved Example | Control Systems",8:27,Control_Systems/CS_Ep02_Block_Diagram_Reduction_Techniques.docx,15 BLOCKS → 1 BLOCK  |  5 Rules  |  Block Diagram Reduction in 10 min,"block diagram reduction, control systems, block diagram algebra, feedback transfer function, cascade and parallel blocks, shifting take-off point, shifting summing point, 22EEG53, closed loop transfer function, Prof Mitesh Astik","In this lecture, Prof. Mitesh Astik explains block diagram reduction: the four elements of a block diagram, the cascade, parallel and feedback rules, shifting of take-off and summing points, and a fully solved example that reduces a nested-loop diagram to a single transfer function and finds wn, zeta and poles. For 22EEG53 Control Systems, Unit 1.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:39 Elements Of A Block Diagram
+1:33 Cascade And Parallel Blocks
+2:23 The Feedback Loop Rule
+3:31 Shifting Take-Off And Summing Points
+4:43 Solved Numerical
+7:06 Recap
+7:37 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep03,Unit 1: Signal flow graphs,Signal Flow Graph & Mason's Gain Formula | Solve Any Control System in One Shot | Control Systems,8:33,Control_Systems/CS_Ep03_Signal_Flow_Graphs_and_Mason_s_Gain_Formula.docx,MASON'S GAIN FORMULA  |  No Block Reduction Needed  |  T = ΣPkΔk / Δ,"signal flow graph, Mason's gain formula, control systems, forward path, non touching loops, block diagram to signal flow graph, transfer function, 22EEG53, Mason gain solved example, Prof Mitesh Astik","Prof. Mitesh Astik explains signal flow graphs: nodes, branches, forward paths, loops and non-touching loops, then derives the transfer function in one step using Mason's gain formula, with a fully solved example.
+
+Chapters:
+0:00 Hook
+0:13 Learning objectives
+0:32 Elements Of A Signal Flow Graph
+1:39 Paths And Loops: The Vocabulary
+2:27 Mason'S Gain Formula
+3:53 Solved Numerical
+6:00 Common Mistakes And Exam Tips
+7:05 Recap
+7:46 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep04,Unit 1: Rotational systems and analogous systems,Rotational Mechanical Systems | Gear Train Equivalent Inertia | Torque-Voltage Analogy | Control Systems,8:33,Control_Systems/CS_Ep04_Rotational_Mechanical_Systems_Gear_Trains_and_To.docx,ROTATIONAL SYSTEMS  |  Gear Train Trick  |  J = J1 + (N1/N2)² J2,"rotational mechanical system, torque voltage analogy, gear train equivalent inertia, torsional spring, moment of inertia, control systems, transfer function, 22EEG53, analogous systems, Prof Mitesh Astik","Prof. Mitesh Astik models rotational mechanical systems with inertia, damper and torsional spring, reflects inertia through a gear train, builds the torque-voltage analogy, and solves a numerical.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:33 Elements Of Rotational Systems
+1:14 Transfer Function Of A Rotational System
+2:12 Gear Trains: Reflecting Inertia
+3:06 Torque-Voltage Analogy
+3:45 Solved Numerical
+6:01 Common Mistakes And Exam Tips
+7:04 Recap
+7:42 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep05,Unit 2: Time domain analysis,"Standard Test Signals & First Order System Response | Time Constant, Rise Time, Settling Time | Control Systems",8:31,Control_Systems/CS_Ep05_Standard_Test_Signals_and_First_Order_System_Res.docx,TIME CONSTANT T  |  63.2%  |  First-Order Response in 10 min,"standard test signals, first order system, time constant, step response, ramp response, settling time, rise time, control systems, 22EEG53, Prof Mitesh Astik","Prof. Mitesh Astik explains the standard test signals (impulse, step, ramp, parabolic) and the response of a first-order system, including time constant, rise time, delay time and settling time, with a solved RC example.
+
+Chapters:
+0:00 Hook
+0:14 Learning objectives
+0:33 Standard Test Signals
+1:46 First-Order System And Its Step Response
+2:36 Time Constant And Time-Domain Specifications
+3:45 Solved Numerical
+5:27 Common Mistakes And Exam Tips
+6:58 Recap
+7:38 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep06,Unit 2: Time domain analysis,"Second Order System Response | Peak Overshoot, Rise Time, Settling Time | Solved Numerical | Control Systems",8:24,Control_Systems/CS_Ep06_Second_Order_System_Response_and_Time_Domain_Spe.docx,"ζ, ωn  |  Overshoot Mp  |  Second-Order System in 10 min","second order system, damping ratio, natural frequency, peak overshoot, rise time, settling time, time domain specifications, control systems, 22EEG53, Prof Mitesh Astik","Prof. Mitesh Astik explains the second-order system: undamped, underdamped, critically damped and overdamped responses, and derives the time-domain specifications with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 Standard Form And Damping Cases
+1:59 Underdamped Step Response
+2:45 Time-Domain Specifications
+3:52 Solved Numerical
+5:51 Common Mistakes And Exam Tips
+7:14 Recap
+7:43 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep07,Unit 2: Steady-state error,"Steady State Error | System Type, Kp, Kv, Ka | Generalized Error Series | Solved Example | Control Systems",10:07,Control_Systems/CS_Ep07_Type_of_System_Static_Error_Constants_and_Steady.docx,"STEADY-STATE ERROR  |  Kp  Kv  Ka  |  Type 0, 1, 2","steady state error, type of system, static error constants, Kp Kv Ka, generalized error series, final value theorem, control systems, 22EEG53, error coefficients, Prof Mitesh Astik","Prof. Mitesh Astik explains the type of a control system, the position, velocity and acceleration error constants, steady-state error for step, ramp and parabolic inputs, and the generalized error series, with solved examples.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:37 Error And The Final Value Theorem
+1:27 Type Of System And Error Constants
+2:34 Steady-State Error For Step, Ramp And Parabolic Inputs
+3:50 Generalized Error Series
+5:00 Solved Numerical
+7:27 Common Mistakes And Exam Tips
+8:33 Recap
+9:09 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep08,Unit 3: Frequency domain analysis,"Frequency Domain Specifications | Resonant Peak, Resonant Frequency, Bandwidth | Solved Numerical | Control Systems",8:20,Control_Systems/CS_Ep08_Frequency_Domain_Specifications_and_Time_Frequen.docx,Mr  ωr  BW  |  Frequency Response in 10 min,"frequency domain specifications, resonant peak, resonant frequency, bandwidth, cut-off rate, second order system frequency response, control systems, 22EEG53, time and frequency correlation, Prof Mitesh Astik","Prof. Mitesh Astik explains frequency response, the specifications Mr, ωr and bandwidth for a second-order system, cut-off rate, and the correlation between time-domain and frequency-domain specifications, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:34 What Is Frequency Response?
+1:17 Resonant Peak, Resonant Frequency, Bandwidth
+2:18 Second-Order Formulas
+3:11 Correlation Between Time And Frequency Response
+3:55 Solved Numerical
+5:45 Common Mistakes And Exam Tips
+7:03 Recap
+7:36 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep09,Unit 3: Bode plot,Bode Plot Step by Step | Gain Margin & Phase Margin | Solved Numerical | Control Systems,8:23,Control_Systems/CS_Ep09_Bode_Plot_Gain_Margin_and_Phase_Margin.docx,BODE PLOT  |  GM = 20.8 dB  |  PM = 47.4°  |  Step by Step,"Bode plot, gain margin, phase margin, gain crossover frequency, phase crossover frequency, frequency response, stability margins, control systems, 22EEG53, Prof Mitesh Astik","Prof. Mitesh Astik shows how to draw a Bode plot using asymptotes, and how to read gain margin and phase margin, with a fully worked numerical for a type 1 system.
+
+Chapters:
+0:00 Hook
+0:14 Learning objectives
+0:33 What Is A Bode Plot?
+1:19 The Building Blocks And Their Slopes
+2:20 Gain Margin And Phase Margin
+3:23 Solved Numerical
+5:32 Common Mistakes And Exam Tips
+6:54 Recap
+7:33 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep10,Unit 4: Stability,Routh Hurwitz Criterion Step by Step | Stability of Control Systems | Special Cases | Solved Numerical,8:15,Control_Systems/CS_Ep10_Stability_and_the_Routh_Hurwitz_Criterion.docx,STABLE OR NOT?  |  Routh Array in 5 min  |  Find K for stability,"Routh Hurwitz criterion, stability of control systems, characteristic equation, Routh array, range of K for stability, marginal stability, control systems, 22EEG53, absolute stability, Prof Mitesh Astik","Prof. Mitesh Astik explains absolute and relative stability, root locations, and the Routh-Hurwitz criterion with the Routh array, including a range-of-K problem and special cases.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 Absolute And Relative Stability
+1:15 The Routh-Hurwitz Criterion
+2:34 Special Cases
+3:26 Solved Numerical
+5:56 Common Mistakes And Exam Tips
+6:53 Recap
+7:31 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep11,Unit 4: Root locus,"Root Locus Step by Step | Construction Rules, Breakaway Point, Imaginary Axis Crossing | Control Systems",8:19,Control_Systems/CS_Ep11_Root_Locus_Concept_and_Construction_Rules.docx,ROOT LOCUS  |  Breakaway −0.845  |  Crossing ±j2.83  |  K = 48,"root locus, root locus construction rules, breakaway point, asymptotes centroid, imaginary axis crossing, closed loop poles, control systems, 22EEG53, root locus solved example, Prof Mitesh Astik","Prof. Mitesh Astik explains the concept of root locus and the construction rules: starting and ending points, real axis segments, asymptotes, breakaway points and imaginary axis crossing, with a fully solved example.
+
+Chapters:
+0:00 Hook
+0:14 Learning objectives
+0:34 The Concept
+1:26 Construction Rules 1 To 4
+2:27 Construction Rules 5 To 7
+3:30 Solved Numerical
+5:46 Common Mistakes And Exam Tips
+6:47 Recap
+7:28 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep12,Unit 5: Compensators,"Lag, Lead & Lag-Lead Compensators | RC Network Design with Solved Numerical | Control Systems",8:30,Control_Systems/CS_Ep12_Lag_Lead_and_Lag_Lead_Compensators.docx,LEAD vs LAG  |  φmax = 45°  |  RC Network Design,"lead compensator, lag compensator, lag lead compensator, RC network, phase lead, maximum phase lead, control systems, 22EEG53, compensator design, Prof Mitesh Astik","Prof. Mitesh Astik explains lag, lead and lag-lead compensators: their transfer functions, Bode behaviour, effect on the system, and a worked RC network design with maximum phase lead and attenuation values.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:36 Why Compensate? And The Lead Compensator
+1:48 The Lag Compensator
+2:39 Rc Implementation And Lag-Lead
+3:36 Solved Numerical
+6:06 Common Mistakes And Exam Tips
+7:05 Recap
+7:40 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep13,Unit 5: Controllers,"P, PI and PID Controllers Explained | Ziegler-Nichols Tuning with Solved Numerical | Control Systems",8:14,Control_Systems/CS_Ep13_P_PI_and_PID_Controllers.docx,P  PI  PID  |  Ziegler-Nichols  |  Kp=18  Ti=1.4 s  Td=0.35 s,"PID controller, PI controller, P controller, Ziegler Nichols tuning, proportional integral derivative, controller tuning, control systems, 22EEG53, PID solved example, Prof Mitesh Astik","Prof. Mitesh Astik explains proportional, integral and derivative control action, the effect of each on the response, and Ziegler-Nichols tuning using the ultimate gain and period, with a worked numerical.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:36 The Three Control Actions
+1:26 Effect Of Each Action
+2:33 Ziegler-Nichols Tuning
+3:24 Solved Numerical
+5:19 Common Mistakes And Exam Tips
+6:56 Recap
+7:28 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lecture,CS-Ep14,Unit 5: State-space analysis,"State Space Modelling | State Equations, A B C D Matrices | Mass-Spring-Damper & RLC Examples | Control Systems",8:19,Control_Systems/CS_Ep14_State_Space_Modelling_SISO.docx,STATE SPACE  |  ẋ = Ax + Bu  |  y = Cx + Du,"state space, state variable analysis, state equations, A B C D matrices, state space to transfer function, mass spring damper state space, control systems, 22EEG53, modern control, Prof Mitesh Astik","Prof. Mitesh Astik introduces state-space modelling: state variables, state equation, output equation, advantages over the transfer function, and worked examples for a mass-spring-damper and a series RLC circuit, converting back to a transfer function.
+
+Chapters:
+0:00 Hook
+0:13 Learning objectives
+0:35 State Variables And The State Model
+1:26 Why State Space? Advantages
+2:00 Deriving The State Model Of A Physical System
+3:18 Solved Numerical
+5:48 Common Mistakes And Exam Tips
+6:43 Recap
+7:19 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab01,Lab Experiments 1 and 3,"MATLAB Lab: Second Order Step Response & Time Domain Specifications | Undamped, Underdamped, Critical, Overdamped",8:33,Control_Systems/CS_Lab01_Second_Order_Step_Response_and_Time_Domain_Speci.docx,"MATLAB LAB 1  |  Step Response for ζ = 0, 0.3, 0.6, 1, 2  |  stepinfo","MATLAB control systems lab, second order step response MATLAB, stepinfo MATLAB, damping ratio simulation, undamped underdamped overdamped critically damped, Simulink step response, control systems lab, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiments 1 and 3: plotting the step response of a second-order system for different damping ratios in MATLAB/Simulink, and measuring peak overshoot, rise time, peak time and settling time with stepinfo.
+
+Chapters:
+0:00 Hook
+0:14 Learning objectives
+0:34 Theory In 60 Seconds
+1:19 The Matlab Code, Line By Line
+2:34 Simulink Model
+3:03 Aim, Requirements And Procedure
+4:00 Live Demo: Worked Example And Expected Results
+5:53 Writing Your Lab Record
+6:30 Common Lab Mistakes And Viva Tips
+7:17 Recap
+7:47 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab02,Lab Experiment 2,MATLAB Lab: Effect of Adding Poles and Zeros on System Stability | Control Systems Experiment 2,8:15,Control_Systems/CS_Lab02_Effect_of_Adding_Poles_and_Zeros_on_System_Respo.docx,ADD A POLE  →  MORE OVERSHOOT  |  ADD A ZERO  →  ?  |  MATLAB Lab 2,"effect of poles and zeros, MATLAB pole zero addition, control systems lab experiment 2, stability MATLAB, closed loop poles, step response overshoot, pzmap, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiment 2: how adding an open-loop pole or zero changes the closed-loop poles, overshoot and settling time, and when the gain makes the system unstable, using MATLAB.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:37 The Three Systems
+1:05 The Matlab Code
+1:56 Aim, Requirements And Procedure
+2:47 Live Demo: Worked Example And Expected Results
+4:30 Writing Your Lab Record
+5:03 Viva Questions And Model Answers
+6:00 Common Lab Mistakes And Viva Tips
+6:47 Recap
+7:14 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab03,Lab Experiment 4,"Synchro Transmitter & Receiver Pair Lab | Characteristics, Error Detector | Control Systems Experiment 4",8:44,Control_Systems/CS_Lab03_Characteristics_of_Synchro_Transmitter_and_Recei.docx,SYNCHRO PAIR  |  Angle Sensing  |  Control Systems Lab 3,"synchro transmitter receiver, synchro control transformer, error detector, control systems lab experiment 4, angular position sensing, synchro characteristics, 22EEG53 lab, servo mechanism, Prof Mitesh Astik","Prof. Mitesh Astik explains Lab Experiment 4: the construction and working of a synchro transmitter and receiver pair, stator voltage characteristics, use as an error detector, and a typical observation table. The numerical values in the worked example are illustrative, not measured data.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 Construction And Principle
+1:20 Transmitter-Receiver Pair
+2:06 Synchro As An Error Detector
+2:44 Aim, Requirements And Procedure
+3:59 Live Demo: Worked Example (Illustrative Values) And Observation Table
+5:45 Writing Your Lab Record
+6:21 Common Lab Mistakes And Viva Tips
+7:19 Recap
+7:52 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab04,Lab Experiment 5,"MATLAB Lab: Root Locus, Breakaway Point & Imaginary Axis Crossing | rlocus rlocfind sgrid | Control Systems",8:10,Control_Systems/CS_Lab04_Root_Locus_Using_MATLAB_Breakaway_Point_and_Imag.docx,MATLAB LAB 4  |  rlocus  |  K = 48 at ±j2.83,"MATLAB root locus, rlocus rlocfind, breakaway point MATLAB, imaginary axis crossing, sgrid MATLAB, control systems lab experiment 5, root locus verification, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiment 5: drawing the root locus in MATLAB with rlocus, finding gains with rlocfind, and verifying the breakaway point and imaginary axis crossing calculated by hand.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 Recap Of The System
+1:12 The Matlab Code
+2:01 Aim, Requirements And Procedure
+2:54 Live Demo: Worked Example And Expected Results
+4:33 Writing Your Lab Record
+5:06 Viva Questions And Model Answers
+5:58 Common Lab Mistakes And Viva Tips
+6:45 Recap
+7:19 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab05,Lab Experiment 6,"MATLAB Lab: Bode Plot, Gain Margin & Phase Margin using bode and margin | Control Systems Experiment 6",8:08,Control_Systems/CS_Lab05_Frequency_Domain_Analysis_with_Bode_Plot_Using_M.docx,MATLAB LAB 5  |  bode  margin  |  GM = 20.8 dB  PM = 47.4°,"MATLAB Bode plot, margin command MATLAB, gain margin phase margin MATLAB, bode plot lab, frequency response MATLAB, control systems lab experiment 6, allmargin, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiment 6: plotting the Bode diagram using bode, reading gain margin and phase margin using margin, and verifying the hand calculation for G(s) = 10/[s(1+0.1s)(1+0.01s)].
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:33 Recap Of The System
+1:08 The Matlab Code
+2:03 Aim, Requirements And Procedure
+2:51 Live Demo: Worked Example And Expected Results
+4:26 Writing Your Lab Record
+4:59 Viva Questions And Model Answers
+5:54 Common Lab Mistakes And Viva Tips
+6:46 Recap
+7:17 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab06,Lab Experiment 7,MATLAB Lab: PID Controller Design & Tuning | Ziegler-Nichols and Manual Tuning | Control Systems Experiment 7,8:41,Control_Systems/CS_Lab06_PID_Controller_Design_Using_Tuning_Methods_in_MA.docx,MATLAB LAB 6  |  PID Tuning  |  62% → 13% Overshoot,"PID tuning MATLAB, Ziegler Nichols MATLAB, PID controller design, pid command MATLAB, pidtune, control systems lab experiment 7, step response tuning, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiment 7: building a PID controller in MATLAB, applying Ziegler-Nichols settings, then fine-tuning to reduce overshoot from about 62 percent to about 13 percent.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:33 Recap: The Plant And Zn Settings
+1:05 The Matlab Code
+1:52 Aim, Requirements And Procedure
+2:41 Live Demo: Worked Example And Expected Results
+4:10 Writing Your Lab Record
+4:42 Viva Questions And Model Answers
+5:33 Common Lab Mistakes And Viva Tips
+7:27 Recap
+7:50 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab07,Lab Experiment 8,"MATLAB Lab: DC Motor Position Control System | Transfer Function, Simulink Model, Step Response | Control Systems",8:14,Control_Systems/CS_Lab07_DC_Position_Control_System_in_MATLAB_Simulink.docx,MATLAB LAB 7  |  DC Motor Position Control  |  Kc = 10 → 7.7% overshoot,"DC motor position control, DC motor transfer function, Simulink DC motor, position control step response, armature controlled DC motor, control systems lab experiment 8, MATLAB Simulink, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiment 8: modelling an armature-controlled DC motor, closing a position loop with a proportional gain in MATLAB and Simulink, and reading the step response for gains of 1 and 10.
+
+Chapters:
+0:00 Hook
+0:19 Learning objectives
+0:39 Modelling The Motor
+1:34 The Matlab Code
+2:06 Simulink Diagram
+2:34 Aim, Requirements And Procedure
+3:19 Live Demo: Worked Example And Expected Results
+4:45 Writing Your Lab Record
+5:16 Viva Questions And Model Answers
+6:08 Common Lab Mistakes And Viva Tips
+7:06 Recap
+7:33 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Control Systems (22EEG53),Lab,CS-Lab08,Lab Experiments 9 and 10,RC Lag & Lead Compensator Design & Implementation | Verify with MATLAB Bode | Control Systems Lab,8:09,Control_Systems/CS_Lab08_Design_and_Implementation_of_RC_Lag_and_Lead_Com.docx,RC LAG & LEAD LAB  |  Design  Build  Verify with MATLAB,"RC lag compensator, RC lead compensator, compensator design lab, lag lead network experiment, MATLAB bode compensator, control systems lab experiment 9 10, phase lead network, 22EEG53 lab, Prof Mitesh Astik","Prof. Mitesh Astik demonstrates Lab Experiments 9 and 10: designing RC lag and lead networks, building them on a breadboard, and verifying their magnitude and phase with MATLAB, with an expected-readings table for your record.
+
+Chapters:
+0:00 Hook
+0:14 Learning objectives
+0:34 The Two Designs
+1:36 Measurement Procedure
+2:34 Verifying With Matlab
+2:54 Aim, Requirements And Procedure
+3:41 Live Demo: Worked Example And Expected Readings
+5:27 Writing Your Lab Record
+5:59 Common Lab Mistakes And Viva Tips
+6:39 Recap
+7:15 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep01,Unit 1: Circuit Fundamentals,Mesh Analysis & Nodal Analysis Explained | Solve DC Circuits Step by Step with Solved Example | BEEE,9:15,BEEE/BEEE_Ep01_Nodal_and_Mesh_Analysis_of_DC_Circuits.docx,MESH vs NODAL  |  Which is FASTER?  |  Solve any DC circuit,"mesh analysis, nodal analysis, KVL KCL, DC circuit analysis, basic electrical engineering, BEEE, circuit analysis numerical, Kirchhoff laws, first year engineering, Prof Mitesh Astik","In this lecture, Prof. Mitesh Astik explains mesh analysis and nodal analysis for DC circuits with independent voltage sources. You will learn the step-by-step method, when to use which technique, and a fully solved two-source numerical verified by both methods and a power check. Ideal for Basic Electrical and Electronics Engineering, Unit 1.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 The Foundation, KCL And KVL
+1:50 Mesh Analysis, Step By Step
+3:13 Nodal Analysis, Step By Step
+4:21 Mesh Or Nodal? Choosing The Faster Method
+5:15 Solved Numerical
+7:57 Recap
+8:27 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep02,Unit 1: Circuit Fundamentals,"AC Fundamentals | Sinusoidal EMF, Average, RMS, Form Factor & Peak Factor with Solved Numerical | BEEE",8:45,BEEE/BEEE_Ep02_AC_Fundamentals_Sinusoidal_EMF_Average_Value_RMS.docx,WHY 230 V? Peak is 325 V!  |  RMS Value Explained  |  AC in 10 min,"AC fundamentals, RMS value, average value, form factor, peak factor, sinusoidal voltage generation, basic electrical engineering, BEEE, alternating current, Prof Mitesh Astik","In this lecture, Prof. Mitesh Astik explains how a rotating coil generates a sinusoidal voltage, the meaning of frequency, period and angular frequency, and derives the average and RMS values, form factor and peak factor of a sine wave. A solved numerical ties it all together. For Basic Electrical and Electronics Engineering, Unit 1.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:42 How A Coil Generates A Sine Wave
+1:57 Frequency, Period And Angular Frequency
+3:08 Average Value And Rms Value
+4:57 Form Factor And Peak Factor
+5:58 Solved Numerical
+7:30 Recap
+8:02 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep03,Unit 1: Circuit Fundamentals,Phasors Explained | Phasor Addition & Subtraction | Rectangular & Polar Form | BEEE,8:21,BEEE/BEEE_Ep03_Phasor_Representation_of_Alternating_Quantities.docx,PHASORS  |  100∠0° + 60∠60° = 140∠21.8°  |  AC Made Easy,"phasor representation, phasor addition, polar form rectangular form, AC circuits, alternating quantities, complex numbers in AC, basic electrical engineering, BEEE, phasor diagram, Prof Mitesh Astik","Prof. Mitesh Astik explains phasors: how a rotating vector represents a sine wave, rectangular and polar forms, phase difference, and how to add and subtract sinusoids with a solved example.
+
+Chapters:
+0:00 Hook
+0:12 Learning objectives
+0:33 A Sine Wave As A Rotating Arrow
+1:39 Rectangular And Polar Form
+2:36 Phase Difference And Phasor Diagrams
+3:24 Solved Numerical
+5:29 Common Mistakes And Exam Tips
+7:01 Recap
+7:38 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep04,Unit 1: Circuit Fundamentals,"Series RLC Circuit Analysis | Impedance, Phase Angle, Resonance | Solved Numerical | BEEE",8:06,BEEE/BEEE_Ep04_Series_R_L_C_RL_RC_and_RLC_Circuits.docx,SERIES RLC  |  Z = R + j(XL − XC)  |  Resonance at 31.6 Hz,"series RLC circuit, impedance, inductive reactance, capacitive reactance, RL circuit, RC circuit, resonance, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik analyses series R, L, C, RL, RC and RLC circuits using phasors: reactance, impedance, phase angle, voltage drops, and resonance, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:17 Learning objectives
+0:36 R, L And C On Ac: Reactance
+1:25 Rl And Rc Series Circuits
+2:29 Series Rlc Circuit And Resonance
+3:48 Solved Numerical
+5:50 Common Mistakes And Exam Tips
+6:39 Recap
+7:18 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep05,Unit 1: Circuit Fundamentals,"Power Triangle & Power Factor | Real, Reactive, Apparent Power | pf Correction Solved Example | BEEE",8:20,BEEE/BEEE_Ep05_Real_Reactive_and_Apparent_Power_and_Power_Facto.docx,WHY ELECTRICITY BILLS CARE ABOUT POWER FACTOR  |  P Q S  |  Capacitor 35.6 µF,"power factor, power triangle, real power reactive power apparent power, power factor correction, capacitor bank, AC power, kVA kW kVAR, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains real, reactive and apparent power, the power triangle and power factor, and shows how a capacitor improves power factor, with a worked numerical.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:39 Real, Reactive And Apparent Power
+1:34 The Power Triangle And Power Factor
+2:29 Why Low Power Factor Is Costly
+3:17 Solved Numerical
+5:03 Common Mistakes And Exam Tips
+6:56 Recap
+7:35 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep06,Unit 1: Circuit Fundamentals,Power & Energy in DC Circuits | kWh Electricity Bill | Maximum Power Transfer Theorem | BEEE,8:30,BEEE/BEEE_Ep06_Power_and_Energy_in_DC_Circuits_and_Maximum_Powe.docx,ELECTRICITY BILL  |  kWh  |  Maximum Power Transfer RL = Rth,"power and energy, kWh electricity bill calculation, maximum power transfer theorem, Joule heating, DC circuits, Thevenin, power formulas, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik covers power and energy in DC circuits, how to compute electricity bills in kilowatt-hours, and the maximum power transfer theorem with a solved example.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:38 Power In Dc Circuits
+1:36 Energy And Electricity Bills
+2:29 Maximum Power Transfer Theorem
+3:39 Solved Numerical
+5:40 Common Mistakes And Exam Tips
+7:13 Recap
+7:46 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep07,Unit 2: Transformers and electrical machines,"Single Phase Transformer | Working Principle, Construction, EMF Equation | Solved Numerical | BEEE",8:25,BEEE/BEEE_Ep07_Single_Phase_Transformer_Principle_Construction_.docx,TRANSFORMER  |  E = 4.44 f Φm N  |  Why Do We Need It?,"single phase transformer, transformer working principle, EMF equation of transformer, transformer construction, core type shell type, turns ratio, necessity of transformer, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the necessity of transformers, working principle, core-type and shell-type construction, the EMF equation E = 4.44 f Φm N, and the transformation ratio, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:38 Necessity Of Transformers
+1:29 Principle And Construction
+2:32 Emf Equation
+4:07 Solved Numerical
+5:28 Common Mistakes And Exam Tips
+7:15 Recap
+7:44 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep08,Unit 2: Transformers and electrical machines,Transformer Losses & Efficiency | Condition for Maximum Efficiency | Solved Numerical | BEEE,8:20,BEEE/BEEE_Ep08_Transformer_Losses_and_Efficiency.docx,TRANSFORMER EFFICIENCY  |  Pi = Pcu  |  Maximum η = 95.8%,"transformer efficiency, iron loss copper loss, maximum efficiency condition, transformer losses, hysteresis loss eddy current loss, transformer numerical, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the iron and copper losses in a transformer, the efficiency formula, the condition for maximum efficiency, and a worked numerical with the efficiency at different loads.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:38 Iron Loss And Copper Loss
+1:55 Efficiency
+2:43 Condition For Maximum Efficiency
+3:39 Solved Numerical
+5:03 Common Mistakes And Exam Tips
+6:59 Recap
+7:34 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep09,Unit 2: Transformers and electrical machines,DC Motor Working Principle | Back EMF & Its Significance | Torque Equation | Solved Numerical | BEEE,8:21,BEEE/BEEE_Ep09_DC_Motor_Principle_Back_EMF_and_Torque_Equation.docx,DC MOTOR  |  Eb = V − IaRa  |  Why Starter Is Needed,"DC motor, back emf, torque equation of DC motor, DC motor working principle, starter for DC motor, armature current, DC shunt motor, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the working principle of a DC motor, back emf and its significance, the voltage equation, the torque equation, and why a starter is needed, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:37 Principle And Construction
+1:36 Back Emf And The Voltage Equation
+3:09 Torque Equation And Power
+4:03 Solved Numerical
+5:30 Common Mistakes And Exam Tips
+6:58 Recap
+7:33 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep10,Unit 2: Transformers and electrical machines,DC Shunt Motor Speed Control | Armature Control & Field Control | Characteristics | Solved Numerical | BEEE,8:12,BEEE/BEEE_Ep10_DC_Shunt_Motor_Characteristics_and_Speed_Control.docx,SPEED CONTROL  |  Armature Resistance  |  Field Weakening  |  1105 rpm,"DC shunt motor, speed control of DC motor, armature control, field control, motor characteristics, torque speed characteristics, N proportional to Eb by flux, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the characteristics of the DC shunt motor and two methods of speed control, armature resistance control and field flux control, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:37 The Speed Equation
+1:25 Characteristics Of The Shunt Motor
+2:12 Armature And Field Control
+3:27 Solved Numerical
+5:19 Common Mistakes And Exam Tips
+6:56 Recap
+7:21 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep11,Unit 2: Transformers and electrical machines,"Three Phase Induction Motor | Rotating Magnetic Field, Slip, Squirrel Cage vs Wound Rotor | Solved Numerical | BEEE",8:18,BEEE/BEEE_Ep11_Three_Phase_Induction_Motor.docx,INDUCTION MOTOR  |  Ns = 120f/P  |  Slip = 4%  |  Rotor f = 2 Hz,"three phase induction motor, rotating magnetic field, slip, synchronous speed, squirrel cage rotor, wound rotor, induction motor working principle, basic electrical engineering, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the three-phase induction motor: how a rotating magnetic field is produced, the working principle, synchronous speed and slip, squirrel-cage and wound-rotor constructions, with a worked numerical.
+
+Chapters:
+0:00 Hook
+0:20 Learning objectives
+0:40 The Rotating Magnetic Field
+1:54 Working Principle And Slip
+3:08 Construction And Types
+4:02 Solved Numerical
+5:30 Common Mistakes And Exam Tips
+7:01 Recap
+7:36 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep12,"Unit 3: Diodes, transistors and applications","PN Junction Diode | V-I Characteristics & Equivalent Circuits (Ideal, Simplified, Piecewise Linear) | Solved Numerical | BEEE",8:13,BEEE/BEEE_Ep12_Semiconductor_Diode_and_Equivalent_Circuits.docx,DIODE  |  0.7 V  |  Ideal vs Practical Model,"semiconductor diode, PN junction, diode V-I characteristics, diode equivalent circuit, ideal diode, silicon diode 0.7 V, forward bias reverse bias, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the PN junction diode: depletion region, forward and reverse bias, the V-I characteristic, and the ideal, simplified and piecewise-linear equivalent circuits, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:17 Learning objectives
+0:36 The Pn Junction
+1:35 V-I Characteristic
+2:37 Diode Equivalent Circuits
+3:29 Solved Numerical
+4:50 Common Mistakes And Exam Tips
+7:02 Recap
+7:29 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep13,"Unit 3: Diodes, transistors and applications","Half Wave & Full Wave Bridge Rectifier | Vdc, Vrms, Ripple Factor, PIV | Solved Numerical | BEEE",8:17,BEEE/BEEE_Ep13_Half_Wave_and_Full_Wave_Bridge_Rectifiers.docx,RECTIFIER  |  HWR 40.6%  |  BRIDGE 81.2%  |  Ripple 1.21 vs 0.48,"half wave rectifier, full wave bridge rectifier, ripple factor, PIV peak inverse voltage, rectifier efficiency, average DC output, AC to DC conversion, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains half-wave and full-wave bridge rectifiers: operation, average and RMS output, ripple factor, efficiency, and peak inverse voltage, with a worked numerical.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:33 Half-Wave Rectifier
+1:52 Full-Wave Bridge Rectifier
+2:56 Filtering And Practical Points
+3:46 Solved Numerical
+5:34 Common Mistakes And Exam Tips
+6:56 Recap
+7:32 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep14,"Unit 3: Diodes, transistors and applications",Zener Diode Voltage Regulator | Design of Rs | Line & Load Regulation | Solved Numerical | BEEE,8:05,BEEE/BEEE_Ep14_Zener_Diode_as_a_Voltage_Regulator.docx,ZENER REGULATOR  |  Vz = 6.8 V  |  Rs = 150 Ω  |  Design in 5 min,"Zener diode, Zener voltage regulator, Zener breakdown, series resistor design, line regulation, load regulation, voltage regulator, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the Zener diode, its reverse breakdown characteristic, and how to design a shunt voltage regulator, with checks for line and load variations in a solved numerical.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:39 The Zener Diode And Its Characteristic
+1:29 The Zener Shunt Regulator
+2:39 Design Procedure
+3:39 Solved Numerical
+5:36 Common Mistakes And Exam Tips
+6:31 Recap
+7:11 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep15,Unit 4: Transistors,BJT Working Principle | NPN Transistor | Regions of Operation | BJT as a Switch Solved Numerical | BEEE,8:18,BEEE/BEEE_Ep15_BJT_Construction_Operation_and_BJT_as_a_Switch.docx,BJT AS A SWITCH  |  RB = 4.3 kΩ  |  Drive a Relay with 1 mA,"BJT, bipolar junction transistor, NPN transistor, transistor as a switch, cutoff saturation active region, base current collector current, relay driver, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains BJT construction and operation, the three regions, the current relations, and how to use a BJT as a switch to drive a relay, with a worked design.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:35 Construction And Operation
+1:44 Regions Of Operation And The Output Characteristic
+2:46 The Bjt As A Switch
+3:55 Solved Numerical
+5:15 Common Mistakes And Exam Tips
+7:00 Recap
+7:32 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep16,Unit 4: Transistors,"n-Channel Enhancement MOSFET | Working, Regions, Characteristics | Solved Numerical | BEEE",8:46,BEEE/BEEE_Ep16_n_Channel_Enhancement_MOSFET.docx,MOSFET  |  Vth  |  Triode vs Saturation  |  ID = (k/2)(VGS − Vth)²,"MOSFET, n channel enhancement MOSFET, threshold voltage, triode region saturation region, MOSFET characteristics, drain current equation, MOS transistor, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the construction, operation and characteristics of an n-channel enhancement MOSFET, the three regions, the drain current equations, and a solved numerical.
+
+Chapters:
+0:00 Hook
+0:18 Learning objectives
+0:38 Construction And Channel Formation
+1:37 Operating Regions And Characteristics
+3:09 Mosfet Vs Bjt
+3:49 Solved Numerical
+6:20 Common Mistakes And Exam Tips
+7:19 Recap
+7:55 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep17,Unit 4: Transistors,Common Source Amplifier | DC Load Line & Q-Point | MOS Inverter | Solved Numerical | BEEE,8:53,BEEE/BEEE_Ep17_Common_Source_Amplifier_DC_Load_Line_and_MOS_Inv.docx,"COMMON-SOURCE  |  Av = −gm RD = −8  |  Q-point (4 V, 4 mA)","common source amplifier, DC load line, Q point, MOSFET amplifier gain, MOS inverter, transconductance gm, voltage gain, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the common-source MOSFET amplifier: biasing, the DC load line and Q-point, the small-signal gain, and the resistive-load MOS inverter, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:19 Learning objectives
+0:40 Dc Biasing And The Load Line
+1:54 Small-Signal Gain
+3:07 The Mos Inverter
+4:00 Solved Numerical
+6:28 Common Mistakes And Exam Tips
+7:18 Recap
+7:59 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep18,Unit 5: Op-Amp and linear IC applications,"Op-Amp Basics | Ideal Characteristics, CMRR, Slew Rate | Differential & Common Mode | Solved Numerical | BEEE",8:26,BEEE/BEEE_Ep18_Op_Amp_Introduction_Specifications_and_Different.docx,OP-AMP  |  CMRR  |  Slew Rate  |  Ideal vs Real,"operational amplifier, op amp basics, ideal op amp, CMRR, slew rate, differential mode common mode, input offset voltage, op amp specifications, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik introduces the operational amplifier: block diagram, ideal characteristics, key specifications such as CMRR and slew rate, and differential and common-mode operation, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:16 Learning objectives
+0:36 The Op-Amp And Its Ideal Characteristics
+1:56 Key Specifications
+2:54 Differential And Common-Mode Operation
+3:53 Solved Numerical
+5:50 Common Mistakes And Exam Tips
+7:14 Recap
+7:49 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep19,Unit 5: Op-Amp and linear IC applications,"Op-Amp Inverting, Non-Inverting & Summing Amplifier | Gain Derivation | Solved Numerical | BEEE",8:16,BEEE/BEEE_Ep19_Inverting_Non_Inverting_and_Summing_Amplifiers.docx,INVERTING  −Rf/R1  |  NON-INVERTING  1 + Rf/R1  |  SUMMING,"inverting amplifier, non inverting amplifier, summing amplifier, op amp gain formula, virtual ground, voltage follower, op amp circuits, operational amplifier applications, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik derives the gain of the inverting, non-inverting and summing op-amp amplifiers using the virtual short concept, with a worked numerical for each.
+
+Chapters:
+0:00 Hook
+0:15 Learning objectives
+0:34 Inverting Amplifier
+1:33 Non-Inverting Amplifier And Voltage Follower
+2:33 Summing Amplifier
+3:40 Solved Numerical
+5:22 Common Mistakes And Exam Tips
+7:01 Recap
+7:33 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep20,Unit 5: Op-Amp and linear IC applications,"Op-Amp Integrator, Differentiator & Comparator | Waveforms & Solved Numerical | BEEE",8:22,BEEE/BEEE_Ep20_Integrator_Differentiator_and_Comparator.docx,INTEGRATOR  Vo = −(1/RC)∫Vin dt  |  COMPARATOR  |  Square → Triangle,"op amp integrator, op amp differentiator, op amp comparator, zero crossing detector, square wave to triangle, integrator output waveform, operational amplifier applications, analog computer, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the op-amp integrator and differentiator, their waveforms, and the comparator with its output waveform, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:19 Learning objectives
+0:38 The Integrator
+1:47 The Differentiator
+2:46 The Comparator
+3:42 Solved Numerical
+5:45 Common Mistakes And Exam Tips
+7:08 Recap
+7:39 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."
+Basic Electrical and Electronics Engineering,Lecture,BEEE-Ep21,Unit 5: Op-Amp and linear IC applications,"555 Timer Astable Multivibrator & 78XX Voltage Regulator | Frequency, Duty Cycle | Solved Numerical | BEEE",8:44,BEEE/BEEE_Ep21_555_Timer_in_Astable_Mode_and_78XX_Voltage_Regul.docx,555 TIMER  |  f = 1.44/((R1 + 2R2)C)  |  7805 REGULATOR,"555 timer, astable multivibrator, 555 astable frequency duty cycle, 78XX voltage regulator, 7805 regulator, linear IC, voltage regulator IC, basic electronics, BEEE, Prof Mitesh Astik","Prof. Mitesh Astik explains the 555 timer in astable mode, the frequency and duty cycle equations, and the 78XX three-terminal voltage regulators, with a solved numerical.
+
+Chapters:
+0:00 Hook
+0:23 Learning objectives
+0:42 Inside The 555 Timer
+1:31 Astable Mode: Operation
+2:51 78Xx Fixed Voltage Regulators
+4:02 Solved Numerical
+6:07 Common Mistakes And Exam Tips
+7:05 Recap
+7:56 Closing: Practice + Next Video
+
+Subscribe for the full series covering every unit of the syllabus. Practice-question answers are in the pinned comment."

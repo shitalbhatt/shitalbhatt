@@ -1,0 +1,58 @@
+Routh Hurwitz Criterion Step by Step | Stability of Control Systems | Special Cases | Solved Numerical
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:15
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A rocket must stay upright. If the control system is stable, small disturbances die out. If it is unstable, the rocket tumbles. Can we know this without solving the system equations? Yes, with a simple table.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to state the conditions for stability, build a Routh array, handle special cases, and find the range of K for stability. Let us begin.
+
+[0:35] SCENE 1: ABSOLUTE AND RELATIVE STABILITY
+A system is stable if, for a bounded input, the output stays bounded. In terms of poles, this means all roots of the characteristic equation, 1 plus G H equals zero, must lie in the left half of the s-plane. A root in the right half gives a response that grows with time: unstable. Simple roots on the imaginary axis give sustained oscillations: marginally stable.
+
+This is absolute stability, a yes-or-no answer. Relative stability asks how stable: how far the roots are from the imaginary axis, which tells how quickly disturbances die out.
+
+[1:15] SCENE 2: THE ROUTH-HURWITZ CRITERION
+Now to the Routh-Hurwitz criterion. It tells us how many roots lie in the right half-plane without solving for them. First, a necessary condition: all coefficients of the characteristic equation must be present and have the same sign. If any is missing or negative, the system is not stable, and you can stop immediately.
+
+Next, build the Routh array. The first row has coefficients a0, a2, a4, taken alternately. The second row has a1, a3, a5. Each following element is computed by cross-multiplication: b1 equals a1 a2 minus a0 a3, divided by a1. Continue until you reach the row for s to the power zero.
+
+The criterion: the system is stable if and only if all the elements in the first column are positive. The number of sign changes in the first column equals the number of roots in the right half of the s-plane.
+
+To save time in the exam, remember a shortcut for third-order systems. For s cubed plus a2 s squared plus a1 s plus a0, the system is stable if all coefficients are positive and a2 times a1 is greater than a0.
+
+[2:34] SCENE 3: SPECIAL CASES
+Two special cases may occur. In case one, the first element of a row is zero, but the rest of the row is not. Replace the zero by a small positive number epsilon, continue, and in the end let epsilon tend to zero to decide the signs.
+
+In case two, an entire row becomes zero. This signals roots placed symmetrically about the origin, often on the imaginary axis. Take the row just above it and form the auxiliary equation from its coefficients. Differentiate the auxiliary equation, and use the new coefficients to replace the row of zeros. Then continue as usual. The roots of the auxiliary equation are exactly the symmetric roots, and they tell us the frequency of sustained oscillation.
+
+[3:26] SOLVED NUMERICAL
+Two problems. Part A: is s to the fourth, plus 2 s cubed, plus 3 s squared, plus 4 s, plus 5 equal to zero, stable? Part B: for the characteristic equation s cubed plus 6 s squared plus 11 s plus K equals zero, find the range of K for stability and the frequency of oscillation at the limit.
+
+Part A. All coefficients are present and positive, so we build the array. The s to the fourth row: 1, 3, 5. The s cubed row: 2, 4. The s squared row: first element is 2 into 3 minus 1 into 4, divided by 2, equals 1. The second element is 2 into 5 minus 1 into 0, divided by 2, equals 5. The s to the one row: 1 into 4 minus 2 into 5, divided by 1, equals minus 6. The s to the zero row: 5.
+
+The first column is 1, 2, 1, minus 6, 5. The sign changes from plus to minus once, and back from minus to plus once. Two sign changes means two roots in the right half-plane. The system is unstable.
+
+Part B. The array: s cubed row: 1, 11. The s squared row: 6, K. The s to the one row: 6 into 11 minus 1 into K, divided by 6, which is 66 minus K, by 6. The s to the zero row: K.
+
+For stability, every first-column element must be positive. So 66 minus K must be positive, which gives K less than 66. And K itself must be positive. Therefore the system is stable for K between 0 and 66.
+
+At K equal to 66, the s to the one row becomes zero. The auxiliary equation from the s squared row is 6 s squared plus 66 equals zero. So s squared equals minus 11, and s equals plus or minus j root 11, which is plus or minus j 3.32. The system oscillates sustainedly at 3.32 radians per second. This is exactly where the root locus crosses the imaginary axis, as we will see in the next video.
+
+[5:56] COMMON MISTAKES AND EXAM TIPS
+Four traps. One: write all powers of s, and put a zero for any missing power, before building the array. A missing term means the system cannot be stable anyway, but the array still helps count the roots. Two: you may divide a whole row by a positive number to make arithmetic easier. Do not divide by a negative number, because that flips signs.
+
+Three: do not forget the last row. The s to the zero row is just the constant term, but its sign matters. Four: when a row of zeros appears, use the auxiliary equation. Do not just guess.
+
+A classic mistake: students say, the system is stable because the first column has no zero. The test is about signs, not zeros. Count sign changes carefully, going down the first column.
+
+[6:53] RECAP
+Let us recap in five points. One: a system is stable if all roots of the characteristic equation lie in the left half-plane Two: first check that all coefficients are present and have the same sign Three: build the Routh array, and the system is stable if there is no sign change in the first column Four: the number of sign changes equals the number of right half-plane roots Five: for a zero in the first column use epsilon, and for a row of zeros use the auxiliary equation
+
+[7:31] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: check the stability of s cubed plus 2 s squared plus 3 s plus 10 equals zero. Question two: find the range of K for stability of s cubed plus 3 s squared plus 2 s plus K equals zero. Answers are in the pinned comment.
+
+In the next video, we draw the root locus, the path of closed-loop poles as the gain K varies, using the construction rules. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

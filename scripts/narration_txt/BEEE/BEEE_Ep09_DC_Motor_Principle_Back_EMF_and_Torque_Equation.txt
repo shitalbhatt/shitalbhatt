@@ -1,0 +1,58 @@
+DC Motor Working Principle | Back EMF & Its Significance | Torque Equation | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:21
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+When you start a ceiling fan, it slowly picks up speed. But electrically, at the moment of starting, a motor tries to draw a huge current. What protects the motor once it is running? An invisible voltage called the back emf.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain motor action, derive the voltage equation with back emf, derive the torque equation, and solve a numerical. Let us begin.
+
+[0:37] SCENE 1: PRINCIPLE AND CONSTRUCTION
+A DC motor converts electrical energy into mechanical energy. When a conductor carrying current is placed in a magnetic field, it experiences a force equal to B I L. The direction is given by Fleming's left-hand rule: first finger for the field, second finger for the current, and thumb for the force.
+
+In a DC motor, the armature has many conductors. The stator provides the field through poles and a field winding. On the armature, the conductors on one side of the pole carry current in one direction, and those on the other side carry it in the opposite direction, so the forces make a couple, and the armature turns. The commutator and brushes reverse the current in a coil each time it passes the neutral axis, so that the torque always acts in the same direction.
+
+[1:36] SCENE 2: BACK EMF AND THE VOLTAGE EQUATION
+Here is the beautiful feedback. As the armature conductors rotate in the magnetic field, they cut the flux, and by Faraday's law, an emf is induced in them. By Lenz's law, it opposes the cause, which is the applied voltage. So it is called the back emf, E b. It is proportional to the flux and the speed.
+
+The voltage equation of the motor is V equal to E b plus I a R a. So the armature current is V minus E b, divided by R a. At the moment of starting, the speed is zero, so E b is zero, and the current is V by R a, which can be many times the rated current, because R a is small. As the motor speeds up, E b rises, and the current falls. At the normal speed, E b is a little less than V, and the current matches the load.
+
+So the back emf automatically adjusts the current to the load. If the load increases, the speed drops slightly, E b drops, more current flows, and more torque is produced. This is the significance of the back emf.
+
+The brushes and commutator are the most maintenance-intensive part of a DC motor. Modern brushless motors replace them with electronic switching, but the principle is the same.
+
+[3:09] SCENE 3: TORQUE EQUATION AND POWER
+The torque equation follows from power. The electrical power converted to mechanical form is E b into I a. This must equal the mechanical power, omega times torque, where omega is two pi N by 60. Substituting E b proportional to flux and speed, the speed cancels, and we find T equals a constant times flux times armature current. So for a constant field, the torque is proportional to armature current.
+
+Because the starting current is so high, a starter is used. It is a variable resistance inserted in series with the armature at starting, and gradually cut out as the motor gains speed and its back emf builds up. This limits the starting current to about 1.5 to 2 times the full-load value.
+
+[4:03] SOLVED NUMERICAL
+A 220 volt DC shunt motor has an armature resistance of 0.5 ohm. When running at 1000 rpm, it takes an armature current of 20 amperes. Find the back emf, the mechanical power developed, the torque, the starting current without a starter, and the starter resistance to limit the starting current to 40 amperes.
+
+Step one: the back emf. E b equals V minus I a R a, equals 220 minus 20 into 0.5, equals 210 volts.
+
+Step two: the mechanical power. P m equals E b into I a, equals 210 into 20, equals 4,200 watts. Step three: the angular speed is 2 pi into 1000 by 60, equals 104.72 radians per second. The torque equals 4,200 by 104.72, equals 40.1 newton-metres.
+
+Step four: the starting current. At standstill, E b is zero, so I a equals 220 by 0.5, equals 440 amperes. That is 22 times the running current! The brush gear and the windings would be damaged.
+
+Step five: the starter. To limit the current to 40 amperes, the total resistance must be 220 by 40, equals 5.5 ohm. The armature already has 0.5, so the external resistance is 5.0 ohm. As the motor speeds up, this resistance is gradually cut out.
+
+[5:30] COMMON MISTAKES AND EXAM TIPS
+Four points. One: in a motor, the back emf opposes the supply voltage, and is always a little less than the supply. In a generator, it is the opposite. Two: use I a equal to V minus E b, divided by R a. Do not use V divided by R a, except at the moment of starting.
+
+Three: convert rpm to radians per second when calculating torque. Four: if the field winding fails open in a shunt motor, the flux falls almost to zero, and the speed can rise dangerously. So a shunt motor must never be started with its field open.
+
+That fourth point is also a common viva question. Remember that speed is inversely proportional to flux, so very low flux means a very high speed.
+
+A few more facts. There are three common types of DC motor, according to how the field is connected: shunt, series and compound. The series motor has a very high starting torque, so it is used for traction and cranes. The shunt motor has nearly constant speed, used for lathes and fans. To reverse the direction of rotation, reverse either the armature current or the field current, but not both, because reversing both leaves the direction unchanged.
+
+[6:58] RECAP
+Let us recap in five points. One: motor action comes from the force B I L on a current carrying conductor Two: the commutator keeps the torque unidirectional Three: the voltage equation is V equals E b plus I a R a, and E b is proportional to flux and speed Four: the back emf automatically regulates the armature current to match the load Five: torque is proportional to flux and armature current, and mechanical power is E b I a
+
+[7:33] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 230 volt DC motor has an armature resistance of 0.2 ohm and takes 50 amperes. Find the back emf and the mechanical power developed. Question two: 230 volts, armature resistance 0.4 ohm. Find the external starter resistance to limit the starting current to 50 amperes. Answers are in the pinned comment.
+
+In the next video, we study the characteristics of the DC shunt motor, and two ways to control its speed: armature control and field control. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

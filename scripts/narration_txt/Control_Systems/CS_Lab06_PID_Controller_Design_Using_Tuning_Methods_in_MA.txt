@@ -1,0 +1,68 @@
+MATLAB Lab: PID Controller Design & Tuning | Ziegler-Nichols and Manual Tuning | Control Systems Experiment 7
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:41
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A PID controller has three knobs. Turn them wrongly and your system overshoots by sixty percent. Turn them well, and it settles smoothly. Today we practise tuning, and we see the improvement on a graph.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to build a PID controller in MATLAB, apply Ziegler-Nichols settings, fine tune to meet specifications, and compare responses. Let us begin.
+
+[0:33] SCENE 1: RECAP: THE PLANT AND ZN SETTINGS
+We use the plant from the PID lecture: G of s equals 1 over s into s plus 1 into s plus 5. From the Routh array, the ultimate gain is 30, the oscillation frequency is 2.236 radians per second, and the period is 2.81 seconds. The Ziegler-Nichols PID settings are Kp equal to 18, Ti equal to 1.405, and Td equal to 0.351. In parallel form, Ki is 12.81 and Kd is 6.32.
+
+[1:05] SCENE 2: THE MATLAB CODE
+Define the plant with tf. Create the Ziegler-Nichols controller with the pid command, which takes Kp, Ki and Kd in that order. Close the loop with feedback of C times G, with unity feedback. Plot the step response for 40 seconds. Then create a second controller, tuned manually, with Kp equal to 10, Ti equal to 3, and Td equal to 1, which in parallel form means Ki equal to 10 by 3, and Kd equal to 10. Plot it on the same axes.
+
+Use stepinfo on both closed-loop systems. As an optional extra, pidtune designs a controller automatically for the given plant. Compare what it returns with your manual settings.
+
+[1:52] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to design a PID controller using tuning methods and to study the effect of Kp, Ki and Kd on the step response. You will need: a computer with MATLAB and the Control System Toolbox.
+
+The procedure has the following steps. Step 1: define the plant transfer function. Step 2: find the ultimate gain and the period from the Routh array or by simulation. Step 3: compute the Ziegler-Nichols PID settings. Step 4: simulate the closed loop with the ZN controller and note the specifications. Step 5: change one parameter at a time and note the effect. Step 6: compare the best manual result with pidtune.
+
+[2:41] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Run the script. The Ziegler-Nichols controller gives a fast response with a large overshoot of about 62 percent, and a long settling time of about 10 seconds. That is typical: Ziegler-Nichols tuning is aggressive, and meant as a starting point.
+
+Now the tuned controller. We reduced Kp from 18 to 10, increased the integral time from 1.4 to 3 seconds, so there is less integral action, and increased the derivative time to 1 second for extra damping. The result: overshoot falls to about 13 percent, and the settling time drops to about 7 seconds. The rise time is a little longer, 0.72 seconds instead of 0.58, which is the price of the smoother response.
+
+For reference, a P-only controller with a gain of 15 overshoots by 64 percent and takes 18 seconds to settle, so adding I and D action clearly helps. Note that the plant already has an integrator, so the steady-state error to a step is zero anyway. The integral term here improves the error to a ramp.
+
+In the lab, try changing one parameter at a time. Increase Kp: faster, but more overshoot. Increase Td: more damping. Decrease Ti: more integral action, which usually means more overshoot. Record the stepinfo values in a table.
+
+[4:10] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Add a short paragraph explaining which gain you changed and why.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[4:42] VIVA QUESTIONS AND MODEL ANSWERS
+Before you go to the viva, test yourself. Pause after each question and answer it aloud.
+
+Question 1. What is the purpose of the integral term? To eliminate the steady-state error.
+
+Question 2. What is the purpose of the derivative term? To add damping, reduce overshoot and improve the settling time.
+
+Question 3. Why is the Ziegler-Nichols response so oscillatory? Because the rules are designed for fast disturbance rejection, giving a quarter-amplitude decay, and the settings are aggressive for set-point changes.
+
+Question 4. How do you retune the controller? Reduce Kp, increase the integral time, and increase the derivative time, changing one parameter at a time.
+
+Question 5. Which commands did you use? tf, pid, feedback, step, stepinfo and pidtune.
+
+[5:33] COMMON LAB MISTAKES AND VIVA TIPS
+Four tips. One: the pid command takes Kp, Ki, Kd in this order, and Ki and Kd are parallel gains, not time constants. Two: convert Ti and Td correctly: Ki is Kp by Ti, and Kd is Kp times Td. Three: when tuning, change one parameter at a time, and record the effect. If you change three together, you cannot learn which one did what.
+
+Four: use the same time axis and the same final time for all plots, so that the comparison is fair. In the viva, expect: why does ZN overshoot so much? What does the derivative term do? Why is the derivative filtered in practice? You can answer them all.
+
+Two more tips for this experiment. First, Simulink has a PID Controller block. Double-click it, and the Tune button opens an interactive tuner with sliders for response time and transient behaviour. It is a quick way to see the trade-off, but always note down the final Kp, Ki and Kd values in your record, so that you can reproduce the result. Second, save your script. A short script that sets the gains, closes the loop and prints stepinfo lets you try ten sets of gains in a few minutes, and you can paste the table straight into your observation sheet.
+
+When you compare tuning methods, define the criteria first: for example, overshoot below 15 percent and settling time below 8 seconds. Then you can say clearly which method meets the specification and which does not. In our example, the Ziegler-Nichols settings fail on overshoot, while the manually tuned controller meets both.
+
+[7:27] RECAP
+Let us recap in five points. One: the pid command takes Kp, Ki and Kd Two: Ziegler-Nichols settings are aggressive, with about 62 percent overshoot here Three: reduce Kp, increase Ti and increase Td to cut the overshoot Four: feedback of C times G closes the loop Five: pidtune provides automatic tuning as a comparison
+
+[7:50] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: using the same plant, try Kp equal to 8, Ti equal to 3 and Td equal to 0.8. Predict whether the overshoot rises or falls compared with the tuned case, and check with stepinfo. Question two: write the parallel gains Ki and Kd for Kp equal to 10, Ti equal to 3 seconds and Td equal to 1 second. Answers are in the pinned comment.
+
+In the next video, we model a DC motor and build a position control loop in MATLAB and Simulink. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

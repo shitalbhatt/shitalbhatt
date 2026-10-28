@@ -1,0 +1,64 @@
+Second Order System Response | Peak Overshoot, Rise Time, Settling Time | Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:24
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A lift stops at your floor. If it stops too slowly, you wait. If it overshoots, you feel a jerk. Engineers design this behaviour using just two numbers, zeta and omega n. Let us see how.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to write the standard second-order form, classify the response by damping ratio, derive tr, tp, Mp and ts, and solve a numerical. Let us begin.
+
+[0:35] SCENE 1: STANDARD FORM AND DAMPING CASES
+The standard second-order system is C of s by R of s equals omega n squared divided by s squared plus 2 zeta omega n s plus omega n squared. Omega n is the natural frequency, how fast the system would oscillate with no damping. Zeta is the damping ratio, how strongly oscillations are suppressed.
+
+The poles are at s equals minus zeta omega n, plus or minus j omega n root of 1 minus zeta squared. When zeta is zero, the poles are on the imaginary axis, and the system oscillates forever. This is the undamped case. When zeta is between 0 and 1, the poles are complex, and the response overshoots and settles: underdamped. When zeta equals 1, both poles are real and equal: critically damped, the fastest response without overshoot. When zeta is more than 1, two real poles give a slow, non-oscillating response: overdamped.
+
+Think of ζ as a brake. With no brake, a swinging door keeps swinging. With a light brake, it swings a few times and stops. With a strong brake, it creeps shut. And with exactly the right brake, it closes in the shortest time without swinging back.
+
+[1:59] SCENE 2: UNDERDAMPED STEP RESPONSE
+Take the underdamped case. The step response is c of t equals one minus e to the power minus zeta omega n t, divided by root of 1 minus zeta squared, into sine of omega d t plus phi. Here omega d, the damped frequency, is omega n root of 1 minus zeta squared, and phi is the inverse cosine of zeta.
+
+See the structure. The sine term oscillates at omega d. The exponential term shrinks the amplitude, and the rate of shrinking depends on zeta omega n, the real part of the poles. The farther the poles are to the left, the faster the oscillations die.
+
+[2:45] SCENE 3: TIME-DOMAIN SPECIFICATIONS
+Now the specifications. Rise time, the time to go from zero to the final value for the first time, is pi minus phi, divided by omega d. Peak time, the time of the first overshoot peak, is pi by omega d. Peak overshoot is e to the power minus pi zeta by root of 1 minus zeta squared, expressed in percent. And settling time for a 2 percent band is 4 by zeta omega n; for a 5 percent band, 3 by zeta omega n.
+
+The design message is clear. Overshoot depends only on zeta. Speed depends on omega n. Settling time depends on the product zeta omega n, the real part of the pole. For a good design, we want zeta between 0.4 and 0.8, and a large omega n.
+
+Notice the trade-off. If we reduce zeta to make the response faster to rise, the overshoot grows. Control design is largely the art of balancing these two.
+
+[3:52] SOLVED NUMERICAL
+Time for a numerical. A unity feedback system has the open-loop transfer function 25 by s into s plus 6. Find the damping ratio, natural frequency, rise time, peak time, peak overshoot and settling time.
+
+Step one: close the loop. C by R equals G by 1 plus G. That gives 25 by s squared plus 6 s plus 25.
+
+Step two: compare with the standard form. Omega n squared equals 25, so omega n equals 5 radians per second. Two zeta omega n equals 6, so zeta equals 6 by 10, equals 0.6. Since zeta is less than one, the system is underdamped.
+
+Step three: the damped frequency, omega d, equals 5 into root of 1 minus 0.36, equals 5 into 0.8, equals 4 radians per second. And phi equals inverse cosine of 0.6, equals 53.13 degrees, or 0.927 radian.
+
+Step four: rise time equals pi minus 0.927, divided by 4, equals 2.214 by 4, equals 0.554 seconds. Peak time equals pi by 4, equals 0.785 seconds.
+
+Step five: peak overshoot equals e to the power minus pi into 0.6 by 0.8. The exponent is minus 2.356, so Mp equals 0.0948, or 9.48 percent. The peak value of the output is 1.0948.
+
+Step six: settling time for a 2 percent band equals 4 by 0.6 into 5, equals 1.33 seconds. For a 5 percent band, 3 by 3, equals 1 second.
+
+Notice how every answer came from just two numbers, omega n and zeta. That is why the standard form is so valuable: compare once, and all specifications follow. Always mention the sign of your damping, check it is underdamped, and only then use these formulas.
+
+[5:51] COMMON MISTAKES AND EXAM TIPS
+Four points. One: the formulas for rise time, peak time and overshoot are valid only for the underdamped case, zeta between 0 and 1. Check that first. Two: use radians for phi when computing rise time. Mixing degrees and radians is the most common numerical error.
+
+Three: when comparing with the standard form, remember the coefficient of s is two zeta omega n, not zeta omega n. Four: peak overshoot depends only on zeta. If two systems have the same zeta but different omega n, they have the same percentage overshoot, but the one with larger omega n is faster.
+
+Memory aid: 0.6 gives about 10 percent overshoot, 0.5 about 16 percent, 0.4 about 25 percent. Learn these three pairs and you can check your answers quickly.
+
+One last idea you will use again and again: dominant poles. In a higher-order system, if the other poles are at least five times farther from the imaginary axis than the complex pair, their contribution dies out quickly, and the response is determined mainly by the complex pair. We then treat the system as a second-order system and apply these formulas. This approximation makes design practical.
+
+[7:14] RECAP
+Let us recap in five points. One: the standard form has natural frequency omega n and damping ratio zeta Two: zeta decides the type: undamped, underdamped, critically damped or overdamped Three: rise time is pi minus phi by omega d, and peak time is pi by omega d Four: peak overshoot depends only on zeta Five: settling time is 4 by zeta omega n for a 2 percent band
+
+[7:43] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: C by R equals 16 by s squared plus 4 s plus 16. Find zeta, omega n, peak overshoot, peak time and settling time. Question two: what damping ratio gives exactly 25 percent overshoot? Answers are in the pinned comment.
+
+In the next video, we find how accurately a system follows its input: system type, error constants and steady-state error. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

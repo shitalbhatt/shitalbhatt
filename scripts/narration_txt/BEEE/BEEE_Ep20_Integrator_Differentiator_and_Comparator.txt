@@ -1,0 +1,56 @@
+Op-Amp Integrator, Differentiator & Comparator | Waveforms & Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:22
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Can a circuit do calculus? Yes. An op-amp with a resistor and a capacitor can integrate and differentiate signals in real time. And with no feedback at all, the op-amp becomes a comparator, deciding which of two voltages is higher. Let us see all three.
+
+[0:19] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to derive the integrator output, derive the differentiator output, explain the comparator, and solve a numerical. Let us begin.
+
+[0:38] SCENE 1: THE INTEGRATOR
+The integrator. Replace the feedback resistor of an inverting amplifier with a capacitor. The inverting input is still a virtual ground. The input current is V in by R. This current charges the capacitor, so it equals C times the rate of change of the voltage across it. The voltage across the capacitor is minus the output voltage. So V in by R equals minus C d V o by d t. Integrating, V o equals minus one over R C times the integral of V in d t.
+
+So the output is the integral of the input, scaled by 1 over R C. A constant input gives a ramp. A square wave gives a triangular wave. A sine wave gives a cosine wave, shifted by 90 degrees. Integrators are used in analogue computers, in waveform generators, and in analogue-to-digital converters. In practice, a high-value resistor across the capacitor prevents the output from drifting to saturation because of small DC offsets.
+
+[1:47] SCENE 2: THE DIFFERENTIATOR
+The differentiator swaps the positions: capacitor at the input and resistor in the feedback. The current through the capacitor is C times the rate of change of the input voltage. This flows through R f, so the output is minus R C times the derivative of the input. A triangular input produces a square output, and a ramp gives a constant.
+
+The problem with a differentiator is noise. Differentiation exaggerates fast changes, so high-frequency noise is greatly amplified. In practice, we add a small resistor in series with the capacitor and a small capacitor across the feedback resistor to limit the high-frequency gain. Because of this, integrators are preferred over differentiators in most designs.
+
+A rule of thumb: the integrator is a low-pass circuit, which smooths signals, while the differentiator is a high-pass circuit, which emphasises quick changes.
+
+[2:46] SCENE 3: THE COMPARATOR
+The comparator uses the op-amp without feedback. With such a huge gain, even a tiny difference between the two inputs drives the output to saturation. If the signal at the non-inverting input is higher than the reference at the inverting input, the output goes to plus V sat. If it is lower, the output goes to minus V sat. The circuit compares the two voltages, and gives a digital-like output.
+
+With the reference set to zero, it is a zero-crossing detector, converting a sine wave into a square wave with the same frequency. Moving the reference changes the duty cycle of the output. One practical problem: if the input is noisy near the reference, the output flips repeatedly. A Schmitt trigger, which uses positive feedback to create two switching thresholds, solves this.
+
+[3:42] SOLVED NUMERICAL
+Three quick problems. Part A: an integrator with R equal to 10 kilo-ohm and C equal to 0.1 microfarad, with a constant 2 volt input applied for 2 milliseconds. Part B: a differentiator with the same R and C, with an input that rises by 2 volts in 1 millisecond. Part C: a comparator with a 2 volt reference and a 3 volt peak, 50 hertz sine input, with saturation voltages of plus and minus 12 volts.
+
+Part A. R C equals 10 kilo-ohm into 0.1 microfarad, equals 1 millisecond. For a constant input, the output is minus V in by R C, times t. That is minus 2 volts by 1 millisecond, times 2 milliseconds, equals minus 4 volts. The output ramps down at 2 volts per millisecond.
+
+Part B. The input slope is 2 volts per millisecond, equal to 2,000 volts per second. The output equals minus R C times the slope, equals minus 1 millisecond into 2,000, equals minus 2 volts, constant during the ramp.
+
+Part C. The output is plus 12 volts when 3 sin theta exceeds 2, so sin theta exceeds 2 by 3. Inverse sine of 0.667 is 41.8 degrees. So the output is high from 41.8 degrees to 180 minus 41.8, which is 138.2 degrees. That is a width of 96.4 degrees. One cycle at 50 hertz takes 20 milliseconds, so the high time is 96.4 by 360 into 20, equals 5.35 milliseconds. The duty cycle is 26.8 percent. The output goes high at 2.32 milliseconds, falls at 7.68 milliseconds, and stays at minus 12 volts for the rest of the cycle.
+
+If the reference were zero, the duty cycle would be exactly 50 percent: the zero-crossing detector.
+
+[5:45] COMMON MISTAKES AND EXAM TIPS
+Four points. One: do not forget the minus sign in the integrator and differentiator formulas. Two: use consistent units. R in ohms times C in farads gives seconds. Three: the saturation voltage of the comparator is slightly less than the supply, by a volt or two for a 741. Four: look carefully at which terminal has the signal. If the signal is on the inverting input, the output is inverted.
+
+A frequent viva question: why do we add a resistor across the capacitor in a practical integrator? The answer: without it, the capacitor offers no DC feedback, the op-amp has full open-loop gain at DC, and any small offset drives the output into saturation.
+
+Real-life use: integrators appear in analogue filters and in control loops, comparators in battery chargers, zero-crossing detectors in power circuits, and in every analogue-to-digital converter.
+
+One more practical point about the integrator. The ideal circuit has no DC feedback, so a small offset voltage will make the output ramp to saturation. A resistor across the capacitor provides DC feedback and limits the DC gain. The circuit then integrates properly only for frequencies well above one over 2 pi R f C.
+
+[7:08] RECAP
+Let us recap in five points. One: the integrator output is minus one over R C times the integral of the input Two: an integrator turns a square wave into a triangle wave Three: the differentiator output is minus R C times the derivative, and it amplifies noise Four: the comparator output is plus V sat when the input exceeds the reference Five: with zero reference it is a zero crossing detector
+
+[7:39] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: an integrator has R equal to 1 kilo-ohm and C equal to 1 microfarad, with input 5 volts for 1 millisecond. Find the output. Question two: a zero crossing detector has a sine input. What are the output waveform and duty cycle? Answers are in the pinned comment.
+
+In the next video, we finish the series with the 555 timer and the 78XX fixed voltage regulators. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

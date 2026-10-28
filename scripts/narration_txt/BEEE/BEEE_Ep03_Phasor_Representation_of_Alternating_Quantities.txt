@@ -1,0 +1,60 @@
+Phasors Explained | Phasor Addition & Subtraction | Rectangular & Polar Form | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:21
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Adding two sine waves with different phases using trigonometry takes pages of algebra. With phasors, it takes four lines. Let us learn the shortcut that every electrical engineer uses.
+
+[0:12] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to represent a sine wave as a phasor, convert between rectangular and polar forms, find phase difference, and add and subtract phasors. Let us begin.
+
+[0:33] SCENE 1: A SINE WAVE AS A ROTATING ARROW
+A sine wave can be seen as the shadow of a rotating arrow. Imagine an arrow of length V m rotating anticlockwise at angular speed omega. At any instant, its vertical projection gives V m sin of omega t. As the arrow completes one revolution, the projection traces one complete cycle of the sine wave.
+
+Now, in any AC circuit, all the voltages and currents have the same frequency, so all their arrows rotate together. Their relative positions never change. So we freeze the picture at t equal to zero, and we only keep two things about each quantity: its length and its angle. This frozen arrow is called a phasor. We usually draw its length as the RMS value instead of the peak value, which is what meters read.
+
+Why RMS and not peak? Because power calculations involve RMS values. With RMS phasors, the formulas for power look just like DC.
+
+[1:39] SCENE 2: RECTANGULAR AND POLAR FORM
+To calculate with phasors, we use complex numbers. The horizontal axis is real, the vertical axis is imaginary. The operator j is the square root of minus one, and multiplying by j rotates a phasor by 90 degrees anticlockwise. In polar form we write magnitude and angle. In rectangular form we write a plus j b, with a equal to magnitude times cosine of the angle, and b equal to magnitude times sine of the angle.
+
+To convert back, the magnitude is the square root of a squared plus b squared, and the angle is inverse tan of b by a. For example, 3 plus j 4 has magnitude 5 and angle 53.13 degrees.
+
+Use rectangular form to add and subtract, and polar form to multiply and divide. This will make every calculation simple.
+
+[2:36] SCENE 3: PHASE DIFFERENCE AND PHASOR DIAGRAMS
+The phase difference tells us which quantity reaches its peak first. If the voltage is V m sin omega t and the current is I m sin of omega t minus phi, the current reaches its peak later, so we say the current lags the voltage by phi. In the phasor diagram, the lagging phasor is behind, at a smaller angle.
+
+Three simple results to remember. In a resistor, voltage and current are in phase. In an inductor, the current lags the voltage by 90 degrees. In a capacitor, the current leads the voltage by 90 degrees. A memory aid: C-I-V-L, for capacitor, current leads voltage, and voltage leads current in an inductor.
+
+[3:24] SOLVED NUMERICAL
+Time for a numerical. Two voltages are v 1 equal to 100 sin omega t, and v 2 equal to 60 sin of omega t plus 60 degrees. Find v 1 plus v 2, and v 1 minus v 2, as sine waves.
+
+Step one: convert to phasors, using peak values. V 1 is 100 at angle 0, which is 100 plus j 0. V 2 is 60 at angle 60 degrees. Its real part is 60 cos 60, which is 30. Its imaginary part is 60 sin 60, which is 51.96. So V 2 is 30 plus j 51.96.
+
+Step two: add the real parts and the imaginary parts. The sum is 130 plus j 51.96.
+
+Step three: convert to polar form. The magnitude is the square root of 130 squared plus 51.96 squared. 130 squared is 16,900, and 51.96 squared is 2,700. The total is 19,600, whose square root is exactly 140 volts. The angle is inverse tan of 51.96 by 130, which is 21.79 degrees. So v 1 plus v 2 equals 140 sin of omega t plus 21.79 degrees. Its RMS value is 140 divided by root 2, which is 98.99 volts.
+
+Step four: the difference. V 1 minus V 2 is 100 minus 30, which is 70, and 0 minus 51.96, so minus j 51.96. Magnitude: root of 4,900 plus 2,700, which is root of 7,600, equals 87.18 volts. Angle: inverse tan of minus 51.96 by 70, equals minus 36.59 degrees. So v 1 minus v 2 equals 87.18 sin of omega t minus 36.59 degrees.
+
+Notice that the sum is not 160, which is 100 plus 60. Phase differences mean the peaks do not coincide, so the peak of the sum is only 140.
+
+[5:29] COMMON MISTAKES AND EXAM TIPS
+Four mistakes. One: use the same kind of value throughout. Do not mix peak and RMS phasors in the same equation. Two: check the quadrant when using inverse tan. For minus 6 plus j 8, the angle is 126.9 degrees, not minus 53.1. A quick sketch avoids the error.
+
+Three: never add the magnitudes of phasors directly, unless they have the same angle. Four: be consistent with degrees and radians, especially on the calculator. Set it to degrees before you start.
+
+A trick to check your answer: the resultant must be between the difference and the sum of the magnitudes. In our example, between 40 and 160. The answer 140 satisfies this.
+
+Phasors are not only a classroom trick. A power engineer uses them to study how generators, transformers and long lines share a load. An electronics engineer uses them to design filters and amplifiers. Whenever the sources are sinusoidal, at one frequency, and the circuit has settled to steady state, you can replace every sine by a phasor, every inductor by j omega L, every capacitor by one by j omega C, and every differential equation by simple algebra. That is exactly what we shall do in the next few videos, so practise the conversions between polar and rectangular form until they become automatic.
+
+[7:01] RECAP
+Let us recap in five points. One: a phasor is a rotating arrow frozen at t equal to zero, with a magnitude and an angle Two: convert between polar and rectangular forms using cosine and sine Three: add and subtract in rectangular form, multiply and divide in polar form Four: in a resistor voltage and current are in phase, in an inductor current lags by 90 degrees, in a capacitor it leads by 90 degrees Five: phasors add as vectors, so the magnitudes do not simply add
+
+[7:38] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: add 10 at angle 30 degrees and 5 at angle minus 60 degrees. Give the result in polar form. Question two: convert 6 minus j 8 to polar form. Does it lead or lag the reference? Answers are in the pinned comment.
+
+In the next video, we apply phasors to series circuits: reactance, impedance, and the voltage and current relationships in RL, RC and RLC circuits. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

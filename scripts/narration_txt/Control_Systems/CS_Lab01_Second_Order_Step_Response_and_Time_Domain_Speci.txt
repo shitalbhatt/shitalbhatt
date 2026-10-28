@@ -1,0 +1,58 @@
+MATLAB Lab: Second Order Step Response & Time Domain Specifications | Undamped, Underdamped, Critical, Overdamped
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:33
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+You have studied the second-order response in class. Today you will see all four cases on one graph, and read overshoot and settling time straight from MATLAB. Let us go to the lab.
+
+[0:14] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to plot step responses for different damping ratios, use stepinfo to read specifications, build the Simulink model, and compare simulation with theory. Let us begin.
+
+[0:34] SCENE 1: THEORY IN 60 SECONDS
+Quick revision. The standard second-order transfer function is omega n squared over s squared plus 2 zeta omega n s plus omega n squared. We take omega n equal to 5 radians per second. If zeta is zero, the response oscillates forever. For zeta between 0 and 1, it is underdamped, overshooting and settling. At zeta equal to 1 it is critically damped, and above 1, overdamped. For the underdamped case, peak overshoot is e to the power minus pi zeta by root of 1 minus zeta squared, peak time is pi by omega d, and settling time is about 4 by zeta omega n.
+
+[1:19] SCENE 2: THE MATLAB CODE, LINE BY LINE
+Open a new script in MATLAB. First, define omega n as 5, and a vector of damping ratios: 0, 0.3, 0.6, 1 and 2. Define the time vector from 0 to 6 seconds in steps of 0.001. Then call figure, hold on, and grid on, so that all the curves appear on the same axes.
+
+Now the loop. For each value of zeta, create the transfer function with the tf command. The numerator is omega n squared, and the denominator is the vector 1, 2 zeta omega n, omega n squared. Then call step with the system and the time vector. Add a legend and a title.
+
+To read the specifications, make the transfer function for zeta equal to 0.6, which is 25 over s squared plus 6 s plus 25, and call stepinfo. It returns a structure with the rise time, settling time, overshoot, peak and peak time. The pole command lists the closed-loop poles.
+
+If MATLAB shows an error saying undefined function tf, you need the Control System Toolbox. Check with the lab instructor.
+
+[2:34] SCENE 3: SIMULINK MODEL
+The same experiment in Simulink. Drag a Step block, a Transfer Function block, and a Scope onto the canvas. Connect them in this order. Double click the Transfer Function block, type 25 as the numerator and 1, 6, 25 as the denominator. Set the stop time to 6 seconds and press run. Open the scope to see the response. Change the denominator to try other damping ratios.
+
+[3:03] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to obtain the step response of a second-order system for undamped, underdamped, critically damped and overdamped cases, and to measure the time-domain specifications. You will need: a computer with MATLAB and the Control System Toolbox, and Simulink.
+
+The procedure has the following steps. Step 1: define omega n and the vector of damping ratios. Step 2: create the transfer function for each damping ratio with tf. Step 3: plot all the step responses on one figure with a legend. Step 4: run stepinfo for zeta equal to 0.6 and note down the values. Step 5: build the same system in Simulink and compare the scope trace with the MATLAB plot. Step 6: tabulate the poles and the specifications, and compare them with the theoretical values.
+
+[4:00] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Let us run the script and read the results. First the poles. For zeta equal to 0, plus or minus j 5. For 0.3, minus 1.5 plus or minus j 4.77. For 0.6, minus 3 plus or minus j 4. For zeta equal to 1, a repeated pole at minus 5. And for zeta equal to 2, two real poles: minus 1.34 and minus 18.66. See how the poles move from the imaginary axis to the real axis as damping increases.
+
+Now stepinfo for zeta equal to 0.6. The peak time is 0.785 seconds, which equals pi by 4, exactly as we calculated in class. The overshoot is 9.48 percent, again identical to the formula. These two match perfectly.
+
+Two values differ slightly, and you must understand why. MATLAB reports the rise time as the time from 10 percent to 90 percent of the final value, which is 0.371 seconds. Our class formula gives the time to reach 100 percent for the first time, which is 0.554 seconds. Both are valid, just defined differently. Similarly, MATLAB measures the settling time as the last time the response leaves the 2 percent band, which is 1.19 seconds, while 4 by zeta omega n gives 1.33 seconds, an approximation. Always state the definition in your lab record.
+
+On the combined plot, the undamped curve oscillates forever between 0 and 2. The curve for 0.3 overshoots heavily. At 0.6 the overshoot is modest. At critical damping the response is the fastest without overshoot, and at zeta equal to 2 it is slow, creeping to the final value.
+
+[5:53] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Include one table with the damping ratio, the poles, and the simulated and theoretical values of overshoot, peak time and settling time.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[6:30] COMMON LAB MISTAKES AND VIVA TIPS
+Before leaving the lab, four points. One: the denominator vector must be in descending powers of s: one, two zeta omega n, omega n squared. A wrong order gives a completely different system. Two: if your code uses arrays inside expressions, use the dot operators. Three: write the rise-time definition in your record, as we discussed.
+
+Four: label your axes, add a legend and a title. Marks are given for a clear plot. And for the viva, be ready to answer: what happens to the poles as zeta increases? How does the overshoot change? Why does a critically damped response have no overshoot? You now have all the answers.
+
+[7:17] RECAP
+Let us recap in five points. One: the tf command creates the transfer function, and step plots its response Two: a loop over zeta overlays all the curves on one plot Three: stepinfo reports rise time, settling time, overshoot and peak time Four: MATLAB uses the 10 to 90 percent rise time, which differs from the textbook definition Five: in Simulink, connect a Step, a Transfer Function block and a Scope
+
+[7:47] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for omega n equal to 4 and zeta equal to 0.5, predict the peak overshoot, peak time and settling time. Then verify with stepinfo. Question two: which MATLAB command gives the poles of a system, and which command plots poles and zeros on the s-plane? Answers are in the pinned comment.
+
+In the next video, we study experiment 2: how adding poles and zeros to the open-loop transfer function changes the closed-loop response. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

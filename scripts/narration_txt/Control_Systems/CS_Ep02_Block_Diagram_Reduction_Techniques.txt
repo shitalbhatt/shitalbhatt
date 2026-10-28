@@ -1,0 +1,54 @@
+Block Diagram Reduction | Cascade, Parallel, Feedback & Shifting Rules with Solved Example | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:27
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Imagine a control system diagram with fifteen blocks and loops inside loops. Writing and solving every equation would take pages. But with five simple rules, you can reduce it in minutes. Let me show you how.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to identify the parts of a block diagram, apply the cascade, parallel and feedback rules, shift take-off and summing points, and reduce a full diagram to a single transfer function. Let us begin.
+
+[0:39] SCENE 1: ELEMENTS OF A BLOCK DIAGRAM
+A block diagram is a picture of a control system. It has four building elements. First, the block: a rectangle containing a transfer function G of s. The output of the block equals G of s multiplied by its input. Second, the arrow, which shows the direction of the signal. Third, the summing point, a circle where signals are added or subtracted; the sign near the arrow tells you which. Fourth, the take-off point, a dot where the same signal is branched off to another place.
+
+One important point. At a take-off point the signal is not divided. Every branch carries the full signal. Our goal in reduction is simple: replace many blocks by one equivalent block, using rules that never change the relationship between input and output.
+
+[1:33] SCENE 2: CASCADE AND PARALLEL BLOCKS
+Rule one: blocks in cascade. If two blocks G1 and G2 are in series, the output of the first is the input of the second. So the overall transfer function is simply the product, G1 into G2. The same product extends to any number of blocks.
+
+Rule two: blocks in parallel. The same input goes to both blocks, and their outputs are added at a summing point. The equivalent is the sum, G1 plus G2. If one output is subtracted, the equivalent is G1 minus G2. A simple memory trick: series means multiply, parallel means add. For example, if G1 equals 2 and G2 equals 3, the cascade gives 6 and the parallel gives 5.
+
+[2:23] SCENE 3: THE FEEDBACK LOOP RULE
+Rule three, the most important one: the feedback loop. A forward block G takes the error signal E and produces the output C. A feedback block H takes C and returns it to the summing point. For negative feedback, E equals R minus H C, and C equals G E.
+
+Substitute: C equals G into R minus H C. Open the bracket: C plus G H C equals G R. Take C common: C into 1 plus G H equals G R. So the closed-loop transfer function is C by R equals G divided by 1 plus G H. For positive feedback the sign changes: G divided by 1 minus G H. When H equals 1 we call it unity feedback, and the result is G by 1 plus G.
+
+Remember: forward path in the numerator, one plus loop gain in the denominator. And in the exam, always check the sign at the summing point before writing the formula.
+
+[3:31] SCENE 4: SHIFTING TAKE-OFF AND SUMMING POINTS
+Sometimes loops overlap and we cannot apply these rules directly. Then we shift points. Shifting a take-off point from before a block to after it: the signal now comes out of the block, so it has been multiplied by G. To get back the original signal, put a block one by G in the branch. Shifting it from after to before: put a block G in the branch.
+
+Shifting a summing point is the opposite idea. To move it ahead of a block G, the other signal must be divided by G, so insert one by G in its path. To move it after the block, multiply by G. The golden rule: after shifting, every path must carry exactly the same signal as before. Check by writing the output equation both ways. If both give the same C of s, your shift is correct. A common mistake is to shift the point correctly but forget the compensating block in the branch. Always draw it before you move on.
+
+[4:43] SOLVED NUMERICAL
+Time for a numerical. Block G1 is one by s plus 1. Block G2 is one by s plus 2, with its own inner negative feedback loop where H1 equals 1. Block G3 is a constant 4. The chain G1, inner loop, G3 is closed by an outer unity negative feedback. Find the overall transfer function C by R, then the natural frequency, damping ratio, poles, and the steady-state output for a unit step.
+
+Step one: reduce the inner loop. G2 divided by 1 plus G2 H1 equals one by s plus 2, divided by 1 plus one by s plus 2. Multiply the top and bottom by s plus 2: we get one by s plus 3.
+
+Step two: the three blocks are now in cascade, so multiply them. One by s plus 1, into one by s plus 3, into 4, equals 4 by s plus 1 into s plus 3. Expanding, that is 4 by s squared plus 4 s plus 3.
+
+Step three: close the outer loop with unity feedback. C by R equals G by 1 plus G. Put G equals 4 by s squared plus 4 s plus 3. The denominator becomes s squared plus 4 s plus 3 plus 4. So C by R equals 4 by s squared plus 4 s plus 7.
+
+Step four: compare with the standard form. Omega n squared equals 7, so omega n equals 2.646 radians per second. Two zeta omega n equals 4, so zeta equals 4 divided by 2 into 2.646, which is 0.756. The poles are minus 2, plus or minus j 1.732. Both are in the left half, and zeta is less than one: stable and underdamped.
+
+Finally, for a unit step input the steady-state output is the transfer function at s equals zero, which is 4 by 7, equals 0.571. The output settles at 0.571, not at 1, so there is a steady-state error of 0.429. We will learn how to reduce such errors in Unit 2.
+
+[7:06] RECAP
+Let us recap in five points. One: series blocks multiply, parallel blocks add. Two: the feedback rule is C by R equals G divided by 1 plus or minus G H. Three: when shifting a take-off point across a block, add one by G or G to keep the signal the same. Four: when shifting a summing point, do the opposite. Five: always reduce the innermost loop first, and work outward.
+
+[7:37] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: G1 equals 5 and G2 equals one by s plus 2 are in cascade, with unity negative feedback. Find C by R. Question two: G1 equals 2 and G2 equals 3 by s plus 1 are in parallel, inside a unity negative feedback loop. Find C by R. Answers are in the pinned comment.
+
+In the next video, we will convert block diagrams into signal flow graphs and use Mason's gain formula, a way to write the transfer function in one shot. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

@@ -1,0 +1,56 @@
+P, PI and PID Controllers Explained | Ziegler-Nichols Tuning with Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:14
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+The cruise control in a car, the temperature in your fridge, the speed of a lift motor: more than ninety percent of industrial loops use the same controller. It has three letters. P, I and D.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to write the PID control law, explain the role of P, I and D, tune a PID by Ziegler-Nichols, and solve a numerical. Let us begin.
+
+[0:36] SCENE 1: THE THREE CONTROL ACTIONS
+The PID controller computes its output from the error in three ways. The proportional part is Kp times the error. The integral part is Ki times the integral of the error. The derivative part is Kd times the rate of change of the error. In the s domain, Gc of s equals Kp plus Ki by s plus Kd s. Equivalently Kp into 1 plus one by Ti s plus Td s, where Ti is the integral time and Td the derivative time.
+
+Think of the three as the present, the past and the future. P looks at the present error. I adds up the past error. D predicts the future error by looking at its slope.
+
+[1:26] SCENE 2: EFFECT OF EACH ACTION
+What does each action do? Increasing Kp makes the system faster and reduces the steady-state error, but it increases the overshoot, and cannot make the error zero for a type 0 plant. Adding integral action removes the steady-state error completely, because the integrator keeps increasing the output until the error is zero. But it adds lag, which increases the overshoot and slows the settling. Adding derivative action adds damping, which reduces the overshoot and the settling time, but it amplifies noise.
+
+A quick example. For a plant G equal to 2 by s plus 1 with a proportional controller Kp equal to 4, the loop constant Kp total is 8, and the step error is 1 by 9, which is 0.111. Add integral action, and the error goes to zero.
+
+In industry, PI control is the most common of all, because the derivative term is noise-sensitive. Pure P is used when some steady-state error is acceptable.
+
+[2:33] SCENE 3: ZIEGLER-NICHOLS TUNING
+How do we choose the three gains? Ziegler and Nichols gave a simple recipe. Use only proportional control, and increase the gain until the output oscillates steadily. Note the gain at that point, called the ultimate gain K c r, and the period of oscillation, P c r. Then for a PID controller: Kp equals 0.6 K c r, Ti equals half of P c r, and Td equals one-eighth of P c r.
+
+If the transfer function is known, we do not need an experiment. The Routh array gives K c r and the oscillation frequency, and the period is 2 pi divided by that frequency. This gives a good starting point, and engineers then fine tune the gains.
+
+[3:24] SOLVED NUMERICAL
+Time for a numerical. A plant has the transfer function 1 by s into s plus 1 into s plus 5, in a unity feedback loop. Design a PID controller using the Ziegler-Nichols method.
+
+Step one: find the ultimate gain. With a proportional controller K, the characteristic equation is s cubed plus 6 s squared plus 5 s plus K equals zero. The Routh array gives the s to the one element as 30 minus K, by 6. This becomes zero when K equals 30. So K c r equals 30.
+
+Step two: the oscillation frequency. The auxiliary equation is 6 s squared plus 30 equals zero, so s equals plus or minus j root 5. Omega c r equals 2.236 radians per second. The period P c r equals 2 pi by 2.236, which is 2.81 seconds.
+
+Step three: the PID settings. Kp equals 0.6 into 30, equals 18. Ti equals 0.5 into 2.81, equals 1.405 seconds. Td equals 0.125 into 2.81, equals 0.351 seconds. In parallel form, Ki equals Kp by Ti, equals 12.8, and Kd equals Kp into Td, equals 6.32.
+
+The controller is Gc of s equals 18 into 1 plus one by 1.405 s plus 0.351 s. A simulation of the closed loop shows an overshoot of about 62 percent. Ziegler-Nichols is a starting point, known to give aggressive tuning. Reducing Kp to 10 and increasing Ti to 3 seconds, with Td equal to 1 second, brings the overshoot to about 13 percent, with settling in about 7 seconds. That is the art of tuning, and you will practise it in the lab.
+
+[5:19] COMMON MISTAKES AND EXAM TIPS
+Four reminders. One: Ziegler-Nichols works only if a sustained oscillation exists for some gain, as it does for our third-order plant. Check with the Routh array. Two: it is a starting point. Always simulate and then adjust the gains to meet the overshoot and settling-time specifications.
+
+Three: be careful with parallel and series forms. Ki equals Kp by Ti, and Kd equals Kp times Td. Mixing these up changes the controller by a large factor. Four: in practice the derivative term is always filtered, otherwise it magnifies measurement noise. You will see this in the lab when you tune a controller on real hardware.
+
+As a rule: use P when speed matters and some error is acceptable, PI when accuracy matters, and PID when you need both accuracy and good damping.
+
+Some real-world refinements. First, anti-windup: if the actuator saturates, the integral term keeps growing, and the response overshoots badly when the saturation ends. A practical controller stops the integration during saturation. Second, derivative filtering: the derivative acts on a filtered error, so that noise is not amplified. Third, many controllers apply the derivative action only to the measured output, not to the set-point, to avoid a sudden spike when the set-point changes. Finally, most modern PID controllers are implemented in a digital processor, which samples the error at a fixed interval. The same ideas hold.
+
+[6:56] RECAP
+Let us recap in five points. One: the PID law is Kp times the error plus Ki times its integral plus Kd times its derivative Two: proportional action speeds up the response but leaves a steady-state error Three: integral action removes the steady-state error but adds lag Four: derivative action adds damping but amplifies noise Five: the Ziegler-Nichols PID settings are 0.6 K c r, half of P c r, and one-eighth of P c r
+
+[7:28] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: K c r equals 20 and P c r equals 2 seconds. Find the Ziegler-Nichols PID settings: Kp, Ti, Td, Ki and Kd. Question two: a controller has Kp equal to 5, Ki equal to 10 and Kd equal to 2. Write Gc of s, and find Ti and Td. Answers are in the pinned comment.
+
+In the next video, we study the state-space approach, the modern way to model systems with matrices. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

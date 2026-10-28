@@ -1,0 +1,67 @@
+MATLAB Lab: DC Motor Position Control System | Transfer Function, Simulink Model, Step Response | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:14
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A robot arm, a camera gimbal, a printer head: all need to move to an exact position and stop. At the heart of each is a DC motor in a position control loop. Today we model one and make it move to a target.
+
+[0:19] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to derive the DC motor position transfer function, build the loop in MATLAB, build the Simulink diagram, and study the effect of gain. Let us begin.
+
+[0:39] SCENE 1: MODELLING THE MOTOR
+An armature-controlled DC motor has an electrical equation and a mechanical one. The electrical equation: L di by dt plus R i equals the applied voltage minus the back emf K b omega. The mechanical equation: J d omega by dt plus b omega equals K t times i. Taking Laplace transforms, with K t equal to K b equal to K, the transfer function from voltage to angle is K over s times J s plus b, into L s plus R, plus K squared.
+
+We use the parameters J equal to 0.01 kilogram metre squared, friction b equal to 0.1, motor constant K equal to 0.01, resistance 1 ohm and inductance 0.5 henry. The extra s in the denominator is the integrator that converts speed into angle.
+
+[1:34] SCENE 2: THE MATLAB CODE
+Define the parameters. Build the plant: the denominator is s multiplied by the quadratic J L s squared plus J R plus b L, times s, plus b R plus K squared. The conv command does this multiplication. Then loop over two proportional gains, 1 and 10. For each, close the loop with feedback and unity feedback, plot the step response for 60 seconds, and display the step information and the closed-loop poles.
+
+[2:06] SCENE 3: SIMULINK DIAGRAM
+In Simulink, place a Step, a Sum block with signs plus and minus, a Gain block called Kc, a Transfer Function block for the motor, and a Scope. The numerator is 0.01. The denominator is 0.005, 0.06, 0.1001, 0. Connect the output back to the Sum block with a negative sign. Set the stop time to 60 and run for Kc equal to 1, then 10.
+
+[2:34] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to simulate a DC motor position control system and obtain its step response for different controller gains. You will need: a computer with MATLAB and Simulink.
+
+The procedure has the following steps. Step 1: enter the motor parameters J, b, K, R and L. Step 2: form the position transfer function. Step 3: close the loop with a proportional gain Kc. Step 4: run for gains 1, 5, 10 and 20. Step 5: build the Simulink model and repeat for gains 1 and 10. Step 6: tabulate the overshoot, rise time and settling time for each gain.
+
+[3:19] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Run the script. With Kc equal to 1, the closed-loop poles are at minus 10.02, minus 1.87, and minus 0.107. Every pole is real, so there is no overshoot. But the dominant pole at minus 0.107 is very slow. The motor takes about 36 seconds to settle. Too sluggish for any robot.
+
+Now Kc equal to 10. The poles become minus 10.23, and a complex pair at minus 0.883 plus or minus j 1.084. The dominant poles are now complex and much farther from the origin. The response is faster, with a rise time of 1.4 seconds and settling in 4.4 seconds. The price is a small overshoot of 7.7 percent. This is a good trade.
+
+The final value is exactly 1 in both cases. The plant contains an integrator, which means the motor position settles at the commanded value, with no steady-state error for a step command. Keep increasing Kc and you will see the overshoot grow, until at very high gains the loop goes unstable, as the root locus predicted.
+
+In your lab record, tabulate the overshoot, rise time and settling time for several values of Kc, say 1, 5, 10, 20, and comment on the trade-off.
+
+[4:45] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Include both the MATLAB plots and the Simulink scope screenshots.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[5:16] VIVA QUESTIONS AND MODEL ANSWERS
+Before you go to the viva, test yourself. Pause after each question and answer it aloud.
+
+Question 1. What is the type of the position control system? Type 1, because of the integrator between speed and angle.
+
+Question 2. What is the steady-state error for a step command? Zero.
+
+Question 3. What happens when the gain is increased? The response becomes faster, but the overshoot increases, and at a very high gain the system becomes unstable.
+
+Question 4. What does the back emf do to the motor model? It adds a feedback inside the motor, which appears as the K squared term in the denominator.
+
+Question 5. Which blocks did you use in Simulink? Step, Sum, Gain, Transfer Function and Scope.
+
+[6:08] COMMON LAB MISTAKES AND VIVA TIPS
+Four tips. One: use conv to multiply s into the quadratic; typing the cubic by hand can introduce mistakes. Two: be consistent with units. If the motor datasheet gives inertia in gram centimetre squared, convert it. Three: in Simulink, check the signs on the Sum block: plus for the reference, minus for the feedback.
+
+Four: when the response is slow, as it is for Kc equal to 1, set the stop time long enough. Otherwise the plot will end before the output settles, and you may wrongly conclude there is a steady-state error. In the viva, you may be asked: why does the plant have an integrator? What happens to the steady-state error for a ramp command? You know the answers: with one integrator, the ramp error is finite and equal to one by Kv.
+
+[7:06] RECAP
+Let us recap in five points. One: the motor position transfer function has an integrator and a second-order factor Two: we close a unity feedback loop with proportional gain Kc Three: a low gain gives an overdamped but slow response Four: a higher gain is faster but gives more overshoot Five: the integrator in the plant gives zero steady-state error for a step command
+
+[7:33] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: run the loop with Kc equal to 5 and 20. Predict which has the larger overshoot, and verify with stepinfo. Question two: why is there no steady-state error to a step command in this experiment? Answers are in the pinned comment.
+
+In the next video, we design, build and verify RC lag and lead compensators in the final lab video. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

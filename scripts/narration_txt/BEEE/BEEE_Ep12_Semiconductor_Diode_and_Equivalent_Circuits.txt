@@ -1,0 +1,62 @@
+PN Junction Diode | V-I Characteristics & Equivalent Circuits (Ideal, Simplified, Piecewise Linear) | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:13
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Every phone charger, every LED bulb driver, every radio has the same tiny component at the heart of it: a one-way gate for electric current, the diode. Today we learn how it works and how to analyse circuits with it.
+
+[0:17] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain the PN junction, draw the V-I characteristic, use diode equivalent circuits, and solve a numerical. Let us begin.
+
+[0:36] SCENE 1: THE PN JUNCTION
+A diode is a PN junction. A P-type semiconductor has an excess of holes, and an N-type has an excess of free electrons. When they are joined, electrons and holes near the junction diffuse across and recombine, leaving a region with no free carriers, called the depletion region. It sets up a barrier potential: about 0.7 volts for silicon, and 0.3 volts for germanium.
+
+In forward bias, the positive terminal of the supply goes to the P side. This reduces the barrier, the depletion region narrows, and once the applied voltage exceeds the barrier potential, a large current flows. In reverse bias, the positive terminal is connected to the N side. The barrier grows, the depletion region widens, and only a tiny leakage current flows. So the diode conducts in one direction, and blocks in the other.
+
+[1:35] SCENE 2: V-I CHARACTERISTIC
+The V-I characteristic shows this behaviour. In the forward direction, the current is negligible until the voltage reaches the knee, about 0.7 volts for silicon, and then it rises very steeply. In the reverse direction, the current is a tiny leakage, microamperes or less, almost constant until a large reverse voltage causes breakdown.
+
+Mathematically, the Shockley equation gives I equal to I s into e to the power V by n V T, minus 1. Here V T is the thermal voltage, about 26 millivolts at room temperature. The slope of the curve at an operating point gives the dynamic resistance, r d equals 26 millivolts divided by the diode current. At 10 milliamperes, r d is only about 2.6 ohm.
+
+Temperature matters: the barrier potential falls by about 2 millivolts for every degree Celsius rise. That is why a hot diode drops slightly less voltage.
+
+[2:37] SCENE 3: DIODE EQUIVALENT CIRCUITS
+A circuit with a diode is non-linear. To make analysis easy, we replace the diode with an equivalent circuit, depending on how accurate we need to be. The ideal diode is a perfect switch: a short circuit when conducting, and an open circuit when blocking. The simplified model adds a 0.7 volt drop in series with the ON switch. And the piecewise-linear model adds the small dynamic resistance as well.
+
+For a circuit with several diodes, assume a state, ON or OFF, for each diode, calculate, and then check. If an assumed ON diode has a positive current, the assumption is right. If an assumed OFF diode has a reverse voltage across it, that is also consistent. Otherwise change the assumption.
+
+[3:29] SOLVED NUMERICAL
+A silicon diode is in series with a 1 kilo-ohm resistor and a 10 volt source, forward biased. Find the diode current using the three models. Assume r d equals 10 ohm from the datasheet for the piecewise-linear model.
+
+Ideal diode. The diode is a short circuit. The current equals 10 volts divided by 1 kilo-ohm, equals 10 milliamperes.
+
+Simplified model. The diode drops 0.7 volts. The current equals 10 minus 0.7, divided by 1,000, equals 9.3 milliamperes.
+
+Piecewise-linear model. The total series resistance is 1,010 ohm. The current equals 9.3 divided by 1,010, equals 9.21 milliamperes. The diode voltage equals 0.7 plus 9.21 milliamperes into 10 ohm, equals 0.792 volts.
+
+See how close the answers are: 10, 9.3 and 9.21. The 0.7 volt drop mattered by 7 percent here. But for a 3 volt source, it would matter a great deal. So use the ideal model only when the source is much larger than 0.7 volts.
+
+Now reverse the diode. It is reverse biased, so it blocks. The current is almost zero, the voltage across the resistor is zero, and the entire 10 volts appears across the diode.
+
+[4:50] COMMON MISTAKES AND EXAM TIPS
+Four points. One: the diode symbol arrow points in the direction of the conventional current when it conducts, from anode to cathode. Two: remember the drops: 0.7 volts for silicon, 0.3 for germanium. LEDs have a larger drop, typically 1.8 to 3 volts depending on the colour. Three: use the ideal model only when the supply is much larger than the diode drop.
+
+Four: always verify the assumed state. Real exam questions with several diodes are often solved by trial. Assume, compute, and check for contradictions.
+
+Real-life use: besides rectifiers, diodes protect circuits from reverse-polarity batteries, clip signals, and prevent the back-flow of current. A small relay coil, for example, uses a diode across it to absorb the voltage spike when the coil is switched off.
+
+Before we finish, a few practical items. When selecting a diode, read the data sheet. The important numbers are the maximum average forward current, the peak inverse voltage or reverse breakdown rating, and the forward voltage drop. For example, the general-purpose rectifier diode 1N4007 is rated about 1 ampere and 1000 volts, while the small-signal 1N4148 handles about 200 milliamperes at 100 volts, and switches very fast.
+
+There are also special diodes. The light-emitting diode emits light when forward biased, with a forward drop of about 2 volts, and always needs a series resistor. The photodiode works the opposite way: light produces a reverse current. The Schottky diode has a low forward drop, about 0.3 volts, and switches quickly, so it is used in power supplies. And in the next videos, we will meet the Zener diode.
+
+One simple application right now: a clipper. A diode with a resistor can limit a signal to about 0.7 volts, protecting an input from excessive voltage. Try drawing the output for a sine input, and you will see its positive peaks flattened at 0.7 volts.
+
+[7:02] RECAP
+Let us recap in five points. One: a PN junction has a depletion region and a barrier potential of about 0.7 volts for silicon Two: forward bias conducts, and reverse bias blocks Three: the Shockley equation describes the V-I characteristic Four: the three equivalent circuits are ideal, 0.7 volt, and 0.7 volt with dynamic resistance Five: assume the state, calculate, and verify
+
+[7:29] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a silicon diode is in series with a 470 ohm resistor and a 5 volt source, forward biased. Find the current using the simplified model. Repeat for germanium. Question two: if the diode above is reversed, what are the current and the voltage across the resistor? Answers are in the pinned comment.
+
+In the next video, we use diodes to convert AC to DC in half-wave and full-wave bridge rectifiers. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

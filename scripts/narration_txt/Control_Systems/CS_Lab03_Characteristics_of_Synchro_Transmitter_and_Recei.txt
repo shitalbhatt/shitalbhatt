@@ -1,0 +1,56 @@
+Synchro Transmitter & Receiver Pair Lab | Characteristics, Error Detector | Control Systems Experiment 4
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:44
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+How does a radar antenna on a ship know exactly how far its remote display has turned, without any wires carrying numbers? It uses a pair of devices called synchros. Today we study their characteristics.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to describe synchro construction, explain the stator voltages versus rotor angle, describe the transmitter-receiver and error-detector use, and record and plot the observations. Let us begin.
+
+[0:35] SCENE 1: CONSTRUCTION AND PRINCIPLE
+A synchro looks like a small motor. The stator carries three windings placed 120 degrees apart. The rotor carries a single winding, excited by an AC voltage. Like a transformer, the rotor induces voltages in the stator windings, and the size of each voltage depends on the angle between the rotor axis and that winding.
+
+If the rotor angle is theta, the three stator voltages are proportional to cos theta, cos of theta minus 120, and cos of theta plus 120. This gives a unique set of three voltages for every angle, and so the three voltages are a complete code for the rotor position.
+
+[1:20] SCENE 2: TRANSMITTER-RECEIVER PAIR
+In a transmitter-receiver pair, the stators are connected winding to winding, and both rotors are excited from the same AC supply. When both rotors are at the same angle, the stator voltages are identical, and no current flows: equilibrium. If you turn the transmitter rotor, the stator voltages no longer match, currents flow through the wires, and these produce a torque on the receiver rotor that turns it until the angles match again. The receiver rotor follows the transmitter.
+
+In the lab, you will rotate the transmitter in steps of, say, 30 degrees, and note the receiver angle. The difference is the synchro error, which should be small.
+
+[2:06] SCENE 3: SYNCHRO AS AN ERROR DETECTOR
+A more important use in control systems is as an error detector. The transmitter is connected to a control transformer, whose rotor is not excited. Its rotor output is an AC voltage proportional to the sine of the angle difference. For small differences, this is almost linear in the difference. A servo amplifier and motor then turn the control transformer rotor, to drive the error to zero. That is a complete position control loop, and it is why synchros are used in radar, antennas and machine tools.
+
+[2:44] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to study the characteristics of a synchro transmitter and receiver pair and their use as an error detector. You will need: a synchro transmitter and receiver pair, a control transformer, an AC supply of the rated voltage and frequency, a voltmeter, and a protractor scale.
+
+The procedure has the following steps. Step 1: identify the stator terminals S1, S2, S3 and the rotor terminals R1 and R2 on each synchro. Step 2: excite the transmitter rotor and find the position where the S2 to S3 voltage is zero; mark it as 0 degrees. Step 3: turn the rotor in steps of 30 degrees and record the three line-to-line stator voltages. Step 4: connect the receiver stator to the transmitter stator, S1 to S1, S2 to S2 and S3 to S3, and excite both rotors. Step 5: turn the transmitter in steps of 30 degrees and record the receiver angle. Step 6: replace the receiver with a control transformer and record its rotor output against the angle difference.
+
+[3:59] LIVE DEMO: WORKED EXAMPLE (ILLUSTRATIVE VALUES) AND OBSERVATION TABLE
+A worked illustration. Assume K times Vr equals 10 volts peak. At theta equal to 0 degrees, S1 is plus 10 volts, S2 is cos of minus 120, which is minus 5 volts, and S3 is minus 5 volts. The voltage between S1 and S2 is 15 volts. At 60 degrees: S1 is 5 volts, S2 is cos of minus 60, which is plus 5, and S3 is cos of 180, which is minus 10. At 120 degrees: S1 is minus 5, S2 is plus 10, and S3 is minus 5. Each time, the three voltages sum to zero, a useful check for your readings. These are illustrative numbers; your measured values will differ with your equipment.
+
+Now the error detector. Suppose the output is 10 sin of the angle difference, in volts. For a difference of 5 degrees, the voltage is 0.872 volts. The linear approximation, 10 times 5 degrees in radians, gives 0.873. An error of only 0.12 percent. But for 30 degrees, the true value is exactly 5 volts, while the linear approximation gives 5.24. That is an error of nearly 5 percent. So the linear approximation is valid only for small differences, which is why control loops keep the error small.
+
+In your lab record, make a table with the transmitter angle, the receiver angle, the error, and the three stator line voltages, and plot the voltages against the angle. You should see three sinusoidal curves 120 degrees apart. Mark the electrical zero position.
+
+[5:45] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Plot the three voltages against the angle on one graph, and the error voltage against the angle difference.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[6:21] COMMON LAB MISTAKES AND VIVA TIPS
+Some practical advice for the lab. One: check the supply voltage and frequency written on the synchro, and connect the rotor winding to exactly that supply. A wrong supply can damage the winding. Two: rotate the transmitter slowly and smoothly. Never force the rotor beyond the stops.
+
+Three: first find the electrical zero position of the transmitter, where the S2 to S3 voltage is zero. Mark it. All angles are measured from there. Four: record readings with their sign or phase. The voltages can be in phase or in anti-phase with the supply, and that distinguishes angles on either side.
+
+Expect viva questions such as: why are three stator windings used? What is the difference between a torque synchro and a control synchro? Why is the control transformer rotor not excited? You can now answer these.
+
+[7:19] RECAP
+Let us recap in five points. One: a synchro has a three-phase stator and a single-phase rotor Two: the three stator voltages are proportional to cos theta, cos theta minus 120 and cos theta plus 120 Three: in a transmitter and receiver pair, the receiver follows the transmitter Four: a transmitter with a control transformer gives an error voltage proportional to the sine of the angle difference Five: the output is linear only for small error angles
+
+[7:52] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for K times Vr equal to 8 volts peak and theta equal to 90 degrees, find the three stator voltages and verify they sum to zero. Question two: an error detector gives e equal to 10 sine of delta theta volts. Find e for delta theta equal to 10 degrees, and the percentage error of the linear approximation. Answers are in the pinned comment.
+
+In the next video, we move back to MATLAB to draw the root locus and verify the breakaway point and imaginary axis crossing. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

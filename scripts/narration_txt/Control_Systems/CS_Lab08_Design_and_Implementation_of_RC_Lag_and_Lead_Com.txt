@@ -1,0 +1,56 @@
+RC Lag & Lead Compensator Design & Implementation | Verify with MATLAB Bode | Control Systems Lab
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:09
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Today you will build the compensators we designed in class on a breadboard, measure their gain and phase, and compare your readings with MATLAB. Theory, hardware and software, all in one video.
+
+[0:14] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to design RC lag and lead networks, build and measure on a breadboard, plot the frequency response in MATLAB, and compare readings with theory. Let us begin.
+
+[0:34] SCENE 1: THE TWO DESIGNS
+These are the two networks designed in the compensator lecture. The lag network uses R1 equal to 90 kilo-ohm, R2 equal to 10 kilo-ohm, and C equal to 100 microfarad. Its transfer function is one plus s, divided by one plus 10 s. The lead network uses R1 equal to 4.83 kilo-ohm, R2 equal to 1 kilo-ohm, and C equal to 50 microfarad. Its transfer function is 0.1716 times one plus 0.2414 s, divided by one plus 0.0414 s.
+
+For the lag network, R1 is in series, and R2 with C forms the branch to ground. For the lead network, R1 is in parallel with C, in series with the signal, and R2 goes to ground. Use 1 percent resistors and a capacitor with low tolerance. If the exact values are not available, use the nearest standard values and recalculate the transfer function.
+
+[1:36] SCENE 2: MEASUREMENT PROCEDURE
+Connect the function generator to the input, and the oscilloscope across the input and output. Apply a sine wave of about 1 volt peak-to-peak, with no DC offset. At each frequency, measure the output and input amplitudes: the ratio gives the gain, and 20 log of the ratio gives decibels. Measure the time shift between zero crossings, delta t: the phase is 360 times the frequency times delta t. The output lags for the lag network and leads for the lead network.
+
+Remember to convert from angular frequency to hertz: f equals omega by 2 pi. The lag network works at very low frequencies, a fraction of a hertz, so use a low-frequency generator or take fewer points. The lead network, with its 10 radians per second centre, is easy to measure at about 1.6 hertz.
+
+[2:34] SCENE 3: VERIFYING WITH MATLAB
+In MATLAB, create the two transfer functions with tf. Plot them together with bode. To get numbers at your measurement frequencies, call bode with a frequency vector, and convert the magnitude to decibels with 20 log 10. Compare these numbers with your oscilloscope readings in the record.
+
+[2:54] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to design and implement RC lag and lead compensators, and to verify their frequency response. You will need: resistors, capacitors, a breadboard, a function generator, a dual-channel oscilloscope, and a computer with MATLAB.
+
+The procedure has the following steps. Step 1: design the lag and lead networks for the given specifications. Step 2: measure the actual component values with a meter. Step 3: build the lag network on the breadboard. Step 4: record gain and phase at the chosen frequencies. Step 5: repeat the measurements for the lead network. Step 6: plot the measured points over the MATLAB Bode curves.
+
+[3:41] LIVE DEMO: WORKED EXAMPLE AND EXPECTED READINGS
+Here are the values you should expect. For the lag network: at 0.1 radian per second, the gain is minus 3 decibels and the phase minus 39 degrees. At 0.316, the centre, minus 10 decibels and the maximum lag of minus 54.9 degrees. At 1 radian per second, minus 17 decibels and minus 39 degrees. At 10 and above, the gain flattens at minus 20 decibels, which is the factor 0.1, and the phase returns toward zero.
+
+For the lead network: the gain at low frequency is minus 15.3 decibels, that is 0.1716, the 1 by alpha attenuation. As frequency rises, the gain rises. At the centre frequency of 10 radians per second, the gain is minus 7.66 decibels, and the phase reaches the maximum lead of 45 degrees. At 100 radians per second, the gain is almost back to 0 decibels, and the phase has fallen to 11 degrees.
+
+Real components have tolerances, so expect your readings within about 10 percent. Differences larger than that suggest a wiring mistake, a wrong component, or a loading effect from the oscilloscope. In your record, plot the measured points on the same axes as the theoretical curves and comment on any difference.
+
+Finally, think about where these are used. A lead network in a servo loop adds phase margin and speeds up the response. A lag network lets you raise the low-frequency gain, and improves the steady-state accuracy. Together, they appear in the lag-lead compensator, which gives both improvements.
+
+[5:27] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Plot measured points on the same axes as the theoretical Bode curves.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[5:59] COMMON LAB MISTAKES AND VIVA TIPS
+Final practical tips. One: measure the components with a meter before building. A capacitor marked 100 microfarad may be 20 percent off. Two: connect the oscilloscope grounds and the generator ground together, otherwise you will get noise and wrong phase readings.
+
+Three: keep the input amplitude small so the circuit stays linear, and avoid DC offset. Four: measure at the specified frequencies, and keep a neat table. In the viva you may hear: why does the lead network need an amplifier? Why is the lag network used for accuracy? You are ready to answer.
+
+[6:39] RECAP
+Let us recap in five points. One: the lag network has a zero at 1 and a pole at 0.1, with a maximum lag of 54.9 degrees Two: the lead network gives a maximum lead of 45 degrees at 10 radians per second Three: gain is the ratio of amplitudes, and phase is 360 times f times delta t Four: compare your readings with the MATLAB Bode values within about 10 percent Five: use lead for the transient response, and lag for accuracy
+
+[7:15] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: design a lead network for a maximum lead of 30 degrees at 20 radians per second: find alpha and T, and with R2 equal to 1 kilo-ohm, find R1 and C. Question two: a lag network has R1 equal to 19 kilo-ohm, R2 equal to 1 kilo-ohm and C equal to 50 microfarad. Find beta, the pole and zero, and the maximum lag. Answers are in the pinned comment.
+
+Congratulations. You have completed the Control Systems lab series. Revise the theory videos, practise the questions, and all the best for your lab examination. If this helped, like, subscribe, and share it with your classmates. Thank you, and all the best for your exams.
+

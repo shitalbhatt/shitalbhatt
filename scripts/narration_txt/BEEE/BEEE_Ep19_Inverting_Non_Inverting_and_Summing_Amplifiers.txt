@@ -1,0 +1,58 @@
+Op-Amp Inverting, Non-Inverting & Summing Amplifier | Gain Derivation | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:16
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A microphone gives 10 millivolts. Your amplifier needs 1 volt. You need a gain of exactly 100. With one op-amp and two resistors, you can set any gain you like. Let me show you how.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to analyse the inverting amplifier, analyse the non-inverting amplifier, analyse the summing amplifier, and solve a numerical. Let us begin.
+
+[0:34] SCENE 1: INVERTING AMPLIFIER
+The inverting amplifier. The input signal goes through R 1 to the inverting terminal. The feedback resistor R f connects the output to the inverting terminal, and the non-inverting terminal is grounded. Because of the virtual short, the inverting terminal is also at zero volts: a virtual ground.
+
+So the current through R 1 is V in divided by R 1. No current enters the op-amp, so the same current flows through R f. The output voltage is that current times R f, but going from the virtual ground to the output, so it is negative: V o equals minus R f by R 1, times V in. The gain is minus R f over R 1. The negative sign means the output is inverted. The input resistance is R 1, which we choose according to the source.
+
+[1:33] SCENE 2: NON-INVERTING AMPLIFIER AND VOLTAGE FOLLOWER
+In the non-inverting amplifier, the input is applied directly to the non-inverting terminal. The resistors R f and R 1 form a voltage divider from the output to ground, and the inverting terminal takes the divided voltage. By the virtual short, that divided voltage equals V in. So V in equals V o times R 1 divided by R 1 plus R f. Rearranging: V o equals 1 plus R f by R 1, times V in.
+
+The gain is always at least one, the output is in phase, and the input resistance is very high, since the signal goes into the op-amp input. If R f is zero and R 1 is infinite, the gain is exactly one. This is the voltage follower, or buffer. It does not amplify, but it isolates a high-impedance source from a heavy load.
+
+[2:33] SCENE 3: SUMMING AMPLIFIER
+Adding more inputs to the inverting amplifier gives the summing amplifier. Each input has its own resistor, and all of them connect to the virtual ground. The currents add: V 1 by R 1, plus V 2 by R 2, plus V 3 by R 3. All this current flows through R f. So V o equals minus R f times the sum of V 1 by R 1, V 2 by R 2, and V 3 by R 3.
+
+If all the resistors are equal, the output is simply the negative sum of the inputs. With different input resistors, we get a weighted sum, a principle used in digital-to-analogue converters. And the inputs do not interact with each other, because each sees the virtual ground.
+
+A mixing console is a bank of summing amplifiers. Each channel has a variable resistor, which is the input resistor, so that its volume in the mix can be set.
+
+[3:40] SOLVED NUMERICAL
+Time for a numerical with plus and minus 12 volt supplies. Part A: an inverting amplifier with R 1 equal to 10 kilo-ohm and R f equal to 47 kilo-ohm, for an input of 0.5 volt. Part B: a non-inverting amplifier with R 1 equal to 10 kilo-ohm and R f equal to 90 kilo-ohm, for an input of 0.3 volt. Part C: a summing amplifier with R f equal to 10 kilo-ohm, input resistors 5, 10 and 20 kilo-ohm, and inputs 1, 2 and 4 volts.
+
+Part A. The gain is minus 47 by 10, equals minus 4.7. The output is minus 4.7 into 0.5, equals minus 2.35 volts.
+
+Part B. The gain is 1 plus 90 by 10, equals 10. The output is 10 into 0.3, equals 3 volts, in phase with the input.
+
+Part C. The currents are 1 volt by 5 kilo-ohm, equal to 0.2 milliampere; 2 volts by 10 kilo-ohm, equal to 0.2 milliampere; and 4 volts by 20 kilo-ohm, equal to 0.2 milliampere. The total is 0.6 milliampere. The output equals minus 10 kilo-ohm into 0.6 milliampere, equals minus 6 volts.
+
+Check each output against the supply of 12 volts: 2.35, 3 and 6 volts are all within the limit, so none saturate. If the input in Part B were 1.5 volts, the ideal output would be 15 volts, but the real output would clip at about 12 volts. Always check the rails.
+
+[5:22] COMMON MISTAKES AND EXAM TIPS
+Four points. One: first identify which terminal the input is connected to. The configuration decides the formula. Two: do not forget the minus sign in the inverting amplifier. Three: the non-inverting gain can never be less than one. If you get a number below one, you have used the wrong formula.
+
+Four: when in doubt, write KCL at the inverting node, using the virtual short. It works for any circuit, however complicated. All the formulas in this video can be derived in two lines from it.
+
+Real-life use: the inverting amplifier is common for sensor interfaces. The non-inverting amplifier is used where high input resistance matters, as with microphones. And summing amplifiers mix audio channels in a mixing console.
+
+A few practical points. The gain-bandwidth product applies here as well: the higher the closed-loop gain, the smaller the bandwidth. The input resistance of the inverting amplifier equals R 1, so a small R 1 loads the source, while the non-inverting amplifier has a very high input resistance. And resistors should be chosen between about 1 kilo-ohm and 1 mega-ohm, to avoid both heavy loading and noise.
+
+There is one more circuit worth knowing: the difference amplifier. With four equal-ratio resistors, its output is R f by R 1 times the difference of the two inputs. It is the basis of instrumentation amplifiers, which measure small sensor signals buried in common noise.
+
+[7:01] RECAP
+Let us recap in five points. One: the inverting amplifier has gain minus R f by R 1 using the virtual ground Two: the non-inverting amplifier has gain one plus R f by R 1 Three: the voltage follower has unity gain and acts as a buffer Four: the summing amplifier gives minus R f times the sum of each input over its resistor Five: always check the output against the supply rails
+
+[7:33] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: an inverting amplifier has R f equal to 100 kilo-ohm, R 1 equal to 10 kilo-ohm, and input 0.4 volt. Find the output. Question two: a non-inverting amplifier with R 1 equal to 10 kilo-ohm needs a gain of 5. Find R f. Answers are in the pinned comment.
+
+In the next video, we use capacitors and open-loop operation to build the integrator, the differentiator and the comparator. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

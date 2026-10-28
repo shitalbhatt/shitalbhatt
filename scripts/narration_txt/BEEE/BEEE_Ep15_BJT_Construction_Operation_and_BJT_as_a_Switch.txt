@@ -1,0 +1,60 @@
+BJT Working Principle | NPN Transistor | Regions of Operation | BJT as a Switch Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:18
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+How does a tiny signal from a microcontroller, delivering a few milliamperes, switch on a motor or a relay that needs far more? The answer is the transistor, the device that launched the electronic age.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to describe BJT construction, explain current relations and regions, explain the BJT as a switch, and design a switch circuit. Let us begin.
+
+[0:35] SCENE 1: CONSTRUCTION AND OPERATION
+A bipolar junction transistor has three regions: emitter, base and collector. In an NPN transistor, a thin P-type base is sandwiched between two N-type regions. The emitter is heavily doped, to inject many electrons. The base is very thin and lightly doped. The collector is large, to collect the electrons and dissipate heat.
+
+In normal, or active, operation, the emitter-base junction is forward biased and the collector-base junction is reverse biased. Electrons flow from the emitter into the base. Because the base is thin and lightly doped, only a few recombine, forming the small base current. Most are swept by the reverse-biased collector junction into the collector. So the collector current is a large multiple of the base current: I C equals beta times I B. The emitter current is the sum of the two.
+
+Current gain is not a fixed number. It changes with the collector current and with temperature, so designers never depend on an exact value of beta.
+
+[1:44] SCENE 2: REGIONS OF OPERATION AND THE OUTPUT CHARACTERISTIC
+The output characteristic plots the collector current against the collector-emitter voltage, for different base currents. It shows three regions. In cutoff, the base current is zero, the collector current is almost zero, and V C E is about the supply voltage. The transistor is an open switch. In the active region, the collector current is beta times the base current, and the transistor works as an amplifier. In saturation, both junctions are forward biased, V C E falls to about 0.2 volts, and the collector current is limited by the external circuit, not by beta times I B. The transistor is a closed switch.
+
+For a switch, we use only the two extremes: cutoff for OFF and saturation for ON. In both of these, the power dissipated in the transistor is small. In cutoff the current is zero, and in saturation the voltage is small.
+
+[2:46] SCENE 3: THE BJT AS A SWITCH
+As a switch, the transistor connects the load to ground. When the input is low, the base current is zero, the transistor is in cutoff, and no current flows in the load. When the input is high, a sufficient base current drives the transistor into saturation, V C E is about 0.2 volts, and the load receives almost the full supply.
+
+The design steps are as follows. Find the collector current in saturation: V C C minus V C E sat, divided by the load resistance. Find the minimum base current: that value divided by the minimum beta. Then supply two to three times that base current, to make sure that the transistor is firmly saturated. Finally, find the base resistor from the input voltage, minus 0.7 volts, divided by the base current. If the load is inductive, such as a relay, always connect a flyback diode across it, to absorb the voltage spike when the current is switched off.
+
+[3:55] SOLVED NUMERICAL
+Design a transistor switch to drive a 12 volt relay with a coil resistance of 240 ohm from a 5 volt logic output. Assume beta minimum is 100, V C E saturation is 0.2 volt, and V B E is 0.7 volt.
+
+Step one: the collector current in saturation. I C equals 12 minus 0.2, divided by 240, equals 49.2 milliamperes.
+
+Step two: the minimum base current. I B min equals 49.2 divided by 100, equals 0.492 milliampere. To be safe, we supply about double: 1 milliampere.
+
+Step three: the base resistor. R B equals 5 minus 0.7, divided by 1 milliampere, equals 4.3 kilo-ohm, a standard value.
+
+Step four: the check. With 1 milliampere of base current, beta times I B would give 100 milliamperes, but the circuit allows only 49.2. So the transistor is firmly in saturation, as we wanted.
+
+Step five: the power. In the ON state, the transistor dissipates 0.2 volts times 49.2 milliamperes, equals 9.8 milliwatts, tiny compared with the 590 milliwatts in the relay. In the OFF state, it dissipates almost nothing. That is why a transistor switch is so efficient.
+
+[5:15] COMMON MISTAKES AND EXAM TIPS
+Four points. One: design with the minimum beta in the data sheet, not the typical value, because beta varies a lot between devices and with temperature. Two: supply two to three times the minimum base current, so that the transistor saturates reliably. Three: use 0.7 volts for V B E in the base resistor calculation.
+
+Four: add a flyback diode across any relay, solenoid or motor winding. Without it, the voltage spike when the current is cut can exceed the breakdown voltage of the transistor and destroy it.
+
+Real-life use: transistor switches drive LEDs, relays, buzzers and small motors from microcontroller pins. Billions of them inside a computer chip also act as switches, forming the logic gates.
+
+Let us remember two relations between the gains. Alpha, the ratio of collector current to emitter current, is slightly less than one, say 0.98. Beta is the ratio of collector current to base current. They are related by beta equal to alpha over 1 minus alpha. For alpha equal to 0.98, beta equals 0.98 by 0.02, which is 49. If the collector current is 5 milliamperes, the base current is 5 by 49, equals 0.102 milliampere, and the emitter current is 5.102 milliamperes.
+
+A PNP transistor works in the same way as an NPN, but with all voltages and currents reversed. And when more current gain is needed, two transistors can be connected as a Darlington pair, whose overall beta is roughly the product of the two.
+
+[7:00] RECAP
+Let us recap in five points. One: a BJT has a heavily doped emitter, a thin base and a large collector Two: in the active region the collector current is beta times the base current Three: the emitter current is the sum of base and collector currents Four: as a switch the transistor uses cutoff for off and saturation for on Five: choose the base resistor so that the base current is about twice the minimum
+
+[7:32] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a transistor must switch a collector current of 20 milliamperes with a beta of 50. Find the minimum base current. Question two: drive an LED of 2 volts and 10 milliamperes from 5 volts through a transistor switch with V C E saturation of 0.2 volt. Find the collector resistor. Answers are in the pinned comment.
+
+In the next video, we study the MOSFET, the transistor that powers almost every modern chip. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

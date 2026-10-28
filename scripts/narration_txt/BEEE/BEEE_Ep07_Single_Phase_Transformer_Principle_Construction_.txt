@@ -1,0 +1,62 @@
+Single Phase Transformer | Working Principle, Construction, EMF Equation | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:25
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Power stations generate electricity at eleven thousand volts, but your home gets 230 volts. In between, the voltage goes up to four hundred thousand volts and then comes down again. What makes that possible? A device with no moving parts: the transformer.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain why transformers are needed, describe construction and working, derive and use the EMF equation, and solve a numerical. Let us begin.
+
+[0:38] SCENE 1: NECESSITY OF TRANSFORMERS
+Why do we need transformers? Power is voltage times current. To send a given power over a long distance, a higher voltage means a lower current. Line loss is I squared R, so reducing current by 100 times reduces the loss by 10,000 times. For example, 100 kilowatts at 230 volts needs 435 amperes. At 23 kilovolts, it needs only 4.35 amperes.
+
+But generators cannot easily produce such high voltages, and consumers cannot safely use them. We need a device to change the voltage level with very small loss. That device is the transformer: a static machine that transfers electrical energy from one circuit to another by electromagnetic induction, changing the voltage and current levels, but not the frequency.
+
+[1:29] SCENE 2: PRINCIPLE AND CONSTRUCTION
+A transformer has two windings on a common iron core. When an alternating voltage is applied to the primary winding of N 1 turns, an alternating current flows, producing an alternating flux in the core. This flux links the secondary winding of N 2 turns, and by Faraday's law, an emf is induced in it. This is mutual induction. The transformer works only on AC, because a constant flux induces no voltage.
+
+The core is made of thin laminations of silicon steel, insulated from each other, to reduce eddy-current losses and hysteresis loss. In the core-type construction, the windings surround two limbs of the core. In the shell-type construction, both windings are on the central limb of a three-limbed core, and the outer limbs provide the return path for the flux. The windings are of copper or aluminium, insulated, with the low-voltage winding nearest to the core.
+
+[2:32] SCENE 3: EMF EQUATION
+Now the EMF equation. Let the flux in the core be Phi m sin omega t. The induced emf in a winding of N turns is e equal to minus N d Phi by d t, equal to minus N omega Phi m cos omega t. The maximum value is E max equal to 2 pi f N Phi m. The RMS value is E max divided by root 2, which gives E equal to 4.44 f N Phi m.
+
+This applies to both windings. E 1 equals 4.44 f N 1 Phi m, and E 2 equals 4.44 f N 2 Phi m. Dividing, E 2 by E 1 equals N 2 by N 1, which we call the transformation ratio K. For an ideal transformer, the voltages are in the ratio of turns, and the currents are in the inverse ratio. The apparent power in the primary equals the apparent power in the secondary: V 1 I 1 equals V 2 I 2.
+
+Note that the primary applied voltage, V 1, balances the induced emf E 1. So for a given supply voltage and frequency, the peak flux in the core is fixed, whatever the load.
+
+A useful memory aid: 'turns ratio equals voltage ratio, and inverse current ratio'. The product V into I is the same on both sides.
+
+[4:07] SOLVED NUMERICAL
+Time for a numerical. A single-phase transformer is rated 25 kilovolt-ampere, 2200 over 220 volts, 50 hertz. The primary has 400 turns. Find the maximum flux, the number of secondary turns, the rated currents, and the maximum flux density if the core area is 0.0225 square metre.
+
+Step one: the maximum flux. Neglecting the small drop, E 1 is about 2200 volts. So Phi m equals 2200 divided by 4.44 into 50 into 400. The denominator is 88,800. So Phi m equals 0.02477 weber.
+
+Step two: the transformation ratio K equals 220 by 2200, equals 0.1. So N 2 equals 0.1 into 400, equals 40 turns.
+
+Step three: the currents. The primary current equals 25,000 by 2200, equals 11.36 amperes. The secondary current equals 25,000 by 220, equals 113.6 amperes. Notice the low voltage side carries the high current, so it needs a thicker conductor.
+
+Step four: the flux density. B m equals Phi m by area, equals 0.02477 by 0.0225, equals 1.10 tesla, within the safe limit for silicon steel.
+
+Check: the secondary EMF equals 4.44 into 50 into 40 into 0.02477, which is 220 volts. It matches.
+
+[5:28] COMMON MISTAKES AND EXAM TIPS
+Four points. One: a transformer does not work on DC. A steady current produces a steady flux, and no emf is induced. Connecting a transformer to DC can burn the primary, because only the resistance limits the current. Two: the frequency on the two sides is the same.
+
+Three: the low-voltage winding carries the higher current, and so uses thicker wire. Four: in E equals 4.44 f N Phi m, E is the RMS voltage and Phi m is the peak flux. Mixing peak and RMS is a common error.
+
+Remember the ideal relations only for quick estimates. In a real transformer, there are small voltage drops and losses, which we study in the next video.
+
+A question you will be asked: why is a transformer rated in kilovolt-ampere and not in kilowatts? Because the two losses depend on voltage and current, not on the power factor. The iron loss depends on the voltage, and the copper loss on the current. The manufacturer cannot know the power factor of the load, so the rating is given as the product of voltage and current, in kilovolt-ampere.
+
+Another practical point: large transformers are immersed in oil. The oil insulates the windings and carries heat from the core and windings to the tank, where it is dissipated, sometimes with radiators and fans. Small dry-type transformers rely on air cooling. And transformers are classified by use: power transformers at generating stations and substations, distribution transformers on poles, and instrument transformers for measurement.
+
+[7:15] RECAP
+Let us recap in five points. One: a transformer is a static device that works by mutual induction at the same frequency Two: higher transmission voltage means lower current and much lower losses Three: a laminated core reduces eddy current loss Four: the EMF equation is E equals 4.44 f N Phi m Five: the voltage ratio is the turns ratio K, and the current ratio is the inverse
+
+[7:44] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 3300 over 330 volt transformer has 60 secondary turns at 50 hertz. Find N1 and the maximum flux. Question two: a 10 kilovolt-ampere, 2000 over 200 volt transformer. Find the rated primary and secondary currents. Answers are in the pinned comment.
+
+In the next video, we study the losses in a transformer, its efficiency, and the condition for maximum efficiency. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

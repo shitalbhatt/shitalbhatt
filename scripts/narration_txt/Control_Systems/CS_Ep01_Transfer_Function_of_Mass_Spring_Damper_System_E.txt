@@ -1,0 +1,64 @@
+Transfer Function of Mass-Spring-Damper System | Force-Voltage Analogy with Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 9:43
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+When a bike hits a speed breaker, why does a good one bounce once and settle, while a worn-out one keeps bouncing? Same road, same rider. The answer hides in one small equation. Let us find it.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to do four things: define a transfer function, model a mass-spring-damper system, write its electrical analogue, and solve a numerical on it, step by step. Let us begin.
+
+[0:37] SCENE 1: WHAT IS A TRANSFER FUNCTION?
+First question: what is a transfer function? Every system has an input and an output. Push a trolley: that is the input. How far it moves: that is the output. The transfer function is the ratio of the Laplace transform of the output to the Laplace transform of the input, with all initial conditions assumed zero. We write it as G of s equals C of s divided by R of s.
+
+Why Laplace? Because it turns a difficult differential equation into a simple algebraic one. Differentiation becomes multiplication by s, and integration becomes division by s.
+
+Remember three points. One, it is defined only for linear time-invariant systems. Two, initial conditions are zero. Three, it depends only on the system, not on the input applied. So the recipe never changes: write the differential equation, take the Laplace transform, and take the ratio of output to input.
+
+For example, if a system obeys dy by dt plus 2 y equals x, the transfer function is one by s plus 2. The pole at minus 2 already tells us the system is stable, because it lies in the left half of the s-plane. We will use this idea again and again in this course.
+
+[2:04] SCENE 2: MODELLING THE MASS-SPRING-DAMPER
+Now let us model a real system: the mass-spring-damper. This is the heart of a bike suspension. A mass M is connected to a wall through a spring of stiffness K and a damper with friction coefficient B. We apply a force f of t, and the mass moves by x of t.
+
+Step one: draw the free-body diagram. Three forces oppose the motion. The spring force is K times x. The damper force is B times dx by dt, because it is proportional to velocity. And the inertia force is M times d squared x by dt squared.
+
+Step two: apply Newton's second law. The applied force equals the sum of these three. M d2x by dt2, plus B dx by dt, plus K x, equals f of t.
+
+Step three: take the Laplace transform with zero initial conditions. Every d by dt becomes s. So M s squared X of s, plus B s X of s, plus K X of s, equals F of s. Take X of s common.
+
+Step four: take the ratio. G of s, equals X of s by F of s, equals one by M s squared plus B s plus K. That one line tells us how the whole system will behave.
+
+Notice what the denominator contains: the mass, the damper and the spring. Change any of them, and the poles move, and the response changes. That is exactly why a heavy truck and a light scooter need different suspensions.
+
+[3:51] SCENE 3: ELECTRICAL SYSTEM AND THE FORCE-VOLTAGE ANALOGY
+Now look at a series R-L-C circuit. Apply Kirchhoff's voltage law. v of t equals L di by dt, plus R i, plus one by C integral of i dt. Replace current by the rate of change of charge q. Then v equals L d2q by dt2, plus R dq by dt, plus q by C.
+
+Compare this with the mechanical equation. The form is exactly the same. Only the names have changed. Force corresponds to voltage. Mass corresponds to inductance. The friction coefficient corresponds to resistance. Spring stiffness corresponds to one by capacitance. Displacement corresponds to charge, and velocity corresponds to current. This is the force-voltage analogy.
+
+Because the equations match, the transfer function matches too: q of s by V of s equals one by L s squared plus R s plus one by C. Understand one system, and you understand both. That is the power of analogy.
+
+[4:55] SCENE 4: THE FORCE-CURRENT ANALOGY (QUICK TABLE)
+There is a second analogy too: the force-current analogy. Here, force corresponds to current, mass corresponds to capacitance, the friction coefficient B corresponds to conductance, which is one by R, and spring stiffness K corresponds to one by L. Velocity corresponds to node voltage, and the mechanical system becomes a parallel R-L-C circuit. Please copy this table into your notebook. It is a standard exam question.
+
+How do you decide which analogy to use? Whichever gives you the circuit you find easier to analyse. A loop equation with a voltage source suits the force-voltage analogy. A node equation with a current source suits the force-current analogy. Both always give the same answer.
+
+[5:43] SOLVED NUMERICAL
+Time for a numerical. A mass-spring-damper system has mass M equals 2 kilograms, damping coefficient B equals 6 newton-second per metre, and spring constant K equals 8 newton per metre. One, find the transfer function X of s by F of s. Two, find the natural frequency, damping ratio and poles. Three, find the steady-state displacement for a step force of 10 newtons. Four, draw the force-voltage analogous circuit.
+
+Step one. The standard result is G of s equals one by M s squared plus B s plus K. Substituting, G of s equals one by two s squared plus six s plus eight. Divide the numerator and denominator by two: G of s equals 0.5 by s squared plus 3 s plus 4.
+
+Step two. Compare the denominator with the standard form: s squared plus 2 zeta omega n s plus omega n squared. So omega n squared equals 4, hence omega n equals 2 radians per second. And 2 zeta omega n equals 3, so zeta equals 3 by 4, which is 0.75. The poles are the roots of s squared plus 3 s plus 4 equals zero: s equals minus 1.5, plus or minus j 1.32. Since zeta is less than one, the system is underdamped. It oscillates a little, then settles, just like our healthy bike.
+
+Step three. A step force of 10 newtons means F of s equals 10 by s. Use the final value theorem: x steady state equals limit s tends to zero of s times G of s times 10 by s. The s cancels, leaving G of zero into 10, which is 10 by 8, equals 1.25 metres. Quick check: at rest the spring balances the force, K x equals F, so x equals 10 by 8. It matches.
+
+Step four. Using the force-voltage analogy: L equals M equals 2 henry. R equals B equals 6 ohm. One by C equals K equals 8, so C equals one by eight, which is 0.125 farad. Let us verify. For a series R-L-C circuit, zeta equals R by 2 into root of C by L. That is 3 into root of 0.0625, equals 3 into 0.25, equals 0.75. Same damping ratio. The analogy works.
+
+[8:22] RECAP
+Let us recap in five points. One: the transfer function is output over input in the s-domain, with zero initial conditions. Two: for the mass-spring-damper, G of s equals one by M s squared plus B s plus K. Three: a series R-L-C circuit has exactly the same form. Four: in the force-voltage analogy, force is voltage, mass is inductance, B is resistance, and K is one by capacitance. Five: when zeta is less than one, the system is underdamped, it oscillates a little and then settles.
+
+[8:59] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for M equals 1 kilogram, B equals 5, and K equals 4, find G of s and the poles. Is the system underdamped or overdamped? Question two: for our worked example, write the values of the force-current analogous circuit. Answers are in the pinned comment.
+
+In the next video, we will learn block diagram reduction: how to collapse a messy network of ten blocks into a single transfer function. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

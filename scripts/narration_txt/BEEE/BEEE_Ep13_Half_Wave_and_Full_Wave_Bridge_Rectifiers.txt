@@ -1,0 +1,58 @@
+Half Wave & Full Wave Bridge Rectifier | Vdc, Vrms, Ripple Factor, PIV | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:17
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+The power from your wall socket is AC, but your phone, laptop and television need DC. Inside every charger, a circuit of just four diodes converts one into the other. Let us see how.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain half-wave rectification, explain the bridge rectifier, calculate Vdc, Vrms, ripple factor, and solve a numerical. Let us begin.
+
+[0:33] SCENE 1: HALF-WAVE RECTIFIER
+The half-wave rectifier uses one diode in series with the load. During the positive half cycle, the diode is forward biased and conducts, so the output follows the input. During the negative half cycle, the diode is reverse biased, so the output is zero. The output is a series of positive half-sine pulses.
+
+The average value, which is the DC output, is the peak value divided by pi, equal to 0.318 V m. The RMS value is V m by 2. The ripple factor, a measure of the AC left in the output, is root of V rms by V dc whole squared, minus 1, which comes out to 1.21. This is greater than 1: the AC content is more than the DC! The maximum efficiency is only 40.6 percent. The diode must withstand a reverse voltage of V m, the peak inverse voltage. And the ripple frequency is the same as the supply frequency, 50 hertz.
+
+The half-wave rectifier is wasteful because it ignores half of the cycle. Its simplicity makes it suitable only for low-power uses such as small signal detectors.
+
+[1:52] SCENE 2: FULL-WAVE BRIDGE RECTIFIER
+The full-wave bridge uses four diodes and no centre-tapped transformer. In the positive half cycle, diodes D1 and D3 conduct, and the current passes through the load from top to bottom. In the negative half cycle, D2 and D4 conduct, and the current again passes through the load in the same direction. The output has two humps for every input cycle.
+
+The average value doubles to 2 V m by pi, equal to 0.636 V m. The RMS value is V m by root 2. The ripple factor falls to 0.482, the efficiency rises to 81.2 percent, and the ripple frequency doubles to 100 hertz, which makes filtering easier. The peak inverse voltage for each diode is V m. In a real bridge, two diodes are in the path, so the output loses about 1.4 volts, and V dc is 2 times V m minus 1.4, divided by pi.
+
+[2:56] SCENE 3: FILTERING AND PRACTICAL POINTS
+The rectified output, though always positive, is still pulsating. To obtain a steady DC, we connect a large capacitor across the load. It charges to the peak voltage, and discharges slowly into the load between the peaks. A bigger capacitor, or a lighter load, means less ripple. Because the full-wave rectifier has peaks twice as often, the capacitor discharges for less time, and the ripple is smaller than for a half-wave rectifier with the same capacitor.
+
+In a real power supply, a transformer comes first, to step the voltage down and to isolate the DC side from the mains. Then comes the bridge, the filter capacitor, and often a regulator, which we study in the next video.
+
+[3:46] SOLVED NUMERICAL
+A transformer secondary gives 18 volts RMS to a rectifier feeding a 100 ohm load. Find the DC output voltage and current for a half-wave rectifier, and a bridge rectifier. Also find the ripple factors, the peak inverse voltage, and the effect of real diode drops.
+
+Step one: the peak voltage. V m equals 18 into root 2, equals 25.46 volts.
+
+Half-wave. V dc equals V m by pi, equals 8.10 volts. The DC current equals 81 milliamperes. V rms equals V m by 2, equals 12.73 volts. The ripple factor equals root of 12.73 by 8.10 whole squared, minus 1. That is root of 2.47 minus 1, which is 1.21. The PIV is 25.46 volts.
+
+Bridge, ideal diodes. V dc equals 2 V m by pi, equals 16.2 volts. The DC current is 162 milliamperes. V rms equals 18 volts. The ripple factor equals root of 18 by 16.2 whole squared, minus 1, equals root of 0.234, equals 0.483. The PIV is again 25.46 volts, per diode.
+
+Bridge, with silicon diodes. Two diodes are in series with the load at any time, so we subtract 1.4 volts from the peak. V dc equals 2 into 25.46 minus 1.4, divided by pi. That is 2 into 24.06, divided by pi, equals 15.31 volts. The current is 153 milliamperes. So a real bridge gives about 5 percent less than the ideal.
+
+The bridge rectifier gives twice the DC output of the half-wave circuit, and less than half its ripple, from the same transformer.
+
+[5:34] COMMON MISTAKES AND EXAM TIPS
+Four points. One: always find the peak value first, V m equals root 2 times the RMS voltage of the secondary. Two: in a bridge, two diodes conduct at the same time, so subtract two drops, 1.4 volts, from the peak. Three: for the ripple factor, use the output RMS and output DC values, not the input values.
+
+Four: the peak inverse voltage of each diode in the bridge is V m. In a centre-tapped full-wave rectifier, it is 2 V m, which is why the bridge is preferred for high voltages.
+
+Real-life use: the same bridge is inside nearly every charger, adapter and power supply. When you see a small black cube with four legs, it is a complete bridge rectifier in one package.
+
+For comparison, there is another full-wave circuit, the centre-tapped rectifier. It uses only two diodes, but needs a transformer with a centre tap, and each diode must withstand a peak inverse voltage of 2 V m. The bridge needs four diodes, but no centre tap, and each diode withstands only V m. For this reason, the bridge is the more common choice, especially at higher voltages.
+
+[6:56] RECAP
+Let us recap in five points. One: the half wave rectifier gives V m by pi, a ripple factor of 1.21, efficiency 40.6 percent, and PIV equal to V m Two: the bridge gives 2 V m by pi, a ripple factor of 0.482, and efficiency 81.2 percent Three: the bridge conducts through D1 D3 and D2 D4 alternately, and the ripple frequency is twice the supply Four: with real diodes subtract about 1.4 volts in the bridge Five: a capacitor filter reduces the ripple
+
+[7:32] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a bridge rectifier has a 12 volt RMS secondary with ideal diodes. Find the DC output voltage. Question two: a half wave rectifier has a peak voltage of 10 volts. Find V dc, V rms and the ripple frequency for a 50 hertz supply. Answers are in the pinned comment.
+
+In the next video, we use the Zener diode to keep the DC output voltage constant, and design a simple regulator. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

@@ -1,0 +1,58 @@
+Signal Flow Graph & Mason's Gain Formula | Solve Any Control System in One Shot | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:33
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Block diagram reduction can take ten steps. Is there a way to write the answer in one line? There is, and it is called Mason's gain formula. Let us learn it.
+
+[0:13] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to define a signal flow graph, identify forward paths and loops, apply Mason's gain formula, and solve a numerical. Let us begin.
+
+[0:32] SCENE 1: ELEMENTS OF A SIGNAL FLOW GRAPH
+A signal flow graph is a simplified way to draw a control system. Instead of blocks, we use nodes and branches. A node represents a variable, such as the input, the output, or any signal in between. A branch is an arrow from one node to another, and the number written on it is its gain. So if the branch from x1 to x2 has gain a, then x2 equals a times x1.
+
+The value at a node is the sum of all signals coming into it. A source node has only outgoing branches; it is the input. A sink node has only incoming branches; it is the output. A branch is one-way: the signal moves only along the arrow. To convert a block diagram, write each signal as a node, each block as a branch with the gain G, and each summing point as a node with branch gains of plus one or minus one.
+
+[1:39] SCENE 2: PATHS AND LOOPS: THE VOCABULARY
+Four terms you must know. A forward path is a path from the input node to the output node that passes through no node more than once. Its gain is the product of the branch gains along it. A loop is a closed path that starts and ends at the same node, again without repeating a node. Its loop gain is the product of the gains of its branches.
+
+Two loops are non-touching if they have no node in common. Similarly, a loop is non-touching with a forward path if they share no node. Finding the non-touching combinations carefully is the part where students lose marks, so take your time with this step.
+
+[2:27] SCENE 3: MASON'S GAIN FORMULA
+Now the star of this video: Mason's gain formula. The transfer function T equals the sum of P k times delta k, divided by delta. Here P k is the gain of the k-th forward path. Delta is the determinant of the graph: one, minus the sum of all individual loop gains, plus the sum of the products of every pair of non-touching loops, minus the sum of the products of every three non-touching loops, and so on.
+
+Delta k is the same determinant, but calculated after removing all loops that touch the k-th forward path. If a forward path touches every loop, delta k is simply one.
+
+A quick example. Suppose a graph has two loops of gains minus 2 and minus 3 that do not touch. Delta is 1 plus 2 plus 3 plus the product, which is plus 6, so delta is 12. See how the non-touching pair added the plus 6. Now let us solve a full example.
+
+Why does this work? Each term in delta accounts for the way signals circulate and combine inside the loops. You do not need the proof for the exam, but you must trust the formula and use it carefully.
+
+[3:53] SOLVED NUMERICAL
+Let us solve one. Nodes are R, x1, x2, x3 and C. Branch gains: R to x1 is G1; x1 to x2 is G2; x2 to x3 is G3; x3 to C is one. There is a bypass from x1 directly to x3 with gain G4. Feedback branches: x2 back to x1 with gain minus H1, and x3 back to x2 with gain minus H2. Values: G1 is 2, G2 is 3, G3 is 4, G4 is 1, H1 is 1, and H2 is 2.
+
+Step one: forward paths. Path one goes R, x1, x2, x3, C, with gain G1 G2 G3, which is 2 into 3 into 4, equals 24. Path two goes R, x1, x3, C, with gain G1 G4, equals 2.
+
+Step two: loops. Loop one is x1 to x2 and back, gain minus G2 H1, equals minus 3. Loop two is x2 to x3 and back, gain minus G3 H2, equals minus 8. Loop three goes x1 to x3, then back x3 to x2, then x2 to x1. Its gain is G4 into minus H2 into minus H1, which is plus G4 H1 H2, equals plus 2.
+
+Step three: touching. Loop one and loop two share node x2. Loop three shares nodes with both. So no two loops are non-touching, and there are no product terms.
+
+Step four: delta equals 1 minus the sum of loop gains. The sum is minus 3 minus 8 plus 2, equals minus 9. So delta equals 1 plus 9, equals 10. Both forward paths touch every loop, so delta 1 and delta 2 are both 1.
+
+Step five: T equals 24 into 1, plus 2 into 1, divided by 10, equals 26 by 10, equals 2.6. One line, no block reduction. That is the beauty of Mason's formula.
+
+[6:00] COMMON MISTAKES AND EXAM TIPS
+Before we finish, four common mistakes. One: repeating a node in a forward path or a loop. A path can never visit the same node twice. Two: missing a loop. After you list the loops, go through every feedback branch one more time and ask: which loop does this branch belong to?
+
+Three: wrongly treating touching loops as non-touching. The test is simple: do they share even one node? If yes, they touch, and you must not multiply them. Four: forgetting delta k. If a forward path does not touch some loop, that loop survives in delta k, and you must keep it. A good habit is to make a small table with forward paths in rows and loops in columns, and tick every touch.
+
+Finally, remember that Mason's formula and block diagram reduction always give the same answer. In the exam, if you have time, verify one with the other.
+
+[7:05] RECAP
+Let us recap in five points. One: a signal flow graph uses nodes for variables and branches for gains, and each node adds all incoming signals Two: a forward path joins input to output, and a loop is a closed path, with no node repeated Three: non-touching loops have no node in common, and they add product terms to delta Four: the transfer function is the sum of P k delta k divided by delta Five: delta is one minus the sum of loop gains, plus products of non-touching pairs, minus products of non-touching triples
+
+[7:46] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a graph has one forward path of gain 5 and one loop with gain minus 1 that touches the path. Find C by R. Question two: a graph has two forward paths with gains 4 and 2, and one loop of gain minus 3 touching both paths. Find C by R. Answers are in the pinned comment.
+
+In the next video, we move to rotational mechanical systems: torque, inertia, torsional springs, gear trains and the torque-voltage analogy. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

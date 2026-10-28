@@ -1,0 +1,56 @@
+Zener Diode Voltage Regulator | Design of Rs | Line & Load Regulation | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:05
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A microcontroller needs a steady 5 volts. But a battery drops as it discharges, and a rectifier output ripples. How can a small diode hold the voltage still, regardless? The Zener diode does it using breakdown, a phenomenon that normally destroys a diode.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain Zener breakdown, draw the regulator and explain regulation, design the series resistor, and check line and load variation. Let us begin.
+
+[0:39] SCENE 1: THE ZENER DIODE AND ITS CHARACTERISTIC
+A Zener diode is a specially doped PN junction, designed to operate safely in the reverse breakdown region. In the forward direction, it behaves like an ordinary diode. In the reverse direction, almost no current flows until the reverse voltage reaches the Zener voltage V z. Then the current increases rapidly, while the voltage across the diode stays almost constant at V z. This nearly constant voltage is the property we use.
+
+Three ratings matter. The Zener voltage V z. The minimum current needed to stay in the regulating region, the knee current. And the maximum current, set by the power rating: I z max equals P z max divided by V z. Above that, the diode overheats.
+
+[1:29] SCENE 2: THE ZENER SHUNT REGULATOR
+The Zener regulator is simple: a series resistor R s, and the Zener diode connected in parallel with the load, in the reverse direction. The output voltage equals the Zener voltage. The current through R s is I s equal to V in minus V z, divided by R s. This current splits into the load current I L equal to V z by R L, and the Zener current I z, which is the remainder.
+
+How does it regulate? If the input rises, I s rises, but the extra current flows through the Zener, not the load, and the output voltage barely moves. If the load current rises, I z falls by the same amount, and again the output holds. The key is that I z must always stay between the knee current and the maximum current, for every expected input and load.
+
+Regulation is never perfect, because the Zener has a small dynamic resistance. A lower resistance means better regulation.
+
+[2:39] SCENE 3: DESIGN PROCEDURE
+To design it, work from the worst cases. First, the diode must not drop out of regulation. This is worst when the input is at its lowest and the load current is at its highest. In that case, the series resistor must be small enough that the Zener still carries its minimum current. So R s is at most V in min minus V z, divided by I z min plus I L max.
+
+Second, the diode must not overheat. This is worst when the input is at its highest and the load is disconnected, so all of the current flows through the Zener. We check that I z in this case is below I z max. Then compute the power in R s, which is I s squared into R s, and choose a standard resistor with enough wattage.
+
+[3:39] SOLVED NUMERICAL
+Design a regulator. The input is nominally 12 volts, varying from 10 to 14 volts. We have a 6.8 volt Zener rated 500 milliwatts, with a minimum current of 5 milliamperes. The load is 470 ohm. Choose R s and check the regulation.
+
+Step one: ratings. The maximum Zener current equals 500 milliwatts divided by 6.8 volts, equals 73.5 milliamperes. The load current equals 6.8 by 470, equals 14.47 milliamperes.
+
+Step two: choose a Zener current of 20 milliamperes at the nominal input. Then the total current is 34.47 milliamperes. R s equals 12 minus 6.8, divided by 0.03447, equals 150.9 ohm. Use the standard value of 150 ohm.
+
+Step three: check the worst cases. At 12 volts: I s equals 5.2 by 150, equals 34.67 milliamperes. Zener current equals 34.67 minus 14.47, equals 20.2. At the lowest input, 10 volts: I s equals 3.2 by 150, equals 21.3 milliamperes. The Zener current equals 21.3 minus 14.47, equals 6.9 milliamperes, above the 5 milliampere minimum. Still regulating. At the highest input, 14 volts: I s equals 7.2 by 150, equals 48 milliamperes. The Zener current equals 33.5 milliamperes, well below 73.5.
+
+Step four: the unloaded case. If the load is disconnected at 14 volts, the Zener carries the full 48 milliamperes, which is below the 73.5 milliampere limit. The power in the Zener is 6.8 into 48 milliamperes, equal to 0.33 watt, below 0.5. The power in the series resistor is 0.0347 squared into 150, equal to 0.18 watt, so a half-watt resistor is enough.
+
+The output stays at 6.8 volts while the input swings by 4 volts. That is the job of a regulator.
+
+[5:36] COMMON MISTAKES AND EXAM TIPS
+Four points. One: the Zener diode is connected in reverse bias, with the cathode to the positive side. Two: the resistor is in series with the supply, and the Zener is in parallel with the load. Three: always check both the minimum and maximum cases; the design that works at nominal input can fail at the extremes.
+
+Four: never connect a Zener directly across a supply without a series resistor. The current would be limited only by the supply, and the diode would burn out.
+
+Real-life use: Zener diodes protect inputs from over-voltage, give reference voltages in power supplies, and clip signals. However, for heavy loads, a Zener alone wastes power, so a transistor or an integrated regulator is used, as we shall see in the last unit.
+
+[6:31] RECAP
+Let us recap in five points. One: a Zener diode operates in reverse breakdown, holding a nearly constant voltage V z Two: the series current is V in minus V z by R s, and the Zener current is the series current minus the load current Three: check the lowest input and the highest load so that the Zener current stays above the minimum Four: check the highest input and no load so that the Zener current stays below the maximum Five: check the power rating of the resistor and the Zener
+
+[7:11] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: V in equal to 10 volts, V z equal to 5.1 volts, R L equal to 1 kilo-ohm, and R s equal to 100 ohm. Find the series current, the load current and the Zener current. Question two: V in minimum is 12 volts, V z is 5.6 volts, maximum load current is 40 milliamperes and minimum Zener current is 5 milliamperes. Find the maximum series resistance. Answers are in the pinned comment.
+
+In the next video, we begin Unit 4, transistors, with the bipolar junction transistor and its use as a switch. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

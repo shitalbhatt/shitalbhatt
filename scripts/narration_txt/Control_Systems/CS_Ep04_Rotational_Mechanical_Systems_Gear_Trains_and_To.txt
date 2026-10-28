@@ -1,0 +1,59 @@
+Rotational Mechanical Systems | Gear Train Equivalent Inertia | Torque-Voltage Analogy | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:33
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A robot arm has a motor on one side and a heavy load on the other, joined through gears. How does the motor feel the load? The gear ratio changes everything. Let us find out.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to write the rotational system equation, reflect inertia through gears, draw the torque-voltage analogy, and solve a numerical. Let us begin.
+
+[0:33] SCENE 1: ELEMENTS OF ROTATIONAL SYSTEMS
+Rotational systems follow the same ideas as translational ones, only the words change. Force becomes torque, displacement becomes angle theta, and mass becomes the moment of inertia J. There are three elements. The inertia produces a torque J into d squared theta by dt squared. The rotary damper produces a torque B into d theta by dt, proportional to angular velocity. The torsional spring produces a torque K into theta, proportional to the twist.
+
+Units to remember: J in kilogram metre squared, B in newton metre second per radian, and K in newton metre per radian.
+
+[1:14] SCENE 2: TRANSFER FUNCTION OF A ROTATIONAL SYSTEM
+Take a disc of inertia J, connected to a fixed wall through a torsional spring K and a damper B. An external torque T of t is applied, and the disc turns by theta of t. Apply Newton's law for rotation: the applied torque equals the sum of the opposing torques. J d2 theta by dt2, plus B d theta by dt, plus K theta, equals T of t.
+
+Take the Laplace transform with zero initial conditions. J s squared plus B s plus K, multiplied by theta of s, equals T of s. So G of s, equal to theta of s by T of s, is one by J s squared plus B s plus K. It has exactly the same form as the translational system, which is why the analogy is so powerful.
+
+[2:12] SCENE 3: GEAR TRAINS: REFLECTING INERTIA
+Real systems have gears. Let the motor gear have N1 teeth and the load gear N2 teeth. The angles are in the inverse ratio of the teeth: theta 2 by theta 1 equals N1 by N2. The torques are in the opposite ratio: T2 by T1 equals N2 by N1. The gear train transmits power, so torque times speed stays the same, ignoring losses.
+
+To refer the load to the motor shaft, multiply the load inertia and the load friction by the square of the ratio N1 by N2. So the equivalent inertia is J1 plus N1 by N2 whole squared into J2. This is the trick from the hook: when N2 is much larger than N1, the heavy load looks tiny at the motor shaft.
+
+[3:06] SCENE 4: TORQUE-VOLTAGE ANALOGY
+Just as before, the analogy is direct. In the torque-voltage analogy, torque is voltage, inertia J is inductance L, the damper B is resistance R, the spring K is one by capacitance, the angle theta is charge, and the angular velocity omega is current. In the torque-current analogy, torque is current, J is capacitance, B is conductance, K is one by L, and angular velocity is node voltage.
+
+Whichever system is easier for you to build or simulate, you can use. This is how engineers test mechanical designs with electrical circuits.
+
+[3:45] SOLVED NUMERICAL
+A motor shaft with inertia J1 equal to 0.2 kilogram metre squared drives a load of inertia J2 equal to 4.8 through gears. The motor gear has 20 teeth, the load gear has 80 teeth. Referred to the motor shaft, the total damping is 2 and the total spring constant is 8. Find the transfer function theta by T, the natural frequency, damping ratio and poles, the steady-state angle for a 4 newton-metre step torque, and the electrical analogue.
+
+Step one: the ratio N1 by N2 is 20 by 80, which is one by four. The reflected load inertia is one by four whole squared, into 4.8, which is 4.8 by 16, equals 0.3. So the equivalent inertia is 0.2 plus 0.3, equals 0.5 kilogram metre squared. A load 24 times larger than the motor looks only one and a half times larger.
+
+Step two: G of s equals one by 0.5 s squared plus 2 s plus 8. Multiply the top and bottom by two: G of s equals 2 by s squared plus 4 s plus 16.
+
+Step three: omega n squared is 16, so omega n is 4 radians per second. Two zeta omega n is 4, so zeta is 4 by 8, equals 0.5. The poles are minus 2, plus or minus j 3.46. Underdamped.
+
+Step four: for a step torque of 4 newton-metres, the final value is G of zero into 4. G of zero is one by 8, so theta steady state is 0.5 radian. Check: the spring balances the torque, K theta equals T, theta equals 4 by 8.
+
+Step five: the torque-voltage analogue. L equals J equals 0.5 henry. R equals B equals 2 ohm. One by C equals K equals 8, so C is 0.125 farad. Check the damping ratio: R by 2 into root C by L, equals 1 into root 0.25, equals 0.5. It matches.
+
+[6:01] COMMON MISTAKES AND EXAM TIPS
+Four points that save marks. One: the inertia is reflected with the square of the gear ratio, not the ratio itself. Students often forget the square. Two: check the direction of the ratio. When referring to the motor shaft, use N1 by N2, motor teeth over load teeth. When referring to the load shaft, you use the inverse.
+
+Three: always work in radians and radians per second. If the speed is given in rpm, multiply by two pi and divide by sixty. Four: stick to one analogy through the whole problem. Do not mix torque-voltage elements with torque-current elements in the same circuit, or the final network will not be equivalent.
+
+A real-life reminder: robot joints, lift motors, and washing machine drums all use gear trains. Designers choose the gear ratio to make the load look light to the motor, and this single formula is the reason.
+
+[7:04] RECAP
+Let us recap in five points. One: the rotational elements give torques J theta double dot, B theta dot and K theta Two: the transfer function is one by J s squared plus B s plus K Three: in a gear train the angles are in the ratio N1 by N2 Four: the equivalent inertia at the motor shaft is J1 plus N1 by N2 squared times J2 Five: in the torque-voltage analogy, torque is voltage, J is L, B is R, and K is one by C
+
+[7:42] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: J equals 1, B equals 4, K equals 3. Find G of s, the poles, and say whether the system is underdamped or overdamped. Question two: a motor has J1 equal to 0.1 and drives a load J2 equal to 3.6 through gears of ratio N1 by N2 equal to one by six. Find the equivalent inertia at the motor shaft. Answers are in the pinned comment.
+
+In the next video, we begin Unit 2, time-domain analysis: standard test signals and how a first-order system responds. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

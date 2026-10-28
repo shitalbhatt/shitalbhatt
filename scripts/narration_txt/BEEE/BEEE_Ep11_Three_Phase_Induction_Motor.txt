@@ -1,0 +1,58 @@
+Three Phase Induction Motor | Rotating Magnetic Field, Slip, Squirrel Cage vs Wound Rotor | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:18
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Walk through any factory: the pumps, the fans, the conveyor belts, the lifts. Most of them are run by one type of motor, the three-phase induction motor. It has no brushes, no commutator, and no electrical connection to the rotor at all. How does it turn?
+
+[0:20] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain the rotating magnetic field, describe the working principle, define synchronous speed and slip, and compare squirrel-cage and wound-rotor types. Let us begin.
+
+[0:40] SCENE 1: THE ROTATING MAGNETIC FIELD
+The secret of the induction motor is the rotating magnetic field. The stator has three windings, placed 120 degrees apart in space. When a three-phase supply is connected, the currents in them are also 120 degrees apart in time. Take any instant, and add the three fluxes as vectors: the resultant has a constant magnitude of 1.5 times the maximum flux of one phase. At the next instant, the same resultant, but turned by an angle. The field rotates, with constant magnitude.
+
+Its speed is the synchronous speed N s equal to 120 f divided by P, in rpm, where f is the supply frequency and P the number of poles. For a 4-pole machine on a 50 hertz supply, N s is 1500 rpm. If you interchange any two supply leads, the direction of rotation of the field, and of the motor, reverses.
+
+The rotating field has a constant magnitude, not a pulsating one. That is the beauty of a three-phase supply, and why three-phase motors start by themselves, unlike single-phase ones.
+
+[1:54] SCENE 2: WORKING PRINCIPLE AND SLIP
+How does the rotor turn, when it is not connected to any supply? At the start, the rotor is at rest, and the rotating field cuts its conductors, inducing an emf by Faraday's law. The rotor circuit is closed, so a current flows. This current, in the stator field, experiences a force, and creates a torque. By Lenz's law, the rotor follows the field to reduce the relative speed.
+
+But it can never reach the synchronous speed. If it did, there would be no relative motion, no emf, no current, and no torque. So the rotor runs at a speed N slightly less than N s. The difference, expressed as a fraction of N s, is the slip: s equals N s minus N, divided by N s. At full load, the slip is typically 2 to 6 percent.
+
+The rotor frequency is the slip times the supply frequency. At standstill, s is 1 and the rotor frequency equals the supply frequency. At full speed, it is only a few hertz.
+
+[3:08] SCENE 3: CONSTRUCTION AND TYPES
+The stator is the same in both types: a laminated core with slots, carrying a three-phase winding. The rotor comes in two types. The squirrel-cage rotor has copper or aluminium bars in the slots, short-circuited at both ends by end rings, like a cage. It is simple, rugged, cheap, and needs almost no maintenance. It has low starting torque, but it is used in the great majority of applications.
+
+The wound rotor, or slip-ring rotor, has a three-phase winding, connected through slip rings and brushes to external resistances. By adding resistance at starting, we get high starting torque with low starting current, then cut the resistance out. It is more expensive, and needs more maintenance, so it is used for heavy-starting loads like cranes and mills.
+
+[4:02] SOLVED NUMERICAL
+A 4-pole, 50 hertz induction motor runs at 1440 rpm. Find the synchronous speed, slip, and rotor frequency. And if the stator input is 10 kilowatts, with stator losses of 0.5 kilowatt, find the rotor copper loss and the mechanical power developed, at this slip.
+
+Step one: N s equals 120 into 50 divided by 4, equals 1500 rpm. Step two: the slip equals 1500 minus 1440, divided by 1500, equals 60 by 1500, equals 0.04, or 4 percent.
+
+Step three: the rotor frequency equals slip times supply frequency, equals 0.04 into 50, equals 2 hertz. The rotor current changes direction only 2 times a second.
+
+Step four: the power flow. Of the 10 kilowatt input, 0.5 kilowatt is lost in the stator, so 9.5 kilowatt crosses the air gap to the rotor. The rotor copper loss equals slip times the air-gap power, equals 0.04 into 9,500, equals 380 watts. And the mechanical power developed equals 1 minus slip, times the air-gap power, equals 0.96 into 9,500, equals 9,120 watts. Notice that the rotor efficiency equals 1 minus s, which is why a low slip means an efficient motor.
+
+If the same motor had 6 poles, the synchronous speed would be 1000 rpm. More poles, lower speed.
+
+[5:30] COMMON MISTAKES AND EXAM TIPS
+Four points. One: slip is a fraction of the synchronous speed, not the speed difference itself. Two: the rotor of an induction motor always runs below the synchronous speed in motoring. If a problem gives a rotor speed above synchronous, it is not motor operation. Three: use the number of poles, P, in 120 f by P, not the pairs.
+
+Four: to reverse the direction of the motor, interchange any two of the three supply lines. Interchanging all three does nothing.
+
+Also remember a safety point: a squirrel-cage motor draws five to seven times its rated current at starting, which is why starters like the star-delta are used for large motors.
+
+Starting is important, because the starting current of a squirrel-cage motor is five to seven times the rated current. For small motors, direct-on-line starting is acceptable. For larger motors, the star-delta starter connects the stator windings in star at starting, and then in delta at running speed. In star, the phase voltage is reduced by root 3, so the line current at starting is one third of that with direct delta connection. The starting torque is also reduced to one third, so the load must be light at starting. Autotransformer starters and rotor resistance starters, for wound-rotor motors, are other options.
+
+[7:01] RECAP
+Let us recap in five points. One: a three phase winding on a three phase supply produces a rotating field of constant magnitude Two: synchronous speed is 120 f by P Three: slip is the fractional speed difference, and rotor frequency is s times f Four: the squirrel cage is simple and rugged, while the wound rotor gives high starting torque Five: rotor copper loss is s times the air-gap power, and mechanical power is 1 minus s times the air-gap power
+
+[7:36] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 6-pole, 50 hertz induction motor has 5 percent slip. Find the synchronous speed and the rotor speed. Question two: an 8-pole, 50 hertz motor runs at 720 rpm. Find the slip and the rotor frequency. Answers are in the pinned comment.
+
+In the next video, we begin Unit 3, diodes and transistors, with the PN junction diode, its characteristics and its equivalent circuits. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

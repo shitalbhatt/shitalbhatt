@@ -1,0 +1,63 @@
+Frequency Domain Specifications | Resonant Peak, Resonant Frequency, Bandwidth | Solved Numerical | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:20
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+When you play bass-heavy music on a speaker, some notes sound louder than others. The speaker is amplifying some frequencies more than others. That is its frequency response, and control engineers use the same idea to design systems.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to define frequency response, define Mr, ωr and bandwidth, relate time and frequency specs, and solve a numerical. Let us begin.
+
+[0:34] SCENE 1: WHAT IS FREQUENCY RESPONSE?
+Frequency response means feeding a sinusoidal input to a stable linear system, and watching the steady-state output. The output is again a sinusoid of the same frequency, but with a different amplitude and a phase shift. Mathematically, we replace s by j omega in the transfer function. The magnitude of M of j omega gives the amplitude ratio, and the angle gives the phase shift.
+
+As the input frequency changes, the amplitude and phase change. Plot these against omega and you get the frequency response. It tells us which frequencies the system passes, which it amplifies, and which it rejects.
+
+[1:17] SCENE 2: RESONANT PEAK, RESONANT FREQUENCY, BANDWIDTH
+Three important specifications. The resonant peak, M r, is the maximum value of the magnitude. It tells us about relative stability: a high peak means poor damping. The resonant frequency, omega r, is the frequency at which this peak occurs. And the bandwidth is the range of frequencies from zero up to the point where the magnitude has fallen to 0.707 of its zero-frequency value, or minus 3 decibels.
+
+A larger bandwidth means a faster response, because the system can pass faster signals. But it also lets in more noise. The cut-off rate is the slope of the magnitude curve beyond the bandwidth. A second-order system falls at minus 40 decibels per decade, which tells us how sharply it rejects high frequencies.
+
+Think of bandwidth like the width of a road: wider roads let more traffic, that is, faster signals, pass through.
+
+[2:18] SCENE 3: SECOND-ORDER FORMULAS
+For the standard second-order system, we can write these specifications in closed form. The resonant peak M r equals one divided by 2 zeta root of 1 minus zeta squared. The resonant frequency omega r equals omega n root of 1 minus 2 zeta squared. Both are valid only for zeta less than 0.707. For zeta above 0.707, there is no resonant peak, and the maximum is at zero frequency.
+
+The bandwidth is omega n times the square root of: 1 minus 2 zeta squared, plus the square root of 4 zeta to the fourth, minus 4 zeta squared, plus 2. Do not memorise the long expression by rote. Remember that it is proportional to omega n, and that it decreases as zeta increases.
+
+[3:11] SCENE 4: CORRELATION BETWEEN TIME AND FREQUENCY RESPONSE
+Here is the beautiful connection. Both the time response and the frequency response are controlled by the same two numbers, zeta and omega n. If zeta decreases, the time response overshoots more, and the frequency response peaks higher. So a large M r means a large M p. If omega n increases, the rise time decreases, and the bandwidth increases.
+
+So an engineer can specify a design either way. A small peak M r, between 1.1 and 1.5, usually means a well-damped system. A large bandwidth means a fast one. And the two are linked: you cannot fix one without affecting the other.
+
+[3:55] SOLVED NUMERICAL
+A second-order system has a natural frequency of 10 radians per second, and a damping ratio of 0.4. Find the resonant peak, resonant frequency and bandwidth, and also the peak overshoot and peak time.
+
+Step one: since zeta is 0.4, which is less than 0.707, a resonant peak exists. M r equals one divided by 2 into 0.4 into root of 1 minus 0.16. Root of 0.84 is 0.9165. So the denominator is 0.8 into 0.9165, which is 0.7332, and M r is 1.364. In decibels, that is 20 log 1.364, equals 2.7 dB.
+
+Step two: omega r equals 10 into root of 1 minus 2 into 0.16. That is 10 into root of 0.68, equals 10 into 0.8246, equals 8.25 radians per second.
+
+Step three: the bandwidth. Inside the root, 1 minus 2 zeta squared is 0.68. And 4 zeta to the fourth minus 4 zeta squared plus 2 is 0.1024 minus 0.64 plus 2, equals 1.4624, whose root is 1.2093. The sum is 1.8893, and its root is 1.3745. So the bandwidth is 13.75 radians per second.
+
+Step four: the time-domain equivalents. Peak overshoot equals e to the power minus pi into 0.4 divided by 0.9165. The exponent is minus 1.371, so M p equals 0.254, or 25.4 percent. Peak time equals pi by 10 into 0.9165, equals 0.343 seconds.
+
+Notice the link. A resonant peak of 1.364, which is 36 percent above the DC gain, corresponds to a time overshoot of 25 percent. Both warn us that damping is on the low side.
+
+[5:45] COMMON MISTAKES AND EXAM TIPS
+Four reminders. One: the resonant peak formulas hold only for zeta below 0.707. For a higher zeta, the response has no peak and the maximum is at zero frequency. Two: bandwidth is where the magnitude falls to minus 3 dB, not the frequency of the peak.
+
+Three: decibels use 20 log base 10 for magnitude. Students sometimes use 10 log, which is for power. Four: when linking the two domains, use the same zeta and omega n. Once you find zeta from a frequency specification, you can immediately compute all the time-domain specifications.
+
+Finally, bandwidth is a design trade-off. Wider bandwidth gives faster response but passes more noise. Narrower bandwidth rejects noise but responds slowly. Every real controller chooses a compromise.
+
+Think about noise. A system with a very large bandwidth responds quickly, but it also passes high-frequency noise. The cut-off rate tells how quickly it rejects frequencies above the bandwidth: minus 20 decibels per decade for a first-order system, and minus 40 for a second-order system. This is the same idea as a low-pass filter, which you will meet again in electronics.
+
+[7:03] RECAP
+Let us recap in five points. One: frequency response is obtained by putting s equal to j omega Two: Mr is the peak, omega r the peak frequency, and the bandwidth is the frequency at minus 3 decibels Three: for zeta below 0.707, Mr and omega r are given by the standard formulas Four: a larger resonant peak means a larger time overshoot Five: a larger bandwidth means a faster time response, but more noise
+
+[7:36] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: zeta equals 0.5 and omega n equals 4. Find the resonant peak in decibels, and the resonant frequency. Question two: a second-order system has a resonant peak of 2. Find zeta, taking zeta below 0.707. Answers are in the pinned comment.
+
+In the next video, we draw the Bode plot and read the gain margin and phase margin, the two numbers that tell us how stable a system is. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

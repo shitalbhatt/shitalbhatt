@@ -1,0 +1,64 @@
+MATLAB Lab: Root Locus, Breakaway Point & Imaginary Axis Crossing | rlocus rlocfind sgrid | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:10
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+In the last root locus video, we found the breakaway point and the crossing by hand. Today MATLAB will draw the locus for us, and we will check our hand calculation against the computer.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to draw the root locus with rlocus, find K at a chosen point with rlocfind, overlay damping lines with sgrid, and verify hand calculations. Let us begin.
+
+[0:35] SCENE 1: RECAP OF THE SYSTEM
+We use the same system as before: G of s H of s equals K over s into s plus 2 into s plus 4, which expands to K over s cubed plus 6 s squared plus 8 s. By hand, we found a centroid at minus 2, asymptotes at 60, 180 and 300 degrees, a breakaway point at minus 0.845 with K about 3.08, and an imaginary axis crossing at plus or minus j 2.83 for K equal to 48. Let us see whether MATLAB agrees.
+
+[1:12] SCENE 2: THE MATLAB CODE
+Define the open-loop system with tf, using the denominator vector 1, 6, 8, 0. The command rlocus draws the locus. Add sgrid to overlay lines of constant damping ratio and constant natural frequency. The command rlocfind lets you click on any point of the locus, and returns the gain K and the closed-loop poles there.
+
+To check by calculation, use roots on the polynomial s cubed plus 6 s squared plus 8 s plus 48, which has the pair on the imaginary axis. The breakaway candidates come from roots of the derivative of the polynomial s cubed plus 6 s squared plus 8 s. Remember, only the one on the locus is valid.
+
+[2:01] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to draw the root locus of a given transfer function and to verify the breakaway point and the imaginary axis crossover point. You will need: a computer with MATLAB and the Control System Toolbox.
+
+The procedure has the following steps. Step 1: define the open-loop transfer function with tf. Step 2: draw the root locus and overlay the sgrid lines. Step 3: use rlocfind to read the gain at the breakaway point. Step 4: use rlocfind to read the gain and frequency at the imaginary axis crossing. Step 5: verify the crossover by computing the roots of the characteristic polynomial for that gain. Step 6: find the gain for a damping ratio of 0.5.
+
+[2:54] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Run the script. MATLAB draws three branches starting at 0, minus 2 and minus 4. Two branches meet on the real axis between minus 2 and 0, then break away. Use rlocfind and click at the breakaway point. You will read a gain of about 3.08, with the pole near minus 0.845. This matches our calculation of K equal to 3.08.
+
+The derivative of the polynomial has two roots, minus 0.845 and minus 3.155. The second one lies on a segment that is not part of the locus, so it is not a breakaway point, as we explained in class.
+
+Now click where the locus crosses the imaginary axis. You should get K close to 48, and poles at plus or minus j 2.83. Check with roots: the polynomial s cubed plus 6 s squared plus 8 s plus 48 gives minus 6, and plus or minus j 2.83. The system is stable for K from 0 to 48.
+
+For design, suppose we want a damping ratio of 0.5. Click where the locus meets the 0.5 damping line from sgrid. The gain is about 8.3, and the dominant poles are at minus 0.667 plus or minus j 1.155, with the third pole far away at minus 4.67. With the third pole six times farther from the axis, the dominant pair controls the response, which justifies treating it as a second-order system.
+
+[4:33] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Attach the root locus figure with the points marked, and the commands used.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[5:06] VIVA QUESTIONS AND MODEL ANSWERS
+Before you go to the viva, test yourself. Pause after each question and answer it aloud.
+
+Question 1. How many branches does the root locus have? Equal to the number of open-loop poles, three here.
+
+Question 2. What do the asymptotes depend on? On the difference between the number of poles and zeros, and their centroid.
+
+Question 3. What does the imaginary-axis crossing tell us? The gain beyond which the system is unstable, and the frequency of sustained oscillation.
+
+Question 4. Which commands did you use? tf, rlocus, sgrid, rlocfind and roots.
+
+Question 5. How can we pick a gain for a desired damping ratio? Click on the point where the locus meets the corresponding damping line, and read the gain with rlocfind.
+
+[5:58] COMMON LAB MISTAKES AND VIVA TIPS
+Four practical tips. One: when using rlocfind, click as close as you can to the locus. Use the zoom tool on the plot before clicking, otherwise the answer will have a small error. Two: write your hand-calculated values and MATLAB values side by side, and comment on any difference.
+
+Three: do not accept a breakaway root just because the derivative gave it. Check that it lies on a segment of the real axis that belongs to the locus. Four: save the figure and label the axes. For the viva, be ready to explain how the number of branches, the asymptotes, and the centroid relate to the poles and zeros.
+
+[6:45] RECAP
+Let us recap in five points. One: rlocus draws the locus, and sgrid overlays damping and frequency lines Two: rlocfind returns the gain and the closed-loop poles at a clicked point Three: the breakaway point comes from the roots of dK by ds that lie on the locus Four: the imaginary axis crossing is at K equal to 48 and s equal to plus or minus j 2.83 Five: the system is stable for K between 0 and 48
+
+[7:19] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: draw the root locus for G equal to K over s into s plus 3 in MATLAB. Verify the breakaway point at minus 1.5 and K equal to 2.25 using rlocfind. Question two: for G equal to K over s into s plus 1 into s plus 5, predict the crossing gain and frequency, then check with roots. Answers are in the pinned comment.
+
+In the next video, we plot the Bode diagram in MATLAB and read the gain and phase margins with the margin command. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

@@ -1,0 +1,54 @@
+Common Source Amplifier | DC Load Line & Q-Point | MOS Inverter | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:53
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A microphone produces a signal of a few millivolts. To drive a loudspeaker, it must be multiplied hundreds of times. That amplification happens in transistor circuits. Today we see the simplest MOSFET amplifier, and how one small change turns it into a digital inverter.
+
+[0:19] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to draw the DC load line and Q-point, find the gain of a CS amplifier, explain the MOS inverter, and solve a numerical. Let us begin.
+
+[0:40] SCENE 1: DC BIASING AND THE LOAD LINE
+An amplifier needs to be biased, which means setting the DC operating point so that the MOSFET stays in saturation for the whole range of the input signal. In the common-source circuit, the source is grounded, the drain connects through a resistor R D to the supply V D D, and the DC gate bias V G S is set. The drain voltage equals V D D minus I D R D. This straight line, drawn on the drain characteristics, is the DC load line.
+
+Its end points are easy: when the current is zero, V D S equals V D D; when V D S is zero, the current is V D D by R D. The device is at the point where the load line meets the curve for the chosen V G S. This is the Q-point, or quiescent point. We place it near the middle of the saturation region, so that the output can swing both up and down without being clipped by cutoff or the triode region.
+
+[1:54] SCENE 2: SMALL-SIGNAL GAIN
+Now a small signal is added to the DC bias at the gate. The drain current changes by gm times the signal, where g m, the transconductance, is the slope of the transfer curve. For the square-law device, g m equals k times V G S minus V th, which also equals 2 I D by V G S minus V th.
+
+This current change flows through R D and changes the drain voltage. When the gate voltage rises, the current rises, the drop across R D rises, and so the drain voltage falls. Hence the output is inverted. The voltage gain is A v equals minus g m R D. The larger the transconductance and the drain resistance, the higher the gain. The negative sign tells us the phase is reversed by 180 degrees.
+
+The gain can also be written as minus 2 I D R D divided by the overdrive voltage. A higher drain resistor or a lower overdrive gives a higher gain, but also reduces the signal range.
+
+[3:07] SCENE 3: THE MOS INVERTER
+The same circuit works as a digital inverter. When the input is low, below the threshold, the MOSFET is off, no current flows through R D, and the output equals V D D: logic 1. When the input is high, equal to V D D, the MOSFET conducts strongly and operates in the triode region as a small resistance. The output is pulled to a small voltage, V O L: logic 0. So the output is the inverse of the input.
+
+The disadvantage of a resistor load is that when the output is low, a steady current flows from V D D to ground, wasting power. Modern chips replace R D with another transistor, in the CMOS configuration, that eliminates this static current.
+
+[4:00] SOLVED NUMERICAL
+An n-channel MOSFET has k equal to 2 milliampere per volt squared and V th equal to 2 volts. It is used in a common-source amplifier with V D D equal to 12 volts, R D equal to 2 kilo-ohm, and a DC gate bias of 4 volts. Find the Q-point, the small-signal gain, and the output for a 0.1 volt input. Then find the output low level when it is used as an inverter.
+
+Step one: the bias current. I D equals 1 milliampere per volt squared, into 4 minus 2, squared, equals 4 milliamperes. V D S equals 12 minus 2 kilo-ohm into 4 milliamperes, equals 4 volts. For saturation, V D S must be at least V G S minus V th, equals 2. It is, so the Q-point is 4 volts and 4 milliamperes. The load line goes from 12 volts on the voltage axis to 6 milliamperes on the current axis, and the Q-point lies nicely in the middle.
+
+Step two: the transconductance. g m equals k times V G S minus V th, equals 2 into 2, equals 4 milliamperes per volt. Check with the other formula: 2 I D by overdrive equals 2 into 4 by 2, equals 4. The same.
+
+Step three: the gain. A v equals minus g m R D, equals minus 4 milli-siemens into 2 kilo-ohm, equals minus 8. For a 0.1 volt peak input, the output is 0.8 volts peak, and inverted. This rides on the DC level of 4 volts at the drain.
+
+Step four: the inverter. When V in equals 12 volts, the MOSFET is deep in the triode region. The drain current equals 12 minus V, divided by 2,000, and also equals 2 milliamperes times 10 V minus V squared by 2. Multiplying by 2,000 and simplifying: 2 V squared minus 41 V plus 12 equals 0. The valid root is V equals 0.297 volts. So V O L is about 0.3 volts: a clean logic 0. And when the input is 0 volts, the output is 12 volts: logic 1.
+
+[6:28] COMMON MISTAKES AND EXAM TIPS
+Four points. One: check that the MOSFET is in saturation before using the amplifier formulas. Two: the common-source amplifier is inverting, so the gain has a negative sign, and you must include it. Three: bias the Q-point near the middle, otherwise the output waveform clips on one side.
+
+Four: remember the output is the DC level plus the AC signal. In our example, the drain voltage swings from 3.2 to 4.8 volts around the 4 volt DC level. The coupling capacitors, which we omitted for simplicity, block the DC and pass only the AC signal to the next stage.
+
+Real-life use: common-source stages are the basic building block of audio amplifiers, radio receivers and sensor interfaces.
+
+[7:18] RECAP
+Let us recap in five points. One: the DC load line is V D S equals V D D minus I D R D, and the Q-point is its intersection with the device curve Two: bias the Q-point in saturation, near the middle of the load line Three: the transconductance is k times V G S minus V th Four: the voltage gain is minus g m R D, and the output is inverted Five: in the inverter, a low input gives V D D and a high input gives a small V O L
+
+[7:59] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: V D D equal to 10 volts, R D equal to 1 kilo-ohm, V th equal to 1 volt, k equal to 2 milliampere per volt squared, V G S equal to 3 volts. Find I D and V D S. Question two: a common source amplifier has g m equal to 2 milli-siemens and R D equal to 3.3 kilo-ohm. Find the voltage gain. Answers are in the pinned comment.
+
+In the next video, we begin the last unit with the operational amplifier: its ideal properties, specifications, and differential and common-mode operation. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

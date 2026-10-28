@@ -1,0 +1,56 @@
+Power & Energy in DC Circuits | kWh Electricity Bill | Maximum Power Transfer Theorem | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:30
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Your electricity bill does not charge you for power. It charges you for energy. What is the difference, and how do you calculate your monthly bill? Today we answer that, and find the perfect load for a battery.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to use P = VI = I²R = V²/R, compute energy and electricity bills, state the maximum power transfer theorem, and solve a numerical. Let us begin.
+
+[0:38] SCENE 1: POWER IN DC CIRCUITS
+Power is the rate at which energy is converted. In a DC circuit, power equals voltage times current, P equals V I, in watts. Using Ohm's law, V equals I R, we get two more forms: P equals I squared R, and P equals V squared by R. Which form should you use? Use I squared R when current is known, as in a series circuit. Use V squared by R when voltage is known, as in parallel loads.
+
+A resistor always absorbs power, converting it to heat. A source delivers power when the current leaves its positive terminal, and absorbs power when the current enters it, like a battery being charged. In any circuit, the total power delivered equals the total power absorbed, and we used this as a check in the first video.
+
+[1:36] SCENE 2: ENERGY AND ELECTRICITY BILLS
+Energy is power multiplied by time. The SI unit is the joule, which is one watt-second. But a joule is too small for billing, so electricity companies use the kilowatt-hour, called a unit. One kilowatt-hour is 1,000 watts for 3,600 seconds, which equals 3.6 million joules.
+
+To find your bill, multiply the power in kilowatts, by the hours of use per day, by the number of days. This gives units in kilowatt-hours. Multiply by the tariff per unit, and you get the amount. The bill depends on both how much power the appliance needs and for how long it is used.
+
+In India one unit means one kilowatt-hour. Households may be billed in slabs, where the rate per unit increases as consumption rises.
+
+[2:29] SCENE 3: MAXIMUM POWER TRANSFER THEOREM
+Now a classic theorem. A source with Thevenin voltage V th and resistance R th feeds a load R L. The current is V th divided by R th plus R L, and the load power is V th squared times R L, divided by R th plus R L whole squared. If R L is very small, the current is high but the voltage across the load is low. If R L is very large, the current is low. In between, there is a peak.
+
+Differentiate with respect to R L, and set the result to zero. The answer is R L equals R th. The maximum power is V th squared divided by 4 R th. At that point, the efficiency is only 50 percent, because as much power is dissipated in the source as in the load. So this theorem is useful for signal transfer, such as in audio or radio, but not for power systems, where we need high efficiency.
+
+[3:39] SOLVED NUMERICAL
+Part A. A 2 kilowatt heater runs on 230 volts for 5 hours every day for 30 days. Find its resistance, current, energy consumption, and the bill at an illustrative tariff of 6 rupees per unit. Part B. A source has a Thevenin voltage of 12 volts and a Thevenin resistance of 4 ohm. Find the load resistance for maximum power, and that power.
+
+Part A, step one: R equals V squared by P, equals 230 squared by 2000, equals 26.45 ohm. The current is P by V, equals 2000 by 230, equals 8.70 amperes.
+
+Step two: energy equals 2 kilowatt, times 5 hours, times 30 days, equals 300 kilowatt-hours, that is, 300 units. Step three: the bill equals 300 into 6, equals 1,800 rupees. The tariff here is only an example; use your own supply company's rate.
+
+Part B. Check three loads. With R L equal to 2 ohm, the current is 12 by 6, equals 2 amperes, and the load power is 2 squared into 2, equals 8 watts. With R L equal to 4 ohm, the current is 12 by 8, equals 1.5 amperes, and the power is 1.5 squared into 4, equals 9 watts. With R L equal to 8 ohm, the current is 12 by 12, equals 1 ampere, and the power is 8 watts.
+
+So the maximum is at R L equal to R th equal to 4 ohm, with P max equal to 12 squared by 4 into 4, equal to 9 watts. The same 9 watts is lost in the source resistance. So the efficiency is just 50 percent. If you want efficient power delivery, make the load much larger than the source resistance.
+
+[5:40] COMMON MISTAKES AND EXAM TIPS
+Four points. One: convert watts to kilowatts before calculating units. A 2000 watt heater is 2 kilowatts. Two: convert minutes to hours when needed. Three: maximum power transfer is not maximum efficiency. Efficiency is only 50 percent at maximum power.
+
+Four: if the circuit is complicated, first find the Thevenin equivalent seen by the load, then apply the theorem. Do not try to apply it on the full circuit.
+
+A practical use: an appliance's wattage on the label tells you the power; multiplying by the hours of use tells you the energy. Reducing the hours of use of a heater is the fastest way to reduce your electricity bill.
+
+Here is a quick way to estimate your bill. A 1 kilowatt load running for one hour consumes one unit. So a 100 watt bulb running for 10 hours is one unit, and a 40 watt fan running for 25 hours is one unit. As an example, replacing a 60 watt filament lamp with a 9 watt LED lamp of similar brightness saves 51 watts. Running it 5 hours a day for 30 days saves 51 times 5 times 30, divided by 1000, which is 7.65 units every month, from one lamp. Multiply by the number of lamps in your home, and you see why efficient appliances matter.
+
+[7:13] RECAP
+Let us recap in five points. One: power is V I, which is also I squared R and V squared by R Two: energy is power times time, and one kilowatt-hour is one unit Three: the bill is kilowatts times hours times days times the tariff Four: maximum power is delivered when R L equals R th, and P max equals V th squared by 4 R th Five: at maximum power the efficiency is only 50 percent
+
+[7:46] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 1.5 kilowatt geyser runs 2 hours per day for 30 days. Find the units consumed. Question two: V th equal to 20 volts and R th equal to 5 ohm. Find the load for maximum power, and the power delivered. Answers are in the pinned comment.
+
+In the next video, we begin Unit 2, Transformers and electrical machines, starting with the single-phase transformer and its EMF equation. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

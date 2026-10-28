@@ -1,0 +1,60 @@
+Op-Amp Basics | Ideal Characteristics, CMRR, Slew Rate | Differential & Common Mode | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:26
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A single tiny chip with eight pins can amplify, add, subtract, integrate, filter and compare signals. It is the most versatile building block in analogue electronics, the operational amplifier, or op-amp. Let us get to know it.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to describe the op-amp and its ideal characteristics, define the key specifications, explain differential and common-mode operation, and solve a numerical. Let us begin.
+
+[0:36] SCENE 1: THE OP-AMP AND ITS IDEAL CHARACTERISTICS
+The op-amp is a high-gain, direct-coupled amplifier with two inputs and one output. The output equals the open-loop gain A times the difference between the non-inverting input and the inverting input. It is powered from a dual supply, plus and minus V C C, and the output can swing up to near these rails, called saturation.
+
+Inside, there is a differential amplifier at the input, one or more gain stages, and an output stage that can deliver current. The ideal op-amp has infinite gain, infinite input resistance, zero output resistance, and infinite bandwidth. A typical 741, for example, has a gain of about 200,000, an input resistance of about 2 mega-ohm, and an output resistance of about 75 ohm.
+
+Two rules follow from the ideal characteristics, when negative feedback is used. First, the voltage between the two inputs is zero: a virtual short. Second, no current flows into either input. These two rules will let us analyse every circuit in the next videos.
+
+The op-amp is called operational because it was first used to perform mathematical operations, such as addition and integration, in analogue computers.
+
+[1:56] SCENE 2: KEY SPECIFICATIONS
+Several specifications decide how good a real op-amp is. The input offset voltage is the small DC voltage at the output when both inputs are grounded, in the millivolt range. The input bias current is the small current drawn by the inputs, tens of nanoamperes. The gain bandwidth product, about 1 megahertz for the 741, tells us that the gain falls as frequency rises.
+
+The slew rate is the maximum rate at which the output voltage can change, for the 741 about 0.5 volt per microsecond. If the signal demands a faster change, the output distorts, with a sine becoming a triangle. The maximum undistorted frequency is the slew rate divided by 2 pi times the peak output voltage.
+
+And the CMRR, which we define next, measures how well the op-amp rejects noise common to both inputs.
+
+[2:54] SCENE 3: DIFFERENTIAL AND COMMON-MODE OPERATION
+In practice, the two inputs often carry a wanted difference between them, and an unwanted common noise, such as 50 hertz hum picked up by both wires. We split the inputs into a differential component, V d equal to V 1 minus V 2, and a common-mode component, V c, equal to the average of the two. The output is A d times V d, plus A c times V c.
+
+An ideal op-amp has zero common-mode gain. A real one has a small A c. The ratio of the differential gain to the common-mode gain is the common-mode rejection ratio, CMRR. In decibels, it is 20 log of A d by A c. A high CMRR means the amplifier amplifies the signal and rejects the noise. Sensors like thermocouples and ECG electrodes need high CMRR.
+
+[3:53] SOLVED NUMERICAL
+Part A. A difference amplifier has a differential gain of 100 and a common-mode gain of 0.002. The two inputs are 5.002 volts and 4.998 volts. Find the CMRR in decibels, and the output voltage. Part B. An op-amp has a slew rate of 0.5 volt per microsecond. Find the highest frequency of a 10 volt peak sine wave that it can reproduce without distortion.
+
+Part A, step one: the differential input is 5.002 minus 4.998, equals 4 millivolts. The common-mode input is the average, 5.000 volts. Notice the signal is only 4 millivolts, riding on 5 volts of common-mode.
+
+Step two: the CMRR equals 100 divided by 0.002, equals 50,000. In decibels, 20 log of 50,000 is 93.98 decibels.
+
+Step three: the output equals A d V d plus A c V c, equals 100 into 4 millivolts, plus 0.002 into 5 volts. That is 0.400 volts, plus 0.010 volts, equals 0.410 volts. The wanted signal is 0.400 volts; the extra 0.010 volts is an error from the finite CMRR, 2.5 percent. A higher CMRR would shrink it.
+
+Part B. The maximum slope of a sine wave of peak V p and frequency f is 2 pi f V p. This must not exceed the slew rate. So f max equals the slew rate divided by 2 pi V p. The slew rate is 0.5 volt per microsecond, which is 0.5 times 10 to the 6 volts per second. So f max equals 0.5 million divided by 2 pi into 10, which is 62.83. That gives 7,958 hertz, about 8 kilohertz. Above this frequency, the output sine wave turns into a triangle.
+
+[5:50] COMMON MISTAKES AND EXAM TIPS
+Four points. One: for voltage ratios like CMRR, use 20 log, not 10 log. Two: convert the slew rate to volts per second before substituting: 0.5 volt per microsecond is 0.5 million volts per second. Three: the virtual short applies only when negative feedback is used. In an open-loop circuit, the inputs are not equal.
+
+Four: the output can never exceed the supply rails. If the calculation gives 15 volts with a plus or minus 12 volt supply, the output actually saturates near 12 volts. Always check against the rails.
+
+Real-life use: op-amps are inside microphones preamplifiers, sensor interfaces, active filters, and medical instruments. The 741 is a classical example, but modern chips are faster and quieter.
+
+Why do we use negative feedback at all? Because the open-loop gain of an op-amp is huge but unstable, varying from device to device, and its bandwidth is tiny. Feedback trades gain for stability and bandwidth. With a gain-bandwidth product of 1 megahertz, a closed-loop gain of 10 gives a bandwidth of 100 kilohertz, and a gain of 100 gives only 10 kilohertz. So for a wide bandwidth, you cannot ask for a very high gain from a single stage.
+
+[7:14] RECAP
+Let us recap in five points. One: an op-amp has high gain and the ideal values are infinite gain, infinite input resistance and zero output resistance Two: with negative feedback the inputs are at the same voltage and draw no current Three: the output is A d times V d plus A c times V c Four: CMRR is the ratio of differential to common-mode gain Five: the slew rate limits the maximum undistorted frequency to SR over 2 pi V p
+
+[7:49] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: slew rate equal to 1 volt per microsecond, and peak voltage 5 volts. Find the maximum undistorted frequency. Question two: CMRR is 80 decibels and A d is 1000. Find A c. Answers are in the pinned comment.
+
+In the next video, we build the basic op-amp amplifiers: inverting, non-inverting and summing. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

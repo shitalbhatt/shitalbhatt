@@ -1,0 +1,65 @@
+Steady State Error | System Type, Kp, Kv, Ka | Generalized Error Series | Solved Example | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 10:07
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A radar must track an aircraft moving at constant speed. Even after the transient dies out, it points slightly behind the aircraft. How much behind? That gap is the steady-state error, and today we learn to calculate it.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to find the type of a system, calculate Kp, Kv and Ka, find steady-state error for standard inputs, and use the generalized error series. Let us begin.
+
+[0:37] SCENE 1: ERROR AND THE FINAL VALUE THEOREM
+Let us start with the definition. The error is the difference between the desired output and the actual output. For a unity feedback system, E of s equals R of s divided by 1 plus G of s. The steady-state error is what remains as time tends to infinity. Using the final value theorem, e steady state equals the limit, as s tends to zero, of s times E of s.
+
+One very important condition. The final value theorem works only if the closed-loop system is stable. If the system is unstable, the error grows without limit, and a formula answer would be meaningless. So in the exam, check stability first, preferably with the Routh criterion.
+
+[1:27] SCENE 2: TYPE OF SYSTEM AND ERROR CONSTANTS
+The type of a system is the number of poles of the open-loop transfer function G of s into H of s at the origin. If there is no pole at the origin, it is a type 0 system. One pole at the origin: type 1. Two poles: type 2. Note that the type is determined from the open-loop function, not the closed-loop.
+
+Now the static error constants. The position error constant Kp is the limit, as s tends to zero, of G H. The velocity error constant Kv is the limit of s G H. And the acceleration error constant Ka is the limit of s squared G H.
+
+For type 0: Kp is a finite constant, Kv is zero, and Ka is zero. For type 1: Kp is infinite, Kv is finite, Ka is zero. For type 2: Kp and Kv are infinite, and Ka is finite. Each extra integrator improves the accuracy by one level.
+
+[2:34] SCENE 3: STEADY-STATE ERROR FOR STEP, RAMP AND PARABOLIC INPUTS
+Using the final value theorem, the steady-state errors are as follows. For a step of amplitude A: A by 1 plus Kp. For a ramp A t: A by Kv. For a parabolic input A t squared by 2: A by Ka.
+
+Putting everything in a table: a type 0 system follows a step with a finite error, but cannot follow a ramp, and its error for a ramp is infinite. A type 1 system follows a step with zero error, a ramp with a finite error, and cannot follow a parabola. A type 2 system follows a step and a ramp with zero error, and a parabola with a finite error.
+
+So if you must track a moving target with zero error, you need more integrators. But more integrators reduce stability, so the design is always a compromise.
+
+A useful way to remember: every time you go from type 0 to type 1 to type 2, one entry in the table changes from infinity to a finite value, and one from a finite value to zero.
+
+[3:50] SCENE 4: GENERALIZED ERROR SERIES
+Static error constants work only for step, ramp and parabola. For any other input, we use the generalized error series. Expand E of s by R of s as a power series in s: C0 plus C1 s plus C2 by factorial 2 into s squared, and so on. Then the steady-state error is C0 times r of t, plus C1 times the first derivative of r, plus C2 by 2 factorial times the second derivative, and so on.
+
+Example: G of s equals 10 by s into s plus 2. Then E by R equals s into s plus 2, divided by s squared plus 2 s plus 10. Long division gives 0.2 s plus 0.06 s squared and further terms. So C0 equals 0, C1 equals 0.2, and C2 equals 0.12. For a ramp r of t equals t, the steady-state error is C1 into 1, which is 0.2. It matches 1 by Kv, since Kv equals 10 by 2, equals 5.
+
+[5:00] SOLVED NUMERICAL
+Time for a numerical with two systems, both with unity feedback. System A has G of s equal to 10 into s plus 3, divided by s into s plus 2 into s plus 5. The input is 4 plus 6 t. System B has G of s equal to 20 by s plus 2 into s plus 5, with a step input of amplitude 6. Find the steady-state error in each case.
+
+System A. Step one: the type. There is one s in the denominator, so it is type 1. Step two: always check stability. The characteristic equation is s into s plus 2 into s plus 5, plus 10 into s plus 3. That expands to s cubed plus 7 s squared plus 20 s plus 30. By the Routh test, 7 into 20 is 140, which is greater than 30, so the system is stable.
+
+Step three: the constants. Kp is infinite, since there is an integrator. Kv equals the limit of s G of s, which is 10 into 3 divided by 2 into 5, equals 3. Ka is zero.
+
+Step four: the error. For the constant part, 4, the error is 4 by 1 plus infinity, which is zero. For the ramp part, 6 t, the error is 6 by Kv, equals 6 by 3, equals 2. Total steady-state error is 2.
+
+System B. It has no pole at the origin, so it is type 0. The closed loop denominator is s squared plus 7 s plus 10 plus 20, equals s squared plus 7 s plus 30, which is stable. Kp equals G of zero equals 20 by 10, equals 2. For a step of amplitude 6, the steady-state error is 6 by 1 plus 2, equals 2.
+
+Both give an error of 2, but for very different reasons. System A cannot get ahead of the ramp. System B cannot reach the full value of the step. To make System B exact, we would add an integrator, which is the idea behind PI control in Unit 5.
+
+[7:27] COMMON MISTAKES AND EXAM TIPS
+Four traps to avoid. One: the type is always counted from the open-loop transfer function. Do not count poles at the origin in the closed-loop transfer function. Two: if feedback is not unity, include H of s in the constants. K p is the limit of G H, not just G.
+
+Three: check stability before the final value theorem. An unstable system has no steady state. Four: when the input is a sum, such as 4 plus 6 t, calculate the error for each part separately and then add them. The principle of superposition applies because the system is linear.
+
+And one practical tip: when Ka or Kv is large, the error is small. So the designer increases the gain K. But a larger K reduces damping and stability. This trade-off between accuracy and stability is at the heart of control design, and we will study it next with root locus and Bode plots.
+
+[8:33] RECAP
+Let us recap in five points. One: the type is the number of poles of G H at the origin Two: Kp, Kv and Ka are the limits of G, s G and s squared G as s tends to zero Three: the steady-state errors are A by 1 plus Kp, A by Kv and A by Ka Four: always check stability before using the final value theorem Five: the generalized error series handles any input using the error coefficients C0, C1 and C2
+
+[9:09] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a unity feedback system has G of s equal to 50 by s into s plus 10. Find Kv and the steady-state error for a unit ramp. Question two: a unity feedback system has G of s equal to 40 into s plus 1, divided by s squared into s plus 10. Check stability, and find Ka and the steady-state error for r of t equal to t squared by 2. Answers are in the pinned comment.
+
+In the next video, we enter Unit 3, frequency-domain analysis: resonant peak, resonant frequency, bandwidth and how they relate to the time response. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

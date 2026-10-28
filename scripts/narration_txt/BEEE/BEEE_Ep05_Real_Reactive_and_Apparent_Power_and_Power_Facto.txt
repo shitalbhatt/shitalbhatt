@@ -1,0 +1,60 @@
+Power Triangle & Power Factor | Real, Reactive, Apparent Power | pf Correction Solved Example | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:20
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Factories pay extra on their electricity bills if their power factor is low. Why would a utility care? The kilowatt reading is the same. Today we find out what power factor really means and how to improve it.
+
+[0:16] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to define P, Q, S and power factor, draw the power triangle, explain why low pf is costly, and calculate capacitor size for pf correction. Let us begin.
+
+[0:39] SCENE 1: REAL, REACTIVE AND APPARENT POWER
+When voltage and current are out of phase, the instantaneous power v into i is sometimes positive and sometimes negative. During the positive part, energy flows to the load. During the negative part, the load returns energy to the source. The average of this, the net energy delivered, is the real power, P equals V I cos phi, in watts. This is the power that does useful work: heat, light or mechanical.
+
+The energy that swings back and forth, stored in inductors and capacitors, is the reactive power, Q equals V I sin phi, in volt-ampere reactive. And the product of the RMS voltage and current, V I, is the apparent power S, in volt-ampere. It is what the supply must deliver, and what cables and transformers must carry.
+
+[1:34] SCENE 2: THE POWER TRIANGLE AND POWER FACTOR
+The three powers form a right-angled triangle, the power triangle. S is the hypotenuse, P the horizontal side, and Q the vertical. The angle between S and P is phi, the same angle as between voltage and current. The power factor is cosine of phi, which equals P divided by S. It tells what fraction of the apparent power is really useful.
+
+For an inductive load, like a motor, the current lags, and we say the power factor is lagging. For a capacitive load, it is leading. In terms of the circuit parameters, P equals I squared R, and Q equals I squared X.
+
+A useful check: the power factor can never be more than one. If your calculation gives P greater than S, you have made an error.
+
+[2:29] SCENE 3: WHY LOW POWER FACTOR IS COSTLY
+Why do utilities care? For the same real power P, the current is I equal to P divided by V cos phi. At unity power factor, 10 kilowatts at 230 volts needs 43.5 amperes. At a power factor of 0.5, the current is double, 87 amperes. The line loss goes with the square of current, so the loss becomes four times greater. Cables, switchgear and transformers must be bigger, and the voltage drop is larger.
+
+Therefore utilities charge a penalty for low power factor, and give a rebate for a high one. The remedy is simple: since most loads are inductive, we connect capacitors in parallel, to supply the reactive power locally.
+
+[3:17] SOLVED NUMERICAL
+Let us use the load from the previous video. At 230 volts and 50 hertz, it draws 5.42 amperes at a power factor of 0.707 lagging. Find the powers, and the capacitor needed to raise the power factor to 0.95 lagging.
+
+Step one: the powers. S equals V I, equals 230 into 5.42, equals 1,246.9 volt-ampere. P equals I squared R, equals 5.42 squared into 30, equals 881.7 watts. Q equals 881.7 volt-ampere reactive, since phi is 45 degrees.
+
+Step two: the target. A power factor of 0.95 means phi 2 equals 18.195 degrees, and tan phi 2 equals 0.3287. The real power does not change; a capacitor does not consume real power. So the new reactive power is P into tan phi 2, which is 289.8 volt-ampere reactive.
+
+Step three: the capacitor must supply the difference. Q c equals P into tan phi 1 minus tan phi 2, equals 881.7 into 1 minus 0.3287, equals 591.9 volt-ampere reactive.
+
+Step four: the capacitance. Q c equals omega C V squared, so C equals 591.9 divided by 314.16 into 230 squared. That is 591.9 divided by 16.62 million, equals 35.6 microfarad.
+
+Step five: the new current. I equals P divided by V cos phi, equals 881.7 by 230 into 0.95, equals 4.04 amperes. The current has fallen from 5.42 to 4.04 amperes, a 25 percent reduction, with the same real power. The line losses fall by about 44 percent. That is the value of power factor correction.
+
+[5:03] COMMON MISTAKES AND EXAM TIPS
+Four pitfalls. One: for AC, P is V I cos phi, not V I. Two: the capacitor does not consume real power, so P stays the same. Three: when computing the capacitor value, use the difference of the tangents, not the difference of the cosines. Four: do not over-correct. Too large a capacitor makes the pf leading, which also increases the current.
+
+A practical note: in industry, capacitor banks are switched in steps by an automatic controller, so the power factor follows the load. And because of the penalty for low power factor, the payback time of a capacitor bank is usually short.
+
+Also remember that the units are different: watt for real power, VAR for reactive, and VA for apparent. Using the correct unit shows you understand the difference.
+
+Here is how this appears on a real industrial bill. Many supply companies specify a minimum power factor, for example 0.9 or 0.95 lagging, and either penalise a lower value or give a rebate for a higher one. To stay within the limit, factories install capacitor banks at the main panel, or individual capacitors at large motors. But size them carefully. A bank sized for full load will over-correct at light load, giving a leading power factor and a rising voltage. That is why automatic power factor controllers switch capacitor steps in and out according to the measured power factor.
+
+One more safety point. A capacitor can hold a dangerous voltage after the supply is switched off, so discharge resistors are fitted across power-factor capacitors. Never touch a capacitor bank immediately after switching it off.
+
+[6:56] RECAP
+Let us recap in five points. One: real power is V I cos phi, reactive power is V I sin phi, apparent power is V I Two: S squared equals P squared plus Q squared, and the power factor is P by S Three: a low power factor means a higher current, higher losses and bigger equipment Four: a parallel capacitor supplies the reactive power locally Five: the required capacitive VAR is P times tan phi 1 minus tan phi 2, and C equals Q c over omega V squared
+
+[7:35] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: V equal to 230 volts, I equal to 10 amperes, power factor 0.8 lagging. Find P, Q and S. Question two: a 4 kilowatt load has a power factor of 0.8 lagging on 230 volts, 50 hertz. Find the capacitor to raise the power factor to unity. Answers are in the pinned comment.
+
+In the next video, we revisit DC circuits: power, energy, electricity bills, and the maximum power transfer theorem. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

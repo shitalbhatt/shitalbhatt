@@ -1,0 +1,58 @@
+DC Shunt Motor Speed Control | Armature Control & Field Control | Characteristics | Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:12
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+Electric trains, lifts and rolling mills all need smooth control of motor speed. DC motors have long been the first choice for this. How do we change the speed of a DC motor with just a knob? Let us find out.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to state the speed equation, draw the shunt-motor characteristics, apply armature and field control, and solve a numerical. Let us begin.
+
+[0:37] SCENE 1: THE SPEED EQUATION
+To control speed, we start with the speed equation. From the voltage equation, E b equals V minus I a R a. And E b is proportional to flux and speed. So speed equals V minus I a R a, divided by k times flux. In other words, the speed is proportional to the back emf and inversely proportional to the flux.
+
+This tells us three ways to change the speed: change the armature voltage, change the resistance in the armature circuit, or change the field flux. The ratio form is useful in numericals: N 2 by N 1 equals E b 2 by E b 1, times flux 1 by flux 2.
+
+[1:25] SCENE 2: CHARACTERISTICS OF THE SHUNT MOTOR
+In a shunt motor, the field winding is connected directly across the supply, so the flux is almost constant. Therefore, the speed drops only slightly, by 3 to 5 percent, as the load increases from no-load to full-load, because only the I a R a drop changes. So we call it a constant-speed motor. The torque is proportional to the armature current, so the torque-versus-current graph is a straight line.
+
+That makes the shunt motor ideal for loads that need a nearly constant speed: lathes, fans, pumps and machine tools. And because the field is separate from the armature, the speed can be adjusted over a wide range.
+
+[2:12] SCENE 3: ARMATURE AND FIELD CONTROL
+Armature resistance control: add an external resistance in series with the armature. At the same load current, the voltage drop increases, so E b falls, and so does the speed. This gives speeds below the rated speed. It is simple, but the series resistance wastes power as heat, and the speed regulation is poor.
+
+Field control: add a rheostat in the field circuit. Reducing the field current reduces the flux, and the speed rises, since the speed is inversely proportional to the flux. This gives speeds above the rated speed. It is efficient, because the field current is small, but there is a limit. Too weak a field causes poor commutation and mechanical stress.
+
+A third method, used in industry, varies the voltage applied to the armature, as in the Ward-Leonard system, or with modern power electronics. It gives smooth control with high efficiency.
+
+Quick comparison to remember: armature control is like pressing the brake to slow a car, wasteful but simple. Field control is like lightening the load on the engine so the car speeds up.
+
+[3:27] SOLVED NUMERICAL
+A 220 volt shunt motor has an armature resistance of 0.4 ohm. At a load that takes 25 amperes, it runs at 1000 rpm. Part A: what resistance in series with the armature gives 800 rpm at the same torque? Part B: what is the speed if the field flux is reduced by 10 percent, with the same load torque?
+
+First the back emf at 1000 rpm. E b 1 equals 220 minus 25 into 0.4, equals 210 volts.
+
+Part A. At the same torque and the same flux, the armature current is still 25 amperes. The speed ratio equals the back emf ratio. So E b 2 equals 210 into 800 by 1000, equals 168 volts. The voltage equation: 220 minus 25 times 0.4 plus R, equals 168. So 0.4 plus R equals 52 by 25, equals 2.08, and R equals 1.68 ohm.
+
+Part B. Now the flux falls to 0.9 of the original. The torque is proportional to flux times armature current, and the load torque is constant. So the current rises to 25 by 0.9, equals 27.78 amperes. The new back emf is 220 minus 27.78 into 0.4, equals 208.89 volts.
+
+The speed ratio equals the back emf ratio times the inverse flux ratio. N 2 equals 1000 into 208.89 by 210, into 1 by 0.9. That is 1000 into 0.9947 into 1.111, equals 1105 rpm. A 10 percent weaker field gives a 10.5 percent higher speed. Notice that the current also rose by 11 percent, so do not over-weaken the field on a heavily loaded motor.
+
+[5:19] COMMON MISTAKES AND EXAM TIPS
+Four points. One: armature resistance control reduces speed below the rated value, and field control raises it above. Two: when the problem says constant torque and the flux changes, the armature current changes in the opposite direction, so that flux times current stays constant. Three: in the speed ratio, use the back emfs, not the supply voltages.
+
+Four: never open the shunt field circuit of a running motor, or start it with the field open. The flux falls to the residual value, and the speed can rise to a dangerous level. That is why field rheostats are designed with a minimum limit.
+
+A good viva answer for why the shunt motor is called a constant-speed motor: because the flux is nearly constant, and the I a R a drop is small compared to the supply voltage.
+
+One more definition: speed regulation. It is the change in speed from no load to full load, expressed as a percentage of the full-load speed. For example, if the no-load speed is 1040 rpm and the full-load speed is 1000 rpm, the speed regulation is 40 by 1000, which is 4 percent. A small value means the speed is nearly constant. Contrast this with a series motor, whose speed falls sharply as the load rises, and which can race dangerously at no load, so it must never be started without load.
+
+[6:56] RECAP
+Let us recap in five points. One: speed is proportional to back emf and inversely proportional to flux Two: the shunt motor runs at nearly constant speed Three: armature resistance control gives speeds below rated, with wasted power Four: field control gives speeds above rated, and is efficient Five: at constant torque a weaker flux raises the armature current
+
+[7:21] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a 220 volt motor has Ra equal to 0.5 ohm, draws 20 amperes, and runs at 900 rpm. A 2 ohm resistor is added in the armature circuit, with the same current. Find the new speed. Question two: the motor in the worked example has its flux reduced by 20 percent at constant torque. Find the new speed. Answers are in the pinned comment.
+
+In the next video, we study the workhorse of industry, the three-phase induction motor: rotating magnetic field, principle, construction and types. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

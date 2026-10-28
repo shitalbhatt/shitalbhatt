@@ -1,0 +1,60 @@
+AC Fundamentals | Sinusoidal EMF, Average, RMS, Form Factor & Peak Factor with Solved Numerical | BEEE
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:45
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+The socket in your room says 230 volts. But the peak of that voltage is actually 325 volts. So why do we call it 230? The answer is a quantity called the RMS value. Let us see where it comes from.
+
+[0:18] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Basic Electrical and Electronics Engineering. By the end of this video, you will be able to explain how a sine wave is generated, use frequency, time period and angular frequency, derive the average and RMS values, and calculate the form factor and peak factor. Let us begin.
+
+[0:42] SCENE 1: HOW A COIL GENERATES A SINE WAVE
+How is a sine wave born? Take a coil of N turns and area A, and rotate it at constant speed in a uniform magnetic field B. At an angle omega t, the flux linking the coil is N B A cos omega t. Faraday's law says the induced emf is the negative rate of change of flux linkage. Differentiating gives e equals N B A omega sin omega t.
+
+The maximum value is E m equals N B A omega, so we write e equals E m sin omega t. One full rotation of the coil produces exactly one cycle of the wave. That is why the voltage in a power station generator is sinusoidal: the geometry of rotation gives us the sine function for free.
+
+Notice the three ways to increase the voltage: more turns, a stronger field, or faster rotation. Doubling the speed also doubles the frequency, so in a real power station the speed is fixed to hold the frequency constant, and the field current is adjusted to control the voltage.
+
+[1:57] SCENE 2: FREQUENCY, PERIOD AND ANGULAR FREQUENCY
+A few terms. One complete set of positive and negative values is called a cycle. The time for one cycle is the time period T, in seconds. The number of cycles per second is the frequency f, in hertz, and f equals one by T. Since one cycle is two pi radians, the angular frequency omega equals two pi f, in radians per second.
+
+In India the supply frequency is 50 hertz. So T equals one by 50, which is 20 milliseconds, and omega equals 314.16 radians per second. The instantaneous value is the value at a given time, and the maximum value is called the peak or amplitude.
+
+There is one more term: the phase. If a wave is written as Vm sin of omega t plus phi, the angle phi tells us how far the wave is shifted from the reference. A positive phi means the wave starts earlier, so we say it leads. We will use phase a lot in the next video.
+
+[3:08] SCENE 3: AVERAGE VALUE AND RMS VALUE
+Now the heart of the topic. Over a full cycle the average of a sine wave is zero, since the positive half cancels the negative half. So we define the average value over a half cycle. It is one by pi times the integral of Vm sin theta from zero to pi. The integral of sin theta is minus cos theta, which evaluates to 2. So the integral gives 2 Vm, and dividing by pi, V average equals 2 Vm by pi, which is 0.637 Vm.
+
+The average value does not tell us how much power the wave delivers. For that we need the RMS value, the root mean square. It is the value of DC that would produce the same heating effect in a resistor. Square the wave, take the mean, then the square root. The square of sin theta equals one minus cos 2 theta, divided by two, so its mean over a cycle is one half. Hence V RMS equals Vm by root two, which is 0.707 Vm.
+
+Now go back to our hook. 230 volts RMS means the peak is 230 into root two, which is 325 volts. The 230 volt AC supply heats a heater exactly like a 230 volt DC supply would.
+
+This is why all AC meters, appliance ratings and supply voltages are quoted in RMS. When your multimeter says 230 volts on AC, it is the RMS value, not the peak. Peak value matters only for insulation, because the insulation must withstand 325 volts, not 230.
+
+[4:57] SCENE 4: FORM FACTOR AND PEAK FACTOR
+Two more numbers describe the shape of a wave. The form factor is the ratio of the RMS value to the average value. For a sine wave, 0.707 divided by 0.637 is 1.11. The peak factor, also called the crest factor, is the ratio of the maximum value to the RMS value. For a sine wave it is one divided by 0.707, which is 1.414. Remember these two numbers: 1.11 and 1.414. They help you recognise a wave from its measurements.
+
+For comparison, a square wave has form factor 1 and peak factor 1, because its value is constant in magnitude. A triangular wave has a form factor of 1.155 and a peak factor of 1.732. So if a meter gives you these ratios, you can tell which waveform you are measuring. The shape of the wave decides these numbers, not its size.
+
+[5:58] SOLVED NUMERICAL
+Time for a numerical. A coil of 100 turns and area 0.01 square metre rotates in a uniform field of 0.2 tesla at 50 hertz. Find: the maximum emf, the RMS and average values, the form factor and peak factor, and the instantaneous emf 2.5 milliseconds after the coil crosses the neutral position.
+
+Step one. Omega equals two pi f, equals two pi into 50, equals 314.16 radians per second. The time period is 20 milliseconds.
+
+Step two. The maximum emf, E m, equals N B A omega, equals 100 into 0.2 into 0.01 into 314.16. That is 0.2 into 314.16, which gives 62.83 volts.
+
+Step three. E RMS equals 0.707 into 62.83, equals 44.43 volts. E average equals 0.637 into 62.83, equals 40.0 volts.
+
+Step four. Form factor equals 44.43 divided by 40.0, equals 1.11. Peak factor equals 62.83 divided by 44.43, equals 1.414. Both match the theoretical values for a sine wave.
+
+Step five. At t equals 2.5 milliseconds, omega t equals 314.16 into 0.0025, which is 0.7854 radians, or exactly 45 degrees. So e equals 62.83 sin 45 degrees, equals 62.83 into 0.707, equals 44.43 volts. Interesting: at 45 degrees the instantaneous value equals the RMS value. The wave reaches its peak 5 milliseconds after the start, a quarter of the period.
+
+[7:30] RECAP
+Let us recap in five points. One: a rotating coil produces e equals E m sin omega t, with E m equal to N B A omega. Two: omega equals two pi f, and in India T is 20 milliseconds. Three: the average value over a half cycle is 0.637 times the peak. Four: the RMS value is 0.707 times the peak. Five: a sine wave has form factor 1.11 and peak factor 1.414.
+
+[8:02] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for v equals 150 sin 314 t, find the frequency, the RMS value, and the half-cycle average value. Question two: a supply has an RMS value of 230 volts. Find its peak value and its half-cycle average value. Answers are in the pinned comment.
+
+In the next video, we will represent sine waves as rotating arrows called phasors, which turns AC circuit problems into simple vector arithmetic. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

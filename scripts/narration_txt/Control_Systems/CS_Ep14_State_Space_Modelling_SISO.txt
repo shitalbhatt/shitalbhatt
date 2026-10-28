@@ -1,0 +1,52 @@
+State Space Modelling | State Equations, A B C D Matrices | Mass-Spring-Damper & RLC Examples | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:19
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A transfer function sees only the input and the output. But what is happening inside the system? What are the internal energies and velocities? State-space modelling opens the black box.
+
+[0:13] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to define state variables and state model, list advantages over transfer function, derive the state model of a physical system, and convert state model to transfer function. Let us begin.
+
+[0:35] SCENE 1: STATE VARIABLES AND THE STATE MODEL
+State variables are the smallest set of variables that, together with the input, completely describe the future behaviour of the system. For a mass-spring-damper, they are position and velocity. For an RLC circuit, they are the capacitor voltage and the inductor current. They are usually linked to the energy stored in the system.
+
+The state model has two equations. The state equation: x dot equals A x plus B u. The output equation: y equals C x plus D u. For a single-input single-output system of order n, A is an n by n matrix, B is a column, C is a row, and D is a single number. The order n equals the number of independent energy-storing elements.
+
+[1:26] SCENE 2: WHY STATE SPACE? ADVANTAGES
+Why learn state-space when we already have transfer functions? First, the transfer function assumes zero initial conditions, and relates only the input to the output. The state model includes the initial conditions and gives the internal behaviour. Second, state-space handles systems with many inputs and many outputs naturally. Third, it extends to time-varying and non-linear systems. Fourth, it is perfect for computers, since everything becomes matrix algebra. Modern control, such as optimal control and observer design, is built on it.
+
+[2:00] SCENE 3: DERIVING THE STATE MODEL OF A PHYSICAL SYSTEM
+How do we derive a state model? Step one: write the differential equation. For the mass-spring-damper, M x double dot plus B x dot plus K x equals f. Step two: choose the state variables. Take x 1 equal to the position x, and x 2 equal to the velocity x dot. Step three: write the first derivative of each state. x 1 dot equals x 2. And x 2 dot, from the equation, equals minus K by M times x 1, minus B by M times x 2, plus one by M times f.
+
+Step four: put these in matrix form. The A matrix has rows 0, 1, and minus K by M, minus B by M. The B matrix is a column with 0 and one by M. If the output is the position, C is the row 1, 0, and D is zero.
+
+A good habit: choose the state variables as the quantities that store energy, such as position and velocity for a mass-spring system, or capacitor voltage and inductor current for a circuit. Then the equations come out neatly.
+
+[3:18] SOLVED NUMERICAL
+Let us build state models for the two systems from our first video. Part A: M equals 2, B equals 6, K equals 8. Part B: a series RLC circuit with L equal to 2 henry, R equal to 6 ohm, C equal to 0.125 farad, and the output is the capacitor voltage.
+
+Part A. With x 1 equal to position and x 2 equal to velocity, A equals 0, 1, and minus 8 by 2, minus 6 by 2. That is 0, 1, minus 4, minus 3. B is 0 and 0.5. C is 1, 0.
+
+Now check by converting back. S I minus A is the matrix s, minus 1, 4, s plus 3. Its determinant is s squared plus 3 s plus 4. The inverse is one by this determinant, times the matrix s plus 3, 1, minus 4, s. Multiply C, then this inverse, then B: we get the top-right element, 1, times 0.5, divided by the determinant. So G of s equals 0.5 by s squared plus 3 s plus 4. This is exactly the result of our first video.
+
+Part B. Choose the capacitor voltage and the inductor current as states. The capacitor gives C times d v c by d t equals i, so x 1 dot equals i by C, which is 8 x 2. The inductor gives L times d i by d t equals v minus R i minus v c. So x 2 dot equals 0.5 v minus 3 x 2 minus 0.5 x 1.
+
+A is 0, 8, minus 0.5, minus 3. B is 0 and 0.5. C is 1, 0. The characteristic polynomial is s into s plus 3, plus 4, equals s squared plus 3 s plus 4. The same as the mechanical system! The transfer function is 8 into 0.5 over s squared plus 3 s plus 4, which is 4 over s squared plus 3 s plus 4. This equals 1 over L C s squared plus R C s plus 1, as expected. Two different physical systems, one mathematical model: the analogy confirmed.
+
+[5:48] COMMON MISTAKES AND EXAM TIPS
+Four reminders. One: the choice of state variables is not unique. Different choices give different A, B and C matrices, yet the same transfer function. Two: the poles of the system are the eigenvalues of A, which are the roots of the determinant of s I minus A.
+
+Three: the number of state variables equals the number of independent energy storing elements, such as inductors, capacitors, masses and springs. Four: always check the sizes of your matrices before multiplication. For a second-order SISO system, A is 2 by 2, B is 2 by 1, and C is 1 by 2.
+
+If you can write the state model of the mass-spring-damper and the RLC circuit in your sleep, you are ready for most of the questions in this topic.
+
+[6:43] RECAP
+Let us recap in five points. One: state variables are the minimum set that describes the system's behaviour Two: the state model is x dot equals A x plus B u, and y equals C x plus D u Three: the order equals the number of independent energy storing elements Four: the transfer function is C times s I minus A inverse times B, plus D Five: state space includes initial conditions, handles many inputs and outputs, extends to non-linear systems, and suits computers
+
+[7:19] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for M equal to 1, B equal to 5, and K equal to 4, write the A, B and C matrices with x 1 equal to position and x 2 equal to velocity. Question two: given A equal to 0, 1, minus 2, minus 3, B equal to 0 and 1, and C equal to 1, 0, find G of s and the poles. Answers are in the pinned comment.
+
+Congratulations. You have finished all five units of Control Systems. The MATLAB lab series is next, starting with the second-order step response in experiments 1 and 3. Revise with the practice questions in each video. If this helped, like, subscribe, and share it with your classmates. Thank you, and all the best for your exams.
+

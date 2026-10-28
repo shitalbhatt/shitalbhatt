@@ -1,0 +1,62 @@
+Standard Test Signals & First Order System Response | Time Constant, Rise Time, Settling Time | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:31
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+When you switch on a geyser, why does the water temperature rise quickly at first and then slowly settle? That curve has a name, and one number, the time constant, describes it completely.
+
+[0:14] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to name the standard test signals, derive first-order step response, define time constant and settling time, and solve a numerical. Let us begin.
+
+[0:33] SCENE 1: STANDARD TEST SIGNALS
+We cannot test a system with every possible input, so we use standard test signals. The impulse is a very short, very tall pulse; its Laplace transform is 1. The step is a sudden change to a constant value, like switching on a supply; its transform is A by s. The ramp increases steadily with time, like a moving target; its transform is A by s squared. The parabolic signal is a constant acceleration; its transform is A by s cubed.
+
+Notice the pattern: each signal is the integral of the previous one. A system that follows a step well will usually follow a ramp worse and a parabola worse still, which we study later as steady-state error.
+
+Why these four? Because they represent real situations. A step is a sudden command, like setting a new temperature. A ramp is a constant-speed target, like a radar tracking an aircraft. A parabola is an accelerating target, like a missile. And an impulse is a sudden shock, like a bump on the road.
+
+[1:46] SCENE 2: FIRST-ORDER SYSTEM AND ITS STEP RESPONSE
+A first-order system has the standard form C of s by R of s equals one by T s plus one. An RC circuit, with output across the capacitor, is a perfect example, with T equal to R into C. For a unit step input, C of s equals one by s into T s plus one. Use partial fractions: one by s, minus one by s plus one by T.
+
+Take the inverse Laplace transform: c of t equals one minus e to the power minus t by T. The output starts at zero with the steepest slope, and rises towards one. There is no overshoot and no oscillation. A first-order system never overshoots a step.
+
+[2:36] SCENE 3: TIME CONSTANT AND TIME-DOMAIN SPECIFICATIONS
+The single number T, the time constant, describes the speed. At t equals T, the output has reached 63.2 percent of its final value. At 2T, 86.5 percent. At 3T, 95 percent. At 4T, 98.2 percent, so we say the system has settled within 2 percent. Therefore, settling time for a two percent band is 4T.
+
+Other specifications: delay time is the time to reach 50 percent, which is 0.693 T. Rise time, from 10 percent to 90 percent, is T ln 9, which is 2.2 T. A smaller T means a faster system.
+
+One more result you will need in Unit 2. For a unit ramp input, the output lags the input, and the steady-state error equals T. A slower system lags more.
+
+A real-life use: a thermometer with a time constant of 10 seconds needs about 40 seconds to show the correct temperature. That is why a doctor waits for the thermometer to settle before reading it.
+
+[3:45] SOLVED NUMERICAL
+A series RC circuit has R equal to 100 kilo-ohm and C equal to 20 microfarad. The output is taken across the capacitor. A 5 volt step is applied. Find the time constant, the time to reach 63.2 percent, the delay time, rise time and settling time, the output voltage at 3 seconds, and the steady-state error for a unit ramp.
+
+Step one: T equals R into C, equals 100 times 10 to the power 3, into 20 times 10 to the power minus 6, equals 2 seconds. The transfer function is one by 2 s plus 1.
+
+Step two: the final value is 5 volts, and 63.2 percent of 5 is 3.16 volts. The output reaches this at t equals T, which is 2 seconds.
+
+Step three: delay time equals 0.693 into 2, equals 1.386 seconds. Rise time equals 2.2 into 2, equals 4.4 seconds. Settling time for a 2 percent band equals 4 into 2, equals 8 seconds.
+
+Step four: the voltage at 3 seconds. V equals 5 into 1 minus e to the power minus 3 by 2. e to the power minus 1.5 is 0.2231. So V equals 5 into 0.7769, equals 3.884 volts.
+
+Step five: for a unit ramp input, the steady-state error equals the time constant, which is 2 units. The output follows the ramp, but always two units behind. Doubling the speed of the system, that is halving T, halves this error.
+
+[5:27] COMMON MISTAKES AND EXAM TIPS
+Four points for the exam. One: students think the output reaches its final value at t equals T. It does not; at T it reaches only 63.2 percent. Two: settling time is 4T for 2 percent and 3T for 5 percent. Always read which tolerance band the question asks for.
+
+Three: a first-order system has no overshoot. If you ever calculate an overshoot for a first-order system, something is wrong. Four: to find the final value quickly, put s equal to zero in the transfer function. For G of s equals 10 by s plus 5, G of zero is 2, so a unit step ends at 2, not 1.
+
+In the next unit, we will rely on these first-order ideas again, because every real system has one dominant time constant that sets its speed.
+
+Relate this to the s-plane. The first-order system has a single pole at s equal to minus 1 by T. The farther to the left the pole, the smaller the time constant, and the faster the system. A pole at minus 10 gives T equal to 0.1 second and a settling time of 0.4 second. Real systems span a huge range: an electronic amplifier may have a time constant in microseconds, and a heating system in minutes.
+
+[6:58] RECAP
+Let us recap in five points. One: the test signals have transforms 1, one by s, one by s squared and one by s cubed Two: a first-order system has the transfer function one by T s plus one Three: its step response is one minus e to the power minus t by T, with no overshoot Four: the output reaches 63.2 percent at T, the settling time is 4T, the rise time is 2.2 T and the delay time is 0.69 T Five: for a unit ramp, the steady-state error equals T
+
+[7:38] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: a first-order system has T equal to 0.5 seconds. Find its settling time for a 2 percent band, and the output at t equal to 0.5 seconds for a unit step. Question two: put G of s equal to 10 by s plus 5 in standard form. Find T, the DC gain, the final value for a unit step, and the 2 percent settling time. Answers are in the pinned comment.
+
+In the next video, we study the second-order system: damping ratio, natural frequency, peak overshoot, rise time and settling time. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

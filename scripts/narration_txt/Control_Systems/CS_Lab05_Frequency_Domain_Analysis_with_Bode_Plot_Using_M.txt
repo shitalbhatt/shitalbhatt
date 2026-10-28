@@ -1,0 +1,64 @@
+MATLAB Lab: Bode Plot, Gain Margin & Phase Margin using bode and margin | Control Systems Experiment 6
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:08
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+A Bode plot by hand takes twenty minutes. In MATLAB it takes one line. But you must understand what the computer gives you, and today we will read the stability margins directly from MATLAB.
+
+[0:15] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to plot a Bode diagram in MATLAB, extract gain and phase margins, compare with hand results, and interpret the stability. Let us begin.
+
+[0:33] SCENE 1: RECAP OF THE SYSTEM
+We use the same transfer function as in the Bode plot video: G of s equals 10 over s into 1 plus 0.1 s into 1 plus 0.01 s. Expanded, the denominator is 0.001 s cubed plus 0.11 s squared plus s. By hand we found a gain crossover at 7.84 radians per second with a phase margin of 47.4 degrees, and a phase crossover at 31.62 radians per second with a gain margin of 11, which is 20.8 decibels.
+
+[1:08] SCENE 2: THE MATLAB CODE
+Create the transfer function. Notice we build the denominator by multiplying the vector for s, the vector for 0.1 s plus 1, and the vector for 0.01 s plus 1, using conv. Then call bode, and grid on. To get the margins numerically, call margin with four output arguments. The first is the gain margin, as a ratio, not in decibels. The second is the phase margin in degrees. The third is the frequency at which the gain margin is measured, the phase crossover. The fourth is the frequency of the phase margin, the gain crossover.
+
+Convert the gain margin to decibels with 20 log 10. If you call margin with no output arguments, MATLAB plots the Bode diagram with the margins marked and printed in the title.
+
+[2:03] AIM, REQUIREMENTS AND PROCEDURE
+Let us write the lab sheet properly. The aim: to plot the Bode diagram of a given transfer function and to determine the gain margin, phase margin, and crossover frequencies. You will need: a computer with MATLAB and the Control System Toolbox.
+
+The procedure has the following steps. Step 1: define the open-loop transfer function with tf and conv. Step 2: plot the Bode diagram with bode and grid on. Step 3: run margin with four output arguments. Step 4: convert the gain margin to decibels. Step 5: call margin without outputs to see them marked on the plot. Step 6: close the loop and check the step response against your stability interpretation.
+
+[2:51] LIVE DEMO: WORKED EXAMPLE AND EXPECTED RESULTS
+Run the script. The margin command returns the gain margin Gm equal to 11.0 at a frequency of 31.62 radians per second. In decibels, 20 log of 11 is 20.83. The phase margin is 47.4 degrees, at a frequency of 7.84 radians per second. These match our hand calculations exactly: gain margin 20.8 decibels, phase margin 47.4 degrees.
+
+Notice the difference between the asymptotic gain crossover frequency, 10 radians per second, and the actual 7.84. The asymptotic plot ignores the 3 decibel dip at the corner frequency. Always use margin for exact values and the asymptotic plot only as a sketch.
+
+Interpret the result. Both margins are positive, so the closed loop is stable. A phase margin of 47 degrees suggests a damping ratio of around 0.47, so we expect an overshoot of about 20 percent in the closed-loop step response. You can check by plotting step of feedback G, 1. A gain margin of 20.8 decibels means we can multiply the gain by 11 before the loop turns unstable.
+
+In the lab, change the gain from 10 to 110. The gain margin becomes exactly 1, or 0 decibels, and the system is on the verge of instability. Increase further, and the margin turns negative, with an unstable closed loop. This is a good way to confirm the meaning of gain margin.
+
+[4:26] WRITING YOUR LAB RECORD
+A good lab record has the same structure every time: aim, theory with formulas, code or circuit diagram, an observation table, graphs, the result, and a conclusion. Print the Bode diagram with the margins marked and explain what they mean.
+
+Write the conclusion in your own words and relate it to the theory. For example, say what you observed, what the theory predicted, and why any difference exists. Marks are given for understanding, not only for output.
+
+[4:59] VIVA QUESTIONS AND MODEL ANSWERS
+Before you go to the viva, test yourself. Pause after each question and answer it aloud.
+
+Question 1. What does the Bode plot show? The magnitude in decibels and the phase in degrees against frequency on a logarithmic scale.
+
+Question 2. Define gain margin and phase margin. The gain margin is the factor by which gain can increase before instability. The phase margin is the extra phase lag that can be tolerated at the gain crossover.
+
+Question 3. What is the stability condition? Both margins positive.
+
+Question 4. Why is the asymptotic plot only approximate? Because the actual curve differs by 3 decibels at each corner frequency.
+
+Question 5. What does margin return? The gain margin as a ratio, the phase margin in degrees, and the two crossover frequencies.
+
+[5:54] COMMON LAB MISTAKES AND VIVA TIPS
+Four tips. One: the gain margin from the margin command is a ratio, not decibels. Convert it. Two: remember the order of the four outputs, and the names: Wcg is the frequency of the gain margin, the phase crossover, while Wcp is the frequency of the phase margin, the gain crossover. The names can be confusing, so write them down.
+
+Three: build the denominator with conv, and double-check the corner frequencies. Four: attach a printout of the Bode plot and the margin values to your record. In the viva you may be asked: what do the margins mean physically? What phase margin would you like? The answer is 30 to 60 degrees, and at least 6 decibels of gain margin.
+
+[6:46] RECAP
+Let us recap in five points. One: bode draws the magnitude in decibels and the phase in degrees Two: margin returns the gain margin, phase margin, and the two crossover frequencies Three: MATLAB returns the gain margin as a ratio, so convert it with 20 log 10 Four: asymptotic plots are approximate, but margin gives exact values Five: the loop is stable if Gm is greater than 1 and Pm is positive
+
+[7:17] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: find the gain and phase margins in MATLAB for G equal to 10 over s into 1 plus 0.1 s. By hand, the phase margin is about 51.8 degrees, and the gain margin is infinite. Confirm with margin. Question two: for the lab system, change the numerator from 10 to 110. What is the new gain margin, and is the loop stable? Answers are in the pinned comment.
+
+In the next video, we design and tune a PID controller in MATLAB, starting from the Ziegler-Nichols settings. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+

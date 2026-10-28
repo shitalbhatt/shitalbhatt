@@ -1,0 +1,58 @@
+Root Locus Step by Step | Construction Rules, Breakaway Point, Imaginary Axis Crossing | Control Systems
+Presenter: Prof. Mitesh Astik
+Total narration time: about 8:19
+Voice: male, Indian English, friendly classroom tone, ~140 words per minute.
+
+[0:00] HOOK
+What happens to a control system if you turn up the gain? Do the poles move? Do they cross into the unstable region? A root locus answers all these in a single picture.
+
+[0:14] LEARNING OBJECTIVES
+Namaste, I am Professor Mitesh Astik, and welcome to Control Systems. By the end of this video, you will be able to explain the root locus idea, apply the construction rules, find breakaway and crossover points, and sketch a locus for a given system. Let us begin.
+
+[0:34] SCENE 1: THE CONCEPT
+The root locus is the path traced by the closed-loop poles as the gain K varies from zero to infinity. The closed-loop poles are the roots of 1 plus K G H equals zero. Rearranged, this says K G H equals minus 1. This single complex equation gives two conditions. The angle condition: the angle of G H must be an odd multiple of 180 degrees. And the magnitude condition: K times the magnitude of G H equals 1.
+
+Every point on the root locus satisfies the angle condition. The magnitude condition then tells us the value of K at that point. So the root locus is a drawing of all points satisfying the angle condition, and we read K afterwards.
+
+[1:26] SCENE 2: CONSTRUCTION RULES 1 TO 4
+Now the rules. Rule one: the number of branches equals the number of open-loop poles, or zeros if they are more. Each branch starts at an open-loop pole, when K is zero, and ends at an open-loop zero, or at infinity, when K is infinite. Rule two: the locus is symmetric about the real axis, because complex roots occur in conjugate pairs.
+
+Rule three: a point on the real axis lies on the locus if the total number of poles and zeros to its right is odd. Rule four: the branches going to infinity do so along asymptotes. Their number is P minus Z, the angles are 2 q plus 1, times 180 degrees, divided by P minus Z, and they all emerge from the centroid, which is the sum of poles minus the sum of zeros, divided by P minus Z.
+
+[2:27] SCENE 3: CONSTRUCTION RULES 5 TO 7
+Rule five: breakaway points, where two branches leave or join the real axis. Write K as a function of s, differentiate with respect to s, set to zero, and solve. Only the roots that lie on the locus are valid. Rule six: the imaginary axis crossing. Use the Routh array on the characteristic equation: the value of K that makes a row zero is the critical gain, and the auxiliary equation gives the crossing frequency.
+
+Rule seven, for complex poles: the angle of departure equals 180 degrees, minus the sum of the angles from all other poles, plus the sum of the angles from the zeros. We shall use this when complex poles are present.
+
+A small tip for the exam: the first thing to do is to draw the poles and zeros and shade the real-axis segments. Many marks are available for this step alone.
+
+[3:30] SOLVED NUMERICAL
+Let us draw the root locus of G H equals K divided by s into s plus 2 into s plus 4.
+
+Step one: open-loop poles at 0, minus 2 and minus 4. No zeros. So there are 3 branches, all going to infinity.
+
+Step two: real axis segments. For a point between minus 2 and 0, there is one pole to the right: odd, so it is on the locus. Between minus 4 and minus 2, two poles to the right: even, so not on the locus. Left of minus 4, three poles: odd, on the locus.
+
+Step three: asymptotes. P minus Z is 3, so the angles are 60, 180 and 300 degrees. The centroid is 0 minus 2 minus 4, divided by 3, which is minus 2.
+
+Step four: the breakaway point. The characteristic equation is s cubed plus 6 s squared plus 8 s plus K equals zero, so K equals minus of s cubed plus 6 s squared plus 8 s. Differentiate: minus of 3 s squared plus 12 s plus 8, equals zero. The roots are minus 0.845 and minus 3.155. Only minus 0.845 lies on a valid segment, between minus 2 and 0. The gain there is K equal to 3.08.
+
+Step five: the imaginary axis crossing. Build the Routh array. The s to the one element is 48 minus K, by 6. Setting it to zero gives K equal to 48. The auxiliary equation 6 s squared plus 48 equals zero gives s equal to plus or minus j root 8, which is plus or minus j 2.83. So the locus crosses into the right half-plane at K equal to 48.
+
+Conclusion: the system is stable for K between 0 and 48. Between 0 and 3.08 all poles are real, giving an overdamped response. Beyond 3.08, a complex pair appears, and the response becomes oscillatory, until it becomes unstable at 48.
+
+[5:46] COMMON MISTAKES AND EXAM TIPS
+Four mistakes. One: for the real axis rule, count both poles and zeros to the right of the test point. Two: after solving dK by ds equal to zero, check that every root lies on a valid real axis segment. Roots on forbidden segments are not breakaway points. In our example, minus 3.155 was rejected.
+
+Three: the number of asymptotes is P minus Z, so the angles use P minus Z in the denominator, not P. Four: draw the complete locus symmetric about the real axis. If you draw the upper half, mirror it below.
+
+And use the locus meaningfully. Draw a line at the damping ratio you want, from the origin at an angle of cos inverse zeta. Where this line meets the locus gives the gain K to achieve that damping. That is how root locus is used for design.
+
+[6:47] RECAP
+Let us recap in five points. One: the root locus shows the closed-loop poles as K varies from zero to infinity Two: the angle condition decides the locus and the magnitude condition gives K Three: a real axis segment is on the locus if an odd number of poles and zeros lie to its right Four: asymptotes have angles 2 q plus 1 times 180 over P minus Z, and meet at the centroid Five: the breakaway point comes from dK by ds equal to zero, and the imaginary axis crossing from the Routh array
+
+[7:28] CLOSING: PRACTICE + NEXT VIDEO
+Now it is your turn. Pause the video and try two questions. Question one: for G H equal to K by s into s plus 3, find the breakaway point, the gain there, the asymptote angles and the centroid. Question two: G H equals K by s into s plus 1 into s plus 5. Find the centroid, and the gain and frequency at the imaginary axis crossing. Answers are in the pinned comment.
+
+In the next video, we begin Unit 5 with compensators: how to add a small network to a system to improve its stability and speed. If this helped, like, subscribe, and share it with your classmates. Thank you, and see you in the next lecture.
+
