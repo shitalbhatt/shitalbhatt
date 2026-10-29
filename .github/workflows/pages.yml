@@ -25,7 +25,11 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp index.html styles.css script.js _site/
+          if [ -f index.html ]; then
+            cp index.html styles.css script.js _site/
+          else
+            printf '%s' '<!doctype html><meta charset="utf-8"><title>EEE Lecture Library</title><meta http-equiv="refresh" content="0; url=lectures/"><a href="lectures/">Open the lecture library</a>' > _site/index.html
+          fi
           # Lecture library (EEE103 and Control Systems), published at /lectures/
           mkdir -p _site/lectures/decks _site/lectures/downloads
           cp -r lectures/index.html lectures/pdf lectures/video _site/lectures/
