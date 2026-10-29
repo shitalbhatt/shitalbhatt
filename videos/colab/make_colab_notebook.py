@@ -43,11 +43,27 @@ UPLOAD_CAPTIONS = True
 # -----------------------------------------------------------------------------------
 
 os.makedirs(STATE_FOLDER, exist_ok=True); os.makedirs(WORK, exist_ok=True)
-zips = []
-for folder in ZIP_FOLDERS:
-    zips += glob.glob(f'{folder}/DATA209_final_part*_of_4.zip')
-zips = sorted(set(zips))
-print('zip files found:', [os.path.basename(z) for z in zips])
+import re
+def find_zips():
+    found = {}
+    def add(paths):
+        for z in paths:
+            m = re.search(r'part([0-9])_of_4', os.path.basename(z))
+            if m and (m.group(1) not in found or os.path.getmtime(z) > os.path.getmtime(found[m.group(1)])): found[m.group(1)] = z
+    for folder in ZIP_FOLDERS:                                    # 1) the folders in the settings (names like "... (1).zip" are fine)
+        add(glob.glob(f'{folder}/DATA209_final_part*_of_4*.zip'))
+    if len(found) < 4 and os.path.isdir('/content/drive/MyDrive'):  # 2) anywhere in My Drive (slower, only if needed)
+        add(glob.glob('/content/drive/MyDrive/**/DATA209_final_part*_of_4*.zip', recursive=True))
+    return [found[k] for k in sorted(found)]
+zips = find_zips()
+print('zip files found:', [z.replace('/content/drive/MyDrive', 'MyDrive') for z in zips])
+if not os.path.isdir('/content/drive/MyDrive'): print('NOTE: Google Drive is not mounted. Run cell 2 first and allow access.')
+if len(zips) < 4:
+    others = sorted(glob.glob('/content/drive/MyDrive/**/*DATA209*.zip', recursive=True) + glob.glob('/content/*.zip'))[:15] if os.path.isdir('/content/drive/MyDrive') else glob.glob('/content/*.zip')
+    raise SystemExit('STOP: found ' + str(len(zips)) + ' of the 4 zip files DATA209_final_part1_of_4.zip ... DATA209_final_part4_of_4.zip.\\n'
+                     'Upload all 4 to your Google Drive (any folder) or to the Colab Files panel (left side), then run this cell again.\\n'
+                     'Zip files I can see with DATA209 in the name: ' + (str(others) if others else 'none') +
+                     '\\nOlder files named DATA209_upload_part... or DATA209_update_... are NOT the final version.')
 for z in zips:
     marker = os.path.join(WORK, f'.done_{os.path.basename(z)}_{os.path.getsize(z)}')
     if not os.path.exists(marker):
