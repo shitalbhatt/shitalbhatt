@@ -1,312 +1,312 @@
 1
-00:00:00,000 --> 00:00:03,336
+00:00:00,000 --> 00:00:03,620
 Welcome to lectures twenty three and twenty four:
 
 2
-00:00:03,336 --> 00:00:12,120
+00:00:03,620 --> 00:00:13,152
 data transformation and feature scaling, using one real dataset, California Housing, with twenty thousand six hundred forty rows.
 
 3
-00:00:12,920 --> 00:00:14,322
+00:00:13,952 --> 00:00:15,519
 Three ideas today.
 
 4
-00:00:14,322 --> 00:00:15,412
+00:00:15,519 --> 00:00:16,737
 Why transform:
 
 5
-00:00:15,412 --> 00:00:20,397
+00:00:16,737 --> 00:00:22,307
 skew, heavy tails and mixed units hide patterns and hurt models.
 
 6
-00:00:20,397 --> 00:00:21,721
+00:00:22,307 --> 00:00:23,786
 Change the shape:
 
 7
-00:00:21,721 --> 00:00:23,746
+00:00:23,786 --> 00:00:26,049
 log transform and Box-Cox.
 
 8
-00:00:23,746 --> 00:00:25,381
+00:00:26,049 --> 00:00:27,877
 And change the units:
 
 9
-00:00:25,381 --> 00:00:28,808
+00:00:27,877 --> 00:00:31,706
 standardisation, min-max and robust scaling.
 
 10
-00:00:28,808 --> 00:00:39,478
+00:00:31,706 --> 00:00:43,629
 In the lab we apply every method to all seven numeric features and compare the distribution before and after, with statistics and graphs.
 
 11
-00:00:39,478 --> 00:00:40,491
+00:00:43,629 --> 00:00:44,760
 The key idea:
 
 12
-00:00:40,491 --> 00:00:45,008
+00:00:44,760 --> 00:00:49,808
 transforming changes the shape, scaling changes the units.
 
 13
-00:00:45,808 --> 00:00:49,254
+00:00:50,608 --> 00:00:54,314
 California Housing from the nineteen ninety census:
 
 14
-00:00:49,254 --> 00:01:01,888
+00:00:54,314 --> 00:01:07,900
 twenty thousand six hundred forty block groups, seven numeric features we transform, two hundred seven missing values in total bedrooms, and a skew of four point nine four for population.
 
 15
-00:01:01,888 --> 00:01:08,914
+00:01:07,900 --> 00:01:15,457
 We do not transform longitude and latitude, since they are locations, or ocean proximity, which is text.
 
 16
-00:01:08,914 --> 00:01:15,400
+00:01:15,457 --> 00:01:22,432
 And median house value is top-coded at five hundred thousand and one, a real data quality quirk.
 
 17
-00:01:16,200 --> 00:01:17,155
+00:01:23,232 --> 00:01:24,308
 Four reasons.
 
 18
-00:01:17,155 --> 00:01:18,257
+00:01:24,308 --> 00:01:25,549
 Squashed plots:
 
 19
-00:01:18,257 --> 00:01:23,621
+00:01:25,549 --> 00:01:31,589
 most points crowd into one corner while the long tail stretches the axis.
 
 20
-00:01:23,621 --> 00:01:24,944
+00:01:31,589 --> 00:01:33,078
 Model assumptions:
 
 21
-00:01:24,944 --> 00:01:33,174
+00:01:33,078 --> 00:01:42,346
 linear and logistic regression, L D A and many tests work best with symmetric features and linear relationships.
 
 22
-00:01:33,174 --> 00:01:34,276
+00:01:42,346 --> 00:01:43,587
 False outliers:
 
 23
-00:01:34,276 --> 00:01:38,611
+00:01:43,587 --> 00:01:48,469
 in a long tail, many outliers are just normal large values.
 
 24
-00:01:38,611 --> 00:01:39,787
+00:01:48,469 --> 00:01:49,793
 And mixed units:
 
 25
-00:01:39,787 --> 00:01:47,061
+00:01:49,793 --> 00:01:57,984
 years, counts and dollars in one model, where the biggest numbers dominate distances and gradients.
 
 26
-00:01:47,061 --> 00:01:51,984
+00:01:57,984 --> 00:02:03,528
 The first three call for a transform; the fourth calls for scaling.
 
 27
-00:01:52,784 --> 00:01:56,285
+00:02:04,328 --> 00:02:08,266
 Five of seven features are strongly right-skewed.
 
 28
-00:01:56,285 --> 00:01:56,999
+00:02:08,266 --> 00:02:09,070
 The guide:
 
 29
-00:01:56,999 --> 00:02:05,430
+00:02:09,070 --> 00:02:18,553
 absolute skew below zero point five is roughly symmetric, zero point five to one is moderate, and above one is strong.
 
 30
-00:02:05,430 --> 00:02:15,004
+00:02:18,553 --> 00:02:29,323
 Population is four point nine four, total rooms four point one five, bedrooms three point four eight, households three point four one:
 
 31
-00:02:15,004 --> 00:02:17,361
+00:02:29,323 --> 00:02:31,975
 count data with long right tails.
 
 32
-00:02:17,361 --> 00:02:23,720
+00:02:31,975 --> 00:02:39,128
 Housing median age, at zero point oh six, is already symmetric, so leave its shape alone.
 
 33
-00:02:24,520 --> 00:02:27,075
+00:02:39,928 --> 00:02:42,775
 Transforming changes the shape.
 
 34
-00:02:27,075 --> 00:02:37,790
+00:02:42,775 --> 00:02:54,715
 It is non-linear, so big values are pulled in more than small ones; skewness and kurtosis change, but the order of values is kept.
 
 35
-00:02:37,790 --> 00:02:38,532
+00:02:54,715 --> 00:02:55,541
 Examples:
 
 36
-00:02:38,532 --> 00:02:41,746
+00:02:55,541 --> 00:02:59,123
 log, square root, Box-Cox, Yeo-Johnson.
 
 37
-00:02:41,746 --> 00:02:43,889
+00:02:59,123 --> 00:03:01,511
 Scaling changes the units.
 
 38
-00:02:43,889 --> 00:02:44,960
+00:03:01,511 --> 00:03:02,705
 It is linear:
 
 39
-00:02:44,960 --> 00:02:48,340
+00:03:02,705 --> 00:03:06,470
 subtract a centre and divide by a spread.
 
 40
-00:02:48,340 --> 00:02:55,263
+00:03:06,470 --> 00:03:14,185
 Skewness and kurtosis stay exactly the same, and features become comparable in size.
 
 41
-00:02:55,263 --> 00:02:56,005
+00:03:14,185 --> 00:03:15,012
 Examples:
 
 42
-00:02:56,005 --> 00:02:58,395
+00:03:15,012 --> 00:03:17,675
 standard, min-max and robust.
 
 43
-00:02:58,395 --> 00:03:02,104
+00:03:17,675 --> 00:03:21,808
 For skewed data, transform first, then scale.
 
 44
-00:03:02,904 --> 00:03:06,322
+00:03:22,608 --> 00:03:26,424
 The log transform is y equals log of one plus x.
 
 45
-00:03:06,322 --> 00:03:14,795
+00:03:26,424 --> 00:03:35,884
 It compresses large values much more than small ones, and the plus one keeps zero safe, though x must be at least zero.
 
 46
-00:03:14,795 --> 00:03:18,427
+00:03:35,884 --> 00:03:39,938
 It turns multiplicative effects into additive ones.
 
 47
-00:03:18,427 --> 00:03:22,699
+00:03:39,938 --> 00:03:44,708
 A twelve thousand times range in x becomes about nine units.
 
 48
-00:03:22,699 --> 00:03:26,757
+00:03:44,708 --> 00:03:49,240
 It has a fixed strength, the same pull for every feature.
 
 49
-00:03:26,757 --> 00:03:28,466
+00:03:49,240 --> 00:03:51,148
 A caution from our data:
 
 50
-00:03:28,466 --> 00:03:43,704
+00:03:51,148 --> 00:04:08,160
 log over-corrects the count features, with population skew going from four point nine four to minus one point oh four, and it damages the symmetric housing median age, creating five hundred fifty nine new outliers.
 
 51
-00:03:44,504 --> 00:03:47,931
+00:04:08,960 --> 00:04:12,842
 Box-Cox lets the data choose the power lambda.
 
 52
-00:03:47,931 --> 00:03:54,040
+00:04:12,842 --> 00:04:19,762
 Y equals x to the lambda minus one, over lambda, and log of x when lambda is zero.
 
 53
-00:03:54,040 --> 00:04:00,671
+00:04:19,762 --> 00:04:27,273
 Lambda is chosen by maximum likelihood to make the result as close to normal as possible.
 
 54
-00:04:00,671 --> 00:04:05,961
+00:04:27,273 --> 00:04:33,264
 It requires every x above zero; for zeros or negatives use Yeo-Johnson.
 
 55
-00:04:05,961 --> 00:04:14,827
+00:04:33,264 --> 00:04:43,307
 The power ladder runs from lambda one, no change, through point five, square root, zero, log, to minus one, reciprocal.
 
 56
-00:04:14,827 --> 00:04:15,721
+00:04:43,307 --> 00:04:44,319
 Our lambdas:
 
 57
-00:04:15,721 --> 00:04:28,088
+00:04:44,319 --> 00:04:58,328
 housing median age about point eight, almost untouched; the counts around point two two, between square root and log; and median income about point oh nine, near log.
 
 58
-00:04:28,888 --> 00:04:30,415
+00:04:59,128 --> 00:05:00,870
 Three ways to scale.
 
 59
-00:04:30,415 --> 00:04:31,637
+00:05:00,870 --> 00:05:02,264
 Standard scaler:
 
 60
-00:04:31,637 --> 00:04:42,100
+00:05:02,264 --> 00:05:14,199
 z equals x minus mean over standard deviation, giving mean zero and standard deviation one, but outliers stay far away and pull the mean.
 
 61
-00:04:42,100 --> 00:04:43,246
+00:05:14,199 --> 00:05:15,506
 Min-max scaler:
 
 62
-00:04:43,246 --> 00:04:53,251
+00:05:15,506 --> 00:05:26,918
 x minus min over max minus min, putting every value between zero and one, but one extreme value sets the max and squeezes the rest.
 
 63
-00:04:53,251 --> 00:04:54,320
+00:05:26,918 --> 00:05:28,138
 Robust scaler:
 
 64
-00:04:54,320 --> 00:05:01,881
+00:05:28,138 --> 00:05:36,762
 x minus median over I Q R, giving median zero and I Q R one, ignoring extremes, best with outliers.
 
 65
-00:05:01,881 --> 00:05:03,485
+00:05:36,762 --> 00:05:38,592
 All three are linear:
 
 66
-00:05:03,485 --> 00:05:08,296
+00:05:38,592 --> 00:05:44,080
 the histogram keeps its shape and only the axis numbers change.
 
 67
-00:05:09,096 --> 00:05:11,287
+00:05:44,880 --> 00:05:47,399
 How do we measure the impact?
 
 68
-00:05:11,287 --> 00:05:11,967
+00:05:47,399 --> 00:05:48,181
 Symmetry:
 
 69
-00:05:11,967 --> 00:05:14,461
+00:05:48,181 --> 00:05:51,048
 skewness should move toward zero.
 
 70
-00:05:14,461 --> 00:05:14,914
+00:05:51,048 --> 00:05:51,569
 Tails:
 
 71
-00:05:14,914 --> 00:05:17,786
+00:05:51,569 --> 00:05:54,870
 large positive kurtosis should shrink.
 
 72
-00:05:17,786 --> 00:05:18,466
+00:05:54,870 --> 00:05:55,652
 Outliers:
 
 73
-00:05:18,466 --> 00:05:23,226
+00:05:55,652 --> 00:06:01,124
 the I Q R count of tail values should fall inside the whiskers.
 
 74
-00:05:23,226 --> 00:05:23,680
+00:06:01,124 --> 00:06:01,645
 Shape:
 
 75
-00:05:23,680 --> 00:05:28,214
+00:06:01,645 --> 00:06:06,858
 a histogram or density, where one tall spike becomes a bell.
 
 76
-00:05:28,214 --> 00:05:29,045
+00:06:06,858 --> 00:06:07,813
 And spread:
 
 77
-00:05:29,045 --> 00:05:31,841
+00:06:07,813 --> 00:06:11,027
 box plots comparable across features.
 
 78
-00:05:31,841 --> 00:05:41,664
+00:06:11,027 --> 00:06:22,320
 Always compare the number and the picture together, because a statistic can hide a cap, a gap or two peaks that the graph reveals.
 

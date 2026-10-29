@@ -1,212 +1,212 @@
 1
-00:00:00,000 --> 00:00:02,330
+00:00:00,000 --> 00:00:02,777
 Welcome to lectures three and four:
 
 2
-00:00:02,330 --> 00:00:04,061
+00:00:02,777 --> 00:00:04,839
 data types and structures.
 
 3
-00:00:04,061 --> 00:00:15,912
+00:00:04,839 --> 00:00:18,960
 We look at scales of measurement, discrete versus continuous data, structured and semi-structured data, the basics of text data, and the building blocks of time series behaviour.
 
 4
-00:00:16,712 --> 00:00:24,909
+00:00:19,760 --> 00:00:28,852
 Five building blocks for understanding how data is measured, organised, and behaves over time.
 
 5
-00:00:24,909 --> 00:00:25,258
+00:00:28,852 --> 00:00:29,239
 One:
 
 6
-00:00:25,258 --> 00:00:29,094
+00:00:29,239 --> 00:00:33,494
 nominal, ordinal, interval and ratio scales.
 
 7
-00:00:29,094 --> 00:00:29,443
+00:00:33,494 --> 00:00:33,881
 Two:
 
 8
-00:00:29,443 --> 00:00:31,798
+00:00:33,881 --> 00:00:36,493
 discrete versus continuous.
 
 9
-00:00:31,798 --> 00:00:32,321
+00:00:36,493 --> 00:00:37,073
 Three:
 
 10
-00:00:32,321 --> 00:00:35,722
+00:00:37,073 --> 00:00:40,845
 structured versus semi-structured data.
 
 11
-00:00:35,722 --> 00:00:36,158
+00:00:40,845 --> 00:00:41,329
 Four:
 
 12
-00:00:36,158 --> 00:00:38,512
+00:00:41,329 --> 00:00:43,940
 text data structure basics.
 
 13
-00:00:38,512 --> 00:00:38,948
+00:00:43,940 --> 00:00:44,424
 Five:
 
 14
-00:00:38,948 --> 00:00:42,872
+00:00:44,424 --> 00:00:48,776
 time series behaviour, trend and seasonality.
 
 15
-00:00:43,672 --> 00:00:46,702
+00:00:49,576 --> 00:00:53,030
 Levels of measurement start with categories.
 
 16
-00:00:46,702 --> 00:00:49,869
+00:00:53,030 --> 00:00:56,641
 Nominal data has labels with no inherent rank:
 
 17
-00:00:49,869 --> 00:00:52,348
+00:00:56,641 --> 00:00:59,468
 blood type, product colour, country.
 
 18
-00:00:52,348 --> 00:00:59,992
+00:00:59,468 --> 00:01:08,182
 You can only say things are the same or different, so the allowed statistics are the mode and frequency counts.
 
 19
-00:00:59,992 --> 00:01:05,294
+00:01:08,182 --> 00:01:14,226
 Ordinal data has a meaningful order but the gaps between ranks are not equal:
 
 20
-00:01:05,294 --> 00:01:10,045
+00:01:14,226 --> 00:01:19,643
 satisfaction from low to high, education level, race finish position.
 
 21
-00:01:10,045 --> 00:01:13,144
+00:01:19,643 --> 00:01:23,176
 Here you can also use the median and ranking.
 
 22
-00:01:13,944 --> 00:01:17,826
+00:01:23,976 --> 00:01:28,253
 Both interval and ratio are numeric with equal gaps.
 
 23
-00:01:17,826 --> 00:01:20,961
+00:01:28,253 --> 00:01:31,707
 The difference is whether zero means none.
 
 24
-00:01:20,961 --> 00:01:32,085
+00:01:31,707 --> 00:01:43,961
 Interval data, like temperature in Celsius, calendar year, I Q score or pH, has an arbitrary zero, so ratio claims like twice as hot are not allowed.
 
 25
-00:01:32,085 --> 00:01:42,984
+00:01:43,961 --> 00:01:55,968
 Ratio data, like height, weight, income, age and distance, has a true zero, so ratios and multiples are meaningful and all statistics are allowed.
 
 26
-00:01:43,784 --> 00:01:45,881
+00:01:56,768 --> 00:01:59,075
 The four scales at a glance:
 
 27
-00:01:45,881 --> 00:01:50,449
+00:01:59,075 --> 00:02:04,102
 nominal, ordinal, interval, ratio, with increasing precision.
 
 28
-00:01:50,449 --> 00:02:01,232
+00:02:04,102 --> 00:02:15,968
 Nominal is named categories, ordinal is ordered categories, interval has equal gaps but no true zero, and ratio has equal gaps plus a true zero.
 
 29
-00:02:02,032 --> 00:02:05,287
+00:02:16,768 --> 00:02:20,477
 Both discrete and continuous data are numeric.
 
 30
-00:02:05,287 --> 00:02:09,320
+00:02:20,477 --> 00:02:25,072
 The difference is whether values are counted or measured.
 
 31
-00:02:09,320 --> 00:02:13,424
+00:02:25,072 --> 00:02:29,748
 Discrete data are countable values, usually whole numbers:
 
 32
-00:02:13,424 --> 00:02:17,457
+00:02:29,748 --> 00:02:34,343
 number of children, cars sold per day, number of defects.
 
 33
-00:02:17,457 --> 00:02:23,472
+00:02:34,343 --> 00:02:41,196
 Continuous data can take any value in a range, limited only by measurement precision:
 
 34
-00:02:23,472 --> 00:02:26,656
+00:02:41,196 --> 00:02:44,824
 height, temperature, time to complete a task.
 
 35
-00:02:27,456 --> 00:02:37,569
+00:02:45,624 --> 00:02:57,348
 Structured data fits neatly into rows and columns with a fixed schema; every record has the same fields, like a spreadsheet or SQL table.
 
 36
-00:02:37,569 --> 00:02:45,616
+00:02:57,348 --> 00:03:06,675
 Semi-structured data has tags or markers but no fixed table schema, so fields can vary from record to record.
 
 37
-00:02:45,616 --> 00:02:52,776
+00:03:06,675 --> 00:03:14,976
 Examples are J S O N and X M L files, emails with headers plus free text, and no S Q L documents.
 
 38
-00:02:53,576 --> 00:02:58,835
+00:03:15,776 --> 00:03:21,684
 Raw text has no rows or columns of its own, so it is broken into layers.
 
 39
-00:02:58,835 --> 00:03:02,269
+00:03:21,684 --> 00:03:25,541
 The corpus is the full collection of documents.
 
 40
-00:03:02,269 --> 00:03:05,556
+00:03:25,541 --> 00:03:29,234
 A document is one unit, like a single review.
 
 41
-00:03:05,556 --> 00:03:10,815
+00:03:29,234 --> 00:03:35,142
 A token is a word, number or punctuation mark, produced by tokenisation.
 
 42
-00:03:10,815 --> 00:03:15,052
+00:03:35,142 --> 00:03:39,902
 The vocabulary is the set of unique tokens after cleaning.
 
 43
-00:03:15,052 --> 00:03:27,032
+00:03:39,902 --> 00:03:53,360
 Typical prep steps are lowercasing, removing stopwords, and stemming or lemmatisation, which turn free text into structured features such as a term frequency table.
 
 44
-00:03:27,832 --> 00:03:31,348
+00:03:54,160 --> 00:03:58,173
 A time series is data recorded at regular intervals.
 
 45
-00:03:31,348 --> 00:03:35,202
+00:03:58,173 --> 00:04:02,572
 Two patterns to look for first are trend and seasonality.
 
 46
-00:03:35,202 --> 00:03:44,871
+00:04:02,572 --> 00:04:13,609
 Trend is the long-term direction, upward, downward or flat, once short-term noise is smoothed out; look for a rising or falling moving average.
 
 47
-00:03:44,871 --> 00:03:54,472
+00:04:13,609 --> 00:04:24,568
 Seasonality is a pattern that repeats at fixed intervals, such as every twelve months, driven by predictable factors like weather or holidays.
 
 48
-00:03:55,272 --> 00:03:56,788
+00:04:25,368 --> 00:04:27,056
 Bringing it together.
 
 49
-00:03:56,788 --> 00:04:02,201
+00:04:27,056 --> 00:04:33,083
 The measurement scale determines which statistics and operations are valid.
 
 50
-00:04:02,201 --> 00:04:06,098
+00:04:33,083 --> 00:04:37,423
 Discrete data is counted; continuous data is measured.
 
 51
-00:04:06,098 --> 00:04:12,088
+00:04:37,423 --> 00:04:44,093
 Structured data fits a fixed schema, while semi-structured data uses flexible tags.
 
 52
-00:04:12,088 --> 00:04:17,429
+00:04:44,093 --> 00:04:50,040
 Text must be broken into corpus, document, token and term before analysis.
 
 53
-00:04:17,429 --> 00:04:25,296
+00:04:50,040 --> 00:04:58,800
 And in time series, separate the steady trend from the repeating seasonal pattern before drawing conclusions.
 

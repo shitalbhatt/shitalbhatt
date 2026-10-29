@@ -1,316 +1,316 @@
 1
-00:00:00,000 --> 00:00:02,516
+00:00:00,000 --> 00:00:02,791
 Welcome to lectures nine and ten:
 
 2
-00:00:02,516 --> 00:00:07,090
+00:00:02,791 --> 00:00:07,865
 bivariate analysis, the relationships between two variables.
 
 3
-00:00:07,090 --> 00:00:12,960
+00:00:07,865 --> 00:00:14,376
 We cover correlation, covariance, scatterplots and categorical relationships.
 
 4
-00:00:13,760 --> 00:00:17,170
+00:00:15,176 --> 00:00:19,040
 Every pair of features is one of three types.
 
 5
-00:00:17,170 --> 00:00:24,370
+00:00:19,040 --> 00:00:27,196
 Numerical with numerical, like sales and profit, uses correlation, covariance and scatterplots.
 
 6
-00:00:24,370 --> 00:00:32,024
+00:00:27,196 --> 00:00:35,868
 Categorical with categorical, like segment and ship mode, uses cross-tabs, heatmaps and stacked bars.
 
 7
-00:00:32,024 --> 00:00:39,224
+00:00:35,868 --> 00:00:44,024
 And categorical with numerical, like category and profit, uses grouped statistics and boxplots.
 
 8
-00:00:40,024 --> 00:00:42,458
+00:00:44,824 --> 00:00:47,702
 Why look at two variables together?
 
 9
-00:00:42,458 --> 00:00:45,031
+00:00:47,702 --> 00:00:50,745
 Univariate statistics miss the story:
 
 10
-00:00:45,031 --> 00:00:49,760
+00:00:50,745 --> 00:00:56,337
 one feature's mean never tells you how it behaves alongside another.
 
 11
-00:00:49,760 --> 00:00:51,569
+00:00:56,337 --> 00:00:58,475
 It reveals hidden drivers:
 
 12
-00:00:51,569 --> 00:00:58,315
+00:00:58,475 --> 00:01:06,452
 discount alone looks harmless, but discount against profit shows heavy discounting erodes margin.
 
 13
-00:00:58,315 --> 00:01:00,818
+00:01:06,452 --> 00:01:09,412
 It uncovers structure in categories.
 
 14
-00:01:00,818 --> 00:01:07,912
+00:01:09,412 --> 00:01:17,800
 And it feeds the scientific process, since every does X affect Y question starts as a bivariate check.
 
 15
-00:01:08,712 --> 00:01:12,247
+00:01:18,600 --> 00:01:22,676
 Covariance asks whether two variables move together.
 
 16
-00:01:12,247 --> 00:01:19,180
+00:01:22,676 --> 00:01:30,670
 For every data point, multiply how far X is from its mean by how far Y is from its mean, then average.
 
 17
-00:01:19,180 --> 00:01:28,696
+00:01:30,670 --> 00:01:41,643
 Positive covariance means they rise together, negative means one rises as the other falls, and near zero means no consistent linear pattern.
 
 18
-00:01:28,696 --> 00:01:37,872
+00:01:41,643 --> 00:01:52,224
 The catch is that covariance is in the product of the two units, like dollars times units, so its size cannot be compared across pairs.
 
 19
-00:01:38,672 --> 00:01:41,310
+00:01:53,024 --> 00:01:55,986
 Correlation is the scale-free version.
 
 20
-00:01:41,310 --> 00:01:50,543
+00:01:55,986 --> 00:02:06,352
 Divide covariance by the product of the standard deviations and you get r, always between minus one and plus one regardless of units.
 
 21
-00:01:50,543 --> 00:01:55,055
+00:02:06,352 --> 00:02:11,418
 That makes coefficients comparable across every pair in a matrix.
 
 22
-00:01:55,055 --> 00:02:06,440
+00:02:11,418 --> 00:02:24,200
 Roughly, beyond plus or minus zero point seven is strong, between zero point three and zero point seven is moderate to weak, and near zero means no linear relation.
 
 23
-00:02:07,240 --> 00:02:12,013
+00:02:25,000 --> 00:02:30,379
 A strong correlation never proves that one variable causes the other.
 
 24
-00:02:12,013 --> 00:02:18,653
+00:02:30,379 --> 00:02:37,864
 Both may be driven by a hidden third factor, or the pattern may be a coincidence in this sample.
 
 25
-00:02:18,653 --> 00:02:23,980
+00:02:37,864 --> 00:02:43,867
 For example, discount and profit are correlated, but so are sales and profit.
 
 26
-00:02:23,980 --> 00:02:28,960
+00:02:43,867 --> 00:02:49,480
 Before acting on a single correlation, check what else might explain it.
 
 27
-00:02:29,760 --> 00:02:34,866
+00:02:50,280 --> 00:02:56,077
 Pearson measures straight-line relationships only and is sensitive to outliers.
 
 28
-00:02:34,866 --> 00:02:42,686
+00:02:56,077 --> 00:03:04,957
 Spearman ranks the values first, then correlates the ranks, so it captures any monotonic relationship and is more robust.
 
 29
-00:02:42,686 --> 00:02:51,023
+00:03:04,957 --> 00:03:14,424
 In the Superstore data, discount versus profit is minus zero point two two by Pearson but minus zero point five four by Spearman:
 
 30
-00:02:51,023 --> 00:02:57,744
+00:03:14,424 --> 00:03:22,056
 a handful of heavily discounted, deeply negative-profit orders were flattening the straight-line number.
 
 31
-00:02:58,544 --> 00:03:04,109
+00:03:22,856 --> 00:03:29,314
 A scatterplot places every order as one dot, one feature on X and another on Y.
 
 32
-00:03:04,109 --> 00:03:10,167
+00:03:29,314 --> 00:03:36,344
 The tilt of the cloud shows direction, and how tightly dots hug a line shows strength.
 
 33
-00:03:10,167 --> 00:03:19,184
+00:03:36,344 --> 00:03:46,808
 Unlike a single r value, a scatterplot also reveals outliers, clusters and non-linear shapes that a correlation number can hide.
 
 34
-00:03:19,984 --> 00:03:22,066
+00:03:47,608 --> 00:03:49,910
 Here is a gallery of patterns:
 
 35
-00:03:22,066 --> 00:03:33,516
+00:03:49,910 --> 00:04:02,573
 positive linear, negative linear, no relationship, curvilinear, a fanning spread where variability grows, known as heteroscedasticity, and an outlier-driven pattern.
 
 36
-00:03:33,516 --> 00:03:37,888
+00:04:02,573 --> 00:04:07,408
 The same r can come from very different shapes, so always look.
 
 37
-00:03:38,688 --> 00:03:45,433
+00:04:08,208 --> 00:04:15,838
 A correlation matrix stacks the correlation between every pair of numeric features into one table.
 
 38
-00:03:45,433 --> 00:03:55,138
+00:04:15,838 --> 00:04:26,816
 A heatmap colours that table, darker green for strong positive and darker red for strong negative, so patterns across many features jump out.
 
 39
-00:03:55,138 --> 00:03:58,992
+00:04:26,816 --> 00:04:31,176
 The diagonal is always one, and the matrix is symmetric.
 
 40
-00:03:59,792 --> 00:04:07,614
+00:04:31,976 --> 00:04:41,031
 A cross-tab, or contingency table, counts how many records fall into every combination of two categorical features.
 
 41
-00:04:07,614 --> 00:04:11,492
+00:04:41,031 --> 00:04:45,519
 It is the categorical equivalent of a correlation matrix.
 
 42
-00:04:11,492 --> 00:04:20,879
+00:04:45,519 --> 00:04:56,385
 Raw counts show volume, while row percentages let you compare the ship mode mix within each segment on the same zero to one hundred scale.
 
 43
-00:04:20,879 --> 00:04:25,232
+00:04:56,385 --> 00:05:01,424
 Here every segment leans standard class at almost the same rate.
 
 44
-00:04:26,032 --> 00:04:31,820
+00:05:02,224 --> 00:05:08,939
 If every row has roughly the same percentage split, the two features do not seem related:
 
 45
-00:04:31,820 --> 00:04:35,201
+00:05:08,939 --> 00:05:12,863
 knowing one tells you nothing extra about the other.
 
 46
-00:04:35,201 --> 00:04:39,168
+00:05:12,863 --> 00:05:17,466
 If the splits differ noticeably, the features are associated.
 
 47
-00:04:39,168 --> 00:04:45,866
+00:05:17,466 --> 00:05:25,238
 Segment versus ship mode lands near sixty percent standard class in every row, so it looks independent.
 
 48
-00:04:45,866 --> 00:04:51,328
+00:05:25,238 --> 00:05:31,576
 A visible pattern like this is what later becomes a chi-square test of independence.
 
 49
-00:04:52,128 --> 00:04:56,261
+00:05:32,376 --> 00:05:37,029
 For categorical against numerical, there are three tools.
 
 50
-00:04:56,261 --> 00:04:58,218
+00:05:37,029 --> 00:05:39,233
 Grouped summary statistics:
 
 51
-00:04:58,218 --> 00:05:04,454
+00:05:39,233 --> 00:05:46,253
 split by category, then compute mean, median and standard deviation within each group.
 
 52
-00:05:04,454 --> 00:05:05,976
+00:05:46,253 --> 00:05:47,967
 Boxplots by category:
 
 53
-00:05:05,976 --> 00:05:10,979
+00:05:47,967 --> 00:05:53,599
 the full distribution per group, showing spread and not just average.
 
 54
-00:05:10,979 --> 00:05:16,344
+00:05:53,599 --> 00:05:59,640
 And a bar chart of group means for a quick comparison of central tendency.
 
 55
-00:05:17,144 --> 00:05:19,413
+00:06:00,440 --> 00:06:02,945
 Which technique for which pair?
 
 56
-00:05:19,413 --> 00:05:21,242
+00:06:02,945 --> 00:06:04,966
 Numerical with numerical:
 
 57
-00:05:21,242 --> 00:05:28,121
+00:06:04,966 --> 00:06:12,563
 covariance and correlation, scatterplot or pairplot; watch for non-linear shapes and outliers.
 
 58
-00:05:28,121 --> 00:05:30,243
+00:06:12,563 --> 00:06:14,907
 Categorical with categorical:
 
 59
-00:05:30,243 --> 00:05:37,634
+00:06:14,907 --> 00:06:23,070
 cross-tab counts and percentages, heatmap or stacked bar; watch for rare categories with tiny counts.
 
 60
-00:05:37,634 --> 00:05:39,610
+00:06:23,070 --> 00:06:25,252
 Categorical with numerical:
 
 61
-00:05:39,610 --> 00:05:46,196
+00:06:25,252 --> 00:06:32,526
 grouped statistics, boxplot or bar chart; with skewed groups the median can beat the mean.
 
 62
-00:05:46,196 --> 00:05:51,392
+00:06:32,526 --> 00:06:38,264
 Identify each column's type first, and that tells you which row to use.
 
 63
-00:05:52,192 --> 00:05:53,187
+00:06:39,064 --> 00:06:40,194
 Four pitfalls.
 
 64
-00:05:53,187 --> 00:05:54,680
+00:06:40,194 --> 00:06:41,890
 Spurious correlation:
 
 65
-00:05:54,680 --> 00:06:02,428
+00:06:41,890 --> 00:06:50,691
 unrelated features can correlate by chance, especially in small samples, so ask if it makes real-world sense.
 
 66
-00:06:02,428 --> 00:06:04,348
+00:06:50,691 --> 00:06:52,871
 Outlier-driven correlation:
 
 67
-00:06:04,348 --> 00:06:11,456
+00:06:52,871 --> 00:07:00,945
 a handful of extreme points can create or hide a correlation, so pair the number with a scatterplot.
 
 68
-00:06:11,456 --> 00:06:12,736
+00:07:00,945 --> 00:07:02,399
 Simpson's paradox:
 
 69
-00:06:12,736 --> 00:06:17,143
+00:07:02,399 --> 00:07:07,405
 a trend in the whole dataset can reverse within each subgroup.
 
 70
-00:06:17,143 --> 00:06:22,048
+00:07:07,405 --> 00:07:12,976
 And small subgroup counts can make a cross-tab percentage misleading.
 
 71
-00:06:22,848 --> 00:06:23,915
+00:07:13,776 --> 00:07:14,990
 Key takeaways.
 
 72
-00:06:23,915 --> 00:06:27,420
+00:07:14,990 --> 00:07:18,981
 Start by identifying the type of each feature.
 
 73
-00:06:27,420 --> 00:06:33,212
+00:07:18,981 --> 00:07:25,574
 Covariance shows direction; correlation rescales it so pairs are comparable.
 
 74
-00:06:33,212 --> 00:06:40,299
+00:07:25,574 --> 00:07:33,641
 Pearson catches linear patterns; Spearman catches any monotonic pattern and resists outliers.
 
 75
-00:06:40,299 --> 00:06:47,996
+00:07:33,641 --> 00:07:42,402
 A correlation matrix and heatmap summarise all pairs, and scatterplots show what one number can hide.
 
 76
-00:06:47,996 --> 00:06:51,806
+00:07:42,402 --> 00:07:46,740
 Cross-tabs are the categorical correlation matrix.
 
 77
-00:06:51,806 --> 00:06:54,321
+00:07:46,740 --> 00:07:49,602
 And correlation is not causation:
 
 78
-00:06:54,321 --> 00:06:58,589
+00:07:49,602 --> 00:07:54,460
 every finding is the seed of a hypothesis to test later.
 
 79
-00:06:58,589 --> 00:06:59,808
+00:07:54,460 --> 00:07:55,848
 Next is the lab.
 

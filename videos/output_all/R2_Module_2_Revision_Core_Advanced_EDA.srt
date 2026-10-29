@@ -1,260 +1,260 @@
 1
-00:00:00,000 --> 00:00:04,169
+00:00:00,000 --> 00:00:04,628
 This is the revision for module two, Core Advanced E D A.
 
 2
-00:00:04,169 --> 00:00:05,340
+00:00:04,628 --> 00:00:05,927
 The takeaway is:
 
 3
-00:00:05,340 --> 00:00:09,509
+00:00:05,927 --> 00:00:10,554
 apply graphical and non-graphical exploratory techniques.
 
 4
-00:00:09,509 --> 00:00:15,288
+00:00:10,554 --> 00:00:16,968
 We recap lectures seven to fourteen and finish with questions to test yourself.
 
 5
-00:00:16,088 --> 00:00:17,970
+00:00:17,768 --> 00:00:19,850
 Lectures seven and eight.
 
 6
-00:00:17,970 --> 00:00:26,928
+00:00:19,850 --> 00:00:29,762
 Non-graphical E D A uses central tendency, dispersion and shape statistics, each in one line for every numeric feature.
 
 7
-00:00:26,928 --> 00:00:39,047
+00:00:29,762 --> 00:00:43,173
 Graphical E D A adds histogram, density, boxplot, violin and distribution comparisons for numbers, and frequency tables, bar plots and pie charts for categories.
 
 8
-00:00:39,047 --> 00:00:44,994
+00:00:43,173 --> 00:00:49,753
 The one point five I Q R rule is the non-graphical twin of the boxplot whisker.
 
 9
-00:00:44,994 --> 00:00:48,080
+00:00:49,753 --> 00:00:53,168
 Always use statistics and plots together.
 
 10
-00:00:48,880 --> 00:00:52,164
+00:00:53,968 --> 00:00:57,674
 Lectures nine and ten, bivariate analysis.
 
 11
-00:00:52,164 --> 00:00:55,916
+00:00:57,674 --> 00:01:01,910
 Covariance shows direction but depends on units.
 
 12
-00:00:55,916 --> 00:00:59,747
+00:01:01,910 --> 00:01:06,234
 Correlation rescales it to minus one to plus one.
 
 13
-00:00:59,747 --> 00:01:07,018
+00:01:06,234 --> 00:01:14,441
 Pearson catches linear patterns; Spearman catches any monotonic pattern and resists outliers.
 
 14
-00:01:07,018 --> 00:01:12,726
+00:01:14,441 --> 00:01:20,882
 Cross-tabs, with row percentages, are the categorical correlation matrix.
 
 15
-00:01:12,726 --> 00:01:17,651
+00:01:20,882 --> 00:01:26,442
 For a number across groups use grouped statistics and boxplots.
 
 16
-00:01:17,651 --> 00:01:22,264
+00:01:26,442 --> 00:01:31,648
 Correlation is not causation, and beware Simpson's paradox.
 
 17
-00:01:23,064 --> 00:01:26,849
+00:01:32,448 --> 00:01:36,775
 Lectures eleven and twelve, multivariate analysis.
 
 18
-00:01:26,849 --> 00:01:31,769
+00:01:36,775 --> 00:01:42,401
 Multicollinearity means a feature is predictable from the others.
 
 19
-00:01:31,769 --> 00:01:34,948
+00:01:42,401 --> 00:01:46,036
 V I F equals one over one minus R squared:
 
 20
-00:01:34,948 --> 00:01:38,279
+00:01:46,036 --> 00:01:49,844
 above five investigate, above ten is severe.
 
 21
-00:01:38,279 --> 00:01:41,004
+00:01:49,844 --> 00:01:52,959
 K-Means finds groups without labels.
 
 22
-00:01:41,004 --> 00:01:49,861
+00:01:52,959 --> 00:02:03,085
 Scale first, choose k using the silhouette score but also usefulness, and interpret clusters with grouped statistics.
 
 23
-00:01:49,861 --> 00:01:53,040
+00:02:03,085 --> 00:02:06,720
 It is exploratory, not a prediction model.
 
 24
-00:01:53,840 --> 00:01:57,437
+00:02:07,520 --> 00:02:11,477
 Lectures thirteen and fourteen, visualization.
 
 25
-00:01:57,437 --> 00:02:01,817
+00:02:11,477 --> 00:02:16,295
 Anscombe's quartet shows that statistics hide structure.
 
 26
-00:02:01,817 --> 00:02:06,196
+00:02:16,295 --> 00:02:21,113
 A chart is data, aesthetics, geometry, scales and theme.
 
 27
-00:02:06,196 --> 00:02:15,424
+00:02:21,113 --> 00:02:31,264
 Choose the geometry from the question, use facets for groups, start bar axes at zero, and avoid dual axes and clutter.
 
 28
-00:02:15,424 --> 00:02:20,116
+00:02:31,264 --> 00:02:36,426
 Use treemaps, word clouds and networks for non-numeric data.
 
 29
-00:02:20,116 --> 00:02:26,216
+00:02:36,426 --> 00:02:43,136
 A dashboard has one purpose, and a story has context, conflict and resolution.
 
 30
-00:02:27,016 --> 00:02:28,857
+00:02:43,936 --> 00:02:45,960
 The labs for this module:
 
 31
-00:02:28,857 --> 00:02:33,424
+00:02:45,960 --> 00:02:50,979
 practicals seven and eight did univariate E D A on Superstore.
 
 32
-00:02:33,424 --> 00:02:39,022
+00:02:50,979 --> 00:02:57,131
 Practicals nine and ten built correlation matrices, heatmaps and cross-tabs.
 
 33
-00:02:39,022 --> 00:02:42,778
+00:02:57,131 --> 00:03:01,260
 Practicals eleven and twelve did V I F and K-Means.
 
 34
-00:02:42,778 --> 00:02:50,512
+00:03:01,260 --> 00:03:09,760
 Practicals thirteen and fourteen are the assignment one presentation, supported by the visualization lab.
 
 35
-00:02:51,312 --> 00:02:53,155
+00:03:10,560 --> 00:03:12,618
 Test yourself, part one.
 
 36
-00:02:53,155 --> 00:02:54,153
+00:03:12,618 --> 00:03:13,733
 Question one:
 
 37
-00:02:54,153 --> 00:02:59,988
+00:03:13,733 --> 00:03:20,249
 profit has a mean of one eighty one dollars and a median of minus one fifty.
 
 38
-00:02:59,988 --> 00:03:01,754
+00:03:20,249 --> 00:03:22,222
 What does this suggest?
 
 39
-00:03:01,754 --> 00:03:02,291
+00:03:22,222 --> 00:03:22,822
 Answer:
 
 40
-00:03:02,291 --> 00:03:08,049
+00:03:22,822 --> 00:03:29,253
 a few very profitable orders pull the mean up while most orders lose money.
 
 41
-00:03:08,049 --> 00:03:09,047
+00:03:29,253 --> 00:03:30,368
 Question two:
 
 42
-00:03:09,047 --> 00:03:14,345
+00:03:30,368 --> 00:03:36,284
 Pearson is minus point two two but Spearman is minus point five four.
 
 43
-00:03:14,345 --> 00:03:14,652
+00:03:36,284 --> 00:03:36,627
 Why?
 
 44
-00:03:14,652 --> 00:03:15,190
+00:03:36,627 --> 00:03:37,227
 Answer:
 
 45
-00:03:15,190 --> 00:03:22,944
+00:03:37,227 --> 00:03:45,888
 a few extreme points flatten the straight-line number, while ranks reveal the monotonic relationship.
 
 46
-00:03:23,744 --> 00:03:25,666
+00:03:46,688 --> 00:03:48,818
 Test yourself, part two.
 
 47
-00:03:25,666 --> 00:03:26,866
+00:03:48,818 --> 00:03:50,149
 Question three:
 
 48
-00:03:26,866 --> 00:03:29,429
+00:03:50,149 --> 00:03:52,989
 a feature has a V I F of twelve.
 
 49
-00:03:29,429 --> 00:03:30,630
+00:03:52,989 --> 00:03:54,321
 What do you do?
 
 50
-00:03:30,630 --> 00:03:31,190
+00:03:54,321 --> 00:03:54,942
 Answer:
 
 51
-00:03:31,190 --> 00:03:36,714
+00:03:54,942 --> 00:04:01,066
 it is severely collinear, so drop it, combine features, or use P C A.
 
 52
-00:03:36,714 --> 00:03:37,835
+00:04:01,066 --> 00:04:02,308
 Question four:
 
 53
-00:03:37,835 --> 00:03:45,041
+00:04:02,308 --> 00:04:10,296
 the silhouette score is highest at k equals two, but k equals three is more interpretable.
 
 54
-00:03:45,041 --> 00:03:46,482
+00:04:10,296 --> 00:04:11,894
 Which do you pick?
 
 55
-00:03:46,482 --> 00:03:47,043
+00:04:11,894 --> 00:04:12,515
 Answer:
 
 56
-00:03:47,043 --> 00:03:53,127
+00:04:12,515 --> 00:04:19,260
 justify with usefulness; the best statistic is not always the most useful k.
 
 57
-00:03:53,127 --> 00:03:54,248
+00:04:19,260 --> 00:04:20,503
 Question five:
 
 58
-00:03:54,248 --> 00:03:57,371
+00:04:20,503 --> 00:04:23,964
 why does a truncated bar chart mislead?
 
 59
-00:03:57,371 --> 00:03:57,931
+00:04:23,964 --> 00:04:24,585
 Answer:
 
 60
-00:03:57,931 --> 00:04:03,776
+00:04:24,585 --> 00:04:31,064
 bar length encodes value, so a non-zero baseline exaggerates differences.
 
 61
-00:04:04,576 --> 00:04:06,045
+00:04:31,864 --> 00:04:33,524
 That is module two.
 
 62
-00:04:06,045 --> 00:04:18,651
+00:04:33,524 --> 00:04:47,768
 Use statistics and plots together; pick the technique from the pair of variable types; check collinearity before clustering; and make charts honest and purposeful.
 
 63
-00:04:18,651 --> 00:04:20,120
+00:04:47,768 --> 00:04:49,428
 Next, module three:
 
 64
-00:04:20,120 --> 00:04:21,125
+00:04:49,428 --> 00:04:50,564
 data quality.
 
 65
-00:04:21,125 --> 00:04:22,672
+00:04:50,564 --> 00:04:52,312
 Thanks for watching.
 

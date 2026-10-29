@@ -1,264 +1,264 @@
 1
-00:00:00,000 --> 00:00:03,409
+00:00:00,000 --> 00:00:03,819
 Welcome to practicals twenty five and twenty six:
 
 2
-00:00:03,409 --> 00:00:06,471
+00:00:03,819 --> 00:00:07,248
 feature engineering and selection in Python.
 
 3
-00:00:06,471 --> 00:00:13,776
+00:00:07,248 --> 00:00:15,432
 This first video covers constructing features, interactions, polynomials and the curse of dimensionality.
 
 4
-00:00:14,576 --> 00:00:16,992
+00:00:16,232 --> 00:00:18,864
 The main data is Online Shoppers:
 
 5
-00:00:16,992 --> 00:00:26,510
+00:00:18,864 --> 00:00:29,231
 twelve thousand three hundred thirty sessions, eighteen columns, target Revenue, where fifteen and a half percent of sessions buy.
 
 6
-00:00:26,510 --> 00:00:29,658
+00:00:29,231 --> 00:00:32,660
 The second worked example is Pima diabetes:
 
 7
-00:00:29,658 --> 00:00:35,955
+00:00:32,660 --> 00:00:39,518
 seven hundred sixty eight patients, target outcome, with thirty five percent diabetic.
 
 8
-00:00:35,955 --> 00:00:36,833
+00:00:39,518 --> 00:00:40,475
 Eight steps:
 
 9
-00:00:36,833 --> 00:00:42,325
+00:00:40,475 --> 00:00:46,456
 construct, interact, polynomial, curse, filter, wrapper, embedded, compare.
 
 10
-00:00:42,325 --> 00:00:44,301
+00:00:46,456 --> 00:00:48,609
 One rule for the whole lab:
 
 11
-00:00:44,301 --> 00:00:49,280
+00:00:48,609 --> 00:00:54,032
 same model, same train and test split, and only the features change.
 
 12
-00:00:50,080 --> 00:00:51,878
+00:00:54,832 --> 00:00:56,830
 Step zero is the imports:
 
 13
-00:00:51,878 --> 00:01:07,552
+00:00:56,830 --> 00:01:14,248
 pandas and numpy, plotting libraries, the train test split, Standard Scaler and Polynomial Features, a pipeline, logistic regression and random forest, the feature selection tools, and the R O C A U C and F one scores.
 
 14
-00:01:08,352 --> 00:01:09,025
+00:01:15,048 --> 00:01:15,805
 Step one:
 
 15
-00:01:09,025 --> 00:01:10,071
+00:01:15,805 --> 00:01:16,982
 load the data.
 
 16
-00:01:10,071 --> 00:01:14,855
+00:01:16,982 --> 00:01:22,363
 Convert weekend and revenue from true and false to one and zero.
 
 17
-00:01:14,855 --> 00:01:25,991
+00:01:22,363 --> 00:01:34,892
 Only fifteen and a half percent buy, so we score models with R O C A U C, where zero point five is guessing and one is perfect, rather than accuracy.
 
 18
-00:01:25,991 --> 00:01:29,280
+00:01:34,892 --> 00:01:38,592
 The ten behaviour columns form the baseline.
 
 19
-00:01:30,080 --> 00:01:30,738
+00:01:39,392 --> 00:01:40,125
 Step two:
 
 20
-00:01:30,738 --> 00:01:33,514
+00:01:40,125 --> 00:01:43,220
 one yardstick function for every test.
 
 21
-00:01:33,514 --> 00:01:47,102
+00:01:43,220 --> 00:01:58,370
 The same seventy five twenty five split every time, stratified to keep fifteen and a half percent buyers in both parts, with a fixed random state, so every comparison in the lab is fair.
 
 22
-00:01:47,102 --> 00:01:54,408
+00:01:58,370 --> 00:02:06,515
 A pipeline scales, fits logistic regression on train rows, and scores A U C on the unseen test rows.
 
 23
-00:01:54,408 --> 00:01:58,280
+00:02:06,515 --> 00:02:10,832
 The baseline A U C is zero point eight five five two.
 
 24
-00:01:59,080 --> 00:02:01,226
+00:02:11,632 --> 00:02:14,079
 Construct totals and ratios.
 
 25
-00:02:01,226 --> 00:02:04,216
+00:02:14,079 --> 00:02:17,488
 Total pages adds the three page counts.
 
 26
-00:02:04,216 --> 00:02:07,282
+00:02:17,488 --> 00:02:20,984
 Total duration adds the three durations.
 
 27
-00:02:07,282 --> 00:02:11,958
+00:02:20,984 --> 00:02:26,316
 Average time per page divides, and product share divides too.
 
 28
-00:02:11,958 --> 00:02:21,387
+00:02:26,316 --> 00:02:37,066
 Replace zero with missing avoids division by zero, and fill na zero sets empty sessions to zero, with no if or else needed.
 
 29
-00:02:21,387 --> 00:02:24,760
+00:02:37,066 --> 00:02:40,912
 The table shows each feature's distribution.
 
 30
-00:02:25,560 --> 00:02:27,282
+00:02:41,712 --> 00:02:43,621
 Construct zero-one flags:
 
 31
-00:02:27,282 --> 00:02:32,791
+00:02:43,621 --> 00:02:49,730
 is returning visitor, has page value, and Q four season for October to December.
 
 32
-00:02:32,791 --> 00:02:40,641
+00:02:49,730 --> 00:02:58,436
 About eighty six percent are returning, twenty two percent have page value, and forty three percent are in Q four.
 
 33
-00:02:40,641 --> 00:02:49,800
+00:02:58,436 --> 00:03:08,592
 The group by shows the purchase rate is fifty six point three percent when has page value is one and only three point nine when zero.
 
 34
-00:02:50,600 --> 00:02:52,983
+00:03:09,392 --> 00:03:12,154
 Construct a log transform and bands.
 
 35
-00:02:52,983 --> 00:02:59,074
+00:03:12,154 --> 00:03:19,212
 Log one p of page values shrinks skewness from six point three eight to one point eight one.
 
 36
-00:02:59,074 --> 00:03:09,800
+00:03:19,212 --> 00:03:31,640
 And qcut makes four duration bands with equal numbers of sessions; the purchase rate rises from four point three percent to twenty four percent and then flattens.
 
 37
-00:03:10,600 --> 00:03:12,942
+00:03:32,440 --> 00:03:35,085
 Did the constructed features help?
 
 38
-00:03:12,942 --> 00:03:15,698
+00:03:35,085 --> 00:03:38,196
 Compare the test A U C before and after:
 
 39
-00:03:15,698 --> 00:03:24,034
+00:03:38,196 --> 00:03:47,608
 zero point eight five five two to zero point eight nine eight, a gain of zero point oh four three from eight new columns.
 
 40
-00:03:24,034 --> 00:03:33,472
+00:03:47,608 --> 00:03:58,264
 The correlation chart shows log page values and has page value have the strongest absolute correlation with revenue, over zero point six.
 
 41
-00:03:34,272 --> 00:03:35,238
+00:03:59,064 --> 00:04:00,147
 Interactions:
 
 42
-00:03:35,238 --> 00:03:37,244
+00:04:00,147 --> 00:04:02,397
 check first, then multiply.
 
 43
-00:03:37,244 --> 00:03:45,639
+00:04:02,397 --> 00:04:11,812
 The two-way table shows page value lifts new visitors to eighty six percent but returning ones only to fifty one:
 
 44
-00:03:45,639 --> 00:03:46,753
+00:04:11,812 --> 00:04:13,062
 an interaction.
 
 45
-00:03:46,753 --> 00:03:53,439
+00:04:13,062 --> 00:04:20,560
 We then create page value times returning, page value times Q four, and bounce times exit.
 
 46
-00:03:53,439 --> 00:03:59,160
+00:04:20,560 --> 00:04:26,976
 A U C goes from zero point eight nine eight to zero point nine oh three nine.
 
 47
-00:03:59,960 --> 00:04:02,751
+00:04:27,776 --> 00:04:30,812
 Polynomial features with scikit-learn.
 
 48
-00:04:02,751 --> 00:04:06,203
+00:04:30,812 --> 00:04:34,566
 Three inputs at degree two become nine columns.
 
 49
-00:04:06,203 --> 00:04:12,667
+00:04:34,566 --> 00:04:41,596
 The number of columns from ten inputs is C of ten plus degree, choose degree, minus one.
 
 50
-00:04:12,667 --> 00:04:24,273
+00:04:41,596 --> 00:04:54,218
 At degree three, ten inputs give two eighty five columns, eighty five inputs give over one hundred nine thousand, and at degree five about forty four million.
 
 51
-00:04:24,273 --> 00:04:25,448
+00:04:54,218 --> 00:04:55,496
 Columns explode.
 
 52
-00:04:26,248 --> 00:04:26,954
+00:04:56,296 --> 00:04:57,094
 Curse one:
 
 53
-00:04:26,954 --> 00:04:29,356
+00:04:57,094 --> 00:04:59,807
 the data uses less and less space.
 
 54
-00:04:29,356 --> 00:04:32,465
+00:04:59,807 --> 00:05:03,317
 Cut each feature into four bins by quartile.
 
 55
-00:04:32,465 --> 00:04:40,942
+00:05:03,317 --> 00:05:12,891
 With four features there are two fifty six possible cells and twelve thousand sessions occupy five hundred eighty seven.
 
 56
-00:04:40,942 --> 00:04:49,984
+00:05:12,891 --> 00:05:23,104
 With ten features, there are over a million cells, and sessions touch only point two percent, about five rows per occupied cell.
 
 57
-00:04:50,784 --> 00:04:51,548
+00:05:23,904 --> 00:05:24,759
 Curse two:
 
 58
-00:04:51,548 --> 00:04:54,374
+00:05:24,759 --> 00:05:27,922
 more columns means more over-fitting.
 
 59
-00:04:54,374 --> 00:05:00,713
+00:05:27,922 --> 00:05:35,018
 We train on only four hundred sessions and compare polynomial degrees one to three.
 
 60
-00:05:00,713 --> 00:05:02,546
+00:05:35,018 --> 00:05:37,069
 Degree one, ten columns:
 
 61
-00:05:02,546 --> 00:05:07,129
+00:05:37,069 --> 00:05:42,199
 train point eight eight three, test point eight seven eight.
 
 62
-00:05:07,129 --> 00:05:07,969
+00:05:42,199 --> 00:05:43,139
 Degree two:
 
 63
-00:05:07,969 --> 00:05:12,094
+00:05:43,139 --> 00:05:47,755
 train point nine two seven, test point eight oh three.
 
 64
-00:05:12,094 --> 00:05:15,607
+00:05:47,755 --> 00:05:51,688
 Degree three, two hundred eighty five columns:
 
 65
-00:05:15,607 --> 00:05:20,190
+00:05:51,688 --> 00:05:56,817
 train point nine nine six, test only point seven four three.
 
 66
-00:05:20,190 --> 00:05:22,176
+00:05:56,817 --> 00:05:59,040
 The model memorised noise.
 

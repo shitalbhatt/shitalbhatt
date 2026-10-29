@@ -1,300 +1,300 @@
 1
-00:00:00,000 --> 00:00:00,860
+00:00:00,000 --> 00:00:00,918
 Now the lab.
 
 2
-00:00:00,860 --> 00:00:02,293
+00:00:00,918 --> 00:00:02,449
 We use two datasets:
 
 3
-00:00:02,293 --> 00:00:18,488
+00:00:02,449 --> 00:00:19,744
 New York City Airbnb twenty nineteen, forty eight thousand eight hundred ninety five listings, and California Housing, twenty thousand six hundred forty districts, where a value limit shows up at five hundred thousand and one.
 
 4
-00:00:18,488 --> 00:00:25,080
+00:00:19,744 --> 00:00:26,784
 We analyse six Airbnb columns, and each step runs on all six with one pandas line, no loops.
 
 5
-00:00:25,880 --> 00:00:27,103
+00:00:27,584 --> 00:00:28,931
 Steps one and two:
 
 6
-00:00:27,103 --> 00:00:29,141
+00:00:28,931 --> 00:00:31,175
 load the data and find causes.
 
 7
-00:00:29,141 --> 00:00:41,436
+00:00:31,175 --> 00:00:44,715
 Eleven listings have a price of zero, three have exactly ten thousand, two hundred thirty nine are above a thousand dollars, and fourteen have minimum nights above three sixty five.
 
 8
-00:00:41,436 --> 00:00:49,112
+00:00:44,715 --> 00:00:53,168
 A ten thousand dollar private room in Queens is surely a typing mistake, while a Manhattan penthouse may be real.
 
 9
-00:00:49,912 --> 00:00:50,618
+00:00:53,968 --> 00:00:54,767
 Step five:
 
 10
-00:00:50,618 --> 00:00:53,161
+00:00:54,767 --> 00:00:57,644
 Z-score on all features in one line.
 
 11
-00:00:53,161 --> 00:01:00,719
+00:00:57,644 --> 00:01:06,193
 Subtract the mean, divide by the standard deviation, take the absolute value, and count values above three.
 
 12
-00:01:00,719 --> 00:01:10,326
+00:01:06,193 --> 00:01:17,061
 Price has three hundred eighty eight, minimum nights three hundred twenty seven, number of reviews twelve hundred twenty one, and so on.
 
 13
-00:01:10,326 --> 00:01:14,210
+00:01:17,061 --> 00:01:21,455
 The Z cut-off for price is eight seventy three dollars.
 
 14
-00:01:14,210 --> 00:01:19,720
+00:01:21,455 --> 00:01:27,688
 Z-score finds thirty two hundred outliers in total, most in number of reviews.
 
 15
-00:01:20,520 --> 00:01:21,175
+00:01:28,488 --> 00:01:29,211
 Step six:
 
 16
-00:01:21,175 --> 00:01:22,776
+00:01:29,211 --> 00:01:30,978
 I Q R on all features.
 
 17
-00:01:22,776 --> 00:01:29,544
+00:01:30,978 --> 00:01:38,447
 Compute Q one, Q three, the I Q R, and the lower and upper fences, then count values outside.
 
 18
-00:01:29,544 --> 00:01:40,387
+00:01:38,447 --> 00:01:50,414
 Price has two thousand nine hundred seventy two outliers, minimum nights six thousand six hundred seven, and host listings seven thousand eighty one.
 
 19
-00:01:40,387 --> 00:01:49,920
+00:01:50,414 --> 00:02:00,936
 In total, I Q R finds over twenty four thousand outliers, and thirty eight percent of homes have an outlier in at least one column.
 
 20
-00:01:50,720 --> 00:01:51,506
+00:02:01,736 --> 00:02:02,584
 Step seven:
 
 21
-00:01:51,506 --> 00:01:58,434
+00:02:02,584 --> 00:02:10,060
 Isolation Forest on all six features, with contamination of two percent and a fixed random state.
 
 22
-00:01:58,434 --> 00:02:02,362
+00:02:10,060 --> 00:02:14,298
 It flags nine hundred seventy eight homes, two percent.
 
 23
-00:02:02,362 --> 00:02:11,504
+00:02:14,298 --> 00:02:24,163
 Compared with all listings, these have a much higher minimum stay, a median of twenty nine nights, and are open nearly all year.
 
 24
-00:02:11,504 --> 00:02:17,432
+00:02:24,163 --> 00:02:30,560
 The strangest homes are company-run flats for long stays, like the Sonder listings.
 
 25
-00:02:18,232 --> 00:02:21,426
+00:02:31,360 --> 00:02:34,984
 L O F finds a price that is odd for its area.
 
 26
-00:02:21,426 --> 00:02:27,813
+00:02:34,984 --> 00:02:42,231
 We use latitude, longitude and log price, scale them, and run L O F with fifty neighbours.
 
 27
-00:02:27,813 --> 00:02:35,975
+00:02:42,231 --> 00:02:51,491
 It finds four hundred eighty nine outliers, and three hundred sixty four of them are not flagged by I Q R on price.
 
 28
-00:02:35,975 --> 00:02:43,427
+00:02:51,491 --> 00:02:59,946
 Two hundred twenty eight are cheaper than the median, like a twenty dollar private room in Staten Island.
 
 29
-00:02:43,427 --> 00:02:46,408
+00:02:59,946 --> 00:03:03,328
 I Q R can never catch the very cheap ones.
 
 30
-00:02:47,208 --> 00:02:48,100
+00:03:04,128 --> 00:03:05,156
 D B S C A N:
 
 31
-00:02:48,100 --> 00:02:57,092
+00:03:05,156 --> 00:03:15,524
 log the data, scale it, then cluster with eps zero point eight and minimum samples twenty; noise points are the outliers.
 
 32
-00:02:57,092 --> 00:02:59,619
+00:03:15,524 --> 00:03:18,437
 It finds one thousand eighty nine.
 
 33
-00:02:59,619 --> 00:03:11,882
+00:03:18,437 --> 00:03:32,574
 Compared across detectors, Isolation Forest and D B S C A N mostly find the same rows as I Q R, while L O F finds about two hundred fifty new ones that I Q R misses.
 
 34
-00:03:11,882 --> 00:03:17,976
+00:03:32,574 --> 00:03:39,600
 Models agree with rules on big values, and help most with odd-for-its-group cases.
 
 35
-00:03:18,776 --> 00:03:19,469
+00:03:40,400 --> 00:03:41,174
 Step nine:
 
 36
-00:03:19,469 --> 00:03:21,409
+00:03:41,174 --> 00:03:43,341
 fix outliers, one line each.
 
 37
-00:03:21,409 --> 00:03:38,174
+00:03:43,341 --> 00:04:02,072
 Removal drops price outliers; capping uses clip with the fences; winsorising clips at the first and ninety ninth percentiles; median imputation masks outliers with the median; group median uses each room type's median; and log uses log one p.
 
 38
-00:03:38,174 --> 00:03:46,417
+00:04:02,072 --> 00:04:11,283
 The maximum price falls from ten thousand to three thirty four with capping, and to seven ninety nine with winsorising.
 
 39
-00:03:46,417 --> 00:03:54,800
+00:04:11,283 --> 00:04:20,648
 Removal loses rows, and removing on all six columns would lose thirty eight percent of the data, so remove on price only.
 
 40
-00:03:55,600 --> 00:03:58,668
+00:04:21,448 --> 00:04:24,863
 Replacing outliers using machine learning:
 
 41
-00:03:58,668 --> 00:04:09,333
+00:04:24,863 --> 00:04:36,736
 set the outlier prices to missing, then use K N N imputer or a linear regression on location, minimum nights, availability, reviews and room type.
 
 42
-00:04:09,333 --> 00:04:15,542
+00:04:36,736 --> 00:04:43,648
 The median gives every home one oh six; K N N and regression give each its own value.
 
 43
-00:04:15,542 --> 00:04:20,729
+00:04:43,648 --> 00:04:49,422
 K N N fills have a mean of one eighty eight, regression one sixty four.
 
 44
-00:04:20,729 --> 00:04:25,696
+00:04:49,422 --> 00:04:54,952
 Check for silly values, like a regression fill of forty seven cents.
 
 45
-00:04:26,496 --> 00:04:27,159
+00:04:55,752 --> 00:04:56,481
 Step ten:
 
 46
-00:04:27,159 --> 00:04:29,738
+00:04:56,481 --> 00:04:59,318
 the price numbers before and after.
 
 47
-00:04:29,738 --> 00:04:38,654
+00:04:59,318 --> 00:05:09,125
 The median stays about the same, but the mean, standard deviation and skew drop a lot, so the outliers were causing them.
 
 48
-00:04:38,654 --> 00:04:46,170
+00:05:09,125 --> 00:05:17,392
 Skew falls from nineteen to about one, and the standard deviation from two forty to under eighty five.
 
 49
-00:04:46,170 --> 00:04:49,560
+00:05:17,392 --> 00:05:21,120
 Log one p brings skew to zero point five five.
 
 50
-00:04:50,360 --> 00:04:52,945
+00:05:21,920 --> 00:05:24,906
 Skew of every column before and after.
 
 51
-00:04:52,945 --> 00:04:57,638
+00:05:24,906 --> 00:05:30,327
 I Q R capping brings every long-tailed column to a skew of about one.
 
 52
-00:04:57,638 --> 00:05:06,752
+00:05:30,327 --> 00:05:40,856
 Winsorising leaves host listings skew at seven, because one company with three hundred twenty seven homes is still far above the rest.
 
 53
-00:05:07,552 --> 00:05:08,624
+00:05:41,656 --> 00:05:42,875
 And the charts:
 
 54
-00:05:08,624 --> 00:05:14,127
+00:05:42,875 --> 00:05:49,134
 box plots of each version on a log axis, and histograms of raw versus capped.
 
 55
-00:05:14,127 --> 00:05:20,488
+00:05:49,134 --> 00:05:56,368
 After capping, the long tails are gone and we can finally see the shape of normal prices.
 
 56
-00:05:21,288 --> 00:05:22,190
+00:05:57,168 --> 00:05:58,170
 Step eleven:
 
 57
-00:05:22,190 --> 00:05:24,596
+00:05:58,170 --> 00:06:00,843
 model accuracy before and after.
 
 58
-00:05:24,596 --> 00:05:29,483
+00:06:00,843 --> 00:06:06,272
 Same linear model, same data split, only the outlier fix changes.
 
 59
-00:05:29,483 --> 00:05:40,008
+00:06:06,272 --> 00:06:17,964
 R squared is zero point one two on raw price, zero point four four with I Q R capping, and up to zero point four nine with K N N imputation.
 
 60
-00:05:40,008 --> 00:05:45,646
+00:06:17,964 --> 00:06:24,228
 The mean absolute error falls from seventy one dollars to about thirty six.
 
 61
-00:05:45,646 --> 00:05:51,360
+00:06:24,228 --> 00:06:30,576
 Fixing outliers made the model about four times better and halved the error.
 
 62
-00:05:52,160 --> 00:05:53,250
+00:06:31,376 --> 00:06:32,592
 Key takeaways.
 
 63
-00:05:53,250 --> 00:05:58,076
+00:06:32,592 --> 00:06:37,979
 An outlier is far from the rest, unusual but not always wrong.
 
 64
-00:05:58,076 --> 00:05:58,621
+00:06:37,979 --> 00:06:38,588
 Causes:
 
 65
-00:05:58,621 --> 00:06:03,136
+00:06:38,588 --> 00:06:43,627
 mistakes, rare real values, limits, and a different group.
 
 66
-00:06:03,136 --> 00:06:03,603
+00:06:43,627 --> 00:06:44,148
 Types:
 
 67
-00:06:03,603 --> 00:06:07,106
+00:06:44,148 --> 00:06:48,058
 global, contextual, collective, multivariate.
 
 68
-00:06:07,106 --> 00:06:13,644
+00:06:48,058 --> 00:06:55,357
 Z-score works on bell-shaped data but misses outliers in long tails; I Q R is safer.
 
 69
-00:06:13,644 --> 00:06:20,806
+00:06:55,357 --> 00:07:03,351
 Ignoring outliers gives a wrong mean and standard deviation, even a flipped regression line.
 
 70
-00:06:20,806 --> 00:06:21,818
+00:07:03,351 --> 00:07:04,480
 Fix by cause:
 
 71
-00:06:21,818 --> 00:06:28,356
+00:07:04,480 --> 00:07:11,779
 mistakes get fixed or removed, real values get capped or logged, limits get flagged.
 
 72
-00:06:28,356 --> 00:06:30,847
+00:07:11,779 --> 00:07:14,559
 Always compare before and after:
 
 73
-00:06:30,847 --> 00:06:36,685
+00:07:14,559 --> 00:07:21,076
 skew nineteen to one, R squared zero point one two to zero point four four.
 
 74
-00:06:36,685 --> 00:06:46,571
+00:07:21,076 --> 00:07:32,110
 ML models find cases simple rules miss, and K N N and regression give each outlier a smart new value, but check it makes sense.
 
 75
-00:06:46,571 --> 00:06:48,128
+00:07:32,110 --> 00:07:33,848
 Thanks for watching.
 

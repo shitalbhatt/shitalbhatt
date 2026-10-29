@@ -1,212 +1,212 @@
 1
-00:00:00,000 --> 00:00:00,839
+00:00:00,000 --> 00:00:00,920
 Now the lab.
 
 2
-00:00:00,839 --> 00:00:12,094
+00:00:00,920 --> 00:00:13,264
 We use New York City Airbnb, forty eight thousand eight hundred ninety five homes, the same file as the outlier lab, and remove the eleven homes with price zero.
 
 3
-00:00:12,094 --> 00:00:20,832
+00:00:13,264 --> 00:00:22,848
 The second example is Online Shoppers, twelve thousand three hundred thirty visits, where only fifteen point six percent buy.
 
 4
-00:00:21,632 --> 00:00:22,258
+00:00:23,648 --> 00:00:24,360
 Step one:
 
 5
-00:00:22,258 --> 00:00:28,032
+00:00:24,360 --> 00:00:30,923
 load the data, keep homes with price above zero, and count categories with nunique.
 
 6
-00:00:28,032 --> 00:00:34,154
+00:00:30,923 --> 00:00:37,881
 Room type has three, neighbourhood group five, and neighbourhood two hundred twenty one:
 
 7
-00:00:34,154 --> 00:00:36,032
+00:00:37,881 --> 00:00:40,016
 a few categories, and many.
 
 8
-00:00:36,832 --> 00:00:37,513
+00:00:40,816 --> 00:00:41,585
 Step two:
 
 9
-00:00:37,513 --> 00:00:40,238
+00:00:41,585 --> 00:00:44,662
 label encoding and ordinal encoding.
 
 10
-00:00:40,238 --> 00:00:44,931
+00:00:44,662 --> 00:00:49,962
 Casting to category and taking cat codes follows the alphabet:
 
 11
-00:00:44,931 --> 00:00:47,656
+00:00:49,962 --> 00:00:53,039
 Bronx zero up to Staten Island four.
 
 12
-00:00:47,656 --> 00:00:52,954
+00:00:53,039 --> 00:00:59,023
 For ordinal encoding, we write the order in a dictionary and call map:
 
 13
-00:00:52,954 --> 00:00:55,755
+00:00:59,023 --> 00:01:02,185
 shared zero, private one, entire two.
 
 14
-00:00:55,755 --> 00:01:01,508
+00:01:02,185 --> 00:01:08,681
 The median prices are forty five, seventy and one sixty, matching the order.
 
 15
-00:01:01,508 --> 00:01:06,352
+00:01:08,681 --> 00:01:14,152
 Cat codes follows the alphabet; map follows the order we choose.
 
 16
-00:01:07,152 --> 00:01:07,945
+00:01:14,952 --> 00:01:15,817
 Step three:
 
 17
-00:01:07,945 --> 00:01:10,396
+00:01:15,817 --> 00:01:18,492
 one-hot encoding with get dummies.
 
 18
-00:01:10,396 --> 00:01:14,290
+00:01:18,492 --> 00:01:22,739
 Every row sums to one across the five borough columns.
 
 19
-00:01:14,290 --> 00:01:24,816
+00:01:22,739 --> 00:01:34,224
 With drop first equal true, one column per variable is dropped, giving six dummy columns, and the dropped baselines are the Bronx and entire home.
 
 20
-00:01:25,616 --> 00:01:26,333
+00:01:35,024 --> 00:01:35,840
 Step four:
 
 21
-00:01:26,333 --> 00:01:27,481
+00:01:35,840 --> 00:01:37,146
 many categories.
 
 22
-00:01:27,481 --> 00:01:32,142
+00:01:37,146 --> 00:01:42,450
 Frequency encoding maps each neighbourhood to its share of homes.
 
 23
-00:01:32,142 --> 00:01:43,474
+00:01:42,450 --> 00:01:55,342
 For target encoding we use training rows only, compute the median price and count per area, and replace areas with fewer than ten homes by the overall median.
 
 24
-00:01:43,474 --> 00:01:52,869
+00:01:55,342 --> 00:02:06,032
 Williamsburg becomes one oh four, Tribeca three hundred, and Fort Wadsworth, with one home, gets the overall median of one oh five.
 
 25
-00:01:52,869 --> 00:01:56,096
+00:02:06,032 --> 00:02:09,704
 One column instead of two hundred twenty one.
 
 26
-00:01:56,896 --> 00:01:57,597
+00:02:10,504 --> 00:02:11,272
 Step five:
 
 27
-00:01:57,597 --> 00:01:58,930
+00:02:11,272 --> 00:02:12,732
 find the imbalance.
 
 28
-00:01:58,930 --> 00:02:06,364
+00:02:12,732 --> 00:02:20,874
 Entire homes are fifty two percent, private rooms forty five point seven, and shared rooms two point four.
 
 29
-00:02:06,364 --> 00:02:10,572
+00:02:20,874 --> 00:02:25,483
 The ratio of largest to smallest class is twenty two to one.
 
 30
-00:02:10,572 --> 00:02:20,320
+00:02:25,483 --> 00:02:36,160
 Class weights are the number of rows over the number of classes times the class count, so each shared room gets a weight of about fourteen.
 
 31
-00:02:21,120 --> 00:02:21,761
+00:02:36,960 --> 00:02:37,678
 Step six:
 
 32
-00:02:21,761 --> 00:02:25,254
+00:02:37,678 --> 00:02:41,590
 class weights help the model find the rare class.
 
 33
-00:02:25,254 --> 00:02:31,668
+00:02:41,590 --> 00:02:48,775
 We split with stratify, train a decision tree plain, and again with class weight balanced.
 
 34
-00:02:31,668 --> 00:02:37,939
+00:02:48,775 --> 00:02:55,800
 Shared rooms found, the recall, goes from nine point five percent to sixty five percent.
 
 35
-00:02:37,939 --> 00:02:44,496
+00:02:55,800 --> 00:03:03,144
 Accuracy drops from eighty two to seventy three percent, a fair price for not ignoring them.
 
 36
-00:02:45,296 --> 00:02:47,621
+00:03:03,944 --> 00:03:06,509
 The same code on Online Shoppers:
 
 37
-00:02:47,621 --> 00:02:55,019
+00:03:06,509 --> 00:03:14,670
 drop duplicates, then one-hot encode month and visitor type, going from eighteen to twenty seven columns.
 
 38
-00:02:55,019 --> 00:02:59,176
+00:03:14,670 --> 00:03:19,256
 Only fifteen point six percent of visits end in a purchase.
 
 39
-00:02:59,176 --> 00:03:06,503
+00:03:19,256 --> 00:03:27,340
 With no weights the model finds sixty four percent of buyers; with balanced weights, eighty six percent.
 
 40
-00:03:06,503 --> 00:03:08,194
+00:03:27,340 --> 00:03:29,205
 Same steps, same lesson:
 
 41
-00:03:08,194 --> 00:03:11,576
+00:03:29,205 --> 00:03:32,936
 class weights find many more of the rare buyers.
 
 42
-00:03:12,376 --> 00:03:13,649
+00:03:33,736 --> 00:03:35,162
 Key takeaways.
 
 43
-00:03:13,649 --> 00:03:18,106
+00:03:35,162 --> 00:03:40,152
 Models need numbers, so encode every word column.
 
 44
-00:03:18,106 --> 00:03:18,925
+00:03:40,152 --> 00:03:41,068
 No order:
 
 45
-00:03:18,925 --> 00:03:19,653
+00:03:41,068 --> 00:03:41,883
 one-hot.
 
 46
-00:03:19,653 --> 00:03:20,835
+00:03:41,883 --> 00:03:43,207
 Has an order:
 
 47
-00:03:20,835 --> 00:03:22,018
+00:03:43,207 --> 00:03:44,531
 your own map.
 
 48
-00:03:22,018 --> 00:03:27,657
+00:03:44,531 --> 00:03:50,845
 Keep k minus one dummies, and the dropped one is the baseline.
 
 49
-00:03:27,657 --> 00:03:29,113
+00:03:50,845 --> 00:03:52,475
 Many categories:
 
 50
-00:03:29,113 --> 00:03:31,750
+00:03:52,475 --> 00:03:55,428
 frequency or target encoding.
 
 51
-00:03:31,750 --> 00:03:33,661
+00:03:55,428 --> 00:03:57,567
 And for a rare class:
 
 52
-00:03:33,661 --> 00:03:37,845
+00:03:57,567 --> 00:04:02,251
 stratify, use class weights, and check recall.
 
 53
-00:03:37,845 --> 00:03:39,664
+00:04:02,251 --> 00:04:04,288
 Thanks for watching.
 

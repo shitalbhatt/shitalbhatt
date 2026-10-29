@@ -7,7 +7,7 @@ Uploads all the videos and Shorts from the zip files, schedules their publish da
 
 ## Before you run (one time)
 1. **Put the zip files in your Google Drive** in a folder called `DATA209_zips` (or upload them to the Colab *Files* panel). You need these 6:
-   `DATA209_upload_part1_of_4.zip`, `part2_of_4`, `part3_of_4`, `part4_of_4`, `DATA209_update_A_new_videos_10.zip`, `DATA209_update_B_new_shorts_and_all_manifests.zip`.
+   `DATA209_final_part1_of_4.zip`, `DATA209_final_part2_of_4.zip`, `DATA209_final_part3_of_4.zip` and `DATA209_final_part4_of_4.zip`. (Delete any older `DATA209_upload_part...` or `DATA209_update_...` zips from that folder; the notebook ignores them, but they can confuse you.)
 2. In [Google Cloud console](https://console.cloud.google.com): create a project, enable **YouTube Data API v3**, add your own Google account as a **test user** on the OAuth consent screen, and create an **OAuth client ID** of type **TVs and Limited Input devices**. Keep the Client ID and Client secret private.
 
 ## How it behaves
@@ -40,11 +40,10 @@ UPLOAD_CAPTIONS = True
 # -----------------------------------------------------------------------------------
 
 os.makedirs(STATE_FOLDER, exist_ok=True); os.makedirs(WORK, exist_ok=True)
-parts, updates = [], []
+zips = []
 for folder in ZIP_FOLDERS:
-    parts += glob.glob(f'{folder}/DATA209_upload_part*.zip')
-    updates += glob.glob(f'{folder}/DATA209_update_*.zip')
-zips = sorted(set(parts)) + sorted(set(updates))   # part files first, then the updates that overwrite them
+    zips += glob.glob(f'{folder}/DATA209_final_part*_of_4.zip')
+zips = sorted(set(zips))
 print('zip files found:', [os.path.basename(z) for z in zips])
 for z in zips:
     marker = os.path.join(WORK, f'.done_{os.path.basename(z)}_{os.path.getsize(z)}')

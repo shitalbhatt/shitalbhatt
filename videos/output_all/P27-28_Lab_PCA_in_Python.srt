@@ -1,256 +1,256 @@
 1
-00:00:00,000 --> 00:00:03,575
+00:00:00,000 --> 00:00:04,135
 Welcome to practicals twenty seven and twenty eight:
 
 2
-00:00:03,575 --> 00:00:08,112
+00:00:04,135 --> 00:00:09,384
 P C A in Python, with the wine quality and breast cancer datasets.
 
 3
-00:00:08,912 --> 00:00:11,806
+00:00:10,184 --> 00:00:13,363
 Practical twenty seven implements P C A:
 
 4
-00:00:11,806 --> 00:00:17,449
+00:00:13,363 --> 00:00:19,561
 load and scale, check V I F, fit P C A, variance explained, and how many P Cs.
 
 5
-00:00:17,449 --> 00:00:20,994
+00:00:19,561 --> 00:00:23,455
 Practical twenty eight visualises and interprets:
 
 6
-00:00:20,994 --> 00:00:26,853
+00:00:23,455 --> 00:00:29,891
 loadings heat map, P C scatter, loading plot, and a worked breast cancer example.
 
 7
-00:00:26,853 --> 00:00:39,152
+00:00:29,891 --> 00:00:43,400
 We use wine quality, six thousand four hundred ninety seven rows, as the main example, and breast cancer, five sixty nine rows and thirty features, as the worked example.
 
 8
-00:00:39,952 --> 00:00:40,603
+00:00:44,200 --> 00:00:44,946
 Step one:
 
 9
-00:00:40,603 --> 00:00:47,260
+00:00:44,946 --> 00:00:52,570
 load the data, take the eleven lab measurements as features, and scale with Standard Scaler.
 
 10
-00:00:47,260 --> 00:00:49,792
+00:00:52,570 --> 00:00:55,470
 P C A follows the largest variance.
 
 11
-00:00:49,792 --> 00:00:57,173
+00:00:55,470 --> 00:01:03,923
 Total sulfur dioxide has a standard deviation of fifty six point five, density only point oh oh three.
 
 12
-00:00:57,173 --> 00:01:05,204
+00:01:03,923 --> 00:01:13,122
 Without scaling, P C one would explain ninety five percent only because sulfur dioxide has the biggest numbers.
 
 13
-00:01:05,204 --> 00:01:09,184
+00:01:13,122 --> 00:01:17,680
 After scaling every feature has standard deviation one.
 
 14
-00:01:09,984 --> 00:01:10,696
+00:01:18,480 --> 00:01:19,289
 Step two:
 
 15
-00:01:10,696 --> 00:01:13,467
+00:01:19,289 --> 00:01:22,434
 check multicollinearity with V I F.
 
 16
-00:01:13,467 --> 00:01:22,095
+00:01:22,434 --> 00:01:32,229
 It is the diagonal of the inverse correlation matrix, the same result as running eleven separate regressions.
 
 17
-00:01:22,095 --> 00:01:26,687
+00:01:32,229 --> 00:01:37,441
 Density has fifteen point nine one, above ten, so serious.
 
 18
-00:01:26,687 --> 00:01:29,853
+00:01:37,441 --> 00:01:41,036
 Residual sugar is seven point two three.
 
 19
-00:01:29,853 --> 00:01:34,523
+00:01:41,036 --> 00:01:46,338
 Drop density and the largest V I F is two point eight four.
 
 20
-00:01:34,523 --> 00:01:37,848
+00:01:46,338 --> 00:01:50,112
 P C A components always have V I F of one.
 
 21
-00:01:38,648 --> 00:01:39,455
+00:01:50,912 --> 00:01:51,813
 Step three:
 
 22
-00:01:39,455 --> 00:01:48,044
+00:01:51,813 --> 00:02:01,395
 fit P C A, keeping all eleven components, and call fit transform to learn the axes and give each wine its P C values.
 
 23
-00:01:48,044 --> 00:01:55,824
+00:02:01,395 --> 00:02:10,076
 The result is still six thousand four hundred ninety seven by eleven, because P C A only rotates the axes.
 
 24
-00:01:55,824 --> 00:02:01,256
+00:02:10,076 --> 00:02:16,136
 The correlation between P Cs is zero, so there is no repeated information.
 
 25
-00:02:02,056 --> 00:02:02,871
+00:02:16,936 --> 00:02:17,822
 Step four:
 
 26
-00:02:02,871 --> 00:02:04,418
+00:02:17,822 --> 00:02:19,505
 variance explained.
 
 27
-00:02:04,418 --> 00:02:12,320
+00:02:19,505 --> 00:02:28,096
 Eigenvalue is the variance carried by a P C; on scaled data the total is eleven, one per feature.
 
 28
-00:02:12,320 --> 00:02:18,592
+00:02:28,096 --> 00:02:34,916
 P C one has eigenvalue three point oh three, twenty seven point five percent.
 
 29
-00:02:18,592 --> 00:02:21,362
+00:02:34,916 --> 00:02:37,928
 P C two is twenty two point seven.
 
 30
-00:02:21,362 --> 00:02:27,064
+00:02:37,928 --> 00:02:44,128
 Together they hold fifty percent, and seven P Cs reach ninety percent.
 
 31
-00:02:27,864 --> 00:02:39,288
+00:02:44,928 --> 00:02:57,072
 Plot the scree plot, one bar per P C, which shows an elbow after P C three, and the cumulative plot, which crosses the ninety percent line at seven components.
 
 32
-00:02:40,088 --> 00:02:40,808
+00:02:57,872 --> 00:02:58,657
 Step five:
 
 33
-00:02:40,808 --> 00:02:42,824
+00:02:58,657 --> 00:03:00,856
 how many components to keep?
 
 34
-00:02:42,824 --> 00:02:45,200
+00:03:00,856 --> 00:03:03,448
 Eigenvalue above one gives three.
 
 35
-00:02:45,200 --> 00:02:55,136
+00:03:03,448 --> 00:03:14,285
 Passing a number below one, like zero point nine, to n components means keep enough P Cs for ninety percent of the variance, giving seven.
 
 36
-00:02:55,136 --> 00:03:04,424
+00:03:14,285 --> 00:03:24,416
 The elbow gives three for a quick look, Kaiser three for scaled data, and a ninety percent target seven to keep most information.
 
 37
-00:03:05,224 --> 00:03:06,016
+00:03:25,216 --> 00:03:26,117
 Step six:
 
 38
-00:03:06,016 --> 00:03:09,448
+00:03:26,117 --> 00:03:30,022
 loadings show what each P C is made of.
 
 39
-00:03:09,448 --> 00:03:11,560
+00:03:30,022 --> 00:03:32,425
 Draw them as a heat map.
 
 40
-00:03:11,560 --> 00:03:20,360
+00:03:32,425 --> 00:03:42,439
 P C one is white style, sulfur dioxide and sugar, against red style, volatile acidity and chlorides.
 
 41
-00:03:20,360 --> 00:03:24,760
+00:03:42,439 --> 00:03:47,445
 P C two is heavy, density, against light, alcohol.
 
 42
-00:03:24,760 --> 00:03:29,248
+00:03:47,445 --> 00:03:52,552
 P C three is acidity, citric and fixed, against pH.
 
 43
-00:03:30,048 --> 00:03:30,883
+00:03:53,352 --> 00:03:54,280
 Step seven:
 
 44
-00:03:30,883 --> 00:03:35,134
+00:03:54,280 --> 00:03:59,003
 plot each wine on P C one and P C two, coloured by type.
 
 45
-00:03:35,134 --> 00:03:43,257
+00:03:59,003 --> 00:04:08,027
 The average position of red wines is minus two point five one on P C one, white wines plus point eight two.
 
 46
-00:03:43,257 --> 00:03:51,456
+00:04:08,027 --> 00:04:17,136
 P C A never saw type, yet red and white separate along P C one, so the name red versus white style is right.
 
 47
-00:03:52,256 --> 00:03:53,082
+00:04:17,936 --> 00:04:18,888
 Step eight:
 
 48
-00:03:53,082 --> 00:03:56,538
+00:04:18,888 --> 00:04:22,867
 the loading plot shows how the features point.
 
 49
-00:03:56,538 --> 00:04:01,347
+00:04:22,867 --> 00:04:28,404
 One quiver call draws one arrow per feature, all in one command.
 
 50
-00:04:01,347 --> 00:04:06,906
+00:04:28,404 --> 00:04:34,806
 Same direction means features rise together, like the two sulfur dioxides.
 
 51
-00:04:06,906 --> 00:04:11,264
+00:04:34,806 --> 00:04:39,824
 Opposite means one up, one down, like density and alcohol.
 
 52
-00:04:12,064 --> 00:04:14,954
+00:04:40,624 --> 00:04:43,830
 The same code on the breast cancer data.
 
 53
-00:04:14,954 --> 00:04:19,938
+00:04:43,830 --> 00:04:49,362
 The largest V I F is mean radius at three thousand eight hundred six.
 
 54
-00:04:19,938 --> 00:04:25,140
+00:04:49,362 --> 00:04:55,133
 P C one and P C two explain forty four point three and nineteen percent.
 
 55
-00:04:25,140 --> 00:04:30,702
+00:04:55,133 --> 00:05:01,306
 Seven of thirty P Cs reach ninety percent, and six have eigenvalue above one.
 
 56
-00:04:30,702 --> 00:04:40,744
+00:05:01,306 --> 00:05:12,448
 Thirty features become two numbers that separate benign from malignant, with P C one meaning large, irregular shape, on the malignant side.
 
 57
-00:04:41,544 --> 00:04:43,271
+00:05:13,248 --> 00:05:15,161
 What the lab showed.
 
 58
-00:04:43,271 --> 00:04:45,690
+00:05:15,161 --> 00:05:17,838
 Scale, P C A, fit transform:
 
 59
-00:04:45,690 --> 00:04:47,417
+00:05:17,838 --> 00:05:19,751
 three lines of code.
 
 60
-00:04:47,417 --> 00:04:47,849
+00:05:19,751 --> 00:05:20,229
 Wine:
 
 61
-00:04:47,849 --> 00:04:55,277
+00:05:20,229 --> 00:05:28,453
 P C one plus P C two is fifty percent; three P Cs by Kaiser, seven for ninety percent.
 
 62
-00:04:55,277 --> 00:05:00,718
+00:05:28,453 --> 00:05:34,478
 Loadings name the P Cs, and the P C scatter confirms the names.
 
 63
-00:05:00,718 --> 00:05:07,801
+00:05:34,478 --> 00:05:42,319
 And on breast cancer, thirty features become two P Cs that separate the diagnoses.
 
 64
-00:05:07,801 --> 00:05:09,528
+00:05:42,319 --> 00:05:44,232
 Thanks for watching.
 

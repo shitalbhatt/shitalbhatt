@@ -1,6 +1,6 @@
 # Publishing calendar
 
-Start date is Monday 16 Nov 2026 (set START=YYYY-MM-DD and re-run make_marketing.py to change it). Times are 18:30 Indian Standard Time (change the hour in `make_marketing.py` for another time zone). 3 long videos per week (Mon, Wed, Fri) in syllabus order, each followed by its Short the next day at 12:00.
+Times are 18:30 Indian Standard Time (change the hour in `make_marketing.py` for another time zone). 3 long videos per week (Mon, Wed, Fri) in syllabus order, each followed by its Short the next day at 12:00.
 
 | Date | Video | Playlist | Short |
 |---|---|---|---|
