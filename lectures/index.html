@@ -94,6 +94,14 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   .umeta{grid-column:2}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.instructor{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 28px;padding:22px 24px;align-items:start}
+.instructor .who h2{margin:0 0 4px;font-size:30px}
+.instructor .role{margin:0;color:var(--muted);font:500 14px var(--f-mono)}
+.instructor dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 18px;font-size:15px}
+.instructor dt{font:500 12px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.instructor dd{margin:0}
+.instructor a{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.instructor{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -102,7 +110,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
 <header class="top">
   <a class="brand" href="#top">EEE Lecture Library</a>
   <nav aria-label="Sections">
-    <a href="#video">Revision video</a><a href="#beee">BEEE</a><a href="#cs">Control Systems</a><a href="#downloads">Downloads</a>
+    <a href="#instructor">Instructor</a><a href="#video">Revision video</a><a href="#beee">BEEE</a><a href="#cs">Control Systems</a><a href="#downloads">Downloads</a>
   </nav>
 </header>
 
@@ -113,6 +121,21 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
     <li><b>77</b>topic decks</li><li><b>39</b>BEEE (EEE103)</li><li><b>28</b>Control Systems theory</li><li><b>10</b>lab experiments</li><li><b>1</b>narrated revision video</li>
   </ul>
 </div>
+
+<section id="instructor">
+  <div class="panel instructor">
+    <div class="who">
+      <h2>Dr. Mitesh Astik</h2>
+      <p class="role">Assistant Professor (G-III)</p>
+    </div>
+    <dl>
+      <dt>Department</dt><dd>EEE Department</dd>
+      <dt>Employee ID</dt><dd>NMIT9269</dd>
+      <dt>Institute</dt><dd>Nitte Meenakshi Institute of Technology,<br>Nitte University Bengaluru Campus,<br>Yelahanka, Bengaluru, Karnataka-560064</dd>
+      <dt>Phone</dt><dd><a href="tel:+919377673198">9377673198</a></dd>
+    </dl>
+  </div>
+</section>
 
 <section id="video">
   <h2>Revision video <small>26 min · all five BEEE units</small></h2>
@@ -153,7 +176,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   <div class="note" id="note" role="status"></div>
 </section>
 
-<footer>Dr. Mitesh Astik · Department of Electrical and Electronics Engineering · NMAM Institute of Technology, Nitte · 2025-26</footer>
+<footer>Dr. Mitesh Astik · Assistant Professor (G-III), EEE Department · Nitte Meenakshi Institute of Technology, Nitte University Bengaluru Campus, Yelahanka, Bengaluru 560064 · 9377673198</footer>
 </div>
 
 <script>
