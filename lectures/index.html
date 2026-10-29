@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EEE Lecture Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a quiet engineering-notebook index. Graph-paper ground, two subject colours (amber = BEEE, teal = Control Systems),
+   one row pattern repeated for every topic. */
+:root{
+  --bg:#f6f8fb; --surface:#ffffff; --ink:#10263b; --muted:#4f6275; --line:#d3dce6; --grid:#e6ecf3;
+  --beee:#b45f06; --beee-soft:#fbeedd; --cs:#0b6f7a; --cs-soft:#dff1f2; --focus:#1d5fd1;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c1722; --surface:#13222f; --ink:#e7eef5; --muted:#9db0c2; --line:#25384a; --grid:#112030;
+  --beee:#f0a64a; --beee-soft:#3a2a14; --cs:#52c2cd; --cs-soft:#0f3a40; --focus:#7db0ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1722; --surface:#13222f; --ink:#e7eef5; --muted:#9db0c2; --line:#25384a; --grid:#112030;
+  --beee:#f0a64a; --beee-soft:#3a2a14; --cs:#52c2cd; --cs-soft:#0f3a40; --focus:#7db0ff; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;justify-content:space-between;padding-block:22px 10px}
+.brand{font:700 20px/1 var(--f-display);letter-spacing:.02em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:6px 20px;font:500 14px var(--f-mono)}
+nav a{text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink);border-color:var(--ink)}
+.hero{padding-block:34px 18px}
+.hero h1{font:700 clamp(34px,6vw,60px)/1.02 var(--f-display);margin:0 0 14px;max-width:16ch;text-wrap:balance}
+.hero p{max-width:60ch;margin:0;color:var(--muted);font-size:18px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin:22px 0 0;padding:0;list-style:none;font:500 14px var(--f-mono)}
+.facts b{font:700 22px var(--f-display);margin-right:6px;color:var(--ink)}
+.facts li{color:var(--muted)}
+section{padding-block:30px 6px}
+h2{font:700 28px/1.1 var(--f-display);margin:0 0 6px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+h2 small{font:500 13px var(--f-mono);color:var(--muted);letter-spacing:.02em}
+.sub{color:var(--muted);margin:0 0 16px;max-width:64ch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.video{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;overflow:hidden}
+.video video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.video .side{padding:20px;display:flex;flex-direction:column;gap:12px}
+.video h3{margin:0;font:600 20px/1.2 var(--f-display)}
+.video p{margin:0;color:var(--muted);font-size:15px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.btn{appearance:none;font:500 13px var(--f-mono);background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:8px 12px;cursor:pointer;text-decoration:none;display:inline-block;line-height:1.2}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn[disabled]{opacity:.55;cursor:progress}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 6px}
+.tools input{flex:1 1 260px;min-width:0;font:400 15px var(--f-body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.tools .count{font:500 13px var(--f-mono);color:var(--muted)}
+.subject{--c:var(--beee);--soft:var(--beee-soft);margin-top:12px}
+.subject.cs{--c:var(--cs);--soft:var(--cs-soft)}
+.subject>header{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;border-bottom:3px solid var(--c);padding-bottom:8px;margin-bottom:6px}
+.subject>header h2{margin:0;color:var(--ink)}
+.subject>header .code{font:500 13px var(--f-mono);color:var(--c)}
+details.unit{border-bottom:1px solid var(--line)}
+details.unit summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 14px;align-items:baseline;padding:14px 4px}
+details.unit summary::-webkit-details-marker{display:none}
+.tag{font:600 13px var(--f-mono);color:var(--c);background:var(--soft);border-radius:4px;padding:3px 8px;white-space:nowrap}
+.utitle{font:600 18px/1.25 var(--f-display)}
+.umeta{font:400 13px var(--f-mono);color:var(--muted);white-space:nowrap}
+details.unit summary::after{content:"+";font:500 20px var(--f-mono);color:var(--c);grid-column:3;grid-row:1;justify-self:end;display:none}
+.topics{list-style:none;margin:0;padding:0 0 10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:10px 12px;border-radius:8px}
+.row:hover{background:var(--surface)}
+.row .t{font-weight:500}
+.row .t span{display:block;font:400 12px var(--f-mono);color:var(--muted)}
+.row .acts{display:flex;gap:8px;flex-wrap:wrap}
+.row[hidden]{display:none}
+.lab .tag{background:transparent;border:1px solid var(--c)}
+.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.dl .item{padding:16px;display:flex;flex-direction:column;gap:6px}
+.dl h3{margin:0;font:600 17px var(--f-display)}
+.dl p{margin:0;color:var(--muted);font-size:14px}
+.dl .btns{margin-top:8px}
+.note{font:400 13px var(--f-mono);color:var(--muted);margin-top:10px;min-height:1.4em}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font:400 13px var(--f-mono)}
+@media (max-width:760px){
+  .video{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  details.unit summary{grid-template-columns:auto minmax(0,1fr)}
+  .umeta{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="top">
+<header class="top">
+  <a class="brand" href="#top">EEE Lecture Library</a>
+  <nav aria-label="Sections">
+    <a href="#video">Revision video</a><a href="#beee">BEEE</a><a href="#cs">Control Systems</a><a href="#downloads">Downloads</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Lecture decks, topic by topic</h1>
+  <p>Slides for Basic Electrical and Electronics Engineering and Control Systems, one deck for every topic in the course plans. Preview any deck as a PDF or download the editable PowerPoint.</p>
+  <ul class="facts" aria-label="Contents">
+    <li><b>77</b>topic decks</li><li><b>39</b>BEEE (EEE103)</li><li><b>28</b>Control Systems theory</li><li><b>10</b>lab experiments</li><li><b>1</b>narrated revision video</li>
+  </ul>
+</div>
+
+<section id="video">
+  <h2>Revision video <small>26 min · all five BEEE units</small></h2>
+  <p class="sub">A narrated walk through Units 1 to 5 of the BEEE notes, built from the 44-slide revision deck.</p>
+  <div class="panel video">
+    <video controls preload="metadata" src="video/BEEE_revision_video.mp4" aria-label="BEEE revision video"></video>
+    <div class="side">
+      <h3>Basic Electrical and Electronics Engineering, Units 1 to 5</h3>
+      <p>Circuits and AC, transformers and machines, diodes and rectifiers, BJT and MOSFET, operational amplifiers. Instructor: Dr. Mitesh Astik.</p>
+      <div class="btns">
+        <a class="btn primary" href="video/BEEE_revision_video.mp4" download>Download video</a>
+        <a class="btn" href="../BEEE_Units_1-5/BEEE_Units_1-5.pptx" download>Revision deck</a>
+        <a class="btn" href="../BEEE_Units_1-5/narration_script.json" download>Narration script</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tools" role="search">
+  <input id="q" type="search" placeholder="Search topics, for example transformer, Bode, MOSFET" aria-label="Search topics" autocomplete="off">
+  <span class="count" id="count" aria-live="polite"></span>
+</div>
+
+<section id="beee" class="subject"></section>
+<section id="cs" class="subject cs"></section>
+
+<section id="downloads">
+  <h2>Downloads <small>everything in one place</small></h2>
+  <p class="sub">Decks are 16:9 PowerPoint files with speaker notes. Each opens in PowerPoint, Keynote or Google Slides. </p>
+  <div class="dl">
+    <div class="panel item"><h3>All 77 decks (zip)</h3><p>Folders by subject and unit, plus an index of every topic.</p>
+      <div class="btns"><a class="btn primary" href="../Lecture_Decks.zip" download>Download zip · 6.8 MB</a></div></div>
+    <div class="panel item"><h3>BEEE revision deck</h3><p>The 44-slide deck behind the revision video, with narration in the notes.</p>
+      <div class="btns"><a class="btn" href="../BEEE_Units_1-5/BEEE_Units_1-5.pptx" download>Download pptx</a></div></div>
+    <div class="panel item"><h3>Revision video</h3><p>480p MP4, 26 minutes, about 11 MB.</p>
+      <div class="btns"><a class="btn" href="video/BEEE_revision_video.mp4" download>Download mp4</a></div></div>
+  </div>
+  <div class="note" id="note" role="status"></div>
+</section>
+
+<footer>Dr. Mitesh Astik · Department of Electrical and Electronics Engineering · NMAM Institute of Technology, Nitte · 2025-26</footer>
+</div>
+
+<script>
+const DATA = [{"id":"U1_01_Mesh_and_Nodal_Analysis","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Mesh and Nodal Analysis","n":12},{"id":"U1_02_Power_and_Energy","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Power and Energy","n":10},{"id":"U1_03_Generation_of_Sinusoidal_Voltage","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Generation of Sinusoidal Voltage","n":10},{"id":"U1_04_Average_RMS_Form_and_Peak_Factor","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Average, RMS, Form and Peak Factor","n":10},{"id":"U1_05_Phasor_Representation","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Phasor Representation of Alternating Quantities","n":9},{"id":"U1_06_Pure_R_L_and_C_Circuits","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Analysis of Pure R, L and C Circuits","n":11},{"id":"U1_07_RL_and_RC_Series_Circuits","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Analysis of RL and RC Series Circuits","n":10},{"id":"U1_08_RLC_Series_Circuit","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Analysis of the RLC Series Circuit","n":9},{"id":"U1_09_Real_Reactive_Apparent_Power_and_Power_Factor","subj":"BEEE","unit":"Unit 1","unitTitle":"Circuit Fundamentals","hours":"9 hours","topic":"Real, Reactive, Apparent Power and Power Factor","n":10},{"id":"U2_01_Necessity_and_Principle_of_Transformer","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Necessity and Principle of Operation of a Transformer","n":9},{"id":"U2_02_Types_and_Construction_of_Single_Phase_Transformer","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Types and Construction of Single-Phase Transformers","n":9},{"id":"U2_03_EMF_Equation_of_Transformer","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"EMF Equation of a Transformer","n":10},{"id":"U2_04_Losses_and_Efficiency_of_Transformer","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Losses and Efficiency of a Transformer","n":10},{"id":"U2_05_DC_Motor_Principle_and_Back_EMF","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"DC Motor: Principle of Operation and Back EMF","n":10},{"id":"U2_06_Torque_Equation_and_Characteristics_of_DC_Shunt_Motor","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Torque Equation and Characteristics of the DC Shunt Motor","n":11},{"id":"U2_07_Speed_Control_of_DC_Shunt_Motor","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Speed Control of a DC Shunt Motor (Armature and Field)","n":10},{"id":"U2_08_Rotating_Magnetic_Field","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Concept of Rotating Magnetic Field","n":9},{"id":"U2_09_Three_Phase_Induction_Motor","subj":"BEEE","unit":"Unit 2","unitTitle":"Transformers and Electrical Machines","hours":"9 hours","topic":"Three-Phase Induction Motor: Principle, Construction and Types","n":11},{"id":"U3_01_Semiconductor_Diode_and_PN_Junction","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Semiconductor Diode and the PN Junction","n":9},{"id":"U3_02_Diode_VI_Characteristics_and_Equivalent_Circuits","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Diode V-I Characteristics and Equivalent Circuits","n":10},{"id":"U3_03_Half_Wave_Rectifier","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Half-Wave Rectifier","n":10},{"id":"U3_04_Full_Wave_Bridge_Rectifier","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Full-Wave Bridge Rectifier","n":10},{"id":"U3_05_Zener_Diode","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Zener Diode: Construction and Characteristics","n":9},{"id":"U3_06_Zener_Voltage_Regulator","subj":"BEEE","unit":"Unit 3","unitTitle":"Diodes, Transistors and their Applications","hours":"9 hours","topic":"Zener Diode as a Voltage Regulator","n":10},{"id":"U4_01_BJT_Construction_and_Operation","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"BJT: Construction and Operation","n":10},{"id":"U4_02_BJT_as_a_Switch","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"BJT as a Switch","n":10},{"id":"U4_03_N_Channel_Enhancement_MOSFET","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"n-Channel Enhancement MOSFET: Working and Characteristics","n":10},{"id":"U4_04_Common_Source_Amplifier","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"Common Source Amplifier","n":9},{"id":"U4_05_DC_Load_Line_Analysis","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"DC Load Line Analysis and Q-Point","n":9},{"id":"U4_06_MOS_Inverter","subj":"BEEE","unit":"Unit 4","unitTitle":"Transistors","hours":"9 hours","topic":"MOS Inverter and CMOS","n":9},{"id":"U5_01_Operational_Amplifier_Introduction","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Operational Amplifier: Introduction and the Ideal Op-Amp","n":9},{"id":"U5_02_Op_Amp_Specifications","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Op-Amp Specifications","n":9},{"id":"U5_03_Differential_and_Common_Mode_Operation","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Differential and Common-Mode Operation","n":9},{"id":"U5_04_Inverting_and_Non_Inverting_Amplifiers","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Inverting and Non-Inverting Amplifiers","n":10},{"id":"U5_05_Summing_Amplifier","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Summing Amplifier","n":9},{"id":"U5_06_Integrator_and_Differentiator","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Integrator and Differentiator","n":10},{"id":"U5_07_Op_Amp_Comparator","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"Op-Amp as a Comparator","n":9},{"id":"U5_08_555_Timer_Astable_Multivibrator","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"555 Timer IC in Astable Mode","n":10},{"id":"U5_09_78XX_Series_Voltage_Regulators","subj":"BEEE","unit":"Unit 5","unitTitle":"Op-Amp and Linear IC Applications","hours":"9 hours","topic":"78XX Series IC Voltage Regulators","n":10},{"id":"CS_LAB_01_Second_Order_System_Step_Response","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 1: Step Response of a Second-Order System","n":10},{"id":"CS_LAB_02_Effect_of_Poles_and_Zeros_on_Stability","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 2: Effect of Addition of Poles and Zeros on Stability","n":10},{"id":"CS_LAB_03_Second_Order_Time_Domain_Specifications","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 3: Time Domain Specifications of a Second-Order System","n":10},{"id":"CS_LAB_04_Synchro_Transmitter_and_Receiver_Pair","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 4: Characteristics of Synchro Transmitter and Receiver Pair","n":10},{"id":"CS_LAB_05_Root_Locus_Using_MATLAB","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 5: Root Locus, Breakaway and Imaginary-Axis Crossover","n":10},{"id":"CS_LAB_06_Bode_Plot_Using_MATLAB","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 6: Frequency Domain Analysis Using Bode Plot","n":10},{"id":"CS_LAB_07_PID_Controller_Design_and_Tuning","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 7: Design of a PID Controller Using Tuning Methods","n":10},{"id":"CS_LAB_08_DC_Position_Control_System","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 8: DC Position Control System Using MATLAB/Simulink","n":10},{"id":"CS_LAB_09_RC_Lag_Compensator","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 9: Design and Implementation of an RC Lag Compensator","n":10},{"id":"CS_LAB_10_RC_Lead_Compensator","subj":"CS","unit":"Laboratory","unitTitle":"Control Systems Laboratory (22EEG53)","hours":"26 hours","topic":"Experiment 10: Design and Implementation of an RC Lead Compensator","n":10},{"id":"CS_U1_01_Open_Loop_and_Closed_Loop_Systems","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Open-Loop and Closed-Loop Control Systems","n":11},{"id":"CS_U1_02_Control_System_Components","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Control System Components","n":9},{"id":"CS_U1_03_Transfer_Function_and_Mechanical_Translational_Systems","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Transfer Function and Mechanical Translational Systems","n":11},{"id":"CS_U1_04_Mechanical_Rotational_Systems","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Mechanical Rotational Systems and Gear Trains","n":10},{"id":"CS_U1_05_Electrical_Systems_and_Analogous_Systems","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Electrical Systems and Analogous Systems","n":10},{"id":"CS_U1_06_Block_Diagram_Reduction","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Block Diagram Algebra and Reduction Techniques","n":12},{"id":"CS_U1_07_Signal_Flow_Graphs_and_Masons_Gain_Formula","subj":"CS","unit":"Unit 1","unitTitle":"Introduction and Mathematical Modelling of Physical Systems","hours":"8 hours","topic":"Signal Flow Graphs and Mason's Gain Formula","n":10},{"id":"CS_U2_01_Standard_Test_Signals","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Standard Test Signals","n":9},{"id":"CS_U2_02_Zero_and_First_Order_Systems","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Time Response of Zero and First Order Systems","n":11},{"id":"CS_U2_03_Second_Order_System_Response","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Time Response of Second-Order Systems","n":11},{"id":"CS_U2_04_Time_Domain_Specifications","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Time Domain Specifications","n":10},{"id":"CS_U2_05_Type_of_Systems_and_Static_Error_Constants","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Type of Systems and Static Error Constants","n":10},{"id":"CS_U2_06_Steady_State_Error_and_Generalized_Error_Series","subj":"CS","unit":"Unit 2","unitTitle":"Time Domain Analysis of Control Systems","hours":"8 hours","topic":"Steady-State Error and Generalized Error Series","n":10},{"id":"CS_U3_01_Frequency_Response_and_Specifications","subj":"CS","unit":"Unit 3","unitTitle":"Frequency Domain Analysis","hours":"7 hours","topic":"Frequency Response and Frequency Domain Specifications","n":10},{"id":"CS_U3_02_Correlation_Between_Time_and_Frequency_Response","subj":"CS","unit":"Unit 3","unitTitle":"Frequency Domain Analysis","hours":"7 hours","topic":"Correlation Between Time and Frequency Responses","n":9},{"id":"CS_U3_03_Bode_Plot_Construction","subj":"CS","unit":"Unit 3","unitTitle":"Frequency Domain Analysis","hours":"7 hours","topic":"Bode Plot: Construction","n":11},{"id":"CS_U3_04_Gain_Margin_and_Phase_Margin","subj":"CS","unit":"Unit 3","unitTitle":"Frequency Domain Analysis","hours":"7 hours","topic":"Gain Margin and Phase Margin","n":9},{"id":"CS_U4_01_Stability_Characteristic_Equation_and_Root_Location","subj":"CS","unit":"Unit 4","unitTitle":"Stability of Systems","hours":"8 hours","topic":"Stability, Characteristic Equation and Root Location","n":10},{"id":"CS_U4_02_Routh_Hurwitz_Criterion","subj":"CS","unit":"Unit 4","unitTitle":"Stability of Systems","hours":"8 hours","topic":"Routh–Hurwitz Stability Criterion","n":10},{"id":"CS_U4_03_Root_Locus_Concept","subj":"CS","unit":"Unit 4","unitTitle":"Stability of Systems","hours":"8 hours","topic":"Root Locus: Concept and Conditions","n":9},{"id":"CS_U4_04_Rules_for_Construction_of_Root_Locus","subj":"CS","unit":"Unit 4","unitTitle":"Stability of Systems","hours":"8 hours","topic":"Rules for Construction of the Root Locus","n":10},{"id":"CS_U5_01_Introduction_to_Compensators","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"Introduction to Compensators","n":9},{"id":"CS_U5_02_Lag_Compensator","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"Lag Compensator","n":9},{"id":"CS_U5_03_Lead_Compensator","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"Lead Compensator","n":10},{"id":"CS_U5_04_Lag_Lead_Compensator","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"Lag–Lead Compensator","n":9},{"id":"CS_U5_05_P_PI_and_PID_Controllers","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"P, PI and PID Controllers","n":10},{"id":"CS_U5_06_State_Variable_Analysis_Introduction","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"Introduction to State-Variable Analysis","n":9},{"id":"CS_U5_07_State_Space_Model_by_Physical_Variable_Approach","subj":"CS","unit":"Unit 5","unitTitle":"Compensators, Controllers and State-Space Analysis","hours":"8 hours","topic":"State-Space Model Using the Physical Variable Approach (SISO)","n":10}];
+const META = {
+  BEEE:{el:'beee',title:'Basic Electrical and Electronics Engineering',code:'EEE103 · 45 hours · 5 units',folder:'BEEE'},
+  CS:{el:'cs',title:'Control Systems',code:'22EEG53 · 39 hours theory + 26 hours lab',folder:'Control_Systems'}
+};
+const RAW = '';
+const note = document.getElementById('note');
+let downloads = null;
+(async () => { try { downloads = await (window.claude && window.claude.use ? window.claude.use('downloads') : null); } catch (e) { downloads = null; } })();
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function render(){
+  for (const key of ['BEEE','CS']){
+    const m = META[key], root = document.getElementById(m.el);
+    const items = DATA.filter(d=>d.subj===key);
+    const units = [];
+    items.forEach(d=>{ let u = units.find(x=>x.unit===d.unit); if(!u){u={unit:d.unit,title:d.unitTitle,hours:d.hours,items:[]};units.push(u);} u.items.push(d); });
+    let html = '<header><h2>'+esc(m.title)+'</h2><span class="code">'+esc(m.code)+'</span></header>';
+    units.forEach((u,i)=>{
+      const lab = u.unit==='Laboratory';
+      html += '<details class="unit'+(lab?' lab':'')+'"'+(i===0?' open':'')+'><summary><span class="tag">'+(lab?'LAB':esc(u.unit.replace('Unit ','UNIT ')))+'</span><span class="utitle">'+esc(u.title)+'</span><span class="umeta">'+u.items.length+' decks · '+esc(u.hours)+'</span></summary><ul class="topics">';
+      u.items.forEach(d=>{
+        html += '<li class="row" data-q="'+esc((d.topic+' '+u.title+' '+d.unit).toLowerCase())+'"><div class="t">'+esc(d.topic)+'<span>'+d.n+' slides</span></div><div class="acts">'
+          + '<a class="btn" href="pdf/'+d.id+'.pdf" target="_blank" rel="noopener">Preview PDF</a>'
+          + '<a class="btn primary" href="../Lecture_Decks/'+m.folder+'/'+d.unit.replace(' ','_')+'/'+d.id+'.pptx" download>Download pptx</a></div></li>';
+      });
+      html += '</ul></details>';
+    });
+    root.innerHTML = html;
+  }
+  updateCount();
+}
+
+function updateCount(){
+  const rows=[...document.querySelectorAll('.row')];
+  const vis=rows.filter(r=>!r.hidden).length;
+  document.getElementById('count').textContent = vis===rows.length ? rows.length+' topics' : vis+' of '+rows.length+' topics';
+}
+
+document.getElementById('q').addEventListener('input', e=>{
+  const q=e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.row').forEach(r=>{ r.hidden = q && !r.dataset.q.includes(q); });
+  document.querySelectorAll('details.unit').forEach(d=>{
+    const any=[...d.querySelectorAll('.row')].some(r=>!r.hidden);
+    d.hidden = !any;
+    if(q && any) d.open = true;
+  });
+  updateCount();
+});
+
+async function fetchBlob(url){
+  const r = await fetch(url);
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return r.blob();
+}
+document.addEventListener('click', async e=>{
+  const b = e.target.closest('button[data-file]');
+  if(!b) return;
+  const file=b.dataset.file, name=b.dataset.name, label=b.textContent;
+  if(!downloads){
+    note.textContent = 'Saving from this view is not available. Opening the file in a new tab instead.';
+    window.open(file,'_blank','noopener');
+    return;
+  }
+  b.disabled = true; b.textContent = 'Preparing…';
+  try{
+    const blob = await fetchBlob(file);
+    await downloads.save({filename:name, data:blob});
+    note.textContent = 'Saved ' + name;
+  }catch(err){
+    if(err && err.code==='declined') note.textContent = 'Download cancelled.';
+    else { note.textContent = 'Could not save '+name+'. Opening it in a new tab.'; window.open(file,'_blank','noopener'); }
+  }finally{ b.disabled=false; b.textContent=label; }
+});
+render();
+</script>
+
+</body>
+</html>
