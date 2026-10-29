@@ -6,15 +6,16 @@ MD1 = """# DATA209 auto-uploader for YouTube (Google Colab)
 Uploads all the videos and Shorts from the zip files, schedules their publish dates, and keeps going day after day when YouTube's daily limit stops it.
 
 ## Before you run (one time)
-1. **Put the zip files in your Google Drive** in a folder called `DATA209_zips` (or upload them to the Colab *Files* panel). You need these 6:
+1. **Put the zip files in your Google Drive** in a folder called `DATA209_zips` (or upload them to the Colab *Files* panel). You need these 4:
    `DATA209_final_part1_of_4.zip`, `DATA209_final_part2_of_4.zip`, `DATA209_final_part3_of_4.zip` and `DATA209_final_part4_of_4.zip`. (Delete any older `DATA209_upload_part...` or `DATA209_update_...` zips from that folder; the notebook ignores them, but they can confuse you.)
 2. In [Google Cloud console](https://console.cloud.google.com): create a project, enable **YouTube Data API v3**, add your own Google account as a **test user** on the OAuth consent screen, and create an **OAuth client ID** of type **TVs and Limited Input devices**. Keep the Client ID and Client secret private.
 
 ## How it behaves
-- It uploads **one video first, then stops** so you can open YouTube Studio and check the video shows as *Scheduled* (not locked private). Run the upload cell again to continue.
+- By default every video and Short is made **public as soon as it is uploaded** (`PUBLISH_MODE = 'public_now'` in cell 3). Set it to `'schedule'` for Monday/Wednesday/Friday publish dates instead.
+- After the **first** upload it checks automatically that the video really is public. If YouTube has locked it to private, it stops straight away so you do not end up with 94 locked videos.
 - It uploads videos and thumbnails first, then playlists, then captions (captions use the most quota).
 - When YouTube says the daily limit is reached it **waits for the reset (midnight US Pacific time) and carries on**. This only works while this Colab tab stays open. If Colab disconnects, reconnect and run cells 2, 3, 4 and 5 again; progress is saved in your Drive folder `DATA209_upload_state`, so nothing is uploaded twice.
-- Publish dates: Monday, Wednesday and Friday at 18:30 India time for the long videos, and each Short the next day at 12:00. Change the settings in cell 3."""
+- Only in `'schedule'` mode: Monday, Wednesday and Friday at 18:30 India time for the long videos, and each Short the next day at 12:00. Change the settings in cell 3."""
 
 CELL2 = """from google.colab import drive
 drive.mount('/content/drive')
@@ -34,7 +35,9 @@ PUBLISH_TIME = '18:30'   # long videos
 SHORT_TIME = '12:00'     # each Short goes out the day after its long video
 PUBLISH_DAYS = (0, 2, 4) # Monday, Wednesday, Friday
 AUTO_WAIT = True         # at the daily limit, wait for the reset and continue (keep this tab open)
-TEST_FIRST = True        # upload ONE video, then stop so you can check it in YouTube Studio
+PUBLISH_MODE = 'public_now'  # 'public_now' = each video is PUBLIC as soon as it is uploaded; 'schedule' = private until its scheduled date
+VERIFY_FIRST = True      # after the first upload, check it really is public (Google can lock API uploads to private); stop if not
+TEST_FIRST = False       # (old manual test; the automatic check above replaces it)
 ADD_TO_PLAYLISTS = True
 UPLOAD_CAPTIONS = True
 # -----------------------------------------------------------------------------------
@@ -81,6 +84,9 @@ from zoneinfo import ZoneInfo
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
+PUBLISH_MODE = globals().get('PUBLISH_MODE', 'public_now')   # 'public_now' or 'schedule'
+VERIFY_FIRST = globals().get('VERIFY_FIRST', True)
+TEST_FIRST = False                                           # replaced by the automatic check (VERIFY_FIRST)
 TZ = ZoneInfo(TIMEZONE)
 STATE_PATH = f'{STATE_FOLDER}/state.json'; SCHED_PATH = f'{STATE_FOLDER}/schedule.json'
 state = json.load(open(STATE_PATH)) if os.path.exists(STATE_PATH) else {}
@@ -88,7 +94,9 @@ def save_state(): json.dump(state, open(STATE_PATH, 'w'), indent=1)
 
 # ---- publish schedule: computed once, then kept fixed in the state folder
 def hm(s): return dt.time(int(s[:2]), int(s[3:5]))
-if os.path.exists(SCHED_PATH):
+if PUBLISH_MODE != 'schedule':
+    sched = {}
+elif os.path.exists(SCHED_PATH):
     sched = json.load(open(SCHED_PATH))
 else:
     if START_DATE: start = dt.date.fromisoformat(START_DATE)
@@ -103,7 +111,7 @@ else:
         sched[it['file']] = dt.datetime.combine(day, hm(PUBLISH_TIME), TZ).isoformat()
         sched['S_' + it['file']] = dt.datetime.combine(day + dt.timedelta(days=1), hm(SHORT_TIME), TZ).isoformat()
     json.dump(sched, open(SCHED_PATH, 'w'), indent=1)
-print('first publish:', min(sched.values())[:16], '| last publish:', max(sched.values())[:16])
+print('mode: PUBLIC AS SOON AS UPLOADED' if PUBLISH_MODE != 'schedule' else f"mode: scheduled, first {min(sched.values())[:16]} | last {max(sched.values())[:16]}")
 
 jobs = [dict(key=it['file'], kind='long', item=it, path=f"{ROOT}/{it['file']}") for it in long_items] + \\
        [dict(key='shorts/' + it['file'], kind='short', item=it, path=f"{ROOT}/shorts/{it['file']}", sched=it['file']) for it in short_items]
@@ -129,8 +137,9 @@ def publish_time(job):
 
 def upload_video(job):
     it = job['item']
-    status = {'privacyStatus': 'private', 'publishAt': utc(publish_time(job)),
-              'selfDeclaredMadeForKids': it['madeForKids'], 'containsSyntheticMedia': it['containsSyntheticMedia']}
+    status = {'selfDeclaredMadeForKids': it['madeForKids'], 'containsSyntheticMedia': it['containsSyntheticMedia']}
+    if PUBLISH_MODE == 'schedule': status.update({'privacyStatus': 'private', 'publishAt': utc(publish_time(job))})
+    else: status['privacyStatus'] = 'public'
     body = {'snippet': {'title': it['title'], 'description': it['description'], 'tags': it['tags'], 'categoryId': it['categoryId']}, 'status': status}
     req = yt.videos().insert(part='snippet,status', body=body, media_body=MediaFileUpload(job['path'], chunksize=-1, resumable=True))
     resp = None
@@ -141,7 +150,7 @@ def step_video(job):
     st = state.setdefault(job['key'], {})
     if 'id' not in st:
         st['id'] = guarded(lambda: upload_video(job)); save_state()
-        print('uploaded', job['item']['title'][:70], '->', 'https://youtu.be/' + st['id'], '| publishes', publish_time(job)[:16])
+        print('uploaded', job['item']['title'][:70], '->', 'https://youtu.be/' + st['id'], '| ' + ('public now' if PUBLISH_MODE != 'schedule' else 'publishes ' + publish_time(job)[:16]))
         return True
     return False
 def step_thumb(job):
@@ -167,9 +176,23 @@ def step_caption(job):
         guarded(lambda: yt.captions().insert(part='snippet', body={'snippet': {'videoId': st['id'], 'language': 'en', 'name': 'English'}}, media_body=MediaFileUpload(srt)).execute())
         st['caption'] = True; save_state(); print('caption added:', job['item']['title'][:60])
 
+def first_upload_ok(vid):
+    st = yt.videos().list(part='status', id=vid).execute()['items'][0]['status']
+    ok = (st.get('privacyStatus') == 'public') if PUBLISH_MODE != 'schedule' else bool(st.get('publishAt'))
+    return ok, st.get('privacyStatus')
 def phase_videos():
+    if VERIFY_FIRST and not state.get('_verified'):          # a video from an earlier run exists: check it before uploading more
+        done_ids = [v['id'] for k, v in state.items() if not k.startswith('_') and v.get('id')]
+        if done_ids:
+            ok, shown = first_upload_ok(done_ids[0])
+            if not ok: raise StopIteration('LOCKED:' + str(shown))
+            state['_verified'] = True; save_state()
     for job in jobs:
         was_new = step_video(job); step_thumb(job)
+        if was_new and VERIFY_FIRST and not state.get('_verified'):
+            ok, shown = first_upload_ok(state[job['key']]['id'])
+            if not ok: raise StopIteration('LOCKED:' + str(shown))
+            state['_verified'] = True; save_state(); print('check passed: the first video is', shown, '- continuing with the rest')
         if was_new and TEST_FIRST and not state.get('_tested'):
             state['_tested'] = True; save_state()
             raise StopIteration('TEST')
@@ -198,9 +221,14 @@ def run_all():
     while True:
         try:
             phase_videos(); phase_playlists(); phase_captions()
-            summary(); print('ALL DONE. Videos publish on their scheduled dates; check YouTube Studio.'); return True
-        except StopIteration:
+            summary(); print('ALL DONE. ' + ('Everything is public now.' if PUBLISH_MODE != 'schedule' else 'Videos publish on their scheduled dates.') + ' Check YouTube Studio.'); return True
+        except StopIteration as stop:
             summary()
+            if stop.args and str(stop.args[0]).startswith('LOCKED'):
+                print('\\nSTOPPED after the first video: YouTube shows it as "' + str(stop.args[0]).split(':', 1)[1] + '" instead of public.'
+                      '\\nThat means YouTube is restricting uploads from this Google Cloud project (unverified API project). Nothing more was uploaded.'
+                      '\\nOpen that video in YouTube Studio; if you cannot make it public, use YouTube Studio bulk upload instead.')
+                return False
             print('\\nTEST UPLOAD DONE. Open YouTube Studio -> Content, find the first video and check it is Private with a SCHEDULED date.'
                   '\\nIf it shows as scheduled, run this cell again to upload the rest. If it is locked private with no schedule, stop and use YouTube Studio bulk upload.')
             return False
