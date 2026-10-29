@@ -38,6 +38,7 @@ AUTO_WAIT = True         # at the daily limit, wait for the reset and continue (
 PUBLISH_MODE = 'public_now'  # 'public_now' = each video is PUBLIC as soon as it is uploaded; 'schedule' = private until its scheduled date
 VERIFY_FIRST = True      # after the first upload, check it really is public (Google can lock API uploads to private); stop if not
 TEST_FIRST = False       # (old manual test; the automatic check above replaces it)
+RETRY_SKIPPED_THUMBS = False   # thumbnails need a verified channel (youtube.com/verify). After verifying, set True and run cell 5 again to add them
 ADD_TO_PLAYLISTS = True
 UPLOAD_CAPTIONS = True
 # -----------------------------------------------------------------------------------
@@ -103,6 +104,8 @@ from googleapiclient.http import MediaFileUpload
 PUBLISH_MODE = globals().get('PUBLISH_MODE', 'public_now')   # 'public_now' or 'schedule'
 VERIFY_FIRST = globals().get('VERIFY_FIRST', True)
 TEST_FIRST = False                                           # replaced by the automatic check (VERIFY_FIRST)
+RETRY_SKIPPED_THUMBS = globals().get('RETRY_SKIPPED_THUMBS', False)
+import logging; logging.getLogger('googleapiclient.http').setLevel(logging.ERROR)   # hides the repeated 403 warnings
 TZ = ZoneInfo(TIMEZONE)
 STATE_PATH = f'{STATE_FOLDER}/state.json'; SCHED_PATH = f'{STATE_FOLDER}/schedule.json'
 state = json.load(open(STATE_PATH)) if os.path.exists(STATE_PATH) else {}
@@ -171,10 +174,13 @@ def step_video(job):
     return False
 def step_thumb(job):
     st = state[job['key']]; th = job['item'].get('thumbnail')
-    if job['kind'] == 'long' and th and not st.get('thumb') and os.path.exists(f'{ROOT}/{th}'):
+    need = (not st.get('thumb')) or (st.get('thumb') == 'skipped' and RETRY_SKIPPED_THUMBS)
+    if job['kind'] == 'long' and th and need and os.path.exists(f'{ROOT}/{th}'):
         try: guarded(lambda: yt.thumbnails().set(videoId=st['id'], media_body=MediaFileUpload(f'{ROOT}/{th}')).execute())
         except QuotaStop: raise
-        except HttpError as e: print('thumbnail skipped (verify your channel at youtube.com/verify):', reason_of(e)); st['thumb'] = 'skipped'
+        except HttpError as e:
+            if not state.get('_thumb_warned'): print('thumbnails are skipped for now (verify your channel at youtube.com/verify, then set RETRY_SKIPPED_THUMBS = True):', reason_of(e)); state['_thumb_warned'] = True
+            st['thumb'] = 'skipped'
         else: st['thumb'] = True
         save_state()
 def step_playlist(job):
@@ -231,7 +237,7 @@ def wait_for_reset(reason):
 
 def summary():
     n = lambda f: sum(1 for k, v in state.items() if not k.startswith('_') and v.get(f))
-    print(f"uploaded {n('id')}/{len(jobs)} | thumbnails {n('thumb')} | playlists {n('playlist')} | captions {n('caption')}")
+    print(f"uploaded {n('id')}/{len(jobs)} | thumbnails {sum(1 for k, v in state.items() if not k.startswith('_') and v.get('thumb') is True)} (skipped {sum(1 for k, v in state.items() if not k.startswith('_') and v.get('thumb') == 'skipped')}) | playlists {n('playlist')} | captions {n('caption')}")
 
 def run_all():
     while True:
