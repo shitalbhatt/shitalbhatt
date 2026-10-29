@@ -1,0 +1,41 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect site files
+        run: |
+          mkdir _site
+          cp index.html styles.css script.js _site/
+          # Lecture library (EEE103 and Control Systems), published at /lectures/
+          mkdir -p _site/lectures/decks _site/lectures/downloads
+          cp -r lectures/index.html lectures/pdf lectures/video _site/lectures/
+          cp -r Lecture_Decks/BEEE Lecture_Decks/Control_Systems _site/lectures/decks/
+          cp Lecture_Decks.zip _site/lectures/downloads/
+          cp BEEE_Units_1-5/BEEE_Units_1-5.pptx _site/lectures/downloads/BEEE_revision_deck_44_slides.pptx
+          cp BEEE_Units_1-5/narration_script.json _site/lectures/downloads/BEEE_revision_narration_script.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
