@@ -31,9 +31,9 @@ for it in json.load(open(f"{OUT}/upload_manifest.json")):
     shutil.copy(f"{OUT}/{it['thumbnail']}", f"{dst}/thumbs/{stem}.png")
     videos.append({"id": stem, "code": code, "kind": kind, "title": it["title"], "summary": learn.group(1) if learn else "",
                    "playlist": it["playlist"], "minutes": minutes(f"{OUT}/{it['file']}"), "publish": it["publishAt"][:10],
-                   "chapters": chapters, "thumb": f"course-videos/thumbs/{stem}.png", "youtubeId": "",
+                   "chapters": chapters, "thumb": f"course-videos/thumbs/{stem}.png", "file": f"course-videos/videos/{stem}.mp4", "youtubeId": "",
                    "short": {"title": sh["title"].replace(" #Shorts", ""), "minutes": minutes(f"{SHORTS}/{sh['file']}"),
-                             "publish": sh["publishAt"][:10], "youtubeId": ""} if sh else None})
+                             "publish": sh["publishAt"][:10], "file": f"course-videos/shorts/{stem}.mp4", "youtubeId": ""} if sh else None})
 data = {"note": "Paste YouTube video IDs (the part after youtu.be/) into youtubeId, or run scripts/fill_youtube_links.py. Empty means 'coming soon'.",
         "playlists": [{"title": p, "url": ""} for p in playlists], "videos": videos}
 json.dump(data, open(f"{dst}/videos.json", "w"), indent=1, ensure_ascii=False)
