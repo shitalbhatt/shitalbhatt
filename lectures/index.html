@@ -124,8 +124,8 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <p>Circuits and AC, transformers and machines, diodes and rectifiers, BJT and MOSFET, operational amplifiers. Instructor: Dr. Mitesh Astik.</p>
       <div class="btns">
         <a class="btn primary" href="video/BEEE_revision_video.mp4" download>Download video</a>
-        <a class="btn" href="downloads/BEEE_revision_deck_44_slides.pptx" download>Revision deck</a>
-        <a class="btn" href="downloads/BEEE_revision_narration_script.json" download>Narration script</a>
+        <a class="btn" href="../BEEE_Units_1-5/BEEE_Units_1-5.pptx" download>Revision deck</a>
+        <a class="btn" href="../BEEE_Units_1-5/narration_script.json" download>Narration script</a>
       </div>
     </div>
   </div>
@@ -144,9 +144,9 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   <p class="sub">Decks are 16:9 PowerPoint files with speaker notes. Each opens in PowerPoint, Keynote or Google Slides. </p>
   <div class="dl">
     <div class="panel item"><h3>All 77 decks (zip)</h3><p>Folders by subject and unit, plus an index of every topic.</p>
-      <div class="btns"><a class="btn primary" href="downloads/Lecture_Decks.zip" download>Download zip · 6.8 MB</a></div></div>
+      <div class="btns"><a class="btn primary" href="../Lecture_Decks.zip" download>Download zip · 6.8 MB</a></div></div>
     <div class="panel item"><h3>BEEE revision deck</h3><p>The 44-slide deck behind the revision video, with narration in the notes.</p>
-      <div class="btns"><a class="btn" href="downloads/BEEE_revision_deck_44_slides.pptx" download>Download pptx</a></div></div>
+      <div class="btns"><a class="btn" href="../BEEE_Units_1-5/BEEE_Units_1-5.pptx" download>Download pptx</a></div></div>
     <div class="panel item"><h3>Revision video</h3><p>480p MP4, 26 minutes, about 11 MB.</p>
       <div class="btns"><a class="btn" href="video/BEEE_revision_video.mp4" download>Download mp4</a></div></div>
   </div>
@@ -182,7 +182,7 @@ function render(){
       u.items.forEach(d=>{
         html += '<li class="row" data-q="'+esc((d.topic+' '+u.title+' '+d.unit).toLowerCase())+'"><div class="t">'+esc(d.topic)+'<span>'+d.n+' slides</span></div><div class="acts">'
           + '<a class="btn" href="pdf/'+d.id+'.pdf" target="_blank" rel="noopener">Preview PDF</a>'
-          + '<a class="btn primary" href="decks/'+m.folder+'/'+d.unit.replace(' ','_')+'/'+d.id+'.pptx" download>Download pptx</a></div></li>';
+          + '<a class="btn primary" href="../Lecture_Decks/'+m.folder+'/'+d.unit.replace(' ','_')+'/'+d.id+'.pptx" download>Download pptx</a></div></li>';
       });
       html += '</ul></details>';
     });

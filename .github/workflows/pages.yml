@@ -24,19 +24,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Collect site files
         run: |
-          mkdir _site
-          if [ -f index.html ]; then
-            cp index.html styles.css script.js _site/
-          else
-            printf '%s' '<!doctype html><meta charset="utf-8"><title>EEE Lecture Library</title><meta http-equiv="refresh" content="0; url=lectures/"><a href="lectures/">Open the lecture library</a>' > _site/index.html
-          fi
-          # Lecture library (EEE103 and Control Systems), published at /lectures/
-          mkdir -p _site/lectures/decks _site/lectures/downloads
+          mkdir -p _site/lectures _site/BEEE_Units_1-5
+          cp index.html _site/
           cp -r lectures/index.html lectures/pdf lectures/video _site/lectures/
-          cp -r Lecture_Decks/BEEE Lecture_Decks/Control_Systems _site/lectures/decks/
-          cp Lecture_Decks.zip _site/lectures/downloads/
-          cp BEEE_Units_1-5/BEEE_Units_1-5.pptx _site/lectures/downloads/BEEE_revision_deck_44_slides.pptx
-          cp BEEE_Units_1-5/narration_script.json _site/lectures/downloads/BEEE_revision_narration_script.json
+          cp -r Lecture_Decks _site/Lecture_Decks
+          cp Lecture_Decks.zip _site/
+          cp BEEE_Units_1-5/BEEE_Units_1-5.pptx BEEE_Units_1-5/narration_script.json _site/BEEE_Units_1-5/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
