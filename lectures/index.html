@@ -119,6 +119,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   <p>Slides for Basic Electrical and Electronics Engineering and Control Systems, one deck for every topic in the course plans. Preview any deck as a PDF or download the editable PowerPoint.</p>
   <ul class="facts" aria-label="Contents">
     <li><b>77</b>topic decks</li><li><b>39</b>BEEE (EEE103)</li><li><b>28</b>Control Systems theory</li><li><b>10</b>lab experiments</li><li><b>1</b>narrated revision video</li>
+    <li id="visitors" hidden><b id="vcount">0</b>visitors</li>
   </ul>
 </div>
 
@@ -256,6 +257,20 @@ document.addEventListener('click', async e=>{
   }finally{ b.disabled=false; b.textContent=label; }
 });
 render();
+
+/* Visitor counter: counts each browser once (remembered in localStorage) through the free abacus counter API. */
+(async function(){
+  const NS='eee-lecture-library-shitalbhatt', KEY=window.COUNTER_KEY||'visitors', BASE='https://abacus.jasoncameron.dev/';
+  const box=document.getElementById('visitors'), out=document.getElementById('vcount');
+  let seen=false; try{ seen=localStorage.getItem('eee-lib-counted')==='1'; }catch(e){}
+  async function call(op){ const r=await fetch(BASE+op+'/'+NS+'/'+KEY); if(!r.ok) throw new Error(String(r.status)); return (await r.json()).value; }
+  try{
+    let v;
+    if(seen){ try{ v=await call('get'); }catch(e){ v=await call('hit'); } }
+    else { v=await call('hit'); try{ localStorage.setItem('eee-lib-counted','1'); }catch(e){} }
+    out.textContent=Number(v).toLocaleString('en-IN'); box.hidden=false;
+  }catch(e){ box.hidden=true; }
+})();
 </script>
 
 </body>
