@@ -21,6 +21,7 @@ AUTO_WAIT = True         # at the daily limit, wait for the reset and continue (
 PUBLISH_MODE = 'public_now'  # 'public_now' = each video is PUBLIC as soon as it is uploaded; 'schedule' = private until its scheduled date
 VERIFY_FIRST = True      # after the first upload, check it really is public (Google can lock API uploads to private); stop if not
 TEST_FIRST = False       # (old manual test; the automatic check above replaces it)
+UPLOADS_PER_RUN = 1      # how many NEW videos to upload each time you run cell 5 (1 = one video at a time; 0 = no limit, upload everything)
 RETRY_SKIPPED_THUMBS = False   # thumbnails need a verified channel (youtube.com/verify). After verifying, set True and run cell 5 again to add them
 ADD_TO_PLAYLISTS = True
 UPLOAD_CAPTIONS = True
@@ -93,6 +94,8 @@ PUBLISH_MODE = globals().get('PUBLISH_MODE', 'public_now')   # 'public_now' or '
 VERIFY_FIRST = globals().get('VERIFY_FIRST', True)
 TEST_FIRST = False                                           # replaced by the automatic check (VERIFY_FIRST)
 RETRY_SKIPPED_THUMBS = globals().get('RETRY_SKIPPED_THUMBS', False)
+UPLOADS_PER_RUN = globals().get('UPLOADS_PER_RUN', 0)
+new_this_run = 0
 import logging; logging.getLogger('googleapiclient.http').setLevel(logging.ERROR)   # hides the repeated 403 warnings
 TZ = ZoneInfo(TIMEZONE)
 STATE_PATH = f'{STATE_FOLDER}/state.json'; SCHED_PATH = f'{STATE_FOLDER}/schedule.json'
@@ -198,8 +201,11 @@ def phase_videos():
             ok, shown = first_upload_ok(done_ids[0])
             if not ok: raise StopIteration('LOCKED:' + str(shown))
             state['_verified'] = True; save_state()
+    global new_this_run
     for job in jobs:
+        if UPLOADS_PER_RUN and new_this_run >= UPLOADS_PER_RUN: raise StopIteration('LIMIT')
         was_new = step_video(job); step_thumb(job)
+        if was_new: new_this_run += 1
         if was_new and VERIFY_FIRST and not state.get('_verified'):
             ok, shown = first_upload_ok(state[job['key']]['id'])
             if not ok: raise StopIteration('LOCKED:' + str(shown))
@@ -235,6 +241,11 @@ def run_all():
             summary(); print(('ALL AVAILABLE VIDEOS DONE (some parts are not added yet: add the next zip, run cell 3, then cell 5). ' if len(jobs) < len(long_items) + len(short_items) else 'ALL DONE. ') + ('Everything is public now.' if PUBLISH_MODE != 'schedule' else 'Videos publish on their scheduled dates.') + ' Check YouTube Studio.'); return True
         except StopIteration as stop:
             summary()
+            if stop.args and str(stop.args[0]) == 'LIMIT':
+                phase_playlists(); phase_captions(); summary()
+                nxt = next((j for j in jobs if 'id' not in state.get(j['key'], {})), None)
+                print('\nDONE for this run (' + str(UPLOADS_PER_RUN) + ' video uploaded). ' + ('NEXT: ' + nxt['item']['title'] + '\nRun cell 5 again to upload the next one.' if nxt else 'Nothing left.'))
+                return True
             if stop.args and str(stop.args[0]).startswith('LOCKED'):
                 print('\nSTOPPED after the first video: YouTube shows it as "' + str(stop.args[0]).split(':', 1)[1] + '" instead of public.'
                       '\nThat means YouTube is restricting uploads from this Google Cloud project (unverified API project). Nothing more was uploaded.'
