@@ -43,10 +43,10 @@ def find_zips():
     return [found[k] for k in sorted(found)]
 zips = find_zips()
 print('zip files found:', zips)
-if len(zips) < 4:
+have = {re.search(r'part([0-9])_of_4', os.path.basename(z)).group(1) for z in zips}
+if '4' not in have:
     others = glob.glob(os.path.join(ZIP_DIR, '**', '*DATA209*.zip'), recursive=True)[:15]
-    raise SystemExit('STOP: found ' + str(len(zips)) + ' of the 4 zip files DATA209_final_part1_of_4.zip ... DATA209_final_part4_of_4.zip.\n'
-                     'Put all 4 zip files in this folder: ' + ZIP_DIR + ' and run the script again.\n'
+    raise SystemExit('STOP: DATA209_final_part4_of_4.zip is required (lists, Shorts, thumbnails), plus any of part1, part2, part3 - you can add those one by one. Put them in: ' + ZIP_DIR + '\n'
                      'Zip files I can see with DATA209 in the name: ' + (str(others) if others else 'none') +
                      '\nOlder files named DATA209_upload_part... or DATA209_update_... are NOT the final version.')
 for z in zips:
@@ -59,7 +59,8 @@ long_items = json.load(open(f'{ROOT}/upload_manifest.json'))
 short_items = json.load(open(f'{ROOT}/shorts/shorts_manifest.json'))
 missing = [it['file'] for it in long_items if not os.path.exists(f"{ROOT}/{it['file']}")] + \
           [it['file'] for it in short_items if not os.path.exists(f"{ROOT}/shorts/{it['file']}")]
-print(len(long_items), 'long videos,', len(short_items), 'Shorts in the manifests;', 'MISSING FILES:' if missing else 'all files present', missing[:10])
+print('parts available:', sorted(have), '- only videos whose files are present are uploaded; add the other zips later and run the script again')
+print(sum(os.path.exists(f"{ROOT}/{it['file']}") for it in long_items), 'of', len(long_items), 'long videos and', sum(os.path.exists(f"{ROOT}/shorts/{it['file']}") for it in short_items), 'of', len(short_items), 'Shorts are ready to upload now')
 if os.environ.get('DRY_RUN'): raise SystemExit('dry run ok')
 
 import requests, time, getpass
@@ -119,6 +120,7 @@ print('mode: PUBLIC AS SOON AS UPLOADED' if PUBLISH_MODE != 'schedule' else f"mo
 
 jobs = [dict(key=it['file'], kind='long', item=it, path=f"{ROOT}/{it['file']}") for it in long_items] + \
        [dict(key='shorts/' + it['file'], kind='short', item=it, path=f"{ROOT}/shorts/{it['file']}", sched=it['file']) for it in short_items]
+jobs = [j for j in jobs if os.path.exists(j['path'])]
 for j in jobs: j['sched_key'] = j.get('sched', j['key'])
 
 QUOTA = {'quotaExceeded', 'dailyLimitExceeded', 'rateLimitExceeded', 'uploadLimitExceeded'}
@@ -228,7 +230,7 @@ def run_all():
     while True:
         try:
             phase_videos(); phase_playlists(); phase_captions()
-            summary(); print('ALL DONE. ' + ('Everything is public now.' if PUBLISH_MODE != 'schedule' else 'Videos publish on their scheduled dates.') + ' Check YouTube Studio.'); return True
+            summary(); print(('ALL AVAILABLE VIDEOS DONE (add the next zip and run the script again). ' if len(jobs) < len(long_items) + len(short_items) else 'ALL DONE. ') + ('Everything is public now.' if PUBLISH_MODE != 'schedule' else 'Videos publish on their scheduled dates.') + ' Check YouTube Studio.'); return True
         except StopIteration as stop:
             summary()
             if stop.args and str(stop.args[0]).startswith('LOCKED'):
