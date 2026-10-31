@@ -1,0 +1,66 @@
+{
+ "out_name": "L03-04_Data_Types_and_Structures",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 40,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures three and four: data types and structures. We look at scales of measurement, discrete versus continuous data, structured and semi-structured data, the basics of text data, and the building blocks of time series behaviour."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 41,
+   "chapter": "What we will cover",
+   "text": "Five building blocks for understanding how data is measured, organised, and behaves over time. One: nominal, ordinal, interval and ratio scales. Two: discrete versus continuous. Three: structured versus semi-structured data. Four: text data structure basics. Five: time series behaviour, trend and seasonality."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 42,
+   "chapter": "Nominal vs ordinal",
+   "text": "Levels of measurement start with categories. Nominal data has labels with no inherent rank: blood type, product colour, country. You can only say things are the same or different, so the allowed statistics are the mode and frequency counts. Ordinal data has a meaningful order but the gaps between ranks are not equal: satisfaction from low to high, education level, race finish position. Here you can also use the median and ranking."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 43,
+   "chapter": "Interval vs ratio",
+   "text": "Both interval and ratio are numeric with equal gaps. The difference is whether zero means none. Interval data, like temperature in Celsius, calendar year, I Q score or pH, has an arbitrary zero, so ratio claims like twice as hot are not allowed. Ratio data, like height, weight, income, age and distance, has a true zero, so ratios and multiples are meaningful and all statistics are allowed."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 44,
+   "chapter": "Quick recap",
+   "text": "The four scales at a glance: nominal, ordinal, interval, ratio, with increasing precision. Nominal is named categories, ordinal is ordered categories, interval has equal gaps but no true zero, and ratio has equal gaps plus a true zero."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 45,
+   "chapter": "Discrete vs continuous",
+   "text": "Both discrete and continuous data are numeric. The difference is whether values are counted or measured. Discrete data are countable values, usually whole numbers: number of children, cars sold per day, number of defects. Continuous data can take any value in a range, limited only by measurement precision: height, temperature, time to complete a task."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 46,
+   "chapter": "Structured vs semi-structured",
+   "text": "Structured data fits neatly into rows and columns with a fixed schema; every record has the same fields, like a spreadsheet or SQL table. Semi-structured data has tags or markers but no fixed table schema, so fields can vary from record to record. Examples are J S O N and X M L files, emails with headers plus free text, and no S Q L documents."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 47,
+   "chapter": "Text data basics",
+   "text": "Raw text has no rows or columns of its own, so it is broken into layers. The corpus is the full collection of documents. A document is one unit, like a single review. A token is a word, number or punctuation mark, produced by tokenisation. The vocabulary is the set of unique tokens after cleaning. Typical prep steps are lowercasing, removing stopwords, and stemming or lemmatisation, which turn free text into structured features such as a term frequency table."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 48,
+   "chapter": "Time-series behaviour",
+   "text": "A time series is data recorded at regular intervals. Two patterns to look for first are trend and seasonality. Trend is the long-term direction, upward, downward or flat, once short-term noise is smoothed out; look for a rising or falling moving average. Seasonality is a pattern that repeats at fixed intervals, such as every twelve months, driven by predictable factors like weather or holidays."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 49,
+   "chapter": "Key takeaways",
+   "text": "Bringing it together. The measurement scale determines which statistics and operations are valid. Discrete data is counted; continuous data is measured. Structured data fits a fixed schema, while semi-structured data uses flexible tags. Text must be broken into corpus, document, token and term before analysis. And in time series, separate the steady trend from the repeating seasonal pattern before drawing conclusions."
+  }
+ ]
+}

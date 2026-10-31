@@ -1,0 +1,408 @@
+1
+00:00:00,000 --> 00:00:00,519
+Welcome.
+
+2
+00:00:00,519 --> 00:00:05,452
+In this lesson you'll learn what to do when your dataset has missing values.
+
+3
+00:00:05,452 --> 00:00:06,944
+First comes the theory:
+
+4
+00:00:06,944 --> 00:00:09,281
+the three reasons data goes missing.
+
+5
+00:00:09,281 --> 00:00:15,381
+Then a hands-on lab in Python, using nearly fifty thousand real New York City Airbnb listings.
+
+6
+00:00:15,381 --> 00:00:24,792
+By the end, you'll be able to detect missing values, work out why they're missing, fill them in four different ways, and judge which fix is best.
+
+7
+00:00:25,492 --> 00:00:27,620
+No real dataset arrives complete.
+
+8
+00:00:27,620 --> 00:00:32,520
+Forms get skipped, sensors drop out, and some values simply don't exist yet.
+
+9
+00:00:32,520 --> 00:00:36,453
+If you drop every incomplete row, you throw away information.
+
+10
+00:00:36,453 --> 00:00:41,547
+If you fill blindly, you can distort the very statistics you wanted to compute.
+
+11
+00:00:41,547 --> 00:00:47,607
+In our lab data, twenty point six percent of listings are missing the reviews per month value.
+
+12
+00:00:47,607 --> 00:00:49,413
+That's far too many to drop.
+
+13
+00:00:49,413 --> 00:00:52,056
+So the right fix depends on one question:
+
+14
+00:00:52,056 --> 00:00:53,668
+why is the value missing?
+
+15
+00:00:54,368 --> 00:00:57,487
+Every missing value fits one of three patterns.
+
+16
+00:00:57,487 --> 00:01:03,392
+M C A R, missing completely at random, means the gap has no relationship to any variable.
+
+17
+00:01:03,392 --> 00:01:06,444
+It's pure chance, like a random sensor glitch.
+
+18
+00:01:06,444 --> 00:01:11,885
+M A R, missing at random, means the gap depends on another column you can observe.
+
+19
+00:01:11,885 --> 00:01:16,132
+For example, retired people skip the salary question more often.
+
+20
+00:01:16,132 --> 00:01:25,222
+And M N A R, missing not at random, means the gap depends on the hidden value itself, like high earners declining to report their income.
+
+21
+00:01:25,222 --> 00:01:30,464
+The pattern decides whether an imputation method helps or quietly misleads you.
+
+22
+00:01:31,164 --> 00:01:33,087
+Let's see this in our data.
+
+23
+00:01:33,087 --> 00:01:36,578
+Reviews per month is missing for 10,116 listings.
+
+24
+00:01:36,578 --> 00:01:41,493
+We checked, and every single one of those rows also has zero reviews.
+
+25
+00:01:41,493 --> 00:01:43,701
+That's the definition of M A R.
+
+26
+00:01:43,701 --> 00:01:52,605
+A listing with no reviews has no reviews per month rate to record, so the gap is fully explained by a column we already have.
+
+27
+00:01:52,605 --> 00:02:00,370
+By contrast, the name and host name columns have only sixteen and twenty-one gaps, scattered with no pattern.
+
+28
+00:02:00,370 --> 00:02:03,718
+That's consistent with M C A R, but be careful:
+
+29
+00:02:03,718 --> 00:02:06,852
+M C A R can never be proven from data alone.
+
+30
+00:02:07,552 --> 00:02:08,537
+Now the lab.
+
+31
+00:02:08,537 --> 00:02:12,148
+We load the cleaned Airbnb file with pandas.
+
+32
+00:02:12,148 --> 00:02:14,939
+It has 49,195 rows and 16 columns.
+
+33
+00:02:14,939 --> 00:02:20,192
+Calling isnull dot sum gives the missing count for every column.
+
+34
+00:02:20,192 --> 00:02:22,490
+Only four columns have gaps:
+
+35
+00:02:22,490 --> 00:02:26,758
+name, host name, last review, and reviews per month.
+
+36
+00:02:26,758 --> 00:02:29,056
+Everything else is complete.
+
+37
+00:02:29,756 --> 00:02:31,273
+Counting gaps is easy.
+
+38
+00:02:31,273 --> 00:02:33,549
+Explaining them is the real work.
+
+39
+00:02:33,549 --> 00:02:35,894
+This crosstab compares two things:
+
+40
+00:02:35,894 --> 00:02:40,307
+is reviews per month missing, and is the number of reviews zero.
+
+41
+00:02:40,307 --> 00:02:41,341
+Read the table.
+
+42
+00:02:41,341 --> 00:02:45,755
+When the value is missing, the number of reviews is always zero.
+
+43
+00:02:45,755 --> 00:02:48,100
+And the other two cells are empty.
+
+44
+00:02:48,100 --> 00:02:50,996
+That turns our guess into a verified fact.
+
+45
+00:02:51,696 --> 00:02:52,761
+One more trap:
+
+46
+00:02:52,761 --> 00:02:54,891
+gaps that isnull cannot see.
+
+47
+00:02:54,891 --> 00:02:58,618
+A price of zero, found in 11 rows, is impossible.
+
+48
+00:02:58,618 --> 00:03:05,159
+A minimum stay of nine hundred ninety-nine nights, in 3 rows, is an old sentinel code.
+
+49
+00:03:05,159 --> 00:03:12,080
+And 8 host names contain the literal text Nan or Na, which pandas reads as a normal string.
+
+50
+00:03:12,080 --> 00:03:15,351
+Convert these to real missing values first.
+
+51
+00:03:15,351 --> 00:03:16,644
+But use judgment.
+
+52
+00:03:16,644 --> 00:03:21,816
+Zero reviews and zero available days are real data, not hidden gaps.
+
+53
+00:03:22,516 --> 00:03:24,049
+Now to fixing the gaps.
+
+54
+00:03:24,049 --> 00:03:33,378
+Imputation replaces a missing value with an estimate, and every method trades simplicity for how much of the data's real structure it keeps.
+
+55
+00:03:33,378 --> 00:03:39,643
+Mean or median is the quick baseline, but every fill is identical, so it shrinks the variance.
+
+56
+00:03:39,643 --> 00:03:44,641
+K-N-N borrows from similar rows, but it's slower and needs scaled features.
+
+57
+00:03:44,641 --> 00:03:49,972
+Regression predicts the value from other columns, but it can extrapolate poorly.
+
+58
+00:03:50,672 --> 00:03:51,472
+Method one:
+
+59
+00:03:51,472 --> 00:03:52,636
+mean and median.
+
+60
+00:03:52,636 --> 00:04:00,419
+We compute the fill value from the observed rows only, then fillna applies it to every missing row at once.
+
+61
+00:04:00,419 --> 00:04:02,601
+The observed variance is 2.82.
+
+62
+00:04:02,601 --> 00:04:07,766
+Mean-fill keeps 79.4 percent of it, and median-fill keeps 82.0 percent.
+
+63
+00:04:07,766 --> 00:04:14,312
+Because this column is strongly right-skewed, the median is the more honest single number.
+
+64
+00:04:15,012 --> 00:04:15,837
+Method two:
+
+65
+00:04:15,837 --> 00:04:17,112
+K-N-N imputation.
+
+66
+00:04:17,112 --> 00:04:28,809
+For each missing row, the imputer finds the five most similar listings by price, location, availability, and the other features, then averages their values.
+
+67
+00:04:28,809 --> 00:04:33,308
+It keeps 86.7 percent of the variance, the best of the four.
+
+68
+00:04:33,308 --> 00:04:41,107
+And for the originally missing rows it filled an average of 0.41, far below the blind mean-fill of 1.37.
+
+69
+00:04:41,107 --> 00:04:46,356
+K-N-N was never told about the zero reviews rule, yet it respected it.
+
+70
+00:04:47,056 --> 00:04:48,043
+Method three:
+
+71
+00:04:48,043 --> 00:04:48,878
+regression.
+
+72
+00:04:48,878 --> 00:05:00,266
+We train a linear model on the rows where the value is known, then predict the missing ones, clipping at zero because a review rate can't be negative.
+
+73
+00:05:00,266 --> 00:05:03,379
+The R squared is only 0.33, a modest fit.
+
+74
+00:05:03,379 --> 00:05:09,377
+The model predicts 0.78 for the zero-review rows, too high compared with K-N-N.
+
+75
+00:05:09,377 --> 00:05:14,236
+Variance retained is 81.9 percent, about the same as the median.
+
+76
+00:05:14,236 --> 00:05:18,184
+A weak R squared is a warning sign, not a free pass.
+
+77
+00:05:18,884 --> 00:05:21,892
+Here's what each fill does to the distribution.
+
+78
+00:05:21,892 --> 00:05:23,876
+On the left, the observed data.
+
+79
+00:05:23,876 --> 00:05:29,188
+In the middle, mean-filling stacks more than ten thousand rows on one single value.
+
+80
+00:05:29,188 --> 00:05:31,940
+On the right, K-N-N keeps a natural spread.
+
+81
+00:05:31,940 --> 00:05:34,436
+That's what losing variance looks like.
+
+82
+00:05:35,136 --> 00:05:39,345
+Lined up side by side, the trade-offs become numbers.
+
+83
+00:05:39,345 --> 00:05:45,062
+Mean retains 79.4 percent, regression 81.9, median 82.0, and K-N-N 86.7.
+
+84
+00:05:45,062 --> 00:05:52,209
+Every method loses some spread, because filling in a guess can never add real information.
+
+85
+00:05:52,209 --> 00:05:55,067
+The lesson isn't never use the mean.
+
+86
+00:05:55,067 --> 00:05:59,832
+It's that checking the variance change is part of the audit.
+
+87
+00:06:00,532 --> 00:06:01,489
+Let's recap.
+
+88
+00:06:01,489 --> 00:06:01,808
+One:
+
+89
+00:06:01,808 --> 00:06:06,993
+the mechanism, M C A R, M A R, or M N A R, should drive your fix.
+
+90
+00:06:06,993 --> 00:06:07,312
+Two:
+
+91
+00:06:07,312 --> 00:06:11,140
+prove M A R with a crosstab instead of guessing.
+
+92
+00:06:11,140 --> 00:06:11,619
+Three:
+
+93
+00:06:11,619 --> 00:06:14,969
+hunt for disguised gaps before you impute.
+
+94
+00:06:14,969 --> 00:06:15,367
+Four:
+
+95
+00:06:15,367 --> 00:06:21,988
+mean and median are simplest but lose the most variance, while K-N-N kept the most.
+
+96
+00:06:21,988 --> 00:06:22,705
+And five:
+
+97
+00:06:22,705 --> 00:06:27,172
+always compare strategies and check the variance change.
+
+98
+00:06:27,872 --> 00:06:29,115
+Now try it yourself.
+
+99
+00:06:29,115 --> 00:06:38,249
+Run the detection steps on a column in your own dataset, note which observed column explains the gaps, and compare at least two imputation methods.
+
+100
+00:06:38,249 --> 00:06:40,797
+In the next lesson we'll tackle outliers.
+
+101
+00:06:40,797 --> 00:06:43,717
+If this helped, subscribe so you don't miss it.
+
+102
+00:06:43,717 --> 00:06:44,960
+Thanks for watching.
+

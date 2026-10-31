@@ -1,0 +1,60 @@
+{
+ "out_name": "L29_Testing_Honestly_Hypotheses_CV_and_Leakage",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures twenty nine and thirty: from E D A to a trustworthy pipeline. Hypotheses, train and test, cross-validation, data leakage, skewed data, and turning analysis into insights. This first video is about testing honestly."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 2,
+   "chapter": "Roadmap",
+   "text": "Lecture twenty nine is about testing honestly: hypothesis refinement, train and test logic, cross-validation, and data leakage and how to prevent it. Lecture thirty is about reporting honestly: sampling skewed data, translating E D A into insights, and a course review of the full pipeline. Our data is Online Shoppers: twelve thousand three hundred thirty sessions, target Revenue."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 3,
+   "chapter": "Hypothesis refinement",
+   "text": "Hypothesis refinement turns a hunch into something data can say yes or no to. Vague: page value matters. Specific: sessions that saw a valued page buy more often. Testable: buy rate when page values is above zero versus equal to zero. Decision rule: chi-square p below point oh five means keep the idea. The rule: write the hypothesis and the decision rule before you look at the result."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 4,
+   "chapter": "Two hypotheses, tested",
+   "text": "Two hypotheses tested. H one: a valued page means more buying. Sessions with page values of zero buy at three point nine percent; above zero, fifty six point three percent; p is essentially zero, so keep. H two: new visitors buy more. New visitors buy at twenty four point nine percent, other at nineteen point eight, returning at fourteen point one, with p about four times ten to the minus twenty nine, so keep. Both pass the rule, and H one is huge: a session that saw a valued page is fourteen times more likely to buy."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 5,
+   "chapter": "Train/test logic",
+   "text": "Train and test logic is like practice questions versus the final exam. The model studies the training rows, the practice. The test rows are the exam, locked away and used once, at the end. Stratify so both parts keep the same share of buyers, and fix the random state so anyone gets the same split. Here nine thousand seven hundred sixty four training rows and two thousand four hundred forty one test rows, with fifteen point six percent buyers in both."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 6,
+   "chapter": "5-fold cross-validation",
+   "text": "Five-fold cross-validation gives five mini-exams inside the training rows. Each fold takes a turn as the check set while the other four learn. The five R O C A U C scores are about point eight eight to point nine oh two, a mean of point eight nine with a spread of point oh oh seven. A small spread means stable. One split can be lucky; five give a mean and a spread, and the test set is still untouched."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 7,
+   "chapter": "Data leakage",
+   "text": "Data leakage means the model sees information it will not have when used for real. Target leakage: a feature created after the outcome, like payment confirmed to predict buying. Train and test contamination: the same row in both parts, like our one hundred twenty five duplicates. Preprocessing leakage: a scaler, imputer or feature selection fitted on all rows before the split. And sampling leakage: over-sampling before the split, so copies of a row land in train and test. The result is great scores in the notebook and poor results in real life."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 8,
+   "chapter": "Leakage on real data",
+   "text": "Here is leakage on real data: the same model in two orders. Over-sample then split gives a recall of point nine nine two, the leaky number. Split then over-sample the training rows only gives point six six five, the honest number. Ninety eight point four percent of the leaky test buyers had an exact copy in the training set, so the model was tested on rows it had already memorised. The honest point six six five is lower, and it is the number you can trust."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L29-30.pdf",
+   "page": 9,
+   "chapter": "Preventing data leakage",
+   "text": "How to prevent leakage. Remove duplicates first. Split first, before any fitting or resampling. Fit every step on training rows only. Resample, over or under, the training rows only. Ask of every feature: is it known at prediction time? And use the test set once. A pipeline, like make pipeline with a standard scaler and logistic regression, re-fits the scaler inside each cross-validation fold, so there is no peeking."
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "out_name": "P29_Lab_Full_Pipeline_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals twenty nine and thirty: the full pipeline and an industry-style submission. This first video builds the full pipeline."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 2,
+   "chapter": "Lab plan",
+   "text": "Practical twenty nine builds the full pipeline: audit, hypotheses, split, cross-validation, a leakage demo, skew, and the final pipeline. Practical thirty is an industry-style submission with a worked example on diabetes data. The main file is Online Shoppers, twelve thousand three hundred thirty rows by eighteen columns; the submission example uses diabetes, seven hundred sixty eight by nine."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 3,
+   "chapter": "Step 1: load and audit",
+   "text": "Step one: load and audit. Twelve thousand three hundred thirty rows by eighteen columns, with one hundred twenty five duplicate rows. Drop them and we have twelve thousand two hundred five rows, with fifteen point six percent buyers."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 4,
+   "chapter": "Step 2: test the hypotheses",
+   "text": "Step two: test the refined hypotheses. Group by has page value gives buy rates of point oh three nine and point five six three; a chi-square test on the cross-tab gives a p-value of zero. Group by visitor type gives new point two four nine, other point one nine eight, returning point one four one, with p of about four times ten to the minus twenty nine. Both p-values are below point oh five, so keep H one and H two."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 5,
+   "chapter": "Step 3: features and split",
+   "text": "Step three: build features and split. One-hot encode month and visitor type, giving twelve thousand two hundred five rows by twenty eight columns. A stratified eighty twenty split gives nine thousand seven hundred sixty four training rows and two thousand four hundred forty one test rows, with point one five six buyers in each."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 6,
+   "chapter": "Step 4: pipeline and cross-validation",
+   "text": "Step four: a pipeline of Standard Scaler and logistic regression, scored with five-fold cross-validation on R O C A U C. The five scores are point eight nine three, point nine oh two, point eight eight, point eight eight seven and point eight eight nine, with a mean of point eight nine and a standard deviation of point oh oh seven. Only training rows are used, and the scaler is re-fitted inside each fold."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 7,
+   "chapter": "Step 5: leakage demo",
+   "text": "Step five: the leakage demo. Over-sample the buyers before the split, then split and train a random forest. The leaky recall is point nine nine two. But checking the test buyers, ninety eight point four percent are copies of training rows, so the score is fake."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 8,
+   "chapter": "Step 6: the honest way",
+   "text": "Step six: the honest way. Split first, then over-sample only the training rows, and test on the untouched test set. Honest recall is point six six five, versus point nine nine two for the leaky order. Split first, then resample."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 9,
+   "chapter": "Step 7: skew baseline and stratified sample",
+   "text": "Step seven: skew. An always-no model has accuracy point eight four four and recall zero. A random two percent sample has eighteen percent buyers, while a stratified two percent sample has fifteen point six, the true share."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 10,
+   "chapter": "Step 8: three ways to handle skew",
+   "text": "Step eight: three ways to handle the skew. A score function reports accuracy, recall and F one. No change gives recall point four one six. Class weight balanced gives point seven eight five. Under-sampling point seven eight five, over-sampling point seven nine one. Accuracy drops slightly, from point eight eight nine to about point eight five, but recall nearly doubles."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 11,
+   "chapter": "Step 9: insight check and final pipeline",
+   "text": "Step nine: insight check and final pipeline. November, October and September have the highest buy rates, with November at point two five five. The final pipeline is a scaler and class-weighted logistic regression, with cross-validation R O C A U C of point nine zero plus or minus point oh oh five. We fit once and score the test set once: accuracy point eight five one, recall point seven eight five, F one point six two three."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 12,
+   "chapter": "Step 10: what drives the model",
+   "text": "Step ten: what drives the final model? The top weights are page values at two point three, month November at point three nine, and product related duration and administrative pages with small weights. The E D A insight, valued pages fifty six percent versus four percent, and the model's top feature agree, and so do the November peak and its weight. E D A and the model tell the same story, which makes a trustworthy insight."
+  }
+ ]
+}

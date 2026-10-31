@@ -1,0 +1,228 @@
+1
+00:00:00,000 --> 00:00:02,969
+Welcome to practicals three and four.
+
+2
+00:00:02,969 --> 00:00:13,080
+The goal is to learn to spot data types and structure in your own dataset, by asking five simple questions about every column.
+
+3
+00:00:13,880 --> 00:00:26,264
+The five questions are about the level of measurement, discrete versus continuous, structured versus semi-structured, text data basics, and time series behaviour.
+
+4
+00:00:27,064 --> 00:00:27,956
+First ask:
+
+5
+00:00:27,956 --> 00:00:35,179
+are the values labels or numbers, and can you rank them or measure real distance?
+
+6
+00:00:35,179 --> 00:00:35,892
+Nominal:
+
+7
+00:00:35,892 --> 00:00:40,351
+categories with no order, like city or blood type.
+
+8
+00:00:40,351 --> 00:00:41,064
+Ordinal:
+
+9
+00:00:41,064 --> 00:00:46,771
+categories that can be ranked, like satisfaction or star rating.
+
+10
+00:00:46,771 --> 00:00:47,574
+Interval:
+
+11
+00:00:47,574 --> 00:00:52,924
+equal spacing but no true zero, like temperature in Celsius.
+
+12
+00:00:52,924 --> 00:00:53,459
+Ratio:
+
+13
+00:00:53,459 --> 00:00:58,720
+equal spacing with a true zero, like height, age or income.
+
+14
+00:00:59,520 --> 00:01:02,547
+Here is a quick test for any column.
+
+15
+00:01:02,547 --> 00:01:08,097
+If the values are words, ask whether the categories can be ranked:
+
+16
+00:01:08,097 --> 00:01:12,050
+no order means nominal, an order means ordinal.
+
+17
+00:01:12,050 --> 00:01:17,263
+If the values are numbers, ask whether zero means none at all.
+
+18
+00:01:17,263 --> 00:01:21,720
+No true zero means interval; a true zero means ratio.
+
+19
+00:01:21,720 --> 00:01:32,568
+Zero degrees Celsius does not mean no temperature, so temperature is interval, while zero income means no income, so it is ratio.
+
+20
+00:01:33,368 --> 00:01:34,762
+Both are numeric.
+
+21
+00:01:34,762 --> 00:01:40,174
+The test is whether you can count the values or must measure them.
+
+22
+00:01:40,174 --> 00:01:47,963
+If you can list every possible value, one, two, three, with nothing in between, it is discrete:
+
+23
+00:01:47,963 --> 00:01:52,227
+number of children, orders, clicks, defective items.
+
+24
+00:01:52,227 --> 00:01:58,048
+If the value could fall anywhere between two numbers, it is continuous:
+
+25
+00:01:58,048 --> 00:02:01,328
+height, temperature, time taken, weight.
+
+26
+00:02:02,128 --> 00:02:08,325
+Look at how the file itself is laid out, not just the values inside it.
+
+27
+00:02:08,325 --> 00:02:16,356
+A C S V file, an Excel sheet or a database table is structured, with fixed rows and columns.
+
+28
+00:02:16,356 --> 00:02:27,616
+A J S O N or X M L file, a log file or an email has keys or tags but no fixed table shape, and fields can differ between records.
+
+29
+00:02:28,416 --> 00:02:34,648
+Free-form text columns need to be broken down before you can analyse them.
+
+30
+00:02:34,648 --> 00:02:38,860
+Raw text is a full sentence or comment as written.
+
+31
+00:02:38,860 --> 00:02:42,481
+Tokens are the individual words or symbols.
+
+32
+00:02:42,481 --> 00:02:44,839
+Text is organised in layers:
+
+33
+00:02:44,839 --> 00:02:48,798
+character, word, sentence, paragraph, document.
+
+34
+00:02:48,798 --> 00:02:55,114
+And open-ended answers differ from fixed-label text columns like yes or no.
+
+35
+00:02:55,114 --> 00:03:04,800
+For example, the sentence I loved this product becomes the tokens I, loved, this, product, and an exclamation mark.
+
+36
+00:03:05,600 --> 00:03:12,723
+If your data has a date or time column, check whether values move over time in two ways.
+
+37
+00:03:12,723 --> 00:03:18,470
+Trend is the overall direction in the long run, ignoring short wiggles.
+
+38
+00:03:18,470 --> 00:03:26,240
+Seasonality is a pattern that repeats at fixed intervals, caused by seasons, holidays or habits.
+
+39
+00:03:26,240 --> 00:03:28,264
+Plot values against date:
+
+40
+00:03:28,264 --> 00:03:34,496
+a rising or falling line is a trend, regular repeating bumps are seasonality.
+
+41
+00:03:35,296 --> 00:03:36,941
+Your cheat sheet.
+
+42
+00:03:36,941 --> 00:03:38,587
+Words or numbers:
+
+43
+00:03:38,587 --> 00:03:41,200
+categorical versus numeric.
+
+44
+00:03:41,200 --> 00:03:43,620
+Can categories be ranked:
+
+45
+00:03:43,620 --> 00:03:45,846
+nominal versus ordinal.
+
+46
+00:03:45,846 --> 00:03:47,782
+Does zero mean none:
+
+47
+00:03:47,782 --> 00:03:49,912
+interval versus ratio.
+
+48
+00:03:49,912 --> 00:03:52,428
+Can you count every value:
+
+49
+00:03:52,428 --> 00:03:55,042
+discrete versus continuous.
+
+50
+00:03:55,042 --> 00:03:58,333
+Rows and columns or tags and keys:
+
+51
+00:03:58,333 --> 00:04:01,624
+structured versus semi-structured.
+
+52
+00:04:01,624 --> 00:04:03,656
+Open-ended sentences:
+
+53
+00:04:03,656 --> 00:04:04,624
+text data.
+
+54
+00:04:04,624 --> 00:04:06,947
+A repeating date column:
+
+55
+00:04:06,947 --> 00:04:10,335
+time series, trend and seasonality.
+
+56
+00:04:10,335 --> 00:04:14,400
+Apply these questions to your own dataset.
+
+57
+00:04:14,400 --> 00:04:16,336
+Thanks for watching.
+

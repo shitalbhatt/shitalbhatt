@@ -1,0 +1,42 @@
+{
+ "out_name": "W_Complete_EDA_Workflow_in_One_Video",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This video puts the entire syllabus on one page. We walk through the complete exploratory data analysis workflow, from the first question to the final insight, and show which lecture and lab covers each step.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/02.png",
+   "chapter": "Steps 1 to 4",
+   "text": "Steps one to four. Step one: frame the problem and the data: what is a row, what is the outcome, and what can the sample support? Step two: audit the data: shape, types, missing values, duplicates, hidden zeros. Step three: understand data types and structures. Step four: describe distributions: centre, spread, shape, with median and I Q R for skewed data.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/03.png",
+   "chapter": "Steps 5 to 8",
+   "text": "Steps five to eight. Step five: explore relationships with correlation, cross-tabs and grouped statistics, and discover groups with V I F and K-Means. Step six: visualise honestly and tell the story. Step seven: fix data quality: integration, duplicates, encoding, validation rules. Step eight: handle missing values and outliers by mechanism and cause.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/04.png",
+   "chapter": "Steps 9 to 12",
+   "text": "Steps nine to twelve. Step nine: encode categories and handle imbalance. Step ten: transform and scale, and engineer and select features. Step eleven: reduce dimensions with P C A, and test honestly with a stratified split, cross-validation and no leakage. Step twelve: translate results into insights as observation, evidence, meaning and action, with limitations stated.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/05.png",
+   "chapter": "Four golden rules",
+   "text": "Four ideas run through every step. Plot and compute together, since each hides what the other shows. Ask why before you fix: why is it missing, why is it extreme. Never let the test data influence any choice: split first and fit on training rows only. And report honestly: label exploratory against confirmatory, state limits, and say what the data cannot answer.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/W/slides/06.png",
+   "chapter": "What next",
+   "text": "Where to go next. Re-do every lab on a dataset of your own. Use the module revision videos to test yourself. Prepare the assignments and the final project with the guides. And read the textbooks in the course reading list. You now have the complete exploratory data analysis workflow. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

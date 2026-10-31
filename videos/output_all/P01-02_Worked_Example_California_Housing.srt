@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:04,024
+This is the worked example for practicals one and two:
+
+2
+00:00:04,024 --> 00:00:08,122
+exploratory data analysis on California housing prices.
+
+3
+00:00:08,122 --> 00:00:17,808
+We use twenty thousand six hundred forty districts and ten columns, and we compare what the numbers say with what the graphs show.
+
+4
+00:00:18,608 --> 00:00:19,618
+The question:
+
+5
+00:00:19,618 --> 00:00:22,416
+do the numbers and the graphs agree?
+
+6
+00:00:22,416 --> 00:00:27,701
+What do a district's housing characteristics look like on their own:
+
+7
+00:00:27,701 --> 00:00:33,841
+symmetric or skewed, tight or spread out, and how many outlier districts exist?
+
+8
+00:00:33,841 --> 00:00:35,706
+The plan has five steps:
+
+9
+00:00:35,706 --> 00:00:50,240
+clean the data, compute descriptive statistics with outlier counts, draw histogram, boxplot and density plots, build pivot tables, and finally compare statistical and graphical inference.
+
+10
+00:00:51,040 --> 00:00:53,745
+We load the file and clean it first.
+
+11
+00:00:53,745 --> 00:01:05,690
+There are zero duplicates, but two hundred seven districts are missing total bedrooms, so we drop them, leaving twenty thousand four hundred thirty three rows.
+
+12
+00:01:05,690 --> 00:01:14,030
+We also check for zero population, households or rooms, which would be physically impossible data entry errors.
+
+13
+00:01:14,030 --> 00:01:20,416
+Cleaning first matters because these rows would distort every statistic that follows.
+
+14
+00:01:21,216 --> 00:01:28,124
+The dependent variable is median house value, the outcome a buyer or seller cares about.
+
+15
+00:01:28,124 --> 00:01:35,347
+The independent variables are median income, housing median age, total rooms and population.
+
+16
+00:01:35,347 --> 00:01:44,218
+Note that rooms, population and households all measure district size and are strongly correlated with each other.
+
+17
+00:01:44,218 --> 00:01:50,184
+Ocean proximity is a categorical feature we use to segment the pivot tables.
+
+18
+00:01:50,984 --> 00:01:58,836
+For each feature we compute the mean, median, variance, I Q R, outlier fences, skewness and kurtosis.
+
+19
+00:01:58,836 --> 00:02:02,412
+Median income is right-skewed and leptokurtic.
+
+20
+00:02:02,412 --> 00:02:11,664
+The mean is nine point five percent above the median, skewness is one point six four and kurtosis four point nine four.
+
+21
+00:02:11,664 --> 00:02:20,216
+There are six hundred seventy outliers, three point two eight percent, and they are the high-income districts.
+
+22
+00:02:21,016 --> 00:02:23,785
+This is the code behind the charts.
+
+23
+00:02:23,785 --> 00:02:25,684
+One row of three frames:
+
+24
+00:02:25,684 --> 00:02:39,372
+a histogram showing how often values occur, a sideways boxplot showing the median, middle fifty percent and outliers, and a smoothed density curve showing the overall shape.
+
+25
+00:02:39,372 --> 00:02:42,616
+We reuse the same code for every feature.
+
+26
+00:02:43,416 --> 00:02:47,138
+Housing median age is the best-behaved feature.
+
+27
+00:02:47,138 --> 00:03:02,026
+The mean is only one point three percent below the median, skewness is zero point zero six, so it is near-symmetric, and kurtosis is negative zero point eight, flatter than a normal curve.
+
+28
+00:03:02,026 --> 00:03:05,352
+There are zero outliers by the I Q R rule.
+
+29
+00:03:06,152 --> 00:03:11,034
+Total rooms is strongly right-skewed and extremely leptokurtic.
+
+30
+00:03:11,034 --> 00:03:20,411
+The mean is twenty four percent above the median, skewness is four point one six and kurtosis thirty two point seven one.
+
+31
+00:03:20,411 --> 00:03:26,146
+Twelve hundred ninety outliers, over six percent, are the large districts.
+
+32
+00:03:26,146 --> 00:03:29,168
+This is the most outlier-heavy feature.
+
+33
+00:03:29,968 --> 00:03:32,549
+Population is the most extreme.
+
+34
+00:03:32,549 --> 00:03:41,540
+Skewness is almost five, and kurtosis is seventy four, a very sharp peak with rare but very large districts.
+
+35
+00:03:41,540 --> 00:03:48,616
+Eleven hundred ninety outliers sit above the upper whisker, mostly dense urban areas.
+
+36
+00:03:49,416 --> 00:03:55,281
+Median house value, our dependent variable, is right-skewed but only moderately.
+
+37
+00:03:55,281 --> 00:04:03,785
+The mean is fifteen percent above the median, skewness is zero point nine eight and kurtosis zero point three three.
+
+38
+00:04:03,785 --> 00:04:14,928
+The one thousand sixty four outliers are the highest-value districts, matching the long tail past four hundred eighty thousand dollars in the histogram.
+
+39
+00:04:15,728 --> 00:04:18,146
+Reading the whole table together:
+
+40
+00:04:18,146 --> 00:04:26,427
+housing median age is best behaved, population is the most extreme, and total rooms has the highest outlier rate.
+
+41
+00:04:26,427 --> 00:04:34,928
+The dependent variable sits in the middle, clearly skewed but less extreme than the raw size measures that drive it.
+
+42
+00:04:35,728 --> 00:04:38,738
+In practical two we build pivot tables.
+
+43
+00:04:38,738 --> 00:04:41,749
+Average house value by ocean proximity:
+
+44
+00:04:41,749 --> 00:04:47,229
+inland is the cheapest, roughly half the value of any coastal category.
+
+45
+00:04:47,229 --> 00:04:56,955
+Island looks highest at three hundred eighty thousand, but there are only five such districts, far too few to generalise from.
+
+46
+00:04:56,955 --> 00:05:04,288
+Among well-populated categories, near bay and near ocean outrank less than one hour from ocean.
+
+47
+00:05:05,088 --> 00:05:06,996
+Now add income brackets.
+
+48
+00:05:06,996 --> 00:05:13,197
+Within every ocean proximity category, house value rises steadily with income.
+
+49
+00:05:13,197 --> 00:05:22,977
+Inland districts climb from about seventy eight thousand dollars to three hundred seventy nine thousand, nearly five times.
+
+50
+00:05:22,977 --> 00:05:27,190
+Location sets a baseline and income scales it on top:
+
+51
+00:05:27,190 --> 00:05:29,496
+the two effects are additive.
+
+52
+00:05:30,296 --> 00:05:32,028
+The overall conclusion:
+
+53
+00:05:32,028 --> 00:05:37,828
+for all five features, the numeric summary and the plots tell the same story.
+
+54
+00:05:37,828 --> 00:05:46,112
+Population and total rooms show it most clearly, with extreme kurtosis and a sharp peak with a long thin tail.
+
+55
+00:05:46,112 --> 00:05:55,376
+Agreement is a property of this dataset, not a given, which is the practical case for always pairing statistics with plots.
+
+56
+00:05:56,176 --> 00:05:57,158
+To conclude:
+
+57
+00:05:57,158 --> 00:06:10,657
+five features were fully profiled with mean, median, variance, standard deviation, I Q R, skewness, kurtosis and outlier counts, then cross-checked with three plots.
+
+58
+00:06:10,657 --> 00:06:16,875
+Ocean proximity and income are independent, additive drivers of house value.
+
+59
+00:06:16,875 --> 00:06:21,948
+And statistical and graphical views should always be compared.
+
+60
+00:06:21,948 --> 00:06:23,584
+Thanks for watching.
+

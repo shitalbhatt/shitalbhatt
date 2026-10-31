@@ -1,0 +1,102 @@
+{
+ "out_name": "L13-14_Data_Visualization_Grammar_to_Storytelling_Lecture",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/01.png",
+   "chapter": "Introduction",
+   "text": "Welcome to lectures thirteen and fourteen: data visualization. We will learn how charts are built using the Grammar of Graphics, how to tell good charts from misleading ones, how to visualize non-numeric data, how dashboards are organised, and how to turn a chart into a story. This also prepares you for assignment one.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/02.png",
+   "chapter": null,
+   "text": "Five ideas today. One: the Grammar of Graphics, building any chart from layers. Two: good versus misleading charts. Three: visualizing non-numeric data such as categories, hierarchies, text and networks. Four: dashboard logic. And five: storytelling with data.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/03.png",
+   "chapter": "Why we visualize",
+   "text": "Why visualize at all? These four datasets, known as Anscombe's quartet, have the same mean, the same variance, the same correlation of point eight two, and the same fitted line. Yet they look completely different: a clean linear trend, a curve, a line with one outlier, and a vertical stack with one extreme point. Summary statistics compress, and compression hides structure. Only the picture shows the difference.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/04.png",
+   "chapter": "Grammar of Graphics",
+   "text": "The Grammar of Graphics says every chart is built from layers. The data is the table you plot. Aesthetics decide which column controls x, y, colour, size or shape. Geometry is the shape that draws the data: points, lines, bars or boxes. And scales, labels and theme control axis ranges, titles, colours and fonts. If you can name the layers, you can build or debug any chart.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/05.png",
+   "chapter": null,
+   "text": "Not all visual channels are equally accurate. People judge position on a common scale best, then length, then angle and slope, then area, and colour intensity least precisely. That is why bar charts and dot plots beat pie charts for comparing values. Put your most important comparison on the most accurate channel.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/06.png",
+   "chapter": null,
+   "text": "Choose the geometry from the question you are asking. How is one number distributed: histogram, density or box plot. How do two numbers relate: scatter plot. How does a number change over time: line chart. How do groups compare: bar, box or violin plot. How do two categories overlap: a heatmap of a cross-tab. And part of a whole: stacked bar or treemap.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/07.png",
+   "chapter": null,
+   "text": "Facets, also called small multiples, repeat the same chart once per group in a grid. Every panel shares the same axes, so groups can be compared at a glance. It takes one line of code, for example col equals the grouping column in seaborn, and it is almost always better than piling many lines or colours onto one cluttered plot.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/08.png",
+   "chapter": "Good vs misleading plots",
+   "text": "Now, good versus misleading charts. The most common trick is the truncated axis. These two bar charts show exactly the same four numbers. On the left the axis starts at ninety five, so a five percent rise looks like a five-fold jump. On the right the axis starts at zero and shows the true, modest change. When bars encode a quantity, the axis must start at zero.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/09.png",
+   "chapter": null,
+   "text": "Charts can also mislead in other ways. Dual axes can be scaled to fake any correlation. A cherry-picked range shows only the dates that suit the story. Distorted areas exaggerate: doubling a circle's radius quadruples its area. Clutter and three-D effects hide the data and bend the values. And missing context, with no baseline, sample size or source, leaves viewers guessing.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/10.png",
+   "chapter": null,
+   "text": "Principles of an honest chart. Start bar charts at zero; line charts may zoom, but say so. Label axes with units and give an informative title. Use colour with purpose and check it works for colour-blind readers. Remove decoration that carries no data, such as heavy gridlines, three-D and shadows. And always show the sample size and the source.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/11.png",
+   "chapter": "Visualizing non-numeric data",
+   "text": "Mean and correlation do not apply to categories, hierarchies or text, so each needs its own picture. For categorical data, use a sorted bar chart, sorted by value and not alphabetically. For hierarchical data, use a treemap, where area shows share and nesting shows structure. For text, use a word cloud or, better, a word-frequency bar chart. And for relationships, use a network diagram, where nodes are items and edges are links.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/12.png",
+   "chapter": "Dashboard logic",
+   "text": "Dashboard logic. A dashboard is several panels sharing one figure, organised around a single purpose. Start with the audience and the decision they have to make. Put the key numbers first, in a row of K P I cards. Add supporting detail below: a trend, a breakdown and one comparison. And keep the design consistent, with the same colours, scales and filters across panels. Fewer panels, each with a clear job.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/13.png",
+   "chapter": "Storytelling with data",
+   "text": "Storytelling with data turns a chart into a message. Let the title state the insight, such as Central's discount stands out, rather than just naming the variables. Highlight one thing: gray out the rest and colour the bar that matters. Annotate the key moment directly on the chart. And declutter: remove everything that does not support the message.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/14.png",
+   "chapter": null,
+   "text": "A simple story structure has three parts. Context: what is the situation and why does it matter. Conflict: what did the data reveal that is surprising or wrong. And resolution: what action do you recommend, and what will it change. Every chart in your presentation should serve one of these three parts.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/15.png",
+   "chapter": "Assignment 1 preparation",
+   "text": "To prepare for assignment one, structure your presentation like this. A problem statement with the question, unit of observation and target. A data audit: shape, types, missing values, duplicates and hidden zeros. Univariate and bivariate E D A with honest charts. Two or three hypotheses, labelled exploratory. And a story, with insight titles, one highlighted finding per slide, and a recommendation. Every chart needs an honest axis, labels with units, and an insight title.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork13/slides/16.png",
+   "chapter": "Summary",
+   "text": "Key takeaways. Statistics hide structure, so always plot; remember Anscombe's quartet. Every chart is data, aesthetics, geometry, scales and theme. Choose the geometry from the question and use facets for groups. Start bar axes at zero and avoid decoration that bends the data. Categories, hierarchies, text and networks each have a natural chart. And dashboards have one purpose, while stories have a message. In the lab you will build all of these in Python. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

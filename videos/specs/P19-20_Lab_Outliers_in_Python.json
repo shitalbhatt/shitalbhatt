@@ -1,0 +1,90 @@
+{
+ "out_name": "P19-20_Lab_Outliers_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 19,
+   "chapter": "Lab datasets",
+   "text": "Now the lab. We use two datasets: New York City Airbnb twenty nineteen, forty eight thousand eight hundred ninety five listings, and California Housing, twenty thousand six hundred forty districts, where a value limit shows up at five hundred thousand and one. We analyse six Airbnb columns, and each step runs on all six with one pandas line, no loops."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 20,
+   "chapter": "Steps 1 and 2: load and find causes",
+   "text": "Steps one and two: load the data and find causes. Eleven listings have a price of zero, three have exactly ten thousand, two hundred thirty nine are above a thousand dollars, and fourteen have minimum nights above three sixty five. A ten thousand dollar private room in Queens is surely a typing mistake, while a Manhattan penthouse may be real."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 21,
+   "chapter": "Step 5: Z-score",
+   "text": "Step five: Z-score on all features in one line. Subtract the mean, divide by the standard deviation, take the absolute value, and count values above three. Price has three hundred eighty eight, minimum nights three hundred twenty seven, number of reviews twelve hundred twenty one, and so on. The Z cut-off for price is eight seventy three dollars. Z-score finds thirty two hundred outliers in total, most in number of reviews."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 22,
+   "chapter": "Step 6: IQR",
+   "text": "Step six: I Q R on all features. Compute Q one, Q three, the I Q R, and the lower and upper fences, then count values outside. Price has two thousand nine hundred seventy two outliers, minimum nights six thousand six hundred seven, and host listings seven thousand eighty one. In total, I Q R finds over twenty four thousand outliers, and thirty eight percent of homes have an outlier in at least one column."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 23,
+   "chapter": "Isolation Forest",
+   "text": "Step seven: Isolation Forest on all six features, with contamination of two percent and a fixed random state. It flags nine hundred seventy eight homes, two percent. Compared with all listings, these have a much higher minimum stay, a median of twenty nine nights, and are open nearly all year. The strangest homes are company-run flats for long stays, like the Sonder listings."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 24,
+   "chapter": "Local Outlier Factor",
+   "text": "L O F finds a price that is odd for its area. We use latitude, longitude and log price, scale them, and run L O F with fifty neighbours. It finds four hundred eighty nine outliers, and three hundred sixty four of them are not flagged by I Q R on price. Two hundred twenty eight are cheaper than the median, like a twenty dollar private room in Staten Island. I Q R can never catch the very cheap ones."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 25,
+   "chapter": "DBSCAN and comparison",
+   "text": "D B S C A N: log the data, scale it, then cluster with eps zero point eight and minimum samples twenty; noise points are the outliers. It finds one thousand eighty nine. Compared across detectors, Isolation Forest and D B S C A N mostly find the same rows as I Q R, while L O F finds about two hundred fifty new ones that I Q R misses. Models agree with rules on big values, and help most with odd-for-its-group cases."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 26,
+   "chapter": "Step 9: fix outliers",
+   "text": "Step nine: fix outliers, one line each. Removal drops price outliers; capping uses clip with the fences; winsorising clips at the first and ninety ninth percentiles; median imputation masks outliers with the median; group median uses each room type's median; and log uses log one p. The maximum price falls from ten thousand to three thirty four with capping, and to seven ninety nine with winsorising. Removal loses rows, and removing on all six columns would lose thirty eight percent of the data, so remove on price only."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 27,
+   "chapter": "Replace using ML",
+   "text": "Replacing outliers using machine learning: set the outlier prices to missing, then use K N N imputer or a linear regression on location, minimum nights, availability, reviews and room type. The median gives every home one oh six; K N N and regression give each its own value. K N N fills have a mean of one eighty eight, regression one sixty four. Check for silly values, like a regression fill of forty seven cents."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 28,
+   "chapter": "Step 10: before vs after",
+   "text": "Step ten: the price numbers before and after. The median stays about the same, but the mean, standard deviation and skew drop a lot, so the outliers were causing them. Skew falls from nineteen to about one, and the standard deviation from two forty to under eighty five. Log one p brings skew to zero point five five."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 29,
+   "chapter": "Skew of every column",
+   "text": "Skew of every column before and after. I Q R capping brings every long-tailed column to a skew of about one. Winsorising leaves host listings skew at seven, because one company with three hundred twenty seven homes is still far above the rest."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 30,
+   "chapter": "Charts before vs after",
+   "text": "And the charts: box plots of each version on a log axis, and histograms of raw versus capped. After capping, the long tails are gone and we can finally see the shape of normal prices."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 31,
+   "chapter": "Step 11: model accuracy",
+   "text": "Step eleven: model accuracy before and after. Same linear model, same data split, only the outlier fix changes. R squared is zero point one two on raw price, zero point four four with I Q R capping, and up to zero point four nine with K N N imputation. The mean absolute error falls from seventy one dollars to about thirty six. Fixing outliers made the model about four times better and halved the error."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L19-20.pdf",
+   "page": 32,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. An outlier is far from the rest, unusual but not always wrong. Causes: mistakes, rare real values, limits, and a different group. Types: global, contextual, collective, multivariate. Z-score works on bell-shaped data but misses outliers in long tails; I Q R is safer. Ignoring outliers gives a wrong mean and standard deviation, even a flipped regression line. Fix by cause: mistakes get fixed or removed, real values get capped or logged, limits get flagged. Always compare before and after: skew nineteen to one, R squared zero point one two to zero point four four. ML models find cases simple rules miss, and K N N and regression give each outlier a smart new value, but check it makes sense. Thanks for watching."
+  }
+ ]
+}

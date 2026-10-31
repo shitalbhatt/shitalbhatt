@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:02,892
+Welcome to practicals seven and eight:
+
+2
+00:00:02,892 --> 00:00:06,013
+univariate E D A on a large real dataset.
+
+3
+00:00:06,013 --> 00:00:16,896
+We use the Superstore orders, eight thousand three hundred ninety nine rows and twenty one columns, with full code, results and interpretation.
+
+4
+00:00:17,696 --> 00:00:22,059
+The source is eight thousand real retail order records.
+
+5
+00:00:22,059 --> 00:00:24,359
+We have six numeric features:
+
+6
+00:00:24,359 --> 00:00:35,623
+sales, profit, discount, order quantity, unit price and shipping cost; and categorical features like category, ship mode and customer segment.
+
+7
+00:00:35,623 --> 00:00:43,952
+The goal is to describe every numeric feature fully, compare distributions, and write down what we learn.
+
+8
+00:00:44,752 --> 00:00:45,471
+Step one:
+
+9
+00:00:45,471 --> 00:00:58,969
+read the C S V into a data frame, check the shape for a fast sanity check on size, and print the data types to see which columns pandas treats as numeric or categorical.
+
+10
+00:00:58,969 --> 00:01:05,039
+We get eight thousand three hundred ninety nine rows and twenty one columns.
+
+11
+00:01:05,039 --> 00:01:09,352
+Always run this first, before any statistics or plots.
+
+12
+00:01:10,152 --> 00:01:10,905
+Step two:
+
+13
+00:01:10,905 --> 00:01:18,016
+isna flags every cell as true or false, and sum adds those up per column in one line.
+
+14
+00:01:18,016 --> 00:01:26,298
+Only product base margin shows a real gap, sixty three missing rows, zero point seven five percent.
+
+15
+00:01:26,298 --> 00:01:30,816
+All the columns we use today have zero missing values.
+
+16
+00:01:31,616 --> 00:01:32,586
+Step three:
+
+17
+00:01:32,586 --> 00:01:36,201
+full summary statistics in one line each.
+
+18
+00:01:36,201 --> 00:01:45,106
+Mean, median, standard deviation, skew and kurtosis, each applied to all six numeric columns at once.
+
+19
+00:01:45,106 --> 00:01:52,424
+No loops and no if statements; pandas broadcasts the statistic across every column.
+
+20
+00:01:53,224 --> 00:02:04,122
+Sales, profit and unit price are extremely right-skewed, with skew of five point three nine, three point six five and fourteen point one three.
+
+21
+00:02:04,122 --> 00:02:07,476
+Order quantity is nearly flat and symmetric.
+
+22
+00:02:07,476 --> 00:02:09,686
+Discount is close to uniform.
+
+23
+00:02:09,686 --> 00:02:21,880
+And profit's median is negative one fifty despite a positive mean of one hundred eighty one dollars, a strong early hint that many individual orders lose money.
+
+24
+00:02:22,680 --> 00:02:23,516
+Step four:
+
+25
+00:02:23,516 --> 00:02:25,020
+robust statistics.
+
+26
+00:02:25,020 --> 00:02:30,534
+The I Q R is Q three minus Q one for all six columns in two lines.
+
+27
+00:02:30,534 --> 00:02:40,561
+The coefficient of variation, standard deviation over mean, lets us compare spread across features with different units.
+
+28
+00:02:40,561 --> 00:02:49,752
+The outlier count uses the one point five I Q R rule applied to every column with a single boolean comparison.
+
+29
+00:02:50,552 --> 00:03:01,836
+Profit flags the most outliers, one thousand seven hundred four orders, twenty percent, both unusually large profits and unusually large losses.
+
+30
+00:03:01,836 --> 00:03:07,243
+Sales flags twelve percent, a small number of very large bulk orders.
+
+31
+00:03:07,243 --> 00:03:15,392
+Order quantity and discount flag essentially zero, because they are naturally bounded and evenly spread.
+
+32
+00:03:16,192 --> 00:03:19,021
+Step five is a real business finding.
+
+33
+00:03:19,021 --> 00:03:25,292
+Checking what fraction of a column is negative is a simple but powerful one-liner.
+
+34
+00:03:25,292 --> 00:03:31,792
+Combined with the median from step three, it tells us something the mean alone hides.
+
+35
+00:03:32,592 --> 00:03:41,137
+Fifty point eight percent of all orders, just over half, lose money, and the median order profit is minus one fifty.
+
+36
+00:03:41,137 --> 00:03:42,611
+The mean hides this:
+
+37
+00:03:42,611 --> 00:03:52,703
+the average profit is a positive one hundred eighty one dollars purely because a smaller number of very profitable orders pull it upward.
+
+38
+00:03:52,703 --> 00:03:59,849
+Whenever mean and median diverge this much, the mean alone is misleading about the typical order.
+
+39
+00:03:59,849 --> 00:04:09,720
+This raises a business question about which categories or discount levels drive the losses, which practical nine and ten will address.
+
+40
+00:04:10,520 --> 00:04:11,240
+Step six:
+
+41
+00:04:11,240 --> 00:04:14,600
+comparing distributions across a category.
+
+42
+00:04:14,600 --> 00:04:20,360
+We loop over each product category and overlay its profit density curve.
+
+43
+00:04:20,360 --> 00:04:29,960
+This is the one place a simple loop is clearer than a one-liner, because we are drawing several curves on the same axes.
+
+44
+00:04:30,760 --> 00:04:37,846
+All three categories centre close to zero, with profitable and loss-making orders in each.
+
+45
+00:04:37,846 --> 00:04:43,672
+Technology has a visibly wider spread, with bigger wins and bigger losses.
+
+46
+00:04:43,672 --> 00:04:54,064
+Technology averages four hundred twenty nine dollars per order versus sixty eight for furniture, a real, meaningful category effect.
+
+47
+00:04:54,864 --> 00:04:55,743
+Step seven:
+
+48
+00:04:55,743 --> 00:05:03,090
+value counts is the categorical equivalent of describe, one line for a full frequency table.
+
+49
+00:05:03,090 --> 00:05:14,112
+Run it once per categorical column, and always check these before any grouping or cross-tab analysis, to know each category's sample size.
+
+50
+00:05:14,912 --> 00:05:22,529
+Office supplies dominates with fifty five percent of orders; furniture is smallest at twenty percent.
+
+51
+00:05:22,529 --> 00:05:29,694
+Regular air is the overwhelming shipping choice at seventy five percent; express air is rarest.
+
+52
+00:05:29,694 --> 00:05:36,632
+Corporate is the largest segment at thirty seven percent, with the other three fairly close.
+
+53
+00:05:37,432 --> 00:05:46,454
+A pie chart divides a whole into proportional slices, ideal here since product category has exactly three groups.
+
+54
+00:05:46,454 --> 00:05:50,845
+Office supplies makes up well over half of every order.
+
+55
+00:05:50,845 --> 00:05:51,644
+A caution:
+
+56
+00:05:51,644 --> 00:06:01,384
+pie charts get hard to read past four or five slices, so a region variable with eight categories is better as a bar chart.
+
+57
+00:06:02,184 --> 00:06:02,907
+To recap:
+
+58
+00:06:02,907 --> 00:06:09,497
+six one-line pandas commands fully describe six numeric features, no loops needed.
+
+59
+00:06:09,497 --> 00:06:18,417
+Sales, profit and unit price are strongly right-skewed, while order quantity and discount are close to uniform.
+
+60
+00:06:18,417 --> 00:06:27,338
+Just over half of all orders, fifty point eight percent, lose money, a finding the mean alone completely hides.
+
+61
+00:06:27,338 --> 00:06:37,705
+And comparing distributions across categories is how the first real hypotheses form, which we continue in practical nine and ten.
+
+62
+00:06:37,705 --> 00:06:39,312
+Thanks for watching.
+

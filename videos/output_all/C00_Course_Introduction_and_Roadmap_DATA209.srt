@@ -1,0 +1,240 @@
+1
+00:00:00,000 --> 00:00:05,627
+Welcome to Advanced Exploratory Data Analysis, course code Data two oh nine.
+
+2
+00:00:05,627 --> 00:00:09,107
+This video is your roadmap to the whole course:
+
+3
+00:00:09,107 --> 00:00:18,288
+what you will learn, how the fifteen weeks are organised, how you are assessed, which tools we use, and which books to read.
+
+4
+00:00:19,088 --> 00:00:24,333
+Exploratory data analysis is a critical first step in analysing data.
+
+5
+00:00:24,333 --> 00:00:33,227
+You explore the data to see what it seems to say, and look beneath the surface for insights using numbers and graphs.
+
+6
+00:00:33,227 --> 00:00:44,934
+Careful analysis helps you detect mistakes, challenge assumptions, understand relationships between variables, and finally choose a good predictive model.
+
+7
+00:00:44,934 --> 00:00:47,822
+This course takes a hands-on approach:
+
+8
+00:00:47,822 --> 00:00:54,512
+you curate, pre-process and transform real datasets, and learn to explain your findings.
+
+9
+00:00:55,312 --> 00:01:02,273
+The prerequisites are Data Visualization and Storytelling, and Probability and Statistics.
+
+10
+00:01:02,273 --> 00:01:06,373
+The course is four credits, structured two zero four:
+
+11
+00:01:06,373 --> 00:01:14,031
+two hours of lecture and four hours of lab each week, six contact hours in all, over fifteen weeks.
+
+12
+00:01:14,031 --> 00:01:20,992
+That is thirty hours of theory and sixty hours of lab, so labs carry most of the learning.
+
+13
+00:01:21,792 --> 00:01:25,739
+By the end you should be able to do four things.
+
+14
+00:01:25,739 --> 00:01:26,068
+One:
+
+15
+00:01:26,068 --> 00:01:31,578
+analyse the statistical and structural characteristics of datasets.
+
+16
+00:01:31,578 --> 00:01:31,906
+Two:
+
+17
+00:01:31,906 --> 00:01:37,498
+apply univariate, bivariate and multivariate exploratory techniques.
+
+18
+00:01:37,498 --> 00:01:37,992
+Three:
+
+19
+00:01:37,992 --> 00:01:46,873
+design and implement pre-processing and transformation strategies that improve data quality and reliability.
+
+20
+00:01:46,873 --> 00:01:47,613
+And four:
+
+21
+00:01:47,613 --> 00:01:53,040
+interpret your results to produce insights and support hypotheses.
+
+22
+00:01:53,840 --> 00:01:56,169
+The course has four modules.
+
+23
+00:01:56,169 --> 00:02:00,579
+Module one, Statistical and Data Foundations for EDA:
+
+24
+00:02:00,579 --> 00:02:05,155
+understand data structure and distributional behaviour.
+
+25
+00:02:05,155 --> 00:02:07,651
+Module two, Core Advanced EDA:
+
+26
+00:02:07,651 --> 00:02:12,393
+apply graphical and non-graphical exploratory techniques.
+
+27
+00:02:12,393 --> 00:02:17,551
+Module three, Data Quality Engineering and Anomaly Management:
+
+28
+00:02:17,551 --> 00:02:20,629
+create a reliable analytical dataset.
+
+29
+00:02:20,629 --> 00:02:27,119
+And module four, Feature Engineering, Transformation and Analytical Structure:
+
+30
+00:02:27,119 --> 00:02:31,112
+transform data and extract meaningful structure.
+
+31
+00:02:31,912 --> 00:02:34,277
+Here is the week-by-week map.
+
+32
+00:02:34,277 --> 00:02:37,213
+Weeks one to three cover module one.
+
+33
+00:02:37,213 --> 00:02:45,043
+Weeks four to seven cover module two, and week seven includes the first assignment presentation.
+
+34
+00:02:45,043 --> 00:02:51,893
+Weeks eight to eleven cover module three, with the second assignment in week eleven.
+
+35
+00:02:51,893 --> 00:02:55,319
+Weeks twelve to fifteen cover module four.
+
+36
+00:02:55,319 --> 00:02:59,152
+Week sixteen is the final project presentation.
+
+37
+00:02:59,952 --> 00:03:05,845
+Assessment is seventy percent continuous and thirty percent final project.
+
+38
+00:03:05,845 --> 00:03:08,791
+Laboratory assessment is ten percent.
+
+39
+00:03:08,791 --> 00:03:13,250
+Assignments, which are mini projects, are fifty percent:
+
+40
+00:03:13,250 --> 00:03:15,241
+twenty five percent each.
+
+41
+00:03:15,241 --> 00:03:19,700
+Class participation in lectures and labs is ten percent.
+
+42
+00:03:19,700 --> 00:03:22,885
+And the final project is thirty percent.
+
+43
+00:03:22,885 --> 00:03:34,272
+Assignment one maps to outcomes one and two, assignment two to outcome three, and the lab assessment and final project cover all four outcomes.
+
+44
+00:03:35,072 --> 00:03:44,605
+We use Excel, Python and R, with datasets and case studies from domains such as insurance, retail, pharma and healthcare.
+
+45
+00:03:44,605 --> 00:03:49,963
+In these videos we use Python with pandas, seaborn and scikit-learn.
+
+46
+00:03:49,963 --> 00:04:01,465
+Teaching methods include lectures, hands-on lab sessions, problem-solving through case studies, industry notebook reviews, and peer presentations.
+
+47
+00:04:01,465 --> 00:04:09,344
+For self-learning, the Exploratory Data Analysis course by Johns Hopkins on Coursera is recommended.
+
+48
+00:04:10,144 --> 00:04:13,181
+Here is how to use the video series.
+
+49
+00:04:13,181 --> 00:04:17,989
+Watch the lecture first, then its lab, in syllabus order.
+
+50
+00:04:17,989 --> 00:04:24,401
+Pause and run the notebook yourself, because you only learn EDA by doing it.
+
+51
+00:04:24,401 --> 00:04:29,209
+Use the module revision videos before the lab assessment.
+
+52
+00:04:29,209 --> 00:04:35,536
+And use the assignment and final project guides when you start those tasks.
+
+53
+00:04:36,336 --> 00:04:44,264
+For further reading, the main textbooks are Making Sense of Data one and two by Myatt and Johnson.
+
+54
+00:04:44,264 --> 00:05:01,414
+Useful references include Hands-On Exploratory Data Analysis with Python, Python for Data Analysis by Wes McKinney, the N I S T Engineering Statistics Handbook, and John Tukey's classic Exploratory Data Analysis.
+
+55
+00:05:01,414 --> 00:05:06,672
+Read the chapter on exploratory data analysis before each module.
+
+56
+00:05:07,472 --> 00:05:08,473
+To summarise:
+
+57
+00:05:08,473 --> 00:05:12,322
+this course takes you through a complete workflow.
+
+58
+00:05:12,322 --> 00:05:31,800
+You understand data and distributions, explore with numbers and graphs, clean and validate data, handle missing values and outliers, transform and engineer features, reduce dimensions, and finally build a trustworthy pipeline and report honest insights.
+
+59
+00:05:31,800 --> 00:05:35,572
+Start with lecture one, and I will see you there.
+
+60
+00:05:35,572 --> 00:05:37,112
+Thanks for watching.
+

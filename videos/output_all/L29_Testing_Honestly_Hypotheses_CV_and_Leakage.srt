@@ -1,0 +1,260 @@
+1
+00:00:00,000 --> 00:00:03,775
+Welcome to lectures twenty nine and thirty:
+
+2
+00:00:03,775 --> 00:00:07,023
+from E D A to a trustworthy pipeline.
+
+3
+00:00:07,023 --> 00:00:16,505
+Hypotheses, train and test, cross-validation, data leakage, skewed data, and turning analysis into insights.
+
+4
+00:00:16,505 --> 00:00:20,280
+This first video is about testing honestly.
+
+5
+00:00:21,080 --> 00:00:24,664
+Lecture twenty nine is about testing honestly:
+
+6
+00:00:24,664 --> 00:00:32,612
+hypothesis refinement, train and test logic, cross-validation, and data leakage and how to prevent it.
+
+7
+00:00:32,612 --> 00:00:35,963
+Lecture thirty is about reporting honestly:
+
+8
+00:00:35,963 --> 00:00:43,443
+sampling skewed data, translating E D A into insights, and a course review of the full pipeline.
+
+9
+00:00:43,443 --> 00:00:45,625
+Our data is Online Shoppers:
+
+10
+00:00:45,625 --> 00:00:50,456
+twelve thousand three hundred thirty sessions, target Revenue.
+
+11
+00:00:51,256 --> 00:00:58,040
+Hypothesis refinement turns a hunch into something data can say yes or no to.
+
+12
+00:00:58,040 --> 00:00:58,569
+Vague:
+
+13
+00:00:58,569 --> 00:01:00,243
+page value matters.
+
+14
+00:01:00,243 --> 00:01:01,036
+Specific:
+
+15
+00:01:01,036 --> 00:01:05,177
+sessions that saw a valued page buy more often.
+
+16
+00:01:05,177 --> 00:01:05,970
+Testable:
+
+17
+00:01:05,970 --> 00:01:11,344
+buy rate when page values is above zero versus equal to zero.
+
+18
+00:01:11,344 --> 00:01:12,578
+Decision rule:
+
+19
+00:01:12,578 --> 00:01:17,247
+chi-square p below point oh five means keep the idea.
+
+20
+00:01:17,247 --> 00:01:18,040
+The rule:
+
+21
+00:01:18,040 --> 00:01:24,472
+write the hypothesis and the decision rule before you look at the result.
+
+22
+00:01:25,272 --> 00:01:27,113
+Two hypotheses tested.
+
+23
+00:01:27,113 --> 00:01:27,616
+H one:
+
+24
+00:01:27,616 --> 00:01:30,294
+a valued page means more buying.
+
+25
+00:01:30,294 --> 00:01:42,095
+Sessions with page values of zero buy at three point nine percent; above zero, fifty six point three percent; p is essentially zero, so keep.
+
+26
+00:01:42,095 --> 00:01:42,597
+H two:
+
+27
+00:01:42,597 --> 00:01:44,439
+new visitors buy more.
+
+28
+00:01:44,439 --> 00:01:59,337
+New visitors buy at twenty four point nine percent, other at nineteen point eight, returning at fourteen point one, with p about four times ten to the minus twenty nine, so keep.
+
+29
+00:01:59,337 --> 00:02:02,517
+Both pass the rule, and H one is huge:
+
+30
+00:02:02,517 --> 00:02:08,376
+a session that saw a valued page is fourteen times more likely to buy.
+
+31
+00:02:09,176 --> 00:02:14,533
+Train and test logic is like practice questions versus the final exam.
+
+32
+00:02:14,533 --> 00:02:18,360
+The model studies the training rows, the practice.
+
+33
+00:02:18,360 --> 00:02:23,411
+The test rows are the exam, locked away and used once, at the end.
+
+34
+00:02:23,411 --> 00:02:31,753
+Stratify so both parts keep the same share of buyers, and fix the random state so anyone gets the same split.
+
+35
+00:02:31,753 --> 00:02:43,616
+Here nine thousand seven hundred sixty four training rows and two thousand four hundred forty one test rows, with fifteen point six percent buyers in both.
+
+36
+00:02:44,416 --> 00:02:50,197
+Five-fold cross-validation gives five mini-exams inside the training rows.
+
+37
+00:02:50,197 --> 00:02:55,431
+Each fold takes a turn as the check set while the other four learn.
+
+38
+00:02:55,431 --> 00:03:06,368
+The five R O C A U C scores are about point eight eight to point nine oh two, a mean of point eight nine with a spread of point oh oh seven.
+
+39
+00:03:06,368 --> 00:03:08,555
+A small spread means stable.
+
+40
+00:03:08,555 --> 00:03:15,664
+One split can be lucky; five give a mean and a spread, and the test set is still untouched.
+
+41
+00:03:16,464 --> 00:03:22,790
+Data leakage means the model sees information it will not have when used for real.
+
+42
+00:03:22,790 --> 00:03:23,947
+Target leakage:
+
+43
+00:03:23,947 --> 00:03:29,965
+a feature created after the outcome, like payment confirmed to predict buying.
+
+44
+00:03:29,965 --> 00:03:32,202
+Train and test contamination:
+
+45
+00:03:32,202 --> 00:03:37,756
+the same row in both parts, like our one hundred twenty five duplicates.
+
+46
+00:03:37,756 --> 00:03:39,454
+Preprocessing leakage:
+
+47
+00:03:39,454 --> 00:03:45,239
+a scaler, imputer or feature selection fitted on all rows before the split.
+
+48
+00:03:45,239 --> 00:03:46,860
+And sampling leakage:
+
+49
+00:03:46,860 --> 00:03:52,568
+over-sampling before the split, so copies of a row land in train and test.
+
+50
+00:03:52,568 --> 00:03:58,200
+The result is great scores in the notebook and poor results in real life.
+
+51
+00:03:59,000 --> 00:04:01,238
+Here is leakage on real data:
+
+52
+00:04:01,238 --> 00:04:03,476
+the same model in two orders.
+
+53
+00:04:03,476 --> 00:04:09,572
+Over-sample then split gives a recall of point nine nine two, the leaky number.
+
+54
+00:04:09,572 --> 00:04:16,517
+Split then over-sample the training rows only gives point six six five, the honest number.
+
+55
+00:04:16,517 --> 00:04:28,324
+Ninety eight point four percent of the leaky test buyers had an exact copy in the training set, so the model was tested on rows it had already memorised.
+
+56
+00:04:28,324 --> 00:04:34,112
+The honest point six six five is lower, and it is the number you can trust.
+
+57
+00:04:34,912 --> 00:04:36,965
+How to prevent leakage.
+
+58
+00:04:36,965 --> 00:04:39,106
+Remove duplicates first.
+
+59
+00:04:39,106 --> 00:04:43,212
+Split first, before any fitting or resampling.
+
+60
+00:04:43,212 --> 00:04:46,514
+Fit every step on training rows only.
+
+61
+00:04:46,514 --> 00:04:50,797
+Resample, over or under, the training rows only.
+
+62
+00:04:50,797 --> 00:04:52,671
+Ask of every feature:
+
+63
+00:04:52,671 --> 00:04:55,438
+is it known at prediction time?
+
+64
+00:04:55,438 --> 00:04:57,758
+And use the test set once.
+
+65
+00:04:57,758 --> 00:05:11,680
+A pipeline, like make pipeline with a standard scaler and logistic regression, re-fits the scaler inside each cross-validation fold, so there is no peeking.
+

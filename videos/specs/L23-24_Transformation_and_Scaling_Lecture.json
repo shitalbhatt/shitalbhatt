@@ -1,0 +1,66 @@
+{
+ "out_name": "L23-24_Transformation_and_Scaling_Lecture",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures twenty three and twenty four: data transformation and feature scaling, using one real dataset, California Housing, with twenty thousand six hundred forty rows."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 2,
+   "chapter": "Today's three ideas",
+   "text": "Three ideas today. Why transform: skew, heavy tails and mixed units hide patterns and hurt models. Change the shape: log transform and Box-Cox. And change the units: standardisation, min-max and robust scaling. In the lab we apply every method to all seven numeric features and compare the distribution before and after, with statistics and graphs. The key idea: transforming changes the shape, scaling changes the units."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 3,
+   "chapter": "The dataset",
+   "text": "California Housing from the nineteen ninety census: twenty thousand six hundred forty block groups, seven numeric features we transform, two hundred seven missing values in total bedrooms, and a skew of four point nine four for population. We do not transform longitude and latitude, since they are locations, or ocean proximity, which is text. And median house value is top-coded at five hundred thousand and one, a real data quality quirk."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 5,
+   "chapter": "Why transform",
+   "text": "Four reasons. Squashed plots: most points crowd into one corner while the long tail stretches the axis. Model assumptions: linear and logistic regression, L D A and many tests work best with symmetric features and linear relationships. False outliers: in a long tail, many outliers are just normal large values. And mixed units: years, counts and dollars in one model, where the biggest numbers dominate distances and gradients. The first three call for a transform; the fourth calls for scaling."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 6,
+   "chapter": "Skewness of the features",
+   "text": "Five of seven features are strongly right-skewed. The guide: absolute skew below zero point five is roughly symmetric, zero point five to one is moderate, and above one is strong. Population is four point nine four, total rooms four point one five, bedrooms three point four eight, households three point four one: count data with long right tails. Housing median age, at zero point oh six, is already symmetric, so leave its shape alone."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 7,
+   "chapter": "Transforming vs scaling",
+   "text": "Transforming changes the shape. It is non-linear, so big values are pulled in more than small ones; skewness and kurtosis change, but the order of values is kept. Examples: log, square root, Box-Cox, Yeo-Johnson. Scaling changes the units. It is linear: subtract a centre and divide by a spread. Skewness and kurtosis stay exactly the same, and features become comparable in size. Examples: standard, min-max and robust. For skewed data, transform first, then scale."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 8,
+   "chapter": "Log transform",
+   "text": "The log transform is y equals log of one plus x. It compresses large values much more than small ones, and the plus one keeps zero safe, though x must be at least zero. It turns multiplicative effects into additive ones. A twelve thousand times range in x becomes about nine units. It has a fixed strength, the same pull for every feature. A caution from our data: log over-corrects the count features, with population skew going from four point nine four to minus one point oh four, and it damages the symmetric housing median age, creating five hundred fifty nine new outliers."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 9,
+   "chapter": "Box-Cox",
+   "text": "Box-Cox lets the data choose the power lambda. Y equals x to the lambda minus one, over lambda, and log of x when lambda is zero. Lambda is chosen by maximum likelihood to make the result as close to normal as possible. It requires every x above zero; for zeros or negatives use Yeo-Johnson. The power ladder runs from lambda one, no change, through point five, square root, zero, log, to minus one, reciprocal. Our lambdas: housing median age about point eight, almost untouched; the counts around point two two, between square root and log; and median income about point oh nine, near log."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 10,
+   "chapter": "Three ways to scale",
+   "text": "Three ways to scale. Standard scaler: z equals x minus mean over standard deviation, giving mean zero and standard deviation one, but outliers stay far away and pull the mean. Min-max scaler: x minus min over max minus min, putting every value between zero and one, but one extreme value sets the max and squeezes the rest. Robust scaler: x minus median over I Q R, giving median zero and I Q R one, ignoring extremes, best with outliers. All three are linear: the histogram keeps its shape and only the axis numbers change."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 11,
+   "chapter": "Measuring the impact",
+   "text": "How do we measure the impact? Symmetry: skewness should move toward zero. Tails: large positive kurtosis should shrink. Outliers: the I Q R count of tail values should fall inside the whiskers. Shape: a histogram or density, where one tall spike becomes a bell. And spread: box plots comparable across features. Always compare the number and the picture together, because a statistic can hide a cap, a gap or two peaks that the graph reveals."
+  }
+ ]
+}

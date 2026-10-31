@@ -1,0 +1,356 @@
+1
+00:00:00,000 --> 00:00:04,115
+In lecture two we look at shape before numbers:
+
+2
+00:00:04,115 --> 00:00:09,107
+distributions, summary statistics, and robust statistics.
+
+3
+00:00:09,107 --> 00:00:14,448
+Skewness, kurtosis, outliers, and the mean, median and I Q R.
+
+4
+00:00:15,248 --> 00:00:17,667
+The number hides the picture.
+
+5
+00:00:17,667 --> 00:00:22,589
+Here are three distributions with the same kind of average.
+
+6
+00:00:22,589 --> 00:00:27,344
+In the symmetric one the mean describes almost everybody.
+
+7
+00:00:27,344 --> 00:00:33,017
+In the two-group one the mean lands in the gap and describes nobody.
+
+8
+00:00:33,017 --> 00:00:38,106
+In the right-skewed one the mean sits above most of the bars.
+
+9
+00:00:38,106 --> 00:00:40,775
+Same statistic, three realities.
+
+10
+00:00:40,775 --> 00:00:44,696
+That is why we plot first and summarise second.
+
+11
+00:00:45,496 --> 00:00:49,468
+Every distribution answers three questions.
+
+12
+00:00:49,468 --> 00:00:50,576
+Where is it:
+
+13
+00:00:50,576 --> 00:00:54,732
+the centre, measured by mean, median or mode.
+
+14
+00:00:54,732 --> 00:00:56,118
+How wide is it:
+
+15
+00:00:56,118 --> 00:01:01,567
+the spread, measured by range, standard deviation or I Q R.
+
+16
+00:01:01,567 --> 00:01:03,507
+And what shape is it:
+
+17
+00:01:03,507 --> 00:01:06,832
+skewness, kurtosis and stray points.
+
+18
+00:01:07,632 --> 00:01:11,327
+Skewness tells you which way the tail points.
+
+19
+00:01:11,327 --> 00:01:18,963
+Left-skewed data has a long tail on the left, like exam marks where most students score high.
+
+20
+00:01:18,963 --> 00:01:21,918
+Symmetric data has both tails alike.
+
+21
+00:01:21,918 --> 00:01:29,472
+Right-skewed data has a long tail on the right, like income, house prices and waiting times.
+
+22
+00:01:29,472 --> 00:01:32,592
+The tail names the skew, not the hump.
+
+23
+00:01:33,392 --> 00:01:36,501
+Skew pulls the mean but not the median.
+
+24
+00:01:36,501 --> 00:01:42,240
+In right-skewed data, mode is less than median, which is less than mean.
+
+25
+00:01:42,240 --> 00:01:45,348
+In left-skewed data the order reverses.
+
+26
+00:01:45,348 --> 00:01:50,928
+This is why average income is higher than what a typical person earns:
+
+27
+00:01:50,928 --> 00:01:56,428
+a few very large values sit in the tail and only the mean feels them.
+
+28
+00:01:56,428 --> 00:01:59,696
+When the tail is long, report the median.
+
+29
+00:02:00,496 --> 00:02:04,826
+Kurtosis measures how often extreme values happen.
+
+30
+00:02:04,826 --> 00:02:10,627
+It is about the weight in the tails, not the sharpness of the peak.
+
+31
+00:02:10,627 --> 00:02:16,776
+Excess kurtosis is kurtosis minus three, so a normal curve scores zero.
+
+32
+00:02:16,776 --> 00:02:21,625
+Above zero means heavy tails and more outliers expected.
+
+33
+00:02:21,625 --> 00:02:24,136
+Below zero means light tails.
+
+34
+00:02:24,936 --> 00:02:30,581
+Platykurtic distributions have thin tails and extremes are genuinely rare.
+
+35
+00:02:30,581 --> 00:02:33,556
+Mesokurtic is the bell curve benchmark.
+
+36
+00:02:33,556 --> 00:02:36,684
+Leptokurtic distributions have fat tails:
+
+37
+00:02:36,684 --> 00:02:42,482
+shocks and outliers are common, and standard deviation understates the risk.
+
+38
+00:02:42,482 --> 00:02:48,432
+High kurtosis is a warning that your outlier check is about to find something.
+
+39
+00:02:49,232 --> 00:02:56,328
+An outlier is a point far from the bulk of the data, and far needs a definition.
+
+40
+00:02:56,328 --> 00:03:01,118
+The usual one is the one point five times I Q R fence.
+
+41
+00:03:01,118 --> 00:03:06,352
+The I Q R is Q three minus Q one, the middle fifty percent.
+
+42
+00:03:06,352 --> 00:03:15,045
+Points beyond Q one minus one point five I Q R, or Q three plus one point five I Q R, are flagged.
+
+43
+00:03:15,045 --> 00:03:21,343
+Because the fence is built from quartiles, the outliers cannot move it.
+
+44
+00:03:21,343 --> 00:03:24,536
+A flag is a question, not a verdict.
+
+45
+00:03:25,336 --> 00:03:28,842
+There are three reasons a point sits far out.
+
+46
+00:03:28,842 --> 00:03:35,231
+It may be a mistake, like an age of nine ninety nine; fix or remove it and say so.
+
+47
+00:03:35,231 --> 00:03:43,023
+It may be rare but real, like a genuinely huge order; keep it, it is often the most interesting row.
+
+48
+00:03:43,023 --> 00:03:52,840
+Or it may belong to the wrong population, like a wholesale buyer inside retail data; separate it and analyse the groups apart.
+
+49
+00:03:53,640 --> 00:03:58,980
+Here is the toolkit sorted by what each statistic tells you.
+
+50
+00:03:58,980 --> 00:03:59,959
+For centre:
+
+51
+00:03:59,959 --> 00:04:01,917
+mean, median and mode.
+
+52
+00:04:01,917 --> 00:04:02,896
+For spread:
+
+53
+00:04:02,896 --> 00:04:06,100
+range, standard deviation and I Q R.
+
+54
+00:04:06,100 --> 00:04:06,990
+For shape:
+
+55
+00:04:06,990 --> 00:04:08,949
+skewness and kurtosis.
+
+56
+00:04:08,949 --> 00:04:12,865
+The last column shows when each breaks down.
+
+57
+00:04:12,865 --> 00:04:20,163
+The mean is dragged by one extreme value, while the median and I Q R rarely break.
+
+58
+00:04:20,163 --> 00:04:24,168
+Always report a centre and a spread together.
+
+59
+00:04:24,968 --> 00:04:28,089
+Seven monthly salaries, in thousands:
+
+60
+00:04:28,089 --> 00:04:30,535
+twenty eight up to forty two.
+
+61
+00:04:30,535 --> 00:04:33,740
+Now the manager joins at four hundred.
+
+62
+00:04:33,740 --> 00:04:41,838
+The mean more than doubles and describes nobody in the room, while the median moves by one unit.
+
+63
+00:04:41,838 --> 00:04:46,898
+A statistic that one row can move this far is not a summary.
+
+64
+00:04:46,898 --> 00:04:48,248
+It is a hostage.
+
+65
+00:04:49,048 --> 00:04:50,896
+So which do you report?
+
+66
+00:04:50,896 --> 00:04:57,887
+If the histogram looks symmetric with no stray points, use mean and standard deviation.
+
+67
+00:04:57,887 --> 00:05:03,432
+If the tail is long, use median and I Q R and say the data is skewed.
+
+68
+00:05:03,432 --> 00:05:10,504
+If there are extreme points of unknown cause, report both and show how much they differ.
+
+69
+00:05:10,504 --> 00:05:14,200
+And always put the picture next to the number.
+
+70
+00:05:15,000 --> 00:05:17,561
+Plot first, summarise second.
+
+71
+00:05:17,561 --> 00:05:21,093
+Skewness says which side the tail is on.
+
+72
+00:05:21,093 --> 00:05:24,449
+Kurtosis says how heavy the tails are.
+
+73
+00:05:24,449 --> 00:05:32,396
+The one point five I Q R fence flags candidates; investigate them, do not sweep them away.
+
+74
+00:05:32,396 --> 00:05:40,344
+Mean and standard deviation for tidy symmetric data, median and I Q R for everything else.
+
+75
+00:05:41,144 --> 00:05:44,517
+Six mistakes cost marks and credibility.
+
+76
+00:05:44,517 --> 00:05:46,794
+Deleting outliers silently.
+
+77
+00:05:46,794 --> 00:05:49,998
+Reporting the mean of a skewed column.
+
+78
+00:05:49,998 --> 00:05:57,672
+Using z greater than three on a small sample, where the ceiling is n minus one over root n.
+
+79
+00:05:57,672 --> 00:06:03,828
+Treating a sentinel like zero, minus one or nine ninety nine as a number.
+
+80
+00:06:03,828 --> 00:06:07,623
+Testing a hypothesis the same data suggested.
+
+81
+00:06:07,623 --> 00:06:12,008
+And trusting one plot instead of at least two views.
+
+82
+00:06:12,808 --> 00:06:13,975
+To take away:
+
+83
+00:06:13,975 --> 00:06:18,015
+E D A is a habit through the whole lifecycle.
+
+84
+00:06:18,015 --> 00:06:23,131
+Explore freely, confirm strictly, never on the same rows.
+
+85
+00:06:23,131 --> 00:06:28,966
+A bigger sample shrinks noise; only a better sample removes bias.
+
+86
+00:06:28,966 --> 00:06:35,430
+Summary statistics compress and compression loses structure, so plot it.
+
+87
+00:06:35,430 --> 00:06:37,943
+Shape first, summary second.
+
+88
+00:06:37,943 --> 00:06:45,664
+And median and I Q R survive contamination; mean, standard deviation and range do not.
+
+89
+00:06:45,664 --> 00:06:50,152
+Next up is the lab on the Online Shoppers dataset.
+

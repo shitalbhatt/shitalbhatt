@@ -1,0 +1,84 @@
+{
+ "out_name": "L11-12_Multivariate_Analysis_VIF_and_Clustering",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures eleven and twelve: multivariate analysis. We cover multicollinearity and V I F, then discovering groups with clustering and K-Means, and how to interpret the clusters."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 2,
+   "chapter": "What changes with many features",
+   "text": "So far we compared features two at a time. Real datasets rarely explain themselves through a single pair; patterns often appear only when several features are considered together. Two things can happen. Redundant features carry almost the same information, wasting model capacity and distorting results: that is multicollinearity. And records can form hidden groupings across several features at once, invisible in any single scatterplot: that is what clustering finds."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 3,
+   "chapter": "Multicollinearity",
+   "text": "Multicollinearity occurs when one feature can be predicted with high accuracy from a combination of the others, so it adds little independent information. It distorts distance-based methods like clustering, inflates the importance of a repeated signal, and makes results harder to interpret. A pairwise check is not enough: two features can look uncorrelated individually, yet still be predictable from several others together. We need a measure that compares each feature to all the others combined. That is V I F."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 4,
+   "chapter": "Variance inflation factor",
+   "text": "V I F equals one over one minus R squared. For each feature, we fit a mini-regression predicting it from all the other features. If the others predict it well, R squared is high and V I F is high, meaning the feature is redundant. A V I F of one means no correlation with other features. One to five is moderate and generally acceptable. Five to ten is high and worth investigating. Above ten is severe multicollinearity, and you should consider dropping the feature."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 5,
+   "chapter": "Do the records form groups",
+   "text": "Once we have confirmed the features are independent enough to trust, a natural next question is about the rows, not the columns: do orders naturally cluster into distinct kinds, without us telling the data what those kinds should be? In supervised learning we already know the labels. In unsupervised learning, or clustering, no labels exist, and the algorithm groups records purely by similarity across features."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 6,
+   "chapter": "Intro to clustering",
+   "text": "In clustering, no labels are given. The algorithm discovers structure using only how similar records are across the numeric features. We use it here purely to explore: does structure exist, and what distinguishes each group? We are not building a predictive model or classifying new orders, just describing the data we already have."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 7,
+   "chapter": "How K-Means works",
+   "text": "K-Means follows five steps. Choose k, the number of groups to look for. Place k centres, initially at random, in the feature space. Assign every record to the nearest centre. Update each centre to the average position of its group. Repeat the assign and update steps until assignments stop changing. In this course we use it only to describe existing data; the centres summarise patterns, they do not predict labels for new records."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 8,
+   "chapter": "Scale before clustering",
+   "text": "K-Means measures how far apart two records are. If features are on very different scales, the largest-scale feature silently dominates that distance, and the algorithm clusters on that one feature alone. Sales ranges up to twenty two thousand dollars, while discount runs only from zero to point eight. The fix is Standard Scaler, which rescales every feature to mean zero and standard deviation one, so all features count equally."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 9,
+   "chapter": "Choosing k: silhouette score",
+   "text": "K-Means needs k decided in advance. The silhouette score helps judge a choice: for each point it compares how close it is to its own cluster versus the nearest other cluster. Minus one is poor separation, zero is ambiguous, plus one is strong separation. Here k equals two scores highest, but only splits orders into smaller versus larger. k equals three is a close second and yields three clearly interpretable business groups. The statistically best k is not always the most useful."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 10,
+   "chapter": "Seeing the clusters",
+   "text": "To see the clusters, colour a scatterplot by cluster using the hue argument for a quick check that clusters correspond to a visible pattern. A pairplot with hue shows every pair of features at once, each coloured by cluster, the fastest way to see separation across all dimensions together."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 11,
+   "chapter": "Interpreting clusters",
+   "text": "A cluster number means nothing on its own. Interpretation reuses the grouped statistics from bivariate analysis: group by cluster instead of by an existing category. Cluster zero, sixty nine hundred orders, is everyday orders. Cluster two is high-value, high-profit orders averaging six hundred thirty four dollars in sales. And cluster one is the standout: heavy discounts averaging sixty six percent, with an average loss of one hundred seven dollars per order. That becomes a hypothesis to test formally: is this discount policy destroying value? Cross-tabulate clusters against an existing category as a sanity check."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 12,
+   "chapter": "What K-Means does not tell you",
+   "text": "Four cautions. K-Means is not a prediction model in this course; it describes existing records. And k is chosen, not discovered: the silhouette score only helps compare candidates. It is sensitive to scale and outliers, so always scale first and check for outliers. And clusters need a sanity check: a statistically tight cluster is only useful if it also makes business sense."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L11-12.pdf",
+   "page": 13,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. Multivariate analysis studies several features together. Multicollinearity means a feature is largely redundant given the others, checked with correlation and more rigorously with V I F: near one is ideal, above five is worth investigating, above ten is severe. K-Means discovers groups without labels, for exploration and not prediction. Always scale first. The silhouette score compares values of k, but the highest is not always the most useful. And a cluster is meaningful only after you interpret it with grouped statistics and check it against known categories. Next is the lab."
+  }
+ ]
+}
