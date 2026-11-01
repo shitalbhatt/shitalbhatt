@@ -1,0 +1,32 @@
+HOW TO UPLOAD THE DATA209 VIDEOS YOURSELF  (YouTube Studio, on a computer)
+=======================================================================
+Each numbered folder = 1 lecture/lab video (Indian English female AI voice, instructor photo and name in a side panel)
++ thumbnail + captions + its Short + UPLOAD_SHEET.txt that tells you what to paste in every box.
+Upload in the numbered order. 00_ALL_UPLOAD_SHEETS.txt has all sheets in one file.
+
+ONE-TIME SETUP
+1. Sign in at studio.youtube.com with your channel account.
+2. Verify your channel: youtube.com/verify (phone code). Needed for custom thumbnails and long videos.
+3. Create the playlists the first time they are named in a sheet (Content > Playlists > New playlist).
+
+FOR EVERY VIDEO (about 5 minutes each)
+1. Create > Upload videos > select the .mp4 file.
+2. Paste TITLE and DESCRIPTION from the sheet. Replace the notebook-link placeholder with your GitHub / Drive link.
+3. Upload the thumbnail (.png). Choose the playlist.
+4. Audience: "No, it's not made for kids".
+5. Show more: paste the tags, language English, category Education.
+   Turn ON "Altered or synthetic content": the voice is AI-generated and the photo is a still image; YouTube requires disclosure.
+6. Subtitles: add English, upload the .srt "with timing".
+7. Visibility: Public (or Schedule using the date in the sheet). Save.
+8. Pin a comment with your notebook link and the link of the next video.
+
+THE SHORTS
+- Each folder also has S_...mp4 (vertical, under 60 s). Upload it the next day with the Short title/description from the sheet.
+  (Shorts do not have the side panel.)
+
+DAILY LIMIT
+- New or unverified channels may upload only a few videos per day. If YouTube says "Daily upload limit reached", wait 24 hours.
+
+GOOD HABITS
+- Use only your own slides, notebooks and datasets; keep dataset credits in the description.
+- Reply to comments in the first 24 hours.

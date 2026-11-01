@@ -8,7 +8,7 @@ index=[]
 for n,r in enumerate(rows,1):
     k=r['Video file']; m=man[k]; s=sh.get('S_'+k)
     d=f'{P}/{n:02d}_{k}'; os.makedirs(d)
-    shutil.copy(f'{O}/{k}.mp4', d); shutil.copy(f'{O}/{k}.srt', d); shutil.copy(f"{O}/{m['thumbnail']}", d)
+    shutil.copy(f'output_presenter/{k}.mp4', d); shutil.copy(f'{O}/{k}.srt', d); shutil.copy(f"{O}/{m['thumbnail']}", d)
     if s: shutil.copy(f'{S}/S_{k}.mp4', d)
     t=f"""UPLOAD SHEET  -  VIDEO {n} OF {len(rows)}
 ==========================================================
