@@ -1,14 +1,14 @@
 import json, csv, os, shutil, zipfile
 O='output_all'; S='shorts_out'; P='manual_pack'
 shutil.rmtree(P, ignore_errors=True); os.makedirs(P)
-man={m['file'][:-4]:m for m in json.load(open(f'{O}/upload_manifest.json'))}
+man={m['file'][:-4]:m for m in json.load(open('output_all/upload_manifest_detailed.json'))}
 sh={m['file'][:-4]:m for m in json.load(open(f'{S}/shorts_manifest.json'))}
 rows=list(csv.DictReader(open('marketing/publishing_calendar.csv')))
 index=[]
 for n,r in enumerate(rows,1):
     k=r['Video file']; m=man[k]; s=sh.get('S_'+k)
     d=f'{P}/{n:02d}_{k}'; os.makedirs(d)
-    shutil.copy(f'output_presenter/{k}.mp4', d); shutil.copy(f'{O}/{k}.srt', d); shutil.copy(f"{O}/{m['thumbnail']}", d)
+    shutil.copy(f'output_detailed/{k}.mp4', d); shutil.copy(f'output_detailed/{k}.srt', d); shutil.copy(f"{O}/{m['thumbnail']}", d)
     if s: shutil.copy(f'{S}/S_{k}.mp4', d)
     t=f"""UPLOAD SHEET  -  VIDEO {n} OF {len(rows)}
 ==========================================================
