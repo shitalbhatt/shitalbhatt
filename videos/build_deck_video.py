@@ -16,7 +16,10 @@ import edge_tts
 
 spec = json.load(open(sys.argv[1]))
 OUT = sys.argv[2]
+PROVIDER = os.environ.get("TTS_PROVIDER", "edge")
 VOICE = os.environ.get("VOICE", spec.get("voice", "en-US-JennyNeural"))
+if PROVIDER == "elevenlabs":
+    VOICE = "eleven:" + os.environ.get("ELEVEN_VOICE_ID", "")   # part of the cache key, so switching voice re-renders
 for d in ("img", "audio", "clips"):
     os.makedirs(f"{OUT}/{d}", exist_ok=True)
 slides = spec["slides"]
@@ -30,8 +33,47 @@ def render(pdf, page, dest):
                     "-scale-to-y", "720", "-singlefile", pdf, base], check=True)
 
 
+def split_text(t, limit=4000):
+    parts, cur = [], ""
+    for sent in re.split(r"(?<=[.!?:])\s+", t):
+        if cur and len(cur) + len(sent) + 1 > limit:
+            parts.append(cur); cur = sent
+        else:
+            cur = (cur + " " + sent).strip()
+    return parts + [cur] if cur else parts
+
+
+def eleven_tts(text, mp3):
+    """Speak `text` in a cloned voice via the ElevenLabs API (needs ELEVEN_API_KEY and ELEVEN_VOICE_ID)."""
+    import requests, time
+    base = os.environ.get("ELEVEN_BASE_URL", "https://api.elevenlabs.io")
+    url = f"{base}/v1/text-to-speech/{os.environ['ELEVEN_VOICE_ID']}?output_format=mp3_44100_128"
+    hdr = {"xi-api-key": os.environ["ELEVEN_API_KEY"], "Content-Type": "application/json"}
+    body = lambda t: {"text": t, "model_id": os.environ.get("ELEVEN_MODEL", "eleven_multilingual_v2"),
+                      "voice_settings": {"stability": 0.5, "similarity_boost": 0.8, "style": 0.0, "use_speaker_boost": True}}
+    files = []
+    for k, part in enumerate(split_text(text)):
+        for attempt in range(6):
+            r = requests.post(url, headers=hdr, json=body(part), timeout=180)
+            if r.status_code == 200:
+                break
+            if r.status_code in (429, 500, 502, 503):
+                time.sleep(3 * (attempt + 1)); continue
+            raise RuntimeError(f"ElevenLabs error {r.status_code}: {r.text[:300]}")
+        else:
+            raise RuntimeError("ElevenLabs: too many retries")
+        f = f"{mp3}.part{k}.mp3"; open(f, "wb").write(r.content); files.append(f)
+    if len(files) == 1:
+        os.replace(files[0], mp3)
+    else:
+        lst = mp3 + ".list.txt"; open(lst, "w").write("".join(f"file '{os.path.abspath(f)}'\n" for f in files))
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", mp3], check=True)
+        for f in files + [lst]:
+            os.remove(f)
+
+
 async def tts_all():
-    sem = asyncio.Semaphore(6)
+    sem = asyncio.Semaphore(int(os.environ.get("TTS_CONCURRENCY", "2" if PROVIDER == "elevenlabs" else "6")))
 
     async def one(i, s):
         mp3 = f"{OUT}/audio/{i:03}.mp3"
@@ -41,7 +83,10 @@ async def tts_all():
         for attempt in range(4):
             try:
                 async with sem:
-                    await edge_tts.Communicate(s["text"], VOICE, rate="-4%").save(mp3)
+                    if PROVIDER == "elevenlabs":
+                        await asyncio.to_thread(eleven_tts, s["text"], mp3)
+                    else:
+                        await edge_tts.Communicate(s["text"], VOICE, rate="-4%").save(mp3)
                 break
             except Exception:
                 await asyncio.sleep(2 * (attempt + 1))
