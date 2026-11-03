@@ -38,7 +38,8 @@ AUTO_WAIT = True         # at the daily limit, wait for the reset and continue (
 PUBLISH_MODE = 'public_now'  # 'public_now' = each video is PUBLIC as soon as it is uploaded; 'schedule' = private until its scheduled date
 VERIFY_FIRST = True      # after the first upload, check it really is public (Google can lock API uploads to private); stop if not
 TEST_FIRST = False       # (old manual test; the automatic check above replaces it)
-UPLOADS_PER_RUN = 1      # how many NEW videos to upload each time you run cell 5 (1 = one video at a time; 0 = no limit, upload everything)
+STATE_NAME = 'state_detailed.json'   # progress file. A NEW name means videos uploaded earlier (old state.json) are NOT skipped: the new detailed videos are uploaded too, and the old ones stay on YouTube
+UPLOADS_PER_RUN = 0      # how many NEW videos to upload each time you run cell 5 (1 = one video at a time; 0 = no limit, upload everything)
 RETRY_SKIPPED_THUMBS = False   # thumbnails need a verified channel (youtube.com/verify). After verifying, set True and run cell 5 again to add them
 ADD_TO_PLAYLISTS = True
 UPLOAD_CAPTIONS = True
@@ -113,7 +114,8 @@ UPLOADS_PER_RUN = globals().get('UPLOADS_PER_RUN', 0)
 new_this_run = 0
 import logging; logging.getLogger('googleapiclient.http').setLevel(logging.ERROR)   # hides the repeated 403 warnings
 TZ = ZoneInfo(TIMEZONE)
-STATE_PATH = f'{STATE_FOLDER}/state.json'; SCHED_PATH = f'{STATE_FOLDER}/schedule.json'
+STATE_NAME = globals().get('STATE_NAME', 'state.json')
+STATE_PATH = f'{STATE_FOLDER}/{STATE_NAME}'; SCHED_PATH = f'{STATE_FOLDER}/schedule.json'
 state = json.load(open(STATE_PATH)) if os.path.exists(STATE_PATH) else {}
 def save_state(): json.dump(state, open(STATE_PATH, 'w'), indent=1)
 
@@ -194,6 +196,17 @@ def step_playlist(job):
     st = state[job['key']]
     if not (ADD_TO_PLAYLISTS and job['kind'] == 'long' and job['item'].get('playlist')) or st.get('playlist'): return
     pls = state.setdefault('_playlists', {}); title = job['item']['playlist']
+    if title not in pls:                                   # reuse a playlist with this name that already exists on the channel
+        try:
+            tok, pages = None, 0
+            while title not in pls and pages < 20:
+                pages += 1
+                r = yt.playlists().list(part='snippet', mine=True, maxResults=50, pageToken=tok).execute()
+                for it in r.get('items', []):
+                    if it['snippet']['title'] == title: pls[title] = it['id']; break
+                tok = r.get('nextPageToken')
+                if not tok: break
+        except Exception: pass
     if title not in pls:
         pls[title] = guarded(lambda: yt.playlists().insert(part='snippet,status', body={'snippet': {'title': title, 'description': 'DATA209 Advanced Exploratory Data Analysis'},
                          'status': {'privacyStatus': 'public'}}).execute())['id']; save_state()
