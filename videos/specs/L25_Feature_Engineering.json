@@ -1,0 +1,108 @@
+{
+ "out_name": "L25_Feature_Engineering",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures twenty five and twenty six: feature engineering and feature selection. In this first video we build better features."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 2,
+   "chapter": "Roadmap",
+   "text": "Today's roadmap has two parts. Part one: build better features, with feature construction, interaction terms, polynomial features, and the curse of dimensionality. Part two: keep only useful features, with why we select, and filter, wrapper and embedded methods, then compare the three. Our running example is Online Shoppers Purchasing Intention: twelve thousand three hundred thirty website sessions, with the target Revenue, did the visitor buy?"
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 3,
+   "chapter": "Same model, better features",
+   "text": "Here is why this matters. A logistic regression on the Online Shoppers data has a test R O C A U C of zero point eight five five with the ten original features. Add eight constructed features and it rises to zero point eight nine eight. Add three interaction terms and it reaches zero point nine oh four. That is a gain of zero point oh five without changing the model, only the features. Better data beats a fancier algorithm."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 4,
+   "chapter": "Feature construction",
+   "text": "Feature construction makes new columns from old. Combine existing columns using domain knowledge to make a column that states the pattern more directly. It is like cooking: the raw ingredients are already there, and the recipe makes them useful. For one session with three admin pages, zero informational and seventeen product pages over six hundred seconds, we construct total pages of twenty, average time per page of thirty seconds, and product share of zero point eight five. The model does not have to discover the pattern by itself."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 5,
+   "chapter": "Five recipes",
+   "text": "Five recipes for constructing features. Total: add related columns. Ratio: divide to remove a size effect, like duration over pages. Flag: turn a condition into one or zero, like page value above zero. Log: shrink a long right tail; log of one plus page values takes skew from six point four to one point eight. And band: cut a number into groups like short, medium, long and very long."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 6,
+   "chapter": "One flag splits buyers from browsers",
+   "text": "One flag can split buyers from browsers. Has page value is one if the visitor saw a page that has a value. The purchase rate is fifty six point three percent when the flag is one, versus three point nine percent when it is zero: fourteen times higher. One line of code, and it becomes one of the two strongest features in the data."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 7,
+   "chapter": "Bands show a step effect",
+   "text": "Bands show a step-like effect. Cutting total duration into four equal-size groups with qcut shows the purchase rate rising from four percent to twenty four percent, then flattening. Longer is better, but only up to a point, and a band lets even a simple model capture that flattening."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 8,
+   "chapter": "Good practice",
+   "text": "Four good practices. Start from domain knowledge: ask what an expert would look at; for shopping, effort, value, intent, season. Never use the target: a feature built from Revenue or future data is leakage, perfect in the lab and useless in real use. Guard divisions: ratios divide by zero for empty sessions, so replace zero with missing, then fill with zero. And test every new feature with the same model and split, before and after."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 9,
+   "chapter": "Interaction terms",
+   "text": "An interaction means the effect of A depends on B. Fertiliser helps a crop a lot, but only if there is water. A discount sells more, but much more during the festive season. A linear model adds effects; it cannot multiply them on its own. So we give it the product A times B as a new column. If the coefficient b three is not zero, the slope of A changes with B."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 10,
+   "chapter": "Detect an interaction",
+   "text": "Detect an interaction with a two-way table. Page value lifts new visitors from seven percent to eighty six percent, but returning visitors only from three percent to fifty one percent. Unequal jumps mean interaction. The new feature is page value times is returning, and A U C goes from zero point eight nine eight to zero point nine oh four after adding three interaction terms."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 11,
+   "chapter": "Polynomial features",
+   "text": "Polynomial features add powers and all cross-products of chosen columns, letting a straight-line model fit curves and interactions. With inputs a and b at degree two you get a squared, a times b, and b squared. In Python, Polynomial Features with degree two. On real data, three inputs, page values, exit rates and product related, become nine columns."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 12,
+   "chapter": "Columns explode",
+   "text": "Columns explode as the degree rises. The number of columns is C of n plus d, choose d, minus one. Three inputs stay manageable, but ten inputs at degree three give two hundred eighty five columns, and our eighty five encoded features at degree three would give over one hundred nine thousand columns, for only twelve thousand rows."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 13,
+   "chapter": "Using polynomials safely",
+   "text": "Use polynomial features safely. One: scale first, because x squared of a large number becomes huge. Two: keep the degree low; degree two is usually enough, and degree three and above mostly adds noise and over-fits. Three: pair with selection, expanding a few chosen columns and then using regularisation or feature selection to keep what helps. All three fit in one pipeline: polynomial features, standard scaler, and an L one logistic regression."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 14,
+   "chapter": "Curse of dimensionality",
+   "text": "The curse of dimensionality. Finding a friend on a hundred metre road is easy. On a hundred metre field, harder. In a hundred metre building, very hard. Every new feature is a new direction to search. With each feature cut into four bins there are four to the d cells, and the share of cells containing any of our twelve thousand sessions falls from seventy five percent with one feature to two percent at eight features and point two percent at ten."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 15,
+   "chapter": "Three symptoms",
+   "text": "Three symptoms of too many features. Sparse data: with ten features only point two percent of the space has data, about five sessions per occupied cell. Distances lose meaning: in many dimensions the nearest and farthest points are almost equally far, so K N N and clustering suffer. And over-fitting: with many columns and few rows, the model memorises noise, giving a high train score and a low test score."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 16,
+   "chapter": "Evidence",
+   "text": "Here is the evidence. Logistic regression trained on four hundred sessions: the train score climbs to zero point nine nine six as columns go from ten to two eighty five, but the test score falls from zero point eight seven eight to zero point seven four three. The model memorised noise. The extra two hundred seventy five columns hurt, not help."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L25-26.pdf",
+   "page": 17,
+   "chapter": "How to beat the curse",
+   "text": "Five ways to beat the curse. More data: more rows per region of the space. Feature selection: keep only useful columns. Regularisation: penalise large coefficients with L one or L two. Dimensionality reduction: P C A and friends combine columns. And domain knowledge: build a few meaningful features. A rule of thumb for a classifier: aim for at least ten cases of the rarer class per feature. Pima diabetes has two hundred sixty eight positives, so about twenty seven features at most."
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "out_name": "P05-06_Lab_Image_Pixels_and_Audio_Waveforms",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals five and six: from files to numbers. We plot an image's pixel distribution and an audio clip's waveform."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 2,
+   "chapter": "Unstructured files are numbers",
+   "text": "Once you load them, an image or an audio clip behaves like any other numeric dataset. An image is a grid of pixels, height by width by channels, each pixel three numbers from zero to two fifty five. An audio clip is a list of amplitude samples over time at a fixed sample rate, like twenty two thousand fifty hertz. So an image has a fixed array shape, and audio is a time series where order and spacing matter."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 3,
+   "chapter": "Practical 5: load the image",
+   "text": "Step one is to load the file and look at its shape before plotting anything. Our sample image is four hundred by three hundred pixels, R G B, so the array shape is three hundred, four hundred, three, with values from zero to two fifty five per channel. The code is one line: convert the opened image to a numpy array."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 4,
+   "chapter": "Reading the pixel histogram",
+   "text": "Step two: flatten each colour channel and count how many pixels fall at each intensity. Each tall spike is one flat-coloured region in the scene: sky, ground, sun, mountain. A natural photo usually gives a smoother, more spread-out histogram because real lighting varies pixel to pixel. In code, convert to greyscale, flatten, and call hist with fifty bins."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 5,
+   "chapter": "Practical 6: audio waveform",
+   "text": "Step one: load the wave file. Each sample is one amplitude reading at a moment in time. Our clip has a sample rate of twenty two thousand fifty hertz, lasts two seconds, and has forty four thousand one hundred samples stored as sixteen bit integers. Build a time axis by dividing the sample index by the sample rate, then plot amplitude against time. The shape is a plucked envelope: a quick rise and a slow fade."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 6,
+   "chapter": "The waveform is a time series",
+   "text": "Step two: average the amplitude in small time windows to see the trend the eye picks up. Bucket the samples into hundred millisecond windows and average the absolute amplitude in each, exactly like a rolling average on any other time series. This is the same trend concept as monthly sales, applied to sound."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P5-6_image_audio.pdf",
+   "page": 7,
+   "chapter": "Recap",
+   "text": "Two new data shapes, same old toolkit. For both: load the file, turn it into numbers, check shape and range, and plot the distribution. For images, use P I L open, then numpy array, then a histogram per channel; peaks mean flat colour regions. For audio, read the wave file into a one-dimensional array, check sample rate and duration, and plot amplitude over time; the envelope shows loudness. Thanks for watching."
+  }
+ ]
+}

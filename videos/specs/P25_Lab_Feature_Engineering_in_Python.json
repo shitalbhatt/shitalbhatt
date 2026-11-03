@@ -1,0 +1,84 @@
+{
+ "out_name": "P25_Lab_Feature_Engineering_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals twenty five and twenty six: feature engineering and selection in Python. This first video covers constructing features, interactions, polynomials and the curse of dimensionality."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 2,
+   "chapter": "Lab plan and datasets",
+   "text": "The main data is Online Shoppers: twelve thousand three hundred thirty sessions, eighteen columns, target Revenue, where fifteen and a half percent of sessions buy. The second worked example is Pima diabetes: seven hundred sixty eight patients, target outcome, with thirty five percent diabetic. Eight steps: construct, interact, polynomial, curse, filter, wrapper, embedded, compare. One rule for the whole lab: same model, same train and test split, and only the features change."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 3,
+   "chapter": "Step 0: imports",
+   "text": "Step zero is the imports: pandas and numpy, plotting libraries, the train test split, Standard Scaler and Polynomial Features, a pipeline, logistic regression and random forest, the feature selection tools, and the R O C A U C and F one scores."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 4,
+   "chapter": "Step 1: load data and target",
+   "text": "Step one: load the data. Convert weekend and revenue from true and false to one and zero. Only fifteen and a half percent buy, so we score models with R O C A U C, where zero point five is guessing and one is perfect, rather than accuracy. The ten behaviour columns form the baseline."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 5,
+   "chapter": "Step 2: one yardstick",
+   "text": "Step two: one yardstick function for every test. The same seventy five twenty five split every time, stratified to keep fifteen and a half percent buyers in both parts, with a fixed random state, so every comparison in the lab is fair. A pipeline scales, fits logistic regression on train rows, and scores A U C on the unseen test rows. The baseline A U C is zero point eight five five two."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 6,
+   "chapter": "Construct: totals and ratios",
+   "text": "Construct totals and ratios. Total pages adds the three page counts. Total duration adds the three durations. Average time per page divides, and product share divides too. Replace zero with missing avoids division by zero, and fill na zero sets empty sessions to zero, with no if or else needed. The table shows each feature's distribution."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 7,
+   "chapter": "Construct: flags",
+   "text": "Construct zero-one flags: is returning visitor, has page value, and Q four season for October to December. About eighty six percent are returning, twenty two percent have page value, and forty three percent are in Q four. The group by shows the purchase rate is fifty six point three percent when has page value is one and only three point nine when zero."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 8,
+   "chapter": "Construct: log and bands",
+   "text": "Construct a log transform and bands. Log one p of page values shrinks skewness from six point three eight to one point eight one. And qcut makes four duration bands with equal numbers of sessions; the purchase rate rises from four point three percent to twenty four percent and then flattens."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 9,
+   "chapter": "Did the features help",
+   "text": "Did the constructed features help? Compare the test A U C before and after: zero point eight five five two to zero point eight nine eight, a gain of zero point oh four three from eight new columns. The correlation chart shows log page values and has page value have the strongest absolute correlation with revenue, over zero point six."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 10,
+   "chapter": "Interactions",
+   "text": "Interactions: check first, then multiply. The two-way table shows page value lifts new visitors to eighty six percent but returning ones only to fifty one: an interaction. We then create page value times returning, page value times Q four, and bounce times exit. A U C goes from zero point eight nine eight to zero point nine oh three nine."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 11,
+   "chapter": "Polynomial features",
+   "text": "Polynomial features with scikit-learn. Three inputs at degree two become nine columns. The number of columns from ten inputs is C of ten plus degree, choose degree, minus one. At degree three, ten inputs give two eighty five columns, eighty five inputs give over one hundred nine thousand, and at degree five about forty four million. Columns explode."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 12,
+   "chapter": "Curse 1: data uses less space",
+   "text": "Curse one: the data uses less and less space. Cut each feature into four bins by quartile. With four features there are two fifty six possible cells and twelve thousand sessions occupy five hundred eighty seven. With ten features, there are over a million cells, and sessions touch only point two percent, about five rows per occupied cell."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P25-26.pdf",
+   "page": 13,
+   "chapter": "Curse 2: over-fitting",
+   "text": "Curse two: more columns means more over-fitting. We train on only four hundred sessions and compare polynomial degrees one to three. Degree one, ten columns: train point eight eight three, test point eight seven eight. Degree two: train point nine two seven, test point eight oh three. Degree three, two hundred eighty five columns: train point nine nine six, test only point seven four three. The model memorised noise."
+  }
+ ]
+}

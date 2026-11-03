@@ -1,0 +1,120 @@
+{
+ "out_name": "L05-06_Images_Audio_Dimensionality_and_Ethics",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 50,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures five and six. Everything becomes a grid of numbers. We look at images as matrices, audio as waveforms, the curse of dimensionality, and the bias and ethics that come with data."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 51,
+   "chapter": "The unifying idea",
+   "text": "Three very different things share one representation. An image is a height by width grid of pixel values: a twenty eight by twenty eight grey photo is seven hundred eighty four numbers. A sound is one long list of amplitudes over time: one second at forty four thousand one hundred hertz is that many numbers. A document is counts across a vocabulary: twenty thousand words means twenty thousand numbers. Each one is a row of a table with hundreds or thousands of columns, and that fact creates both the power and the problem of this lecture."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 52,
+   "chapter": "Images",
+   "text": "An image is a matrix of brightness values. Zero is black, two fifty five is white, and everything between is grey. The shape is height by width and nothing else is stored: no edges, no objects, no meaning. Colour adds a third axis for red, green and blue. A one thousand by one thousand colour photo is over three million numbers: one row with three million columns."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 53,
+   "chapter": "EDA on images",
+   "text": "What does E D A look like on a folder of images? The intensity histogram is the first plot: a spike at zero or two fifty five means clipped, blown-out or blank images. Also check that all images have the same size and orientation, that classes are balanced, that there are no duplicates across train and test, and that there are no corrupt files or mixed greyscale and colour."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 54,
+   "chapter": "Audio",
+   "text": "Audio is a list of numbers sampled very fast. The sampling rate is how many measurements per second: forty four thousand one hundred hertz for C D audio, sixteen thousand for speech. Bit depth is how finely each measurement is recorded; sixteen bit gives sixty five thousand levels. Channels: mono is one list, stereo is two. Ten seconds of speech is a hundred sixty thousand numbers, and nothing about pitch, words or speaker is stored; every one of those has to be computed."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 55,
+   "chapter": "Curse of dimensionality",
+   "text": "Now a key machine learning idea: the curse of dimensionality. Why adding more features can make your data harder to learn from."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 56,
+   "chapter": "What is a dimension",
+   "text": "In data, a dimension is simply a feature, one column of information about each item: height, weight, age, income. A dataset with more columns has higher dimensionality, and that is where the trouble starts."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 57,
+   "chapter": "Space explodes",
+   "text": "To keep ten points per side, the space you must fill grows exponentially. One dimension needs ten points. Two dimensions need a hundred. Three dimensions need a thousand. It is an explosion, not a straight line."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 58,
+   "chapter": "Data becomes sparse",
+   "text": "The amount of data almost never grows to match. The same thousand points that densely filled a line now barely dust a cube. Models struggle because most of the space around any point is simply empty."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 59,
+   "chapter": "Distance loses meaning",
+   "text": "Many algorithms, like K nearest neighbours, rely on near versus far. In very high dimensions that breaks down. The ratio of nearest to farthest neighbour distance approaches one. Every point ends up looking almost equally close to every other point, so nearest neighbour stops being meaningful."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 60,
+   "chapter": "A simple analogy",
+   "text": "Think of finding a friend. On a street, one dimension, you find them fast. In a park, two dimensions, it takes longer. In a building with floors, three dimensions, you check rooms across many levels. At a hundred dimensions, which is normal in machine learning, the search space becomes almost impossible to cover."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 61,
+   "chapter": "How to fight the curse",
+   "text": "Four ways to fight the curse. Feature selection: keep only the columns that help predict the outcome. Dimensionality reduction: techniques like P C A compress many features into a few meaningful ones. Regularisation: penalise complexity so the model does not chase noise. And more relevant data, which helps but rarely outruns exponential growth."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 62,
+   "chapter": "Key takeaway",
+   "text": "More features is not always better. Every added dimension expands the space exponentially, spreads data thinner, and makes distance less meaningful. Choose fewer, more meaningful dimensions."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 63,
+   "chapter": "High dimensions in one picture",
+   "text": "Suppose you want ten measurements along every axis. Two features need a hundred points, a comfortable grid. Six features need a million points, and six is a small dataset today. A twenty eight by twenty eight image has seven hundred eighty four features, and no dataset ever fills that space. Adding a column always adds information, and it always empties the space."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 64,
+   "chapter": "Consequences",
+   "text": "Four things go wrong when the space is empty. Everything is far from everything. The data hugs the edges, because most of a high-dimensional box's volume is near its surface. Models overfit easily, because with more columns than rows they can fit any pattern, including noise. And visualisation stops working beyond two or three dimensions. First responses: drop empty columns, build a few meaningful features, and reduce dimensions with P C A."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 65,
+   "chapter": "Data bias",
+   "text": "Bias enters long before the model does. The world is already unequal and data records it faithfully. Collection decides who was sampled and who was never reachable. Labelling adds human judgement and fatigue. Modelling lets the majority group drive the loss. And deployment changes behaviour, which changes the next dataset. Stage five feeds back into stage two: a system that stops lending to a neighbourhood stops collecting data about it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 66,
+   "chapter": "Ethical concerns",
+   "text": "Four questions to ask of any dataset you did not collect. Consent: did people agree to this use of their data? Privacy: can an individual be re-identified by combining columns? Fairness: does the error rate differ across groups, since a single accuracy number can hide this? Consequence: who is affected by a wrong answer, and can they appeal? Publicly available answers a legal question, not an ethical one."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 67,
+   "chapter": "Practical steps",
+   "text": "What this means for your E D A. Count rows per group before you model. Split every summary by group. Check missingness by group, because dropping rows can remove a group entirely. Ask where labels came from. Write a short datasheet: source, collection method, known gaps, exclusions. And say what the data cannot answer: the most useful sentence in many reports begins, this dataset does not tell us."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 68,
+   "chapter": "Remember this much",
+   "text": "Numbers in, responsibility out. An image is a grid of brightness values. Audio is one long list of amplitudes, and becomes an image once you compute a spectrogram. Every extra feature multiplies the space to cover. Bias enters at collection and labelling. Split by group, count the rows, and write down what the data cannot say."
+  }
+ ]
+}

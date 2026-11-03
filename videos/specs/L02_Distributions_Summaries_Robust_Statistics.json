@@ -1,0 +1,96 @@
+{
+ "out_name": "L02_Distributions_Summaries_Robust_Statistics",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 25,
+   "chapter": "Introduction",
+   "text": "In lecture two we look at shape before numbers: distributions, summary statistics, and robust statistics. Skewness, kurtosis, outliers, and the mean, median and I Q R."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 26,
+   "chapter": "Why shape matters",
+   "text": "The number hides the picture. Here are three distributions with the same kind of average. In the symmetric one the mean describes almost everybody. In the two-group one the mean lands in the gap and describes nobody. In the right-skewed one the mean sits above most of the bars. Same statistic, three realities. That is why we plot first and summarise second."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 27,
+   "chapter": "The vocabulary",
+   "text": "Every distribution answers three questions. Where is it: the centre, measured by mean, median or mode. How wide is it: the spread, measured by range, standard deviation or I Q R. And what shape is it: skewness, kurtosis and stray points."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 28,
+   "chapter": "Skewness",
+   "text": "Skewness tells you which way the tail points. Left-skewed data has a long tail on the left, like exam marks where most students score high. Symmetric data has both tails alike. Right-skewed data has a long tail on the right, like income, house prices and waiting times. The tail names the skew, not the hump."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 29,
+   "chapter": "Skew pulls the mean",
+   "text": "Skew pulls the mean but not the median. In right-skewed data, mode is less than median, which is less than mean. In left-skewed data the order reverses. This is why average income is higher than what a typical person earns: a few very large values sit in the tail and only the mean feels them. When the tail is long, report the median."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 30,
+   "chapter": "Kurtosis",
+   "text": "Kurtosis measures how often extreme values happen. It is about the weight in the tails, not the sharpness of the peak. Excess kurtosis is kurtosis minus three, so a normal curve scores zero. Above zero means heavy tails and more outliers expected. Below zero means light tails."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 31,
+   "chapter": "Three kurtosis families",
+   "text": "Platykurtic distributions have thin tails and extremes are genuinely rare. Mesokurtic is the bell curve benchmark. Leptokurtic distributions have fat tails: shocks and outliers are common, and standard deviation understates the risk. High kurtosis is a warning that your outlier check is about to find something."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 32,
+   "chapter": "Outliers and the box plot",
+   "text": "An outlier is a point far from the bulk of the data, and far needs a definition. The usual one is the one point five times I Q R fence. The I Q R is Q three minus Q one, the middle fifty percent. Points beyond Q one minus one point five I Q R, or Q three plus one point five I Q R, are flagged. Because the fence is built from quartiles, the outliers cannot move it. A flag is a question, not a verdict."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 33,
+   "chapter": "Before you delete anything",
+   "text": "There are three reasons a point sits far out. It may be a mistake, like an age of nine ninety nine; fix or remove it and say so. It may be rare but real, like a genuinely huge order; keep it, it is often the most interesting row. Or it may belong to the wrong population, like a wholesale buyer inside retail data; separate it and analyse the groups apart."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 34,
+   "chapter": "The summary statistics toolkit",
+   "text": "Here is the toolkit sorted by what each statistic tells you. For centre: mean, median and mode. For spread: range, standard deviation and I Q R. For shape: skewness and kurtosis. The last column shows when each breaks down. The mean is dragged by one extreme value, while the median and I Q R rarely break. Always report a centre and a spread together."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 35,
+   "chapter": "Why robustness matters",
+   "text": "Seven monthly salaries, in thousands: twenty eight up to forty two. Now the manager joins at four hundred. The mean more than doubles and describes nobody in the room, while the median moves by one unit. A statistic that one row can move this far is not a summary. It is a hostage."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 36,
+   "chapter": "A working rule",
+   "text": "So which do you report? If the histogram looks symmetric with no stray points, use mean and standard deviation. If the tail is long, use median and I Q R and say the data is skewed. If there are extreme points of unknown cause, report both and show how much they differ. And always put the picture next to the number."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 37,
+   "chapter": "Remember this much",
+   "text": "Plot first, summarise second. Skewness says which side the tail is on. Kurtosis says how heavy the tails are. The one point five I Q R fence flags candidates; investigate them, do not sweep them away. Mean and standard deviation for tidy symmetric data, median and I Q R for everything else."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 38,
+   "chapter": "Six mistakes",
+   "text": "Six mistakes cost marks and credibility. Deleting outliers silently. Reporting the mean of a skewed column. Using z greater than three on a small sample, where the ceiling is n minus one over root n. Treating a sentinel like zero, minus one or nine ninety nine as a number. Testing a hypothesis the same data suggested. And trusting one plot instead of at least two views."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L1-6_slides.pdf",
+   "page": 39,
+   "chapter": "Takeaways",
+   "text": "To take away: E D A is a habit through the whole lifecycle. Explore freely, confirm strictly, never on the same rows. A bigger sample shrinks noise; only a better sample removes bias. Summary statistics compress and compression loses structure, so plot it. Shape first, summary second. And median and I Q R survive contamination; mean, standard deviation and range do not. Next up is the lab on the Online Shoppers dataset."
+  }
+ ]
+}

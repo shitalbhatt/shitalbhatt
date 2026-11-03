@@ -1,0 +1,102 @@
+{
+ "out_name": "P07-08_Lab_Univariate_EDA_Superstore",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals seven and eight: univariate E D A on a large real dataset. We use the Superstore orders, eight thousand three hundred ninety nine rows and twenty one columns, with full code, results and interpretation."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 2,
+   "chapter": "The dataset",
+   "text": "The source is eight thousand real retail order records. We have six numeric features: sales, profit, discount, order quantity, unit price and shipping cost; and categorical features like category, ship mode and customer segment. The goal is to describe every numeric feature fully, compare distributions, and write down what we learn."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 3,
+   "chapter": "Step 1: load and inspect",
+   "text": "Step one: read the C S V into a data frame, check the shape for a fast sanity check on size, and print the data types to see which columns pandas treats as numeric or categorical. We get eight thousand three hundred ninety nine rows and twenty one columns. Always run this first, before any statistics or plots."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 4,
+   "chapter": "Step 2: missing values",
+   "text": "Step two: isna flags every cell as true or false, and sum adds those up per column in one line. Only product base margin shows a real gap, sixty three missing rows, zero point seven five percent. All the columns we use today have zero missing values."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 5,
+   "chapter": "Step 3: summary statistics",
+   "text": "Step three: full summary statistics in one line each. Mean, median, standard deviation, skew and kurtosis, each applied to all six numeric columns at once. No loops and no if statements; pandas broadcasts the statistic across every column."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 6,
+   "chapter": "Summary results",
+   "text": "Sales, profit and unit price are extremely right-skewed, with skew of five point three nine, three point six five and fourteen point one three. Order quantity is nearly flat and symmetric. Discount is close to uniform. And profit's median is negative one fifty despite a positive mean of one hundred eighty one dollars, a strong early hint that many individual orders lose money."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 7,
+   "chapter": "Step 4: robust statistics",
+   "text": "Step four: robust statistics. The I Q R is Q three minus Q one for all six columns in two lines. The coefficient of variation, standard deviation over mean, lets us compare spread across features with different units. The outlier count uses the one point five I Q R rule applied to every column with a single boolean comparison."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 8,
+   "chapter": "Outlier counts",
+   "text": "Profit flags the most outliers, one thousand seven hundred four orders, twenty percent, both unusually large profits and unusually large losses. Sales flags twelve percent, a small number of very large bulk orders. Order quantity and discount flag essentially zero, because they are naturally bounded and evenly spread."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 9,
+   "chapter": "Step 5: a business finding",
+   "text": "Step five is a real business finding. Checking what fraction of a column is negative is a simple but powerful one-liner. Combined with the median from step three, it tells us something the mean alone hides."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 10,
+   "chapter": "Interpreting the finding",
+   "text": "Fifty point eight percent of all orders, just over half, lose money, and the median order profit is minus one fifty. The mean hides this: the average profit is a positive one hundred eighty one dollars purely because a smaller number of very profitable orders pull it upward. Whenever mean and median diverge this much, the mean alone is misleading about the typical order. This raises a business question about which categories or discount levels drive the losses, which practical nine and ten will address."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 11,
+   "chapter": "Step 6: compare distributions",
+   "text": "Step six: comparing distributions across a category. We loop over each product category and overlay its profit density curve. This is the one place a simple loop is clearer than a one-liner, because we are drawing several curves on the same axes."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 12,
+   "chapter": "Profit by category",
+   "text": "All three categories centre close to zero, with profitable and loss-making orders in each. Technology has a visibly wider spread, with bigger wins and bigger losses. Technology averages four hundred twenty nine dollars per order versus sixty eight for furniture, a real, meaningful category effect."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 13,
+   "chapter": "Step 7: categorical frequencies",
+   "text": "Step seven: value counts is the categorical equivalent of describe, one line for a full frequency table. Run it once per categorical column, and always check these before any grouping or cross-tab analysis, to know each category's sample size."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 14,
+   "chapter": "Frequency results",
+   "text": "Office supplies dominates with fifty five percent of orders; furniture is smallest at twenty percent. Regular air is the overwhelming shipping choice at seventy five percent; express air is rarest. Corporate is the largest segment at thirty seven percent, with the other three fairly close."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 15,
+   "chapter": "Pie chart",
+   "text": "A pie chart divides a whole into proportional slices, ideal here since product category has exactly three groups. Office supplies makes up well over half of every order. A caution: pie charts get hard to read past four or five slices, so a region variable with eight categories is better as a bar chart."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P7-8.pdf",
+   "page": 16,
+   "chapter": "Recap",
+   "text": "To recap: six one-line pandas commands fully describe six numeric features, no loops needed. Sales, profit and unit price are strongly right-skewed, while order quantity and discount are close to uniform. Just over half of all orders, fifty point eight percent, lose money, a finding the mean alone completely hides. And comparing distributions across categories is how the first real hypotheses form, which we continue in practical nine and ten. Thanks for watching."
+  }
+ ]
+}

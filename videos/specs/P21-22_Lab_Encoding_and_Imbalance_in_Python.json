@@ -1,0 +1,60 @@
+{
+ "out_name": "P21-22_Lab_Encoding_and_Imbalance_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 14,
+   "chapter": "Lab datasets",
+   "text": "Now the lab. We use New York City Airbnb, forty eight thousand eight hundred ninety five homes, the same file as the outlier lab, and remove the eleven homes with price zero. The second example is Online Shoppers, twelve thousand three hundred thirty visits, where only fifteen point six percent buy."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 15,
+   "chapter": "Step 1: count categories",
+   "text": "Step one: load the data, keep homes with price above zero, and count categories with nunique. Room type has three, neighbourhood group five, and neighbourhood two hundred twenty one: a few categories, and many."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 16,
+   "chapter": "Step 2: label and ordinal",
+   "text": "Step two: label encoding and ordinal encoding. Casting to category and taking cat codes follows the alphabet: Bronx zero up to Staten Island four. For ordinal encoding, we write the order in a dictionary and call map: shared zero, private one, entire two. The median prices are forty five, seventy and one sixty, matching the order. Cat codes follows the alphabet; map follows the order we choose."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 17,
+   "chapter": "Step 3: one-hot and dummies",
+   "text": "Step three: one-hot encoding with get dummies. Every row sums to one across the five borough columns. With drop first equal true, one column per variable is dropped, giving six dummy columns, and the dropped baselines are the Bronx and entire home."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 18,
+   "chapter": "Step 4: frequency and target encoding",
+   "text": "Step four: many categories. Frequency encoding maps each neighbourhood to its share of homes. For target encoding we use training rows only, compute the median price and count per area, and replace areas with fewer than ten homes by the overall median. Williamsburg becomes one oh four, Tribeca three hundred, and Fort Wadsworth, with one home, gets the overall median of one oh five. One column instead of two hundred twenty one."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 19,
+   "chapter": "Step 5: find the imbalance",
+   "text": "Step five: find the imbalance. Entire homes are fifty two percent, private rooms forty five point seven, and shared rooms two point four. The ratio of largest to smallest class is twenty two to one. Class weights are the number of rows over the number of classes times the class count, so each shared room gets a weight of about fourteen."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 20,
+   "chapter": "Step 6: class weights",
+   "text": "Step six: class weights help the model find the rare class. We split with stratify, train a decision tree plain, and again with class weight balanced. Shared rooms found, the recall, goes from nine point five percent to sixty five percent. Accuracy drops from eighty two to seventy three percent, a fair price for not ignoring them."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 21,
+   "chapter": "Second dataset: Online Shoppers",
+   "text": "The same code on Online Shoppers: drop duplicates, then one-hot encode month and visitor type, going from eighteen to twenty seven columns. Only fifteen point six percent of visits end in a purchase. With no weights the model finds sixty four percent of buyers; with balanced weights, eighty six percent. Same steps, same lesson: class weights find many more of the rare buyers."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 22,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. Models need numbers, so encode every word column. No order: one-hot. Has an order: your own map. Keep k minus one dummies, and the dropped one is the baseline. Many categories: frequency or target encoding. And for a rare class: stratify, use class weights, and check recall. Thanks for watching."
+  }
+ ]
+}

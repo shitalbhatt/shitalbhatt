@@ -1,0 +1,444 @@
+1
+00:00:00,000 --> 00:00:03,196
+Welcome to lectures fifteen and sixteen:
+
+2
+00:00:03,196 --> 00:00:06,472
+data quality, integration and validation.
+
+3
+00:00:06,472 --> 00:00:21,094
+We learn the four dimensions of data quality, how to combine data from multiple sources, how to detect duplicates, how to fix inconsistent encoding, and how to write validation rules.
+
+4
+00:00:21,094 --> 00:00:26,448
+The lab that follows runs all of this on a real merged Airbnb file.
+
+5
+00:00:27,248 --> 00:00:30,682
+Raw data is collected for another purpose.
+
+6
+00:00:30,682 --> 00:00:43,765
+It has duplicates, gaps and mixed spellings, hidden sentinel values like zero, nine ninety nine or N A, and often comes as several files with different schemas.
+
+7
+00:00:43,765 --> 00:00:46,953
+Clean data is shaped for your question:
+
+8
+00:00:46,953 --> 00:00:57,665
+one row per entity, gaps explained, one spelling, sentinels converted to real missing values, and one integrated, documented table.
+
+9
+00:00:57,665 --> 00:00:58,401
+The rule:
+
+10
+00:00:58,401 --> 00:01:02,816
+audit first, fix second, and re-audit after every fix.
+
+11
+00:01:03,616 --> 00:01:06,570
+Data quality has four dimensions.
+
+12
+00:01:06,570 --> 00:01:07,376
+Accuracy:
+
+13
+00:01:07,376 --> 00:01:10,867
+is the value correct in the real world?
+
+14
+00:01:10,867 --> 00:01:12,030
+Completeness:
+
+15
+00:01:12,030 --> 00:01:14,716
+is everything we need present?
+
+16
+00:01:14,716 --> 00:01:15,790
+Consistency:
+
+17
+00:01:15,790 --> 00:01:19,191
+is one fact stored one way everywhere?
+
+18
+00:01:19,191 --> 00:01:20,355
+And validity:
+
+19
+00:01:20,355 --> 00:01:23,040
+does the value obey the rules?
+
+20
+00:01:23,040 --> 00:01:30,112
+We will look at each in turn, with examples from the New York City Airbnb data.
+
+21
+00:01:30,912 --> 00:01:33,085
+Accuracy needs a reference.
+
+22
+00:01:33,085 --> 00:01:38,639
+You check a value against reality, a trusted source, or a peer group.
+
+23
+00:01:38,639 --> 00:01:47,814
+For example, a private room in Queens listed at ten thousand dollars a night, against a peer median of fifty nine.
+
+24
+00:01:47,814 --> 00:01:55,138
+A good proxy reference is the median price of listings with the same borough and room type.
+
+25
+00:01:55,138 --> 00:01:59,082
+Flag suspicious values rather than deleting them:
+
+26
+00:01:59,082 --> 00:02:04,394
+the true value is unknown, and deleting real rows biases the data.
+
+27
+00:02:04,394 --> 00:02:09,384
+Decide whether to cap, fix or remove later, once you know why.
+
+28
+00:02:10,184 --> 00:02:13,713
+Completeness asks how much is missing and why.
+
+29
+00:02:13,713 --> 00:02:19,773
+Measure the missing share per column, and the share of rows with no gap at all.
+
+30
+00:02:19,773 --> 00:02:32,967
+In the Airbnb data, twenty point six percent of listings lack a last review date and reviews per month, and only seventy nine point four percent of rows are fully complete.
+
+31
+00:02:32,967 --> 00:02:33,580
+But why?
+
+32
+00:02:33,580 --> 00:02:39,947
+Every one of those listings has zero reviews, so the gap is structural, not random.
+
+33
+00:02:39,947 --> 00:02:41,558
+Coverage matters too:
+
+34
+00:02:41,558 --> 00:02:46,928
+a column can be fully filled and still never contain January or April.
+
+35
+00:02:47,728 --> 00:02:52,020
+Consistency means one fact is stored one way everywhere.
+
+36
+00:02:52,020 --> 00:02:56,159
+Here are the borough labels in the merged Airbnb file:
+
+37
+00:02:56,159 --> 00:03:07,504
+ten labels for five boroughs, because lowercase copies of Manhattan, Brooklyn, Queens, Bronx and Staten Island sit next to the proper-case versions.
+
+38
+00:03:07,504 --> 00:03:14,632
+A group by on this column gives ten groups instead of five and splits every statistic in two.
+
+39
+00:03:15,432 --> 00:03:18,924
+Consistency can break in three directions.
+
+40
+00:03:18,924 --> 00:03:19,922
+Across rows:
+
+41
+00:03:19,922 --> 00:03:22,499
+one borough with two spellings.
+
+42
+00:03:22,499 --> 00:03:23,746
+Across columns:
+
+43
+00:03:23,746 --> 00:03:29,067
+the price and price in dollars columns hold the same fact twice.
+
+44
+00:03:29,067 --> 00:03:30,647
+And across sources:
+
+45
+00:03:30,647 --> 00:03:35,801
+one team's file says Manhattan while another's says manhattan.
+
+46
+00:03:35,801 --> 00:03:42,120
+The fix in each case is to choose one standard form and apply it everywhere.
+
+47
+00:03:42,920 --> 00:03:52,019
+Validity means the value obeys the rules, so write the rules first and test every row against every rule.
+
+48
+00:03:52,019 --> 00:03:55,312
+Range rules, like price at least zero.
+
+49
+00:03:55,312 --> 00:04:00,512
+Set rules, like room type being one of three allowed values:
+
+50
+00:04:00,512 --> 00:04:04,412
+three hundred failures from lowercase labels.
+
+51
+00:04:04,412 --> 00:04:06,318
+Format and type rules.
+
+52
+00:04:06,318 --> 00:04:08,225
+A geographic box rule:
+
+53
+00:04:08,225 --> 00:04:16,977
+five latitude failures, which turned out to be real Staten Island listings, so rules need review too.
+
+54
+00:04:16,977 --> 00:04:18,797
+And uniqueness rules.
+
+55
+00:04:18,797 --> 00:04:19,577
+Remember:
+
+56
+00:04:19,577 --> 00:04:22,177
+validity asks, is it possible?
+
+57
+00:04:22,177 --> 00:04:24,690
+Accuracy asks, is it correct?
+
+58
+00:04:24,690 --> 00:04:31,016
+A ten thousand dollar room passes every validity rule and is still wrong.
+
+59
+00:04:31,816 --> 00:04:34,581
+Data integration has four steps.
+
+60
+00:04:34,581 --> 00:04:35,618
+Match a key:
+
+61
+00:04:35,618 --> 00:04:41,061
+find a shared identifier and check it is unique in each source.
+
+62
+00:04:41,061 --> 00:04:42,530
+Align the schema:
+
+63
+00:04:42,530 --> 00:04:47,714
+rename columns so both sources use the same names and types.
+
+64
+00:04:47,714 --> 00:04:49,269
+Resolve conflicts:
+
+65
+00:04:49,269 --> 00:04:53,934
+where sources disagree, decide which one wins and why.
+
+66
+00:04:53,934 --> 00:04:59,896
+And re-audit the merged table for duplicates, gaps and new conflicts.
+
+67
+00:05:00,696 --> 00:05:11,724
+After aligning the schema, merge on the key with an outer join and an indicator column, which shows whether each row is in A only, B only, or both.
+
+68
+00:05:11,724 --> 00:05:21,552
+In our example forty seven thousand eight hundred ninety five rows are in A only, one thousand are in both, and none are in B only.
+
+69
+00:05:21,552 --> 00:05:24,928
+Then compare the matched rows field by field:
+
+70
+00:05:24,928 --> 00:05:31,905
+three hundred borough conflicts, three hundred room type conflicts, and zero price conflicts.
+
+71
+00:05:31,905 --> 00:05:36,631
+All were case differences only, so we keep source A's spelling.
+
+72
+00:05:36,631 --> 00:05:43,008
+The result is forty eight thousand eight hundred ninety five rows with no duplicates.
+
+73
+00:05:43,808 --> 00:05:46,592
+There are three kinds of duplicates.
+
+74
+00:05:46,592 --> 00:05:50,072
+Exact duplicates have every column identical:
+
+75
+00:05:50,072 --> 00:05:52,391
+seven hundred rows in the lab.
+
+76
+00:05:52,391 --> 00:05:56,799
+Same-key duplicates share an I D but other fields differ:
+
+77
+00:05:56,799 --> 00:06:02,831
+one thousand rows, the seven hundred copies plus three hundred lowercase rows.
+
+78
+00:06:02,831 --> 00:06:11,105
+And near-duplicates are almost the same after cleaning the text, such as the same host with a similar name:
+
+79
+00:06:11,105 --> 00:06:13,811
+four hundred eighty one candidates.
+
+80
+00:06:13,811 --> 00:06:21,080
+Exact duplicates can be dropped automatically; near-duplicates should be reviewed by a person.
+
+81
+00:06:21,880 --> 00:06:29,561
+To fix inconsistent encoding, strip whitespace, fix the case, and collapse repeated spaces.
+
+82
+00:06:29,561 --> 00:06:36,651
+For messy codes, use a mapping, so that B K, Bklyn and brooklyn all become Brooklyn.
+
+83
+00:06:36,651 --> 00:06:40,365
+But standardising can create new duplicates:
+
+84
+00:06:40,365 --> 00:06:52,351
+after title-casing, the three hundred lowercase rows became exact copies of other rows, which drop duplicates had not been able to see before.
+
+85
+00:06:52,351 --> 00:06:56,656
+Order matters, so re-run the audit after every fix.
+
+86
+00:06:57,456 --> 00:07:01,534
+Collect your checks into one reusable rule table.
+
+87
+00:07:01,534 --> 00:07:08,857
+Range rules like price at least zero and availability between zero and three sixty five.
+
+88
+00:07:08,857 --> 00:07:12,103
+Type rules like price being an integer.
+
+89
+00:07:12,103 --> 00:07:17,678
+Uniqueness rules like unique I Ds and no duplicate rows or columns.
+
+90
+00:07:17,678 --> 00:07:23,254
+And set rules like room type and borough being in the allowed sets.
+
+91
+00:07:23,254 --> 00:07:27,914
+Write the rules once, and re-run them on every new load.
+
+92
+00:07:27,914 --> 00:07:31,992
+In the lab, all twelve rules pass after cleaning.
+
+93
+00:07:32,792 --> 00:07:38,019
+Putting it together, the quality workflow has four stages.
+
+94
+00:07:38,019 --> 00:07:38,560
+Audit:
+
+95
+00:07:38,560 --> 00:07:42,526
+shape, types, missing values and duplicates.
+
+96
+00:07:42,526 --> 00:07:43,337
+Diagnose:
+
+97
+00:07:43,337 --> 00:07:48,203
+test accuracy, completeness, consistency and validity.
+
+98
+00:07:48,203 --> 00:07:48,564
+Fix:
+
+99
+00:07:48,564 --> 00:07:52,800
+integrate sources, deduplicate and standardise.
+
+100
+00:07:52,800 --> 00:07:53,971
+And validate:
+
+101
+00:07:53,971 --> 00:08:02,984
+re-run the rules, re-audit, and document what you did, so that someone else can trust and repeat it.
+
+102
+00:08:03,784 --> 00:08:05,062
+Key takeaways.
+
+103
+00:08:05,062 --> 00:08:08,075
+Data quality has four dimensions:
+
+104
+00:08:08,075 --> 00:08:12,548
+accuracy, completeness, consistency and validity.
+
+105
+00:08:12,548 --> 00:08:18,026
+Validity is checked against rules, accuracy against reality.
+
+106
+00:08:18,026 --> 00:08:24,964
+Completeness includes why data is missing and which categories never appear.
+
+107
+00:08:24,964 --> 00:08:31,902
+Integrate sources on a key, align schemas, resolve conflicts, then re-audit.
+
+108
+00:08:31,902 --> 00:08:38,202
+Standardising can create new duplicates, so re-audit after every fix.
+
+109
+00:08:38,202 --> 00:08:43,040
+And document the rules and re-run them on every load.
+
+110
+00:08:43,040 --> 00:08:44,318
+Next, the lab.
+
+111
+00:08:44,318 --> 00:08:46,144
+Thanks for watching.
+

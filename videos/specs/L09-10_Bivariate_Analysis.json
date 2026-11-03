@@ -1,0 +1,102 @@
+{
+ "out_name": "L09-10_Bivariate_Analysis",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures nine and ten: bivariate analysis, the relationships between two variables. We cover correlation, covariance, scatterplots and categorical relationships."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 2,
+   "chapter": "Three pair types",
+   "text": "Every pair of features is one of three types. Numerical with numerical, like sales and profit, uses correlation, covariance and scatterplots. Categorical with categorical, like segment and ship mode, uses cross-tabs, heatmaps and stacked bars. And categorical with numerical, like category and profit, uses grouped statistics and boxplots."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 3,
+   "chapter": "Why two variables",
+   "text": "Why look at two variables together? Univariate statistics miss the story: one feature's mean never tells you how it behaves alongside another. It reveals hidden drivers: discount alone looks harmless, but discount against profit shows heavy discounting erodes margin. It uncovers structure in categories. And it feeds the scientific process, since every does X affect Y question starts as a bivariate check."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 4,
+   "chapter": "Covariance",
+   "text": "Covariance asks whether two variables move together. For every data point, multiply how far X is from its mean by how far Y is from its mean, then average. Positive covariance means they rise together, negative means one rises as the other falls, and near zero means no consistent linear pattern. The catch is that covariance is in the product of the two units, like dollars times units, so its size cannot be compared across pairs."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 5,
+   "chapter": "Correlation",
+   "text": "Correlation is the scale-free version. Divide covariance by the product of the standard deviations and you get r, always between minus one and plus one regardless of units. That makes coefficients comparable across every pair in a matrix. Roughly, beyond plus or minus zero point seven is strong, between zero point three and zero point seven is moderate to weak, and near zero means no linear relation."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 6,
+   "chapter": "Correlation is not causation",
+   "text": "A strong correlation never proves that one variable causes the other. Both may be driven by a hidden third factor, or the pattern may be a coincidence in this sample. For example, discount and profit are correlated, but so are sales and profit. Before acting on a single correlation, check what else might explain it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 7,
+   "chapter": "Spearman correlation",
+   "text": "Pearson measures straight-line relationships only and is sensitive to outliers. Spearman ranks the values first, then correlates the ranks, so it captures any monotonic relationship and is more robust. In the Superstore data, discount versus profit is minus zero point two two by Pearson but minus zero point five four by Spearman: a handful of heavily discounted, deeply negative-profit orders were flattening the straight-line number."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 8,
+   "chapter": "Scatterplots",
+   "text": "A scatterplot places every order as one dot, one feature on X and another on Y. The tilt of the cloud shows direction, and how tightly dots hug a line shows strength. Unlike a single r value, a scatterplot also reveals outliers, clusters and non-linear shapes that a correlation number can hide."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 9,
+   "chapter": "Scatterplot gallery",
+   "text": "Here is a gallery of patterns: positive linear, negative linear, no relationship, curvilinear, a fanning spread where variability grows, known as heteroscedasticity, and an outlier-driven pattern. The same r can come from very different shapes, so always look."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 10,
+   "chapter": "Matrix and heatmap",
+   "text": "A correlation matrix stacks the correlation between every pair of numeric features into one table. A heatmap colours that table, darker green for strong positive and darker red for strong negative, so patterns across many features jump out. The diagonal is always one, and the matrix is symmetric."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 11,
+   "chapter": "Cross-tabulation",
+   "text": "A cross-tab, or contingency table, counts how many records fall into every combination of two categorical features. It is the categorical equivalent of a correlation matrix. Raw counts show volume, while row percentages let you compare the ship mode mix within each segment on the same zero to one hundred scale. Here every segment leans standard class at almost the same rate."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 12,
+   "chapter": "Reading a cross-tab",
+   "text": "If every row has roughly the same percentage split, the two features do not seem related: knowing one tells you nothing extra about the other. If the splits differ noticeably, the features are associated. Segment versus ship mode lands near sixty percent standard class in every row, so it looks independent. A visible pattern like this is what later becomes a chi-square test of independence."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 13,
+   "chapter": "Comparing a number across groups",
+   "text": "For categorical against numerical, there are three tools. Grouped summary statistics: split by category, then compute mean, median and standard deviation within each group. Boxplots by category: the full distribution per group, showing spread and not just average. And a bar chart of group means for a quick comparison of central tendency."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 14,
+   "chapter": "Which technique for which pair",
+   "text": "Which technique for which pair? Numerical with numerical: covariance and correlation, scatterplot or pairplot; watch for non-linear shapes and outliers. Categorical with categorical: cross-tab counts and percentages, heatmap or stacked bar; watch for rare categories with tiny counts. Categorical with numerical: grouped statistics, boxplot or bar chart; with skewed groups the median can beat the mean. Identify each column's type first, and that tells you which row to use."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 15,
+   "chapter": "Common pitfalls",
+   "text": "Four pitfalls. Spurious correlation: unrelated features can correlate by chance, especially in small samples, so ask if it makes real-world sense. Outlier-driven correlation: a handful of extreme points can create or hide a correlation, so pair the number with a scatterplot. Simpson's paradox: a trend in the whole dataset can reverse within each subgroup. And small subgroup counts can make a cross-tab percentage misleading."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L9-10.pdf",
+   "page": 16,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. Start by identifying the type of each feature. Covariance shows direction; correlation rescales it so pairs are comparable. Pearson catches linear patterns; Spearman catches any monotonic pattern and resists outliers. A correlation matrix and heatmap summarise all pairs, and scatterplots show what one number can hide. Cross-tabs are the categorical correlation matrix. And correlation is not causation: every finding is the seed of a hypothesis to test later. Next is the lab."
+  }
+ ]
+}

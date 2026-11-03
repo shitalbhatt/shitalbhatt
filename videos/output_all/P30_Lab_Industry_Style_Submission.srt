@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:01,795
+Practical thirty:
+
+2
+00:00:01,795 --> 00:00:04,962
+the industry-style submission.
+
+3
+00:00:04,962 --> 00:00:08,130
+The notebook has twelve parts.
+
+4
+00:00:08,130 --> 00:00:08,658
+Zero:
+
+5
+00:00:08,658 --> 00:00:12,248
+title block and executive summary.
+
+6
+00:00:12,248 --> 00:00:12,670
+One:
+
+7
+00:00:12,670 --> 00:00:16,365
+problem, target and success metric.
+
+8
+00:00:16,365 --> 00:00:16,788
+Two:
+
+9
+00:00:16,788 --> 00:00:18,794
+refined hypotheses.
+
+10
+00:00:18,794 --> 00:00:19,427
+Three:
+
+11
+00:00:19,427 --> 00:00:24,390
+setup with imports, a single seed and versions.
+
+12
+00:00:24,390 --> 00:00:24,917
+Four:
+
+13
+00:00:24,917 --> 00:00:29,457
+data audit for duplicates and hidden zeros.
+
+14
+00:00:29,457 --> 00:00:29,985
+Five:
+
+15
+00:00:29,985 --> 00:00:31,886
+E D A to insights.
+
+16
+00:00:31,886 --> 00:00:32,308
+Six:
+
+17
+00:00:32,308 --> 00:00:35,898
+a stratified train and test split.
+
+18
+00:00:35,898 --> 00:00:36,531
+Seven:
+
+19
+00:00:36,531 --> 00:00:39,382
+pipeline and five-fold C V.
+
+20
+00:00:39,382 --> 00:00:40,016
+Eight:
+
+21
+00:00:40,016 --> 00:00:42,022
+test set used once.
+
+22
+00:00:42,022 --> 00:00:42,550
+Nine:
+
+23
+00:00:42,550 --> 00:00:45,612
+insights and recommendations.
+
+24
+00:00:45,612 --> 00:00:46,034
+Ten:
+
+25
+00:00:46,034 --> 00:00:48,885
+limitations and next steps.
+
+26
+00:00:48,885 --> 00:00:49,624
+Eleven:
+
+27
+00:00:49,624 --> 00:00:52,263
+the submission checklist.
+
+28
+00:00:52,263 --> 00:00:57,120
+The worked example is on the diabetes dataset.
+
+29
+00:00:57,920 --> 00:01:02,456
+The example, setup and data audit on diabetes dot C S V.
+
+30
+00:01:02,456 --> 00:01:06,667
+Set one seed, forty two, and print library versions.
+
+31
+00:01:06,667 --> 00:01:15,658
+Seven hundred sixty eight rows by nine columns, zero duplicates, and a diabetic share of point three four nine.
+
+32
+00:01:15,658 --> 00:01:23,271
+Zeros in glucose, blood pressure, skin thickness, insulin and B M I are hidden missing values:
+
+33
+00:01:23,271 --> 00:01:28,697
+five, thirty five, two twenty seven, three seventy four and eleven.
+
+34
+00:01:28,697 --> 00:01:34,448
+Replace them with missing; the median fill happens inside the pipeline.
+
+35
+00:01:35,248 --> 00:01:37,355
+The leakage-safe pipeline:
+
+36
+00:01:37,355 --> 00:01:44,486
+a simple imputer with median, a standard scaler, and class-weighted logistic regression.
+
+37
+00:01:44,486 --> 00:01:51,375
+Cross-validation R O C A U C is point eight four two plus or minus point oh two nine.
+
+38
+00:01:51,375 --> 00:01:59,641
+The test R O C A U C is point eight one three, with recall of point seven zero for the diabetic class.
+
+39
+00:01:59,641 --> 00:02:03,855
+The insight, observation, evidence, meaning, action:
+
+40
+00:02:03,855 --> 00:02:15,281
+glucose is the top signal, median one forty versus one oh seven, and risk jumps above one twenty five, where fifty nine percent are diabetic.
+
+41
+00:02:15,281 --> 00:02:19,576
+The screen finds seven in ten diabetic test patients.
+
+42
+00:02:20,376 --> 00:02:23,570
+Finally, the submission checklist.
+
+43
+00:02:23,570 --> 00:02:24,509
+File name:
+
+44
+00:02:24,509 --> 00:02:27,797
+dataset number, U E N number, name.
+
+45
+00:02:27,797 --> 00:02:32,588
+Title block and executive summary with key numbers.
+
+46
+00:02:32,588 --> 00:02:36,627
+Problem, target and metric before any code.
+
+47
+00:02:36,627 --> 00:02:40,290
+Hypotheses refined and each one tested.
+
+48
+00:02:40,290 --> 00:02:44,705
+One seed, versions printed, relative file path.
+
+49
+00:02:44,705 --> 00:02:48,932
+Duplicates and hidden missing values handled.
+
+50
+00:02:48,932 --> 00:02:54,475
+Split before fitting, with preprocessing inside a pipeline.
+
+51
+00:02:54,475 --> 00:03:01,895
+C V mean plus or minus standard deviation on train, and the test set used once.
+
+52
+00:03:01,895 --> 00:03:06,686
+Insights as observation, evidence, meaning, action.
+
+53
+00:03:06,686 --> 00:03:08,471
+Limitations stated.
+
+54
+00:03:08,471 --> 00:03:12,792
+And kernel restart and run all with no errors.
+
+55
+00:03:13,592 --> 00:03:14,646
+Lab summary.
+
+56
+00:03:14,646 --> 00:03:20,441
+Leaky recall point nine nine two versus honest point six six five:
+
+57
+00:03:20,441 --> 00:03:21,494
+split first.
+
+58
+00:03:21,494 --> 00:03:28,870
+Class weight balanced took recall from point four one six to point seven eight five.
+
+59
+00:03:28,870 --> 00:03:36,685
+The final pipeline has C V R O C A U C of point nine zero, and page values drives buying.
+
+60
+00:03:36,685 --> 00:03:41,953
+And submit with the twelve-part structure and the checklist.
+
+61
+00:03:41,953 --> 00:03:44,236
+That completes the course.
+
+62
+00:03:44,236 --> 00:03:45,992
+Thanks for watching.
+

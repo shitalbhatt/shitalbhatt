@@ -1,0 +1,102 @@
+{
+ "out_name": "P23-24_Lab_Transformation_and_Scaling_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 12,
+   "chapter": "Introduction",
+   "text": "Now the lab: apply transformations and scaling, and compare distributions before and after."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 13,
+   "chapter": "Step 1: load, clean, select",
+   "text": "Step one: load the California Housing data, fill the two hundred seven missing total bedrooms values with the median, because the column is skewed, and select the seven positive features. Transformers cannot handle missing values, so fill them first."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 14,
+   "chapter": "Step 2: measure",
+   "text": "Step two: measure skew, kurtosis and I Q R outliers for all seven features in one data frame, and draw histograms. Housing median age is symmetric with no outliers. Total rooms, bedrooms, population and households have skews of three to five and kurtosis from twenty two up to seventy three, with over a thousand outliers each. Median income and house value are moderately skewed."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 15,
+   "chapter": "Step 3: log transform",
+   "text": "Step three: log transform all features at once with numpy log one p. Strong right skew of about four flips to a moderate left skew of about minus one: log is too strong for the count features. Median income and house value land close to zero. And housing median age, which was symmetric at zero point oh six, becomes minus one point one four."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 16,
+   "chapter": "Step 4: Box-Cox",
+   "text": "Step four: Box-Cox with one lambda per feature. For one column, stats boxcox returns the lambda. For all seven columns in one command, use Power Transformer with method box-cox and standardize false, then read the lambdas. Every feature now has absolute skew of at most zero point one two. Box-Cox picked a weak power of point eight one for the symmetric age feature and a strong one, about point one, for income. It adapts where log cannot."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 17,
+   "chapter": "Skewness before vs after",
+   "text": "Here is the skewness of every feature: raw, log and Box-Cox. The raw bars reach five, the log bars overshoot below zero, and the Box-Cox bars sit near zero for all seven features. The kurtosis of population falls from seventy three point six to two point oh."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 18,
+   "chapter": "One feature, three shapes",
+   "text": "One feature, three shapes: population. Raw is one spike at the left. Log gives a bell with a left tail. Box-Cox is closest to symmetric."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 19,
+   "chapter": "Density raw vs Box-Cox",
+   "text": "Density of all seven features, raw versus Box-Cox. Both are standardised only so their shapes can share one axis. Peaks drop and right tails shrink after Box-Cox."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 20,
+   "chapter": "Outliers before and after",
+   "text": "Outliers before and after, by the I Q R rule. Median house value outliers fall from one thousand seventy one to sixteen: almost all were just the tail. But logging the symmetric housing median age invented five hundred fifty nine outliers from zero. Transformations should be chosen per feature, not applied blindly."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 21,
+   "chapter": "Step 5: three scalers",
+   "text": "Step five: apply the three scalers. Standard scaler, min-max scaler and robust scaler, each in one line over all columns. For population, the raw mean is fourteen twenty five. After standard scaling the mean is zero and the standard deviation one; after min-max the values are between zero and one; after robust scaling the median is zero and the I Q R one. Skew is four point nine four in every row: scaling never changes the shape."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 22,
+   "chapter": "Same shape, different units",
+   "text": "The same shape with different units: median income. The four histograms are identical, only the x-axis numbers change, and skew stays one point six five."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 23,
+   "chapter": "Box plots after scaling",
+   "text": "Box plots of all features after each scaler. With standard scaling, features are centred but count features still reach fifteen to thirty. With min-max scaling, count-feature boxes collapse near zero. With robust scaling, every box has median zero and height one, directly comparable."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 24,
+   "chapter": "The MinMax trap",
+   "text": "The min-max trap: one extreme value sets the scale. Ninety six percent of population values fall below zero point one after min-max scaling. The largest block group, thirty five thousand people, becomes one, while a typical block group of eleven hundred sixty six becomes zero point oh three. The top four percent of rows occupy ninety percent of the zero-to-one range. The fix: transform first, or use the robust scaler."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 25,
+   "chapter": "Step 6: transform first, then scale",
+   "text": "Step six: transform first, then scale. Power Transformer with Box-Cox and the default standardize true does Box-Cox plus standard scaling in one step. Every feature has mean zero, standard deviation one, and absolute skew at most zero point one two. The population maximum falls from thirty to seven point five. For models, fit on training data only, then transform the test data, so no test information leaks in."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 26,
+   "chapter": "Which method when",
+   "text": "Which method when? Strong right skew with all values above zero: Box-Cox. Right skew with zeros allowed and a wish for simplicity: log one p. Zeros or negatives: Yeo-Johnson. Already symmetric: no transform; log on age created five hundred fifty nine outliers. Roughly normal data for P C A, regression or S V M: standard scaler. Need zero to one with few outliers: min-max. Many outliers or heavy tails: robust scaler. And tree models usually need none, since splits depend on order, not scale."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L23-24.pdf",
+   "page": 27,
+   "chapter": "Summary",
+   "text": "Transform the shape, then scale the units. Check skew before choosing. Box-Cox adapts, log does not. Scaling never fixes skew. And robust beats min-max when outliers exist. The lab notebook has exercises at the end. Thanks for watching."
+  }
+ ]
+}

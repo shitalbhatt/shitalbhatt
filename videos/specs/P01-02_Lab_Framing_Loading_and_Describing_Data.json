@@ -1,0 +1,72 @@
+{
+ "out_name": "P01-02_Lab_Framing_Loading_and_Describing_Data",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals one and two. Today we go from a vague question to a distribution. We frame the problem, load data, name our variables, describe the numbers, and visualise their shape."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 2,
+   "chapter": "The path",
+   "text": "The path has four stages. Frame and load: write a problem statement, then take a first look at the data. Name your variables: what you are explaining and what might explain it. Describe the numbers: mean versus median, variance versus I Q R, skewness. And see the shape with histograms, boxplots, density plots and pivot tables."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 3,
+   "chapter": "Step 1: problem statement",
+   "text": "Before you load a single row, put your question into words. What question am I answering? What is one row in my data? What outcome am I explaining? And what would an answer let me decide? For example: do customers who receive a discount email spend more per month than those who do not? A problem statement earns its place only if the answer changes an action."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 4,
+   "chapter": "Step 2: load and look",
+   "text": "Now load the data and confirm what actually arrived. Five steps: read the file with read C S V, check the shape, preview rows with head, check data types, and count missing values with isna dot sum. Do this every time, even for a dataset you have seen before, because column names, types and row counts change more often than you expect."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 5,
+   "chapter": "Step 3: dependent vs independent",
+   "text": "Next, decide what you are trying to explain and what might explain it. The dependent variable, Y, is the outcome, such as monthly spend, exam score or churn. The independent variables, X, are the factors that might influence it, such as a discount email or study hours. The quick test: if I built a chart with this on the y axis, would the rest of my analysis point at it?"
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 6,
+   "chapter": "Mean vs median",
+   "text": "Our running example is six hundred customers' monthly spend, which is right-skewed. The mean is thirty eight sixty three dollars; the median is thirty four fifty nine. A few big spenders drag the mean upward, while the median barely moves. Mean greater than median tells us the data is pulled right."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 7,
+   "chapter": "Variance vs IQR",
+   "text": "For spread we compare standard deviation, twenty dollars fifty five, with the I Q R, twenty three fifty. Standard deviation uses every value and is sensitive to outliers. The I Q R covers the middle fifty percent and is robust. Rule of thumb: if the data has outliers or skew, lead with the median and I Q R."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 8,
+   "chapter": "Skewness",
+   "text": "You can read the shape without plotting, just by comparing mean and median. Mean below median means a long left tail. Mean about equal to median means balanced. Mean above median means a long right tail."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 9,
+   "chapter": "Three views",
+   "text": "Plot the same distribution three ways. A histogram is best for spotting overall shape. A boxplot shows the median and I Q R and flags outliers. A density curve is a smoothed histogram, best for comparing shapes across groups. Each view highlights something different, so use more than one."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 10,
+   "chapter": "Pivot tables",
+   "text": "A pivot table answers: what is the average, total or count, broken down by category? You choose rows, columns, values and an aggregation. In this example, East sells more widgets than gadgets while South is the reverse, a pattern a single average would hide. In pandas it is one call to pivot table."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/LAB1-2.pdf",
+   "page": 11,
+   "chapter": "Cheat sheet",
+   "text": "Here is your cheat sheet. Question and unit of observation: problem statement. Explain versus explainer: dependent and independent variables. Is the typical value pulled by outliers: compare mean and median. Is the spread robust: compare standard deviation and I Q R. Which way does it lean: skewness. What does it look like: histogram, boxplot, density. And the summary by group: a pivot table. Try these on your own dataset. Thanks for watching."
+  }
+ ]
+}

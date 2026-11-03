@@ -1,0 +1,90 @@
+{
+ "out_name": "P09-10_Lab_Bivariate_Analysis_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals nine and ten: bivariate analysis in Python. We build a correlation matrix, heatmaps and cross-tabs, and generate hypotheses, using the Superstore orders dataset."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 2,
+   "chapter": "Setup",
+   "text": "First load the dataset and import pandas, numpy, seaborn and matplotlib. We use the latin one encoding to handle special characters, and drop the few rows with a blank segment."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 3,
+   "chapter": "Identify feature types",
+   "text": "Next identify numeric and categorical features. Select dtypes with include number picks every numeric column in one command; then we drop postal code, because it is a number but an I D, not a measurement. The numeric columns are sales, quantity, discount and profit. For categoricals we choose columns with a manageable number of categories: ship mode, segment, region, category and sub-category."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 4,
+   "chapter": "Covariance matrix",
+   "text": "One command, cov, computes covariance between every pair of the four numeric features at once. Notice the units: the covariance of sales and profit is about seventy thousand, and the sign is meaningful, but the huge number is not comparable to the covariance of discount and profit, about minus ten point six. That is why we compute correlation next."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 5,
+   "chapter": "Pearson and Spearman",
+   "text": "Correlation by default is Pearson; pass method equals spearman for ranks. Sales and profit are moderate positive, about zero point five. Sales and quantity are weak positive. And discount with profit jumps from minus zero point two two to minus zero point five four once we rank the data: a few heavily discounted, deeply negative-profit orders were flattening the Pearson number."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 6,
+   "chapter": "Heatmap",
+   "text": "A heatmap of the correlation matrix is one seaborn call. Annot true prints each value, and fixing the colour scale from minus one to plus one makes intensity always comparable."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 7,
+   "chapter": "Scatterplot and pairplot",
+   "text": "A scatterplot shows one pair and the shape a correlation number can hide. A pairplot draws a scatterplot for every pair of numeric features, plus a histogram per feature on the diagonal, covering all pairs at once with no loop."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 8,
+   "chapter": "Cross-tabulation",
+   "text": "Pandas crosstab counts orders in every segment by ship mode combination. Normalize equals index turns each row into percentages, comparing ship-mode mix within each segment fairly. All three segments cluster near fifty nine to sixty percent standard class, so shipping preference looks similar across segments."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 9,
+   "chapter": "Cross-tab heatmap and stacked bar",
+   "text": "The same shading idea applies to a cross-tab: pass it to a heatmap. And calling plot with kind bar and stacked true directly on a cross-tab turns counts into a stacked bar chart in one line."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 10,
+   "chapter": "Grouped statistics",
+   "text": "For categorical against numerical, group by category and take the mean of all four numeric columns in one line, or aggregate mean and standard deviation. Technology has the highest average profit despite the lowest average discount, while furniture has the lowest average profit."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 11,
+   "chapter": "Boxplots and bar chart",
+   "text": "A boxplot of profit by category shows the full distribution per group. A bar plot with the mean estimator compares average sales by segment at a glance."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 12,
+   "chapter": "Hypothesis generation",
+   "text": "Now turn findings into hypotheses. H one: discount hurts profit, with Spearman r of minus zero point five four, strongest in the Central region. H two: category drives profitability more than sales volume. H three: ship-mode preference is independent of customer segment. H four: regional discounting policy varies, a policy effect and not a product-mix effect. These are hypotheses to test, not conclusions."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 13,
+   "chapter": "Worked example: Titanic",
+   "text": "The same six commands work on a different dataset, Titanic. Correlation of age, fare and family counts; a cross-tab of sex by survived with row percentages; grouped means by passenger class; and a boxplot of fare by class. Female passengers survived at a far higher rate than male passengers, and first-class passengers paid far higher fares. Same pattern, new column names."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P9-10.pdf",
+   "page": 14,
+   "chapter": "Cheat sheet",
+   "text": "Your code cheat sheet. Numerical with numerical: cov, corr with optional Spearman, a heatmap, scatterplot or pairplot. Categorical with categorical: crosstab with normalize, a heatmap, a stacked bar. Categorical with numerical: group by with mean or aggregate, boxplot, bar plot. Try these on your own dataset. Thanks for watching."
+  }
+ ]
+}

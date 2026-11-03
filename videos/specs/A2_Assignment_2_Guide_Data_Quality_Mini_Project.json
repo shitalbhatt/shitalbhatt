@@ -1,0 +1,48 @@
+{
+ "out_name": "A2_Assignment_2_Guide_Data_Quality_Mini_Project",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This video is a general guide to your second assignment, the data quality mini project around week eleven. Always follow your own assignment brief for the exact requirements. This guide shows how to apply module three: auditing, cleaning, imputing, treating outliers and encoding.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/02.png",
+   "chapter": null,
+   "text": "The assignment is a formative mini project worth twenty five percent, mapped to outcome three: design and implement pre-processing and transformation strategies that improve data quality and analytical reliability. The key idea is evidence: show the problem, show your fix, and show the result before and after.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/03.png",
+   "chapter": "Pipeline",
+   "text": "Follow the module three pipeline. Audit the data. Check the four quality dimensions. Integrate sources and remove duplicates. Handle missing values and explain why they are missing. Detect and treat outliers. Encode categories and handle class imbalance. Validate with rules. And document every step.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/04.png",
+   "chapter": "Documenting",
+   "text": "For every problem you find, record it in a log: what it is, how many rows, why you think it happened, and what you decided. Flag suspicious values before deleting them. Disguised missing values such as zero or nine ninety nine should be converted to real missing values. Re-run the audit after every fix, because standardising labels can create new duplicates.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/05.png",
+   "chapter": "Before and after",
+   "text": "When you fix missing values or outliers, compare before and after. For missing values compare variance retained across mean, median, K N N and regression imputation. For outliers compare mean, standard deviation and skew before and after, and a model score such as R squared. For encoding, justify one-hot versus ordinal. Do not just say that you cleaned the data: show numbers.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/06.png",
+   "chapter": "Avoid leakage",
+   "text": "Avoid leakage. Split the data before you fit scalers, imputers or resampling, and fit every step on training rows only. Remember that every treatment is a choice that changes results, so explain why you made it. State the limitations of your cleaned dataset.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/A2/slides/07.png",
+   "chapter": "Checklist",
+   "text": "Here is a final checklist. Audit complete. Quality dimensions checked. Duplicates handled. Missing values explained and imputed with comparison. Outliers handled with a stated rule. Categories encoded and imbalance checked. Rules validated. Before and after evidence shown. A data quality log included. Good luck, and thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

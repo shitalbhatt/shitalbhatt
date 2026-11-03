@@ -1,0 +1,801 @@
+[
+ {
+  "file": "S_C00_Course_Introduction_and_Roadmap_DATA209.mp4",
+  "title": "Here is the whole EDA course on one page. #Shorts",
+  "description": "Here is the whole EDA course on one page.\n\nFull lesson: DATA209 Advanced Exploratory Data Analysis Course Roadmap: Modules, Assessment and Reading List\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-17T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L01_Why_We_Explore_Before_We_Conclude.mp4",
+  "title": "More data fixes noise, but it never fixes bias. #Shorts",
+  "description": "More data fixes noise, but it never fixes bias.\n\nFull lesson: What is EDA? Exploratory vs Confirmatory Analysis, Sampling Bias and Bias-Variance\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-19T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L02_Distributions_Summaries_Robust_Statistics.mp4",
+  "title": "One salary of 400 can more than double your average. #Shorts",
+  "description": "One salary of 400 can more than double your average.\n\nFull lesson: Skewness, Kurtosis, Outliers and IQR Explained: Robust Statistics for EDA\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-21T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P01-02_Lab_Framing_Loading_and_Describing_Data.mp4",
+  "title": "Start every analysis with a question, not with code. #Shorts",
+  "description": "Start every analysis with a question, not with code.\n\nFull lesson: EDA in Python: Load Data, Mean vs Median, Variance vs IQR, Histogram and Pivot Tables\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-24T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P01-02_Worked_Example_California_Housing.mp4",
+  "title": "Do your numbers and your graphs agree? #Shorts",
+  "description": "Do your numbers and your graphs agree?\n\nFull lesson: California Housing EDA in Python: Skewness, Kurtosis, Outliers and Pivot Tables\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-26T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L03-04_Data_Types_and_Structures.mp4",
+  "title": "Why is temperature interval but income ratio? #Shorts",
+  "description": "Why is temperature interval but income ratio?\n\nFull lesson: Data Types Explained: Nominal, Ordinal, Interval, Ratio, Discrete vs Continuous and Time Series\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-11-28T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P03-04_Lab_Spotting_Data_Types_and_Structure.mp4",
+  "title": "Can you identify every column type in 30 seconds? #Shorts",
+  "description": "Can you identify every column type in 30 seconds?\n\nFull lesson: How to Identify Data Types in Your Dataset: Structured, Text and Time-Series Data\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-01T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L05-06_Images_Audio_Dimensionality_and_Ethics.mp4",
+  "title": "More features can make your model worse. #Shorts",
+  "description": "More features can make your model worse.\n\nFull lesson: Curse of Dimensionality, Images and Audio as Data, and Bias in Data Science\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-03T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P05-06_Lab_Image_Pixels_and_Audio_Waveforms.mp4",
+  "title": "An image is just a grid of numbers. #Shorts",
+  "description": "An image is just a grid of numbers.\n\nFull lesson: Image Pixel Histogram and Audio Waveform in Python (PIL, NumPy, SciPy)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-05T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R1_Module_1_Revision_Foundations.mp4",
+  "title": "Mean 95, median 39. What does that tell you? #Shorts",
+  "description": "Mean 95, median 39. What does that tell you?\n\nFull lesson: Module 1 Revision: EDA Foundations, Distributions, Data Types and Data Bias (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-08T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L07_Non_Graphical_EDA_Superstore.mp4",
+  "title": "The average profit is positive, yet half the orders lose money. #Shorts",
+  "description": "The average profit is positive, yet half the orders lose money.\n\nFull lesson: Non-Graphical EDA in Python: Mean, Median, Std, Skewness and Kurtosis on the Superstore Dataset\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-10T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L08_Graphical_EDA_Categorical_and_Anomalies.mp4",
+  "title": "Numbers tell you something is odd. Plots tell you what. #Shorts",
+  "description": "Numbers tell you something is odd. Plots tell you what.\n\nFull lesson: Graphical EDA: Histogram, KDE, Boxplot, Violin, Bar and Pie Charts, Plus Outlier Detection\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-12T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P07-08_Lab_Univariate_EDA_Superstore.mp4",
+  "title": "50.8 percent of orders lose money. #Shorts",
+  "description": "50.8 percent of orders lose money.\n\nFull lesson: Univariate EDA in Python Step by Step: Superstore Dataset Walkthrough\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-15T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L09-10_Bivariate_Analysis.mp4",
+  "title": "Pearson says minus 0.22. Spearman says minus 0.54. #Shorts",
+  "description": "Pearson says minus 0.22. Spearman says minus 0.54.\n\nFull lesson: Bivariate Analysis: Correlation vs Covariance, Pearson vs Spearman, Cross-Tabs and Heatmaps\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-17T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P09-10_Lab_Bivariate_Analysis_in_Python.mp4",
+  "title": "Six commands cover every pair of variables. #Shorts",
+  "description": "Six commands cover every pair of variables.\n\nFull lesson: Correlation Matrix, Heatmap, Pairplot and Crosstab in Python (Seaborn Tutorial)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-19T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L11-12_Multivariate_Analysis_VIF_and_Clustering.mp4",
+  "title": "Two features can look uncorrelated and still be redundant. #Shorts",
+  "description": "Two features can look uncorrelated and still be redundant.\n\nFull lesson: Multicollinearity, VIF and K-Means Clustering Explained, With Silhouette Score\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-22T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P11-12_Lab_Multivariate_Analysis_in_Python.mp4",
+  "title": "Cluster 1 loses 107 dollars per order. #Shorts",
+  "description": "Cluster 1 loses 107 dollars per order.\n\nFull lesson: VIF and K-Means Clustering in Python: Scaling, Silhouette Score and Interpretation\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-24T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L13-14_Data_Visualization_Grammar_to_Storytelling_Lecture.mp4",
+  "title": "Four datasets, same statistics, totally different pictures. #Shorts",
+  "description": "Four datasets, same statistics, totally different pictures.\n\nFull lesson: Data Visualization Principles: Grammar of Graphics, Misleading Charts and Data Storytelling\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-26T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P13-14_Lab_Data_Visualization_Grammar_to_Storytelling.mp4",
+  "title": "A truncated axis can make a small gap look huge. #Shorts",
+  "description": "A truncated axis can make a small gap look huge.\n\nFull lesson: Data Visualization in Python: Seaborn, Treemap, Word Cloud, Network Diagram and Dashboard\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-29T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_A1_Assignment_1_Guide_EDA_Mini_Project.mp4",
+  "title": "Pair every statistic with a picture. #Shorts",
+  "description": "Pair every statistic with a picture.\n\nFull lesson: Assignment 1 Guide: How to Plan and Present an EDA Mini Project in Python\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2026-12-31T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R2_Module_2_Revision_Core_Advanced_EDA.mp4",
+  "title": "Pearson says minus 0.22. Spearman says minus 0.54. Why? #Shorts",
+  "description": "Pearson says minus 0.22. Spearman says minus 0.54. Why?\n\nFull lesson: Module 2 Revision: Univariate, Bivariate and Multivariate EDA and Visualization (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-02T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L15-16_Data_Quality_Integration_and_Validation_Lecture.mp4",
+  "title": "A 10,000 dollar room passes every validity rule. #Shorts",
+  "description": "A 10,000 dollar room passes every validity rule.\n\nFull lesson: Data Quality Explained: Accuracy, Completeness, Consistency, Validity and Data Integration\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-05T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P15-16_Lab_Data_Quality_Part_A_Audit_to_Validity.mp4",
+  "title": "Five commands audit a whole dataset. #Shorts",
+  "description": "Five commands audit a whole dataset.\n\nFull lesson: Data Quality Audit in Python (Part 1): Duplicates, Missing Values, Consistency and Validity Rules\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-07T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P15-16_Lab_Data_Quality_Part_B_Integration_to_Scale.mp4",
+  "title": "Cleaning one column created 300 new duplicates. #Shorts",
+  "description": "Cleaning one column created 300 new duplicates.\n\nFull lesson: Merge Data Sources, Remove Duplicates and Scale Features in Python (Data Quality Part 2)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-09T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L17-18_Missing_Values_Lecture_and_Lab.mp4",
+  "title": "Never just fill missing values with the mean. #Shorts",
+  "description": "Never just fill missing values with the mean.\n\nFull lesson: Missing Values in Python: MCAR vs MAR vs MNAR, Mean, Median, KNN and Regression Imputation\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-12T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L19-20_Outliers_Lecture.mp4",
+  "title": "Z-score missed 2,584 outliers that IQR caught. #Shorts",
+  "description": "Z-score missed 2,584 outliers that IQR caught.\n\nFull lesson: Outliers Explained: Z-Score vs IQR, Isolation Forest, LOF and How to Fix Them\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-14T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P19-20_Lab_Outliers_in_Python.mp4",
+  "title": "Fixing outliers made the model four times better. #Shorts",
+  "description": "Fixing outliers made the model four times better.\n\nFull lesson: Outlier Detection and Treatment in Python: IQR, Z-Score, Isolation Forest, LOF and DBSCAN\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-16T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L21-22_Encoding_and_Imbalanced_Classes_Lecture.mp4",
+  "title": "Label encoding invents an order that does not exist. #Shorts",
+  "description": "Label encoding invents an order that does not exist.\n\nFull lesson: Categorical Encoding Explained: One-Hot, Label, Ordinal, Target Encoding and Imbalanced Classes\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-19T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P21-22_Lab_Encoding_and_Imbalance_in_Python.mp4",
+  "title": "Accuracy went down, and the model got better. #Shorts",
+  "description": "Accuracy went down, and the model got better.\n\nFull lesson: One-Hot Encoding, Dummy Variables and Class Weights in Python for Imbalanced Data\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-21T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_A2_Assignment_2_Guide_Data_Quality_Mini_Project.mp4",
+  "title": "Do not just say you cleaned the data. Show the numbers. #Shorts",
+  "description": "Do not just say you cleaned the data. Show the numbers.\n\nFull lesson: Assignment 2 Guide: Data Quality and Anomaly Handling Mini Project in Python\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-23T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R3_Module_3_Revision_Data_Quality_and_Anomalies.mp4",
+  "title": "Can you explain why your data is missing? #Shorts",
+  "description": "Can you explain why your data is missing?\n\nFull lesson: Module 3 Revision: Data Quality, Missing Values, Outliers and Encoding (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-26T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L23-24_Transformation_and_Scaling_Lecture.mp4",
+  "title": "Transforming changes shape. Scaling changes units. #Shorts",
+  "description": "Transforming changes shape. Scaling changes units.\n\nFull lesson: Data Transformation and Feature Scaling: Log, Box-Cox, StandardScaler, MinMax and Robust Scaler\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-28T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P23-24_Lab_Transformation_and_Scaling_in_Python.mp4",
+  "title": "Log made the symmetric column worse. #Shorts",
+  "description": "Log made the symmetric column worse.\n\nFull lesson: Log Transform, Box-Cox and Scalers in Python: California Housing Tutorial\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-01-30T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L25_Feature_Engineering.mp4",
+  "title": "Same model, better features, plus 0.05 AUC. #Shorts",
+  "description": "Same model, better features, plus 0.05 AUC.\n\nFull lesson: Feature Engineering Explained: Feature Construction, Interaction Terms and Polynomial Features\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-02T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L26_Feature_Selection.mp4",
+  "title": "10 features scored as well as 85. #Shorts",
+  "description": "10 features scored as well as 85.\n\nFull lesson: Feature Selection Methods: Filter, Wrapper and Embedded (Lasso, RFE, Mutual Information)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-04T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P25_Lab_Feature_Engineering_in_Python.mp4",
+  "title": "One line of code made buyers 14 times easier to spot. #Shorts",
+  "description": "One line of code made buyers 14 times easier to spot.\n\nFull lesson: Feature Engineering in Python: Ratios, Flags, Interactions and Polynomial Features\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-06T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P26_Lab_Feature_Selection_in_Python.mp4",
+  "title": "Which features do all six methods agree on? #Shorts",
+  "description": "Which features do all six methods agree on?\n\nFull lesson: Feature Selection in Python: ANOVA, RFE, Forward Selection, L1 and Random Forest\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-09T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L27-28_Dimensionality_Reduction_Lecture.mp4",
+  "title": "Without scaling, PC1 explains 95 percent just because of units. #Shorts",
+  "description": "Without scaling, PC1 explains 95 percent just because of units.\n\nFull lesson: PCA, LDA, t-SNE and UMAP Explained: Dimensionality Reduction, VIF and Multicollinearity\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-11T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P27-28_Lab_PCA_in_Python.mp4",
+  "title": "Thirty features became two numbers. #Shorts",
+  "description": "Thirty features became two numbers.\n\nFull lesson: PCA in Python: Scaling, Scree Plot, Loadings and Biplot (Wine and Breast Cancer Data)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-13T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L29_Testing_Honestly_Hypotheses_CV_and_Leakage.mp4",
+  "title": "A recall of 0.99 that was completely fake. #Shorts",
+  "description": "A recall of 0.99 that was completely fake.\n\nFull lesson: Data Leakage, Cross-Validation and Train-Test Split Explained (Avoid Fake Accuracy)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-16T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_L30_Reporting_Honestly_Skewed_Data_and_Insights.mp4",
+  "title": "A model that always says no is 84 percent accurate. #Shorts",
+  "description": "A model that always says no is 84 percent accurate.\n\nFull lesson: Imbalanced Data: Accuracy Paradox, Stratified Sampling and Turning EDA into Insights\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-18T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P29_Lab_Full_Pipeline_in_Python.mp4",
+  "title": "Leaky recall 0.99. Honest recall 0.66. #Shorts",
+  "description": "Leaky recall 0.99. Honest recall 0.66.\n\nFull lesson: End-to-End ML Pipeline in Python: Cross-Validation, Data Leakage Demo and Class Weights\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-20T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_P30_Lab_Industry_Style_Submission.mp4",
+  "title": "Would a manager understand your notebook? #Shorts",
+  "description": "Would a manager understand your notebook?\n\nFull lesson: How to Write an Industry-Style Data Science Notebook: Submission Checklist and Example\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-23T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_R4_Module_4_Revision_Features_Transformation_Pipeline.mp4",
+  "title": "Why does MinMax squeeze 96 percent of values below 0.1? #Shorts",
+  "description": "Why does MinMax squeeze 96 percent of values below 0.1?\n\nFull lesson: Module 4 Revision: Transformation, Feature Engineering, PCA and ML Pipelines (With Self-Test Questions)\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-25T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_LA_Lab_Assessment_Preparation_EDA_Checklist.mp4",
+  "title": "Never start a lab exam from a blank page. #Shorts",
+  "description": "Never start a lab exam from a blank page.\n\nFull lesson: Lab Assessment Preparation: 10-Step Python EDA Routine and Code Cheat Sheet\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-02-27T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_FP_Final_Project_Guide_From_Data_to_Insights.mp4",
+  "title": "One focused question, done well. #Shorts",
+  "description": "One focused question, done well.\n\nFull lesson: Final Project Guide: From Raw Data to Insights, Structure, Checklist and Presentation\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-03-02T12:00:00+05:30",
+  "captions": null
+ },
+ {
+  "file": "S_W_Complete_EDA_Workflow_in_One_Video.mp4",
+  "title": "Thirty lectures in twelve steps. #Shorts",
+  "description": "Thirty lectures in twelve steps.\n\nFull lesson: The Complete EDA Workflow in One Video: 12 Steps From Question to Insight\n\n#Shorts #python #datascience #eda",
+  "tags": [
+   "shorts",
+   "data science",
+   "python",
+   "eda"
+  ],
+  "categoryId": "27",
+  "privacyStatus": "private",
+  "madeForKids": false,
+  "containsSyntheticMedia": true,
+  "publishAt": "2027-03-04T12:00:00+05:30",
+  "captions": null
+ }
+]

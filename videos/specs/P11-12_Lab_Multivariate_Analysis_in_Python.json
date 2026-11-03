@@ -1,0 +1,78 @@
+{
+ "out_name": "P11-12_Lab_Multivariate_Analysis_in_Python",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to practicals eleven and twelve: multivariate analysis in Python. We use K-Means for structure discovery, the silhouette score, visualising groups, and pairplots, on the Superstore orders dataset."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 2,
+   "chapter": "Setup",
+   "text": "New in this lab are the variance inflation factor function from stats models, Standard Scaler for scaling, K Means for clustering, and silhouette score for cluster quality. We load the Superstore data and drop the rows with a blank segment."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 3,
+   "chapter": "Numeric features",
+   "text": "Same as practical nine and ten: select the numeric columns and drop postal code, because it is an I D. We use sales, quantity, discount and profit together throughout this lab."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 4,
+   "chapter": "Step 1: correlation matrix",
+   "text": "Step one for multicollinearity is the correlation matrix and heatmap. Look for any cell close to plus or minus one between two different features. No pairwise correlation here is strong, a good first sign."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 5,
+   "chapter": "Step 2: computing VIF",
+   "text": "Step two computes V I F. There is no single vectorised command, so we call variance inflation factor once per column with a short list comprehension, the standard idiom in Python. The V I Fs are one point three six for sales, one point oh four for quantity, one point oh six for discount and one point three seven for profit. All are close to one, well under five, so it is safe to use all four features together in clustering."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 6,
+   "chapter": "Scale the features",
+   "text": "Before clustering, scale the features. Standard Scaler rescales every feature to mean zero and standard deviation one, and fit transform learns the scaling and applies it in one step. Without scaling, sales, up to twenty two thousand dollars, would completely dominate discount, which runs zero to point eight, and K-Means would cluster on sales alone."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 7,
+   "chapter": "Implement K-Means",
+   "text": "Now implement K-Means with three clusters. Random state forty two makes the result reproducible. N init of ten runs ten random starts and keeps the best. Fit predict fits the model and returns each order's group in one step. The result is three very different group sizes, about sixty nine hundred, two thousand and one thousand seventy orders, already hinting at genuinely different kinds of orders."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 8,
+   "chapter": "Choosing k",
+   "text": "To choose k, loop over k from two to six and print the silhouette score. This is the one place a loop is the simplest way to compare candidates. The scores are zero point five oh four, point four seven three, point four three one, point four three seven and point three eight. k equals two scores highest, but k equals three is a close second and gives three interpretable groups, so we proceed with three."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 9,
+   "chapter": "Visualise the groups",
+   "text": "Colour a scatterplot of sales against profit by cluster using the hue argument, and draw a pairplot with hue to see every pair of features coloured by cluster, in one command."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 10,
+   "chapter": "Interpret the clusters",
+   "text": "Name the groups with grouped statistics: group by cluster and average all numeric columns. Cluster zero is everyday orders, cluster one is heavy-discount, loss-making, and cluster two is high-value, high-profit. Then cross-tabulate clusters against category with row percentages to sanity check that the groups make real-world sense."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 11,
+   "chapter": "Worked example: Titanic",
+   "text": "The same pattern works on Titanic. All four features, age, fare and family counts, come back with V I F near one. The silhouette score for three clusters is about zero point four eight, similar to Superstore. One cluster is older, high-fare passengers with few family members; another is younger passengers travelling with larger families; the third is mid-age, low-fare solo travellers."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P11-12.pdf",
+   "page": 12,
+   "chapter": "Cheat sheet",
+   "text": "Your cheat sheet. Multicollinearity: correlation heatmap, then V I F with a list comprehension. K-Means: scale with Standard Scaler, fit K Means, assign clusters, and score with silhouette. Visualise and interpret: scatterplot and pairplot with hue, and group by cluster for the means. Try it on your own dataset. Thanks for watching."
+  }
+ ]
+}

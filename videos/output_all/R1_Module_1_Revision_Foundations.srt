@@ -1,0 +1,208 @@
+1
+00:00:00,000 --> 00:00:06,297
+This is the revision for module one, Statistical and Data Foundations for EDA.
+
+2
+00:00:06,297 --> 00:00:08,154
+The module takeaway is:
+
+3
+00:00:08,154 --> 00:00:12,595
+understand data structure and distributional behaviour.
+
+4
+00:00:12,595 --> 00:00:18,408
+We recap lectures one to six and finish with questions to test yourself.
+
+5
+00:00:19,208 --> 00:00:20,965
+Lectures one and two.
+
+6
+00:00:20,965 --> 00:00:25,568
+E D A is a habit that runs through the whole lifecycle.
+
+7
+00:00:25,568 --> 00:00:30,590
+Explore freely and confirm strictly, never on the same rows.
+
+8
+00:00:30,590 --> 00:00:36,364
+A bigger sample shrinks noise, but only a better sample removes bias.
+
+9
+00:00:36,364 --> 00:00:39,042
+Plot first and summarise second:
+
+10
+00:00:39,042 --> 00:00:51,344
+skewness shows which side the tail is on, kurtosis shows how heavy the tails are, and the one point five I Q R fence flags outliers to investigate.
+
+11
+00:00:52,144 --> 00:00:54,148
+Lectures three and four.
+
+12
+00:00:54,148 --> 00:01:04,338
+The four scales of measurement are nominal, ordinal, interval and ratio, and the scale decides which statistics are valid.
+
+13
+00:01:04,338 --> 00:01:09,098
+Discrete data is counted and continuous data is measured.
+
+14
+00:01:09,098 --> 00:01:15,278
+Structured data fits a table, semi-structured data uses tags like J S O N.
+
+15
+00:01:15,278 --> 00:01:19,705
+Text is broken into corpus, document, token and term.
+
+16
+00:01:19,705 --> 00:01:23,296
+And time series have trend and seasonality.
+
+17
+00:01:24,096 --> 00:01:25,807
+Lectures five and six.
+
+18
+00:01:25,807 --> 00:01:34,910
+An image is a matrix of brightness values and audio is a list of amplitudes, so everything becomes a grid of numbers.
+
+19
+00:01:34,910 --> 00:01:44,245
+The curse of dimensionality says every extra feature multiplies the space, so data thins out and distances lose meaning.
+
+20
+00:01:44,245 --> 00:01:53,736
+Bias enters at collection and labelling, long before the model, so split by group and write down what the data cannot say.
+
+21
+00:01:54,536 --> 00:01:56,556
+The labs for this module:
+
+22
+00:01:56,556 --> 00:02:11,263
+practicals one and two frame a problem, load data, and compare mean with median and variance with I Q R; the California housing example does a full univariate E D A and pivot tables.
+
+23
+00:02:11,263 --> 00:02:14,656
+Practicals three and four spot data types.
+
+24
+00:02:14,656 --> 00:02:19,424
+Practicals five and six turn images and audio into numbers.
+
+25
+00:02:20,224 --> 00:02:22,216
+Test yourself, part one.
+
+26
+00:02:22,216 --> 00:02:23,295
+Question one:
+
+27
+00:02:23,295 --> 00:02:27,694
+a column has mean ninety five and median thirty nine.
+
+28
+00:02:27,694 --> 00:02:32,010
+What does that tell you, and which would you report?
+
+29
+00:02:32,010 --> 00:02:32,591
+Answer:
+
+30
+00:02:32,591 --> 00:02:38,983
+the data is right-skewed by an extreme value, so report the median and I Q R.
+
+31
+00:02:38,983 --> 00:02:40,062
+Question two:
+
+32
+00:02:40,062 --> 00:02:45,457
+why does collecting ten times more data not remove sampling bias?
+
+33
+00:02:45,457 --> 00:02:46,038
+Answer:
+
+34
+00:02:46,038 --> 00:02:53,176
+more rows shrink random error but bias stays, because the sampling design is the same.
+
+35
+00:02:53,976 --> 00:02:56,177
+Test yourself, part two.
+
+36
+00:02:56,177 --> 00:02:57,553
+Question three:
+
+37
+00:02:57,553 --> 00:03:02,415
+is temperature in Celsius interval or ratio, and why?
+
+38
+00:03:02,415 --> 00:03:03,057
+Answer:
+
+39
+00:03:03,057 --> 00:03:07,918
+interval, because zero degrees is not no temperature.
+
+40
+00:03:07,918 --> 00:03:09,203
+Question four:
+
+41
+00:03:09,203 --> 00:03:13,972
+why must you scale features before P C A or K-Means?
+
+42
+00:03:13,972 --> 00:03:14,614
+Answer:
+
+43
+00:03:14,614 --> 00:03:20,852
+otherwise the largest-unit feature dominates distances and variance.
+
+44
+00:03:20,852 --> 00:03:22,136
+Question five:
+
+45
+00:03:22,136 --> 00:03:27,731
+name two reasons a point may sit far outside the I Q R fence.
+
+46
+00:03:27,731 --> 00:03:28,373
+Answer:
+
+47
+00:03:28,373 --> 00:03:34,152
+a data error, a rare but real value, or a different population.
+
+48
+00:03:34,952 --> 00:03:36,654
+That is module one.
+
+49
+00:03:36,654 --> 00:03:37,461
+Remember:
+
+50
+00:03:37,461 --> 00:03:50,362
+plot first, summarise second; median and I Q R when data is skewed; the scale decides the statistic; and bias is fixed at design, not by volume.
+
+51
+00:03:50,362 --> 00:03:54,304
+Next, module two covers core advanced E D A.
+
+52
+00:03:54,304 --> 00:03:56,096
+Thanks for watching.
+

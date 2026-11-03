@@ -1,0 +1,84 @@
+{
+ "out_name": "L21-22_Encoding_and_Imbalanced_Classes_Lecture",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "Welcome to lectures twenty one and twenty two: encoding and imbalanced classes. Turning words into numbers, and handling rare classes."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 2,
+   "chapter": "Session map",
+   "text": "The lecture covers why we encode, types of categories, label and ordinal encoding, one-hot encoding, dummy variables, many categories, target encoding as a concept, and imbalanced classes. The practical runs each idea on real Airbnb data and repeats on a second dataset."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 3,
+   "chapter": "Why encode",
+   "text": "A model can only read numbers. A model multiplies values by weights, and it cannot multiply Brooklyn or Private room. In our Airbnb data, room type has three categories, borough has five, and neighbourhood has two hundred twenty one. The fix is to change every word column into number columns. This is called encoding, and how we do it changes what the model learns."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 4,
+   "chapter": "Types of categories",
+   "text": "First ask: does the category have an order? Nominal categories have no order, like borough or colours. Ordinal categories have an order, like shared room, private room, entire home, or T-shirt sizes. Binary categories have only two values, like weekend yes or no. The answer picks the encoding."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 5,
+   "chapter": "Label encoding",
+   "text": "Label encoding gives one number per category: Bronx zero, Brooklyn one, Manhattan two, Queens three, Staten Island four. The problem is that the numbers look like an order. The model thinks Staten Island, four, is bigger than Manhattan, two, but boroughs have no order. Use it only for tree models and for the target column of a classifier. For nominal columns in linear models, avoid it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 6,
+   "chapter": "Ordinal encoding",
+   "text": "With ordinal encoding you write the order yourself. Shared room is zero, private room is one, entire home is two, and the median price goes up with the code: forty five, seventy, one sixty dollars. Why write it yourself? Alphabetical order would give entire zero and shared two, the wrong way round. When there is a real order, keep it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 7,
+   "chapter": "One-hot encoding",
+   "text": "One-hot encoding makes one zero-one column per category. Each home gets a one in its borough's column and zeros elsewhere. There is no false order, and each row has exactly one one, like an attendance sheet with one tick in the right column. One-hot is the safe choice for categories with no order."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 8,
+   "chapter": "Dummy variables",
+   "text": "With dummy variables, keep k minus one columns. If a home is not in Brooklyn, Manhattan, Queens or Staten Island, it must be in the Bronx, so the Bronx column adds nothing new. Five boroughs means keeping four columns, with drop first equal true. The dropped one, the Bronx, is the baseline, and each dummy is read against it: Manhattan costs about eighty five dollars more than the Bronx. Keeping all five columns is the dummy variable trap."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 9,
+   "chapter": "Too many categories",
+   "text": "What about too many categories? Neighbourhood has two hundred twenty one, which would mean two hundred twenty one one-hot columns. Frequency encoding replaces each area by its share of homes: Williamsburg is zero point oh eight, Harlem zero point oh five four. That is one column. And a multi-class target like room type just needs class numbers: entire zero, private one, shared two."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 10,
+   "chapter": "Target encoding",
+   "text": "Target encoding replaces a category by its average target value. Williamsburg becomes its median price of one oh four, Tribeca three hundred. Two rules. Rule one: use training rows only, or the model peeks at the answers. Rule two: do not trust tiny groups. One eight hundred dollar home in Fort Wadsworth cannot speak for the whole area, so groups with fewer than ten homes get the overall median. Two hundred twenty one columns become one useful column, if we follow the two rules."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 11,
+   "chapter": "Imbalanced classes",
+   "text": "When one class is rare, accuracy can fool you. Only two point four percent of homes are shared rooms. A lazy model that always says entire home is fifty two percent correct but never finds a shared room. Check the class sizes before you trust accuracy."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 12,
+   "chapter": "Four fixes for a rare class",
+   "text": "Four simple fixes. Stratify: keep the same percentage of each class in train and test. Class weights: make a mistake on the rare class cost more. Resample: copy rare rows or remove some common rows, on training rows only. And use the right score: check recall for each class, not just accuracy."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/L21-22.pdf",
+   "page": 13,
+   "chapter": "Which encoding when",
+   "text": "Which encoding when? No order and few categories: one-hot with drop first, borough becomes four columns. Has an order: your own map, room type to zero, one, two. Many categories: frequency or target encoding, two hundred twenty one areas become one column. A target with two or more classes: label encoding. A rare class in the target: stratify, class weights and recall. Look at the column type and the number of categories, then pick."
+  }
+ ]
+}

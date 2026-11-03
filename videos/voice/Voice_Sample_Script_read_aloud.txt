@@ -1,0 +1,32 @@
+VOICE SAMPLE SCRIPT  (read aloud, about 3 minutes)
+=================================================
+How to record:
+- Quiet room, no fan or echo. Hold the phone about a hand-span from your mouth.
+- Speak in your normal teaching voice, clearly and at a steady pace. Smile a little; it keeps the voice warm.
+- If you make a mistake, pause, then re-read the sentence. Do not stop the recording.
+- Save as .mp3 or .wav. Do not add music or effects.
+
+-------------------------------------------------
+PART 1: Welcome (calm, friendly)
+
+Namaste, and welcome to Data two oh nine, Advanced Exploratory Data Analysis. I am Doctor Shital Bhatt. In this video, we will go step by step, with examples, small calculations, and a few stories from real projects. Please take your time, pause whenever you like, and keep a notebook beside you.
+
+PART 2: Explaining an idea (steady, clear)
+
+Let me explain with a simple example. Suppose a class reports that the average score is sixty. If everyone scored close to sixty, that number describes the class well. But if half the students scored thirty and half scored ninety, the average is still sixty, and not one student is anywhere near it. That is why we always draw a histogram next to the average. The plot tells us whether the average deserves our trust.
+
+PART 3: Technical words (say each clearly)
+
+Skewness. Kurtosis. Interquartile range. Standard deviation. Correlation is not causation. Multicollinearity and the variance inflation factor. Principal component analysis. Standardisation and normalisation. Imputation of missing values. Isolation Forest. Cross-validation. Data leakage. Pandas dot read C S V. The one point five I Q R rule. Z-score. Box-Cox transformation. One-hot encoding. Stratified sampling. Recall, precision and F one score.
+
+PART 4: Numbers and code-style phrases
+
+The median is thirty eight dollars sixty three cents, and the standard deviation is twenty dollars fifty five cents. Out of twelve thousand three hundred thirty sessions, only fifteen point six percent end in a purchase. Skewness of four point nine four. Call dot isna dot sum to count the missing values. The accuracy is point eight eight nine, but the recall is only point four one six. In nineteen seventy seven, John Tukey published Exploratory Data Analysis.
+
+PART 5: Questions and emphasis (change your tone)
+
+Why is the value missing? Is it a mistake, a rare but real value, or a different group? Always ask why before you fix it. Never let the test data influence any choice. Split first, then fit. And remember: plot first, summarise second.
+
+PART 6: Closing (warm, slower)
+
+That brings us to the end of this video. Take a minute to recall the main ideas in your own words, and then try the practice task before the next class. If this video helped you, please like it, subscribe to the channel, and share it with a classmate. Thank you for watching, and see you in the next video.

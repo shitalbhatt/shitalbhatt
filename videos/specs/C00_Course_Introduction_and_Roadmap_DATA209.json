@@ -1,0 +1,72 @@
+{
+ "out_name": "C00_Course_Introduction_and_Roadmap_DATA209",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/01.png",
+   "chapter": "Introduction",
+   "text": "Welcome to Advanced Exploratory Data Analysis, course code Data two oh nine. This video is your roadmap to the whole course: what you will learn, how the fifteen weeks are organised, how you are assessed, which tools we use, and which books to read.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/02.png",
+   "chapter": null,
+   "text": "Exploratory data analysis is a critical first step in analysing data. You explore the data to see what it seems to say, and look beneath the surface for insights using numbers and graphs. Careful analysis helps you detect mistakes, challenge assumptions, understand relationships between variables, and finally choose a good predictive model. This course takes a hands-on approach: you curate, pre-process and transform real datasets, and learn to explain your findings.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/03.png",
+   "chapter": null,
+   "text": "The prerequisites are Data Visualization and Storytelling, and Probability and Statistics. The course is four credits, structured two zero four: two hours of lecture and four hours of lab each week, six contact hours in all, over fifteen weeks. That is thirty hours of theory and sixty hours of lab, so labs carry most of the learning.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/04.png",
+   "chapter": "Course outcomes",
+   "text": "By the end you should be able to do four things. One: analyse the statistical and structural characteristics of datasets. Two: apply univariate, bivariate and multivariate exploratory techniques. Three: design and implement pre-processing and transformation strategies that improve data quality and reliability. And four: interpret your results to produce insights and support hypotheses.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/05.png",
+   "chapter": "The four modules",
+   "text": "The course has four modules. Module one, Statistical and Data Foundations for EDA: understand data structure and distributional behaviour. Module two, Core Advanced EDA: apply graphical and non-graphical exploratory techniques. Module three, Data Quality Engineering and Anomaly Management: create a reliable analytical dataset. And module four, Feature Engineering, Transformation and Analytical Structure: transform data and extract meaningful structure.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/06.png",
+   "chapter": null,
+   "text": "Here is the week-by-week map. Weeks one to three cover module one. Weeks four to seven cover module two, and week seven includes the first assignment presentation. Weeks eight to eleven cover module three, with the second assignment in week eleven. Weeks twelve to fifteen cover module four. Week sixteen is the final project presentation.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/07.png",
+   "chapter": "Assessment",
+   "text": "Assessment is seventy percent continuous and thirty percent final project. Laboratory assessment is ten percent. Assignments, which are mini projects, are fifty percent: twenty five percent each. Class participation in lectures and labs is ten percent. And the final project is thirty percent. Assignment one maps to outcomes one and two, assignment two to outcome three, and the lab assessment and final project cover all four outcomes.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/08.png",
+   "chapter": null,
+   "text": "We use Excel, Python and R, with datasets and case studies from domains such as insurance, retail, pharma and healthcare. In these videos we use Python with pandas, seaborn and scikit-learn. Teaching methods include lectures, hands-on lab sessions, problem-solving through case studies, industry notebook reviews, and peer presentations. For self-learning, the Exploratory Data Analysis course by Johns Hopkins on Coursera is recommended.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/09.png",
+   "chapter": "How to use these videos",
+   "text": "Here is how to use the video series. Watch the lecture first, then its lab, in syllabus order. Pause and run the notebook yourself, because you only learn EDA by doing it. Use the module revision videos before the lab assessment. And use the assignment and final project guides when you start those tasks.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/10.png",
+   "chapter": "Reading list",
+   "text": "For further reading, the main textbooks are Making Sense of Data one and two by Myatt and Johnson. Useful references include Hands-On Exploratory Data Analysis with Python, Python for Data Analysis by Wes McKinney, the N I S T Engineering Statistics Handbook, and John Tukey's classic Exploratory Data Analysis. Read the chapter on exploratory data analysis before each module.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/C00_intro/slides/11.png",
+   "chapter": "Summary",
+   "text": "To summarise: this course takes you through a complete workflow. You understand data and distributions, explore with numbers and graphs, clean and validate data, handle missing values and outliers, transform and engineer features, reduce dimensions, and finally build a trustworthy pipeline and report honest insights. Start with lecture one, and I will see you there. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

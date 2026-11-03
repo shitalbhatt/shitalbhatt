@@ -1,0 +1,96 @@
+{
+ "out_name": "P01-02_Worked_Example_California_Housing",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 1,
+   "chapter": "Introduction",
+   "text": "This is the worked example for practicals one and two: exploratory data analysis on California housing prices. We use twenty thousand six hundred forty districts and ten columns, and we compare what the numbers say with what the graphs show."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 2,
+   "chapter": "Problem statement",
+   "text": "The question: do the numbers and the graphs agree? What do a district's housing characteristics look like on their own: symmetric or skewed, tight or spread out, and how many outlier districts exist? The plan has five steps: clean the data, compute descriptive statistics with outlier counts, draw histogram, boxplot and density plots, build pivot tables, and finally compare statistical and graphical inference."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 3,
+   "chapter": "Step 1: load and clean",
+   "text": "We load the file and clean it first. There are zero duplicates, but two hundred seven districts are missing total bedrooms, so we drop them, leaving twenty thousand four hundred thirty three rows. We also check for zero population, households or rooms, which would be physically impossible data entry errors. Cleaning first matters because these rows would distort every statistic that follows."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 4,
+   "chapter": "Step 2: variables",
+   "text": "The dependent variable is median house value, the outcome a buyer or seller cares about. The independent variables are median income, housing median age, total rooms and population. Note that rooms, population and households all measure district size and are strongly correlated with each other. Ocean proximity is a categorical feature we use to segment the pivot tables."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 5,
+   "chapter": "Univariate: median income",
+   "text": "For each feature we compute the mean, median, variance, I Q R, outlier fences, skewness and kurtosis. Median income is right-skewed and leptokurtic. The mean is nine point five percent above the median, skewness is one point six four and kurtosis four point nine four. There are six hundred seventy outliers, three point two eight percent, and they are the high-income districts."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 6,
+   "chapter": "Plotting the charts",
+   "text": "This is the code behind the charts. One row of three frames: a histogram showing how often values occur, a sideways boxplot showing the median, middle fifty percent and outliers, and a smoothed density curve showing the overall shape. We reuse the same code for every feature."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 7,
+   "chapter": "Housing median age",
+   "text": "Housing median age is the best-behaved feature. The mean is only one point three percent below the median, skewness is zero point zero six, so it is near-symmetric, and kurtosis is negative zero point eight, flatter than a normal curve. There are zero outliers by the I Q R rule."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 9,
+   "chapter": "Total rooms",
+   "text": "Total rooms is strongly right-skewed and extremely leptokurtic. The mean is twenty four percent above the median, skewness is four point one six and kurtosis thirty two point seven one. Twelve hundred ninety outliers, over six percent, are the large districts. This is the most outlier-heavy feature."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 11,
+   "chapter": "Population",
+   "text": "Population is the most extreme. Skewness is almost five, and kurtosis is seventy four, a very sharp peak with rare but very large districts. Eleven hundred ninety outliers sit above the upper whisker, mostly dense urban areas."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 13,
+   "chapter": "Median house value",
+   "text": "Median house value, our dependent variable, is right-skewed but only moderately. The mean is fifteen percent above the median, skewness is zero point nine eight and kurtosis zero point three three. The one thousand sixty four outliers are the highest-value districts, matching the long tail past four hundred eighty thousand dollars in the histogram."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 15,
+   "chapter": "Summary table",
+   "text": "Reading the whole table together: housing median age is best behaved, population is the most extreme, and total rooms has the highest outlier rate. The dependent variable sits in the middle, clearly skewed but less extreme than the raw size measures that drive it."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 16,
+   "chapter": "Practical 2: pivot by ocean proximity",
+   "text": "In practical two we build pivot tables. Average house value by ocean proximity: inland is the cheapest, roughly half the value of any coastal category. Island looks highest at three hundred eighty thousand, but there are only five such districts, far too few to generalise from. Among well-populated categories, near bay and near ocean outrank less than one hour from ocean."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 17,
+   "chapter": "Pivot: proximity by income",
+   "text": "Now add income brackets. Within every ocean proximity category, house value rises steadily with income. Inland districts climb from about seventy eight thousand dollars to three hundred seventy nine thousand, nearly five times. Location sets a baseline and income scales it on top: the two effects are additive."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 18,
+   "chapter": "Statistical vs graphical inference",
+   "text": "The overall conclusion: for all five features, the numeric summary and the plots tell the same story. Population and total rooms show it most clearly, with extreme kurtosis and a sharp peak with a long thin tail. Agreement is a property of this dataset, not a given, which is the practical case for always pairing statistics with plots."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/california_eda.pdf",
+   "page": 19,
+   "chapter": "Key takeaways",
+   "text": "To conclude: five features were fully profiled with mean, median, variance, standard deviation, I Q R, skewness, kurtosis and outlier counts, then cross-checked with three plots. Ocean proximity and income are independent, additive drivers of house value. And statistical and graphical views should always be compared. Thanks for watching."
+  }
+ ]
+}

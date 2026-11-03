@@ -1,0 +1,90 @@
+{
+ "out_name": "P15-16_Lab_Data_Quality_Part_B_Integration_to_Scale",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 15,
+   "chapter": "Part 6: integration, steps 1 and 2",
+   "text": "Part B starts with integration logic. The four steps: match a shared key, align the schemas, resolve conflicts, and re-audit. We split the file back into source A and source B. All of B's I Ds are found in A, and the I Ds are unique in each. Source A has the price column, source B has price U S D, so we rename it, and now the schemas are identical."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 16,
+   "chapter": "Integration, steps 3 and 4",
+   "text": "Step three: merge on the key with an outer join and an indicator column. Forty seven thousand eight hundred ninety five rows are in A only, and one thousand are in both. Counting conflicts in the matched rows gives three hundred borough conflicts, three hundred room type conflicts, and zero price conflicts. They are case differences only, so we keep source A's spelling. The result is forty eight thousand eight hundred ninety five rows with zero duplicates."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 17,
+   "chapter": "Part 7: duplicate detection",
+   "text": "Duplicates come in three kinds. Exact duplicates, where every column is identical: seven hundred rows. Same key duplicates, where the I D repeats: one thousand rows, the seven hundred copies plus the three hundred lowercase rows. And near-duplicates: lowercase and trim the name, collapse extra spaces, and look for the same host with the same cleaned name. That gives four hundred eighty one candidates, which should be reviewed, not auto-deleted."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 18,
+   "chapter": "Part 8: duplicate removal",
+   "text": "Rows and columns need two different one-line fixes. For rows, drop duplicates keeps the first copy: rows go from forty nine thousand eight hundred ninety five to forty nine thousand one hundred ninety five. For columns, transpose, find duplicates, and keep the non-duplicate columns with a tilde: seventeen columns become sixteen, dropping price U S D. Three hundred repeated I Ds remain, because the lowercase copies are not yet exact duplicates."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 19,
+   "chapter": "Part 9: inconsistent encoding",
+   "text": "Standardise categories across the whole column at once. Strip whitespace and apply title case to the borough, capitalise the room type, and collapse extra spaces in the name. Distinct borough labels drop from ten to five, and room type labels from six to three. For messy codes, use a mapping dictionary with replace."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 20,
+   "chapter": "Re-audit after every fix",
+   "text": "Standardising created three hundred new exact duplicates. Brooklyn in lowercase is not equal to Brooklyn in title case, and that hid three hundred copies from drop duplicates. After title case they became exact duplicates, so we drop them: forty eight thousand eight hundred ninety five true unique listings, identical to the correctly integrated table from part six. Order matters, so the audit must run again after each cleaning step."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 21,
+   "chapter": "Part 10: validation rules",
+   "text": "Now one reusable rule table to re-run on every load. Range rules like price at least zero and availability from zero to three sixty five. Type rules like price being an integer. Uniqueness rules like I D being unique. And set rules like room type being in the allowed list. All twelve rules pass after cleaning."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 22,
+   "chapter": "Part 11: measure skew",
+   "text": "Standardisation for scale. Step one: measure skew for every numeric column at once. Price has a skew of nineteen, minimum nights twenty two. You can log all skewed columns in one line using log one p, adding a suffix, and joining the result back. After the log, price skew drops to zero point five five."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 23,
+   "chapter": "log1p tames the tail",
+   "text": "Here is log one p taming the long right tail of price. The raw price histogram is crushed against zero with skew nineteen point one two. After log one p, the shape is much more symmetric, with skew zero point five five. Log of one plus x is safe for the eleven zero-dollar prices."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 24,
+   "chapter": "Step 2: StandardScaler",
+   "text": "Step two: Standard Scaler puts every feature on one scale, with z equal to x minus the mean over the standard deviation. Price had a mean of one fifty two and a standard deviation of two forty before; after scaling every z column has mean zero and standard deviation one. Do not scale identifiers and coordinates like I D, host I D, latitude and longitude. And log first, then scale, so outliers do not set the new mean and standard deviation."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 25,
+   "chapter": "Part 12: final re-audit",
+   "text": "Here is the whole lab in one table. Rows: forty nine thousand eight hundred ninety five raw, forty eight thousand eight hundred ninety five cleaned. Duplicate rows seven hundred to zero. Duplicate columns one to zero. Repeated I Ds one thousand to zero. Borough labels ten to five. Room type labels six to three. Price skew nineteen to zero point five five after the log. And twelve of twelve validation rules pass. Still open: missing values in the next session, and the flagged zero and ten thousand dollar prices in the outlier session."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 26,
+   "chapter": "Part 13: second dataset",
+   "text": "The same code works on a second dataset, Online Shoppers Purchasing Intention: twelve thousand three hundred thirty rows, zero missing cells, and one hundred twenty five duplicate rows. Two findings. Consistency: nine months use three-letter codes, but June is spelled out, so we replace it with Jun. Completeness: zero empty cells, yet January and April never appear. Coverage gaps count too."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 27,
+   "chapter": "Validity, accuracy, duplicates, scale",
+   "text": "On the shoppers data, validity rules show zero failures. For accuracy, twenty two sessions spent more than four hours on product pages, with a maximum of seventeen point eight hours, worth flagging. After dropping duplicates we have twelve thousand two hundred five rows. And watch the log: product related duration skew goes from seven point two five to minus one point four three, so log one p can over-correct. Re-check skew after every transform."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P15-16.pdf",
+   "page": 28,
+   "chapter": "Key takeaways",
+   "text": "Key takeaways. Audit first, with shape, isnull sum, duplicated sum and the transposed duplicate check. Validity is checked against rules, accuracy against reality; the ten thousand dollar room passes every rule. Completeness includes why data is missing and which categories never appear. Integrate on a key, align schemas, resolve conflicts, then re-audit. Standardising labels can create new duplicates, so re-run the audit after every fix. And log first, standard scaler second. Thanks for watching."
+  }
+ ]
+}

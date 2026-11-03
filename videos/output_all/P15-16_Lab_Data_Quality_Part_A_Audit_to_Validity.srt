@@ -1,0 +1,264 @@
+1
+00:00:00,000 --> 00:00:04,304
+Welcome to the lab for sessions fifteen and sixteen:
+
+2
+00:00:04,304 --> 00:00:08,526
+data quality, integration and validation in Python.
+
+3
+00:00:08,526 --> 00:00:24,089
+We run every lecture topic, accuracy, completeness, consistency, validity, integration, duplicates, encoding, validation rules and scaling, on a real dataset, with the code and the output.
+
+4
+00:00:24,089 --> 00:00:27,648
+This is part A, from the audit to validity.
+
+5
+00:00:28,448 --> 00:00:36,149
+The roadmap has twelve steps, from a messy merged file to a validated, scaled dataset.
+
+6
+00:00:36,149 --> 00:00:50,744
+Audit; accuracy; completeness; consistency; validity; integration; duplicates; removal; encoding; validation; scale; and finally the same code on a second dataset.
+
+7
+00:00:51,544 --> 00:00:53,144
+We use two real files.
+
+8
+00:00:53,144 --> 00:00:58,310
+The primary is a two-source merge of the New York City Airbnb listings:
+
+9
+00:00:58,310 --> 00:01:12,205
+source A is the Analytics export with forty eight thousand eight hundred ninety five listings, and source B is a Finance export of one thousand of the same listings, with its own price field.
+
+10
+00:01:12,205 --> 00:01:20,207
+Three hundred of those were exported with lowercase borough and room type, and seven hundred are exact copies.
+
+11
+00:01:20,207 --> 00:01:25,736
+They were concatenated, the way two teams' files often land in one pipeline.
+
+12
+00:01:25,736 --> 00:01:33,520
+The second dataset is Online Shoppers Purchasing Intention, with twelve thousand three hundred thirty rows.
+
+13
+00:01:34,320 --> 00:01:42,312
+Load the libraries, pandas, numpy, matplotlib and Standard Scaler, then read the lab file.
+
+14
+00:01:42,312 --> 00:01:54,744
+The columns include I D, name, host, neighbourhood group, room type, price, minimum nights, reviews, availability, and a price U S D column.
+
+15
+00:01:55,544 --> 00:01:56,680
+Profile first:
+
+16
+00:01:56,680 --> 00:02:00,902
+five commands cover the whole dataset with no loops.
+
+17
+00:02:00,902 --> 00:02:07,802
+The shape is forty nine thousand eight hundred ninety five rows by seventeen columns.
+
+18
+00:02:07,802 --> 00:02:14,296
+The total number of missing cells is twenty thousand five hundred seventy three.
+
+19
+00:02:14,296 --> 00:02:18,842
+Duplicated sum finds seven hundred exact duplicate rows.
+
+20
+00:02:18,842 --> 00:02:24,524
+And transposing then calling duplicated finds exact duplicate columns:
+
+21
+00:02:24,524 --> 00:02:25,904
+one, price U S D.
+
+22
+00:02:26,704 --> 00:02:32,351
+One table gives the type, gaps and distinct values for every column.
+
+23
+00:02:32,351 --> 00:02:39,494
+Notice ten borough labels for five boroughs, and six room type labels for three types.
+
+24
+00:02:39,494 --> 00:02:43,480
+The audit already exposes a consistency problem.
+
+25
+00:02:44,280 --> 00:02:46,375
+Accuracy needs a reference.
+
+26
+00:02:46,375 --> 00:02:53,745
+Our proxy is the median price of listings with the same borough and room type, the peer median.
+
+27
+00:02:53,745 --> 00:03:02,201
+Group by borough and room type, transform with the median, and compute each price's ratio to its peer median.
+
+28
+00:03:02,201 --> 00:03:10,968
+Sorting by the ratio shows a private room in Queens at ten thousand dollars, against a peer median of fifty nine.
+
+29
+00:03:11,768 --> 00:03:16,276
+Now flag suspicious values, but do not delete them yet.
+
+30
+00:03:16,276 --> 00:03:20,457
+Eleven listings are priced at zero dollars a night.
+
+31
+00:03:20,457 --> 00:03:25,539
+Sixty six are priced more than twenty times their peer median.
+
+32
+00:03:25,539 --> 00:03:29,474
+Fourteen have a minimum stay longer than a year.
+
+33
+00:03:29,474 --> 00:03:31,687
+Why flag instead of delete?
+
+34
+00:03:31,687 --> 00:03:37,425
+The true price is unknown, and deleting real listings biases the data.
+
+35
+00:03:37,425 --> 00:03:44,720
+Record the suspicion in a column and decide on capping or removal in the outlier session.
+
+36
+00:03:45,520 --> 00:03:49,792
+Completeness asks how much is missing, column by column.
+
+37
+00:03:49,792 --> 00:03:59,556
+Reviews per month and last review are each missing about twenty point six percent, while host name and name are almost complete.
+
+38
+00:03:59,556 --> 00:04:06,040
+At row level, only seventy nine point three eight percent of rows have no gap at all.
+
+39
+00:04:06,840 --> 00:04:08,223
+Check the reason.
+
+40
+00:04:08,223 --> 00:04:17,900
+A cross-tab shows that every listing with zero reviews has no last review date, and every listing with reviews has one.
+
+41
+00:04:17,900 --> 00:04:20,421
+That is structural, not random.
+
+42
+00:04:20,421 --> 00:04:25,057
+A listing with no reviews cannot have a last-review date.
+
+43
+00:04:25,057 --> 00:04:33,840
+The correct fill, which we cover in the next session, is reviews per month equals zero, not the column mean.
+
+44
+00:04:34,640 --> 00:04:36,551
+Consistency across rows:
+
+45
+00:04:36,551 --> 00:04:38,701
+one borough, two spellings.
+
+46
+00:04:38,701 --> 00:04:51,600
+Value counts shows ten labels for five real boroughs, with lowercase manhattan, brooklyn, queens, bronx and staten island sitting beside the proper-case versions.
+
+47
+00:04:51,600 --> 00:04:58,448
+A group by price therefore gives ten groups instead of five, splitting the statistics.
+
+48
+00:04:59,248 --> 00:05:01,476
+Consistency across columns:
+
+49
+00:05:01,476 --> 00:05:07,417
+the price and price U S D columns are equal, the same fact stored twice.
+
+50
+00:05:07,417 --> 00:05:09,232
+Across related fields:
+
+51
+00:05:09,232 --> 00:05:14,926
+zero rows break the rule that zero reviews means no last review date.
+
+52
+00:05:14,926 --> 00:05:16,164
+Across sources:
+
+53
+00:05:16,164 --> 00:05:23,920
+the same listing I D appears as Manhattan Private room in one source and lowercase in another.
+
+54
+00:05:24,720 --> 00:05:25,429
+Validity:
+
+55
+00:05:25,429 --> 00:05:30,310
+write the rules first, then test every row against every rule.
+
+56
+00:05:30,310 --> 00:05:31,963
+Here is a rule table:
+
+57
+00:05:31,963 --> 00:05:47,631
+price at least zero, minimum nights at least one, latitude and longitude inside the city's bounding box, availability between zero and three sixty five, and room type and borough in the allowed sets.
+
+58
+00:05:47,631 --> 00:05:57,157
+Counting failures per rule, five rows fail the latitude box, three hundred fail room type and three hundred fail borough.
+
+59
+00:05:57,157 --> 00:06:00,936
+In total, three hundred five rows fail any rule.
+
+60
+00:06:01,736 --> 00:06:05,468
+A value can pass one check and fail the other.
+
+61
+00:06:05,468 --> 00:06:12,363
+The private room at ten thousand dollars passes every validity rule, but it is wrong.
+
+62
+00:06:12,363 --> 00:06:20,800
+A latitude of forty point four nine nine eight fails the box, but it is a real listing in Staten Island.
+
+63
+00:06:20,800 --> 00:06:26,641
+And lowercase brooklyn fails the set check, yet it is the right borough.
+
+64
+00:06:26,641 --> 00:06:31,752
+Validity asks, is this possible, and is checked against a rule.
+
+65
+00:06:31,752 --> 00:06:36,863
+Accuracy asks, is this correct, and is checked against reality.
+
+66
+00:06:36,863 --> 00:06:38,648
+Rules need review too.
+

@@ -1,0 +1,54 @@
+{
+ "out_name": "R1_Module_1_Revision_Foundations",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This is the revision for module one, Statistical and Data Foundations for EDA. The module takeaway is: understand data structure and distributional behaviour. We recap lectures one to six and finish with questions to test yourself.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/02.png",
+   "chapter": "Lectures 1 and 2",
+   "text": "Lectures one and two. E D A is a habit that runs through the whole lifecycle. Explore freely and confirm strictly, never on the same rows. A bigger sample shrinks noise, but only a better sample removes bias. Plot first and summarise second: skewness shows which side the tail is on, kurtosis shows how heavy the tails are, and the one point five I Q R fence flags outliers to investigate.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/03.png",
+   "chapter": "Lectures 3 and 4",
+   "text": "Lectures three and four. The four scales of measurement are nominal, ordinal, interval and ratio, and the scale decides which statistics are valid. Discrete data is counted and continuous data is measured. Structured data fits a table, semi-structured data uses tags like J S O N. Text is broken into corpus, document, token and term. And time series have trend and seasonality.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/04.png",
+   "chapter": "Lectures 5 and 6",
+   "text": "Lectures five and six. An image is a matrix of brightness values and audio is a list of amplitudes, so everything becomes a grid of numbers. The curse of dimensionality says every extra feature multiplies the space, so data thins out and distances lose meaning. Bias enters at collection and labelling, long before the model, so split by group and write down what the data cannot say.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/05.png",
+   "chapter": "Labs",
+   "text": "The labs for this module: practicals one and two frame a problem, load data, and compare mean with median and variance with I Q R; the California housing example does a full univariate E D A and pivot tables. Practicals three and four spot data types. Practicals five and six turn images and audio into numbers.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/06.png",
+   "chapter": "Test yourself",
+   "text": "Test yourself, part one. Question one: a column has mean ninety five and median thirty nine. What does that tell you, and which would you report? Answer: the data is right-skewed by an extreme value, so report the median and I Q R. Question two: why does collecting ten times more data not remove sampling bias? Answer: more rows shrink random error but bias stays, because the sampling design is the same.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/07.png",
+   "chapter": null,
+   "text": "Test yourself, part two. Question three: is temperature in Celsius interval or ratio, and why? Answer: interval, because zero degrees is not no temperature. Question four: why must you scale features before P C A or K-Means? Answer: otherwise the largest-unit feature dominates distances and variance. Question five: name two reasons a point may sit far outside the I Q R fence. Answer: a data error, a rare but real value, or a different population.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R1/slides/08.png",
+   "chapter": "Summary",
+   "text": "That is module one. Remember: plot first, summarise second; median and I Q R when data is skewed; the scale decides the statistic; and bias is fixed at design, not by volume. Next, module two covers core advanced E D A. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

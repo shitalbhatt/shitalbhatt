@@ -1,0 +1,36 @@
+{
+ "out_name": "P30_Lab_Industry_Style_Submission",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 13,
+   "chapter": "Industry-style notebook structure",
+   "text": "Practical thirty: the industry-style submission. The notebook has twelve parts. Zero: title block and executive summary. One: problem, target and success metric. Two: refined hypotheses. Three: setup with imports, a single seed and versions. Four: data audit for duplicates and hidden zeros. Five: E D A to insights. Six: a stratified train and test split. Seven: pipeline and five-fold C V. Eight: test set used once. Nine: insights and recommendations. Ten: limitations and next steps. Eleven: the submission checklist. The worked example is on the diabetes dataset."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 14,
+   "chapter": "Example: setup and data audit",
+   "text": "The example, setup and data audit on diabetes dot C S V. Set one seed, forty two, and print library versions. Seven hundred sixty eight rows by nine columns, zero duplicates, and a diabetic share of point three four nine. Zeros in glucose, blood pressure, skin thickness, insulin and B M I are hidden missing values: five, thirty five, two twenty seven, three seventy four and eleven. Replace them with missing; the median fill happens inside the pipeline."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 15,
+   "chapter": "Example: leakage-safe pipeline",
+   "text": "The leakage-safe pipeline: a simple imputer with median, a standard scaler, and class-weighted logistic regression. Cross-validation R O C A U C is point eight four two plus or minus point oh two nine. The test R O C A U C is point eight one three, with recall of point seven zero for the diabetic class. The insight, observation, evidence, meaning, action: glucose is the top signal, median one forty versus one oh seven, and risk jumps above one twenty five, where fifty nine percent are diabetic. The screen finds seven in ten diabetic test patients."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 16,
+   "chapter": "Submission checklist",
+   "text": "Finally, the submission checklist. File name: dataset number, U E N number, name. Title block and executive summary with key numbers. Problem, target and metric before any code. Hypotheses refined and each one tested. One seed, versions printed, relative file path. Duplicates and hidden missing values handled. Split before fitting, with preprocessing inside a pipeline. C V mean plus or minus standard deviation on train, and the test set used once. Insights as observation, evidence, meaning, action. Limitations stated. And kernel restart and run all with no errors."
+  },
+  {
+   "pdf": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/src/P29-30.pdf",
+   "page": 17,
+   "chapter": "Lab summary",
+   "text": "Lab summary. Leaky recall point nine nine two versus honest point six six five: split first. Class weight balanced took recall from point four one six to point seven eight five. The final pipeline has C V R O C A U C of point nine zero, and page values drives buying. And submit with the twelve-part structure and the checklist. That completes the course. Thanks for watching."
+  }
+ ]
+}

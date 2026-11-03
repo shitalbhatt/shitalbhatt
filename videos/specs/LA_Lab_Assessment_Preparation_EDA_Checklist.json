@@ -1,0 +1,60 @@
+{
+ "out_name": "LA_Lab_Assessment_Preparation_EDA_Checklist",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This video helps you prepare for the laboratory assessment, which is ten percent of the course and covers all four outcomes. It is a general preparation guide. Follow the instructions and format given by your instructor for the real assessment.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/02.png",
+   "chapter": null,
+   "text": "In a lab assessment you work on a dataset with code. The skills tested span the whole course: describing data, exploring one, two and many variables, cleaning, handling missing values and outliers, encoding, transforming, and interpreting results. Practise a fixed routine so you never start from a blank page.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/03.png",
+   "chapter": "The 10-step routine",
+   "text": "Here is the ten-step routine. One: load and inspect. Two: audit missing values and duplicates. Three: convert types and hidden missing values. Four: univariate statistics and plots. Five: outliers. Six: bivariate analysis. Seven: handle missing values and outliers. Eight: encode and transform. Nine: scale or reduce dimensions if asked. Ten: interpret in plain words.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/04.png",
+   "chapter": "Core snippets",
+   "text": "These first lines should be automatic. Load the file, check the shape and types, preview rows, and count missing values and duplicates. Add the transposed duplicate check for repeated columns. Do this every time, because column names, types and row counts change more often than you expect.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/05.png",
+   "chapter": null,
+   "text": "For numeric columns, compute mean, median, standard deviation, I Q R, skew and kurtosis in one line each. Count outliers with the one point five I Q R rule. Then plot a histogram and a boxplot. Interpret: if mean is above median, the tail is on the right.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/06.png",
+   "chapter": null,
+   "text": "For relationships, use correlation for two numbers, cross-tabs for two categories, and group by for a number across categories. Check variance inflation factor before clustering or regression. Remember that correlation is not causation.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/07.png",
+   "chapter": "Cleaning snippets",
+   "text": "For cleaning, convert hidden missing values, fill or impute with a method you can justify, treat outliers by cause, encode categories by type, and transform skewed columns. Put the steps in a pipeline if you will model, so everything is fitted on training rows only.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/08.png",
+   "chapter": "Time and mistakes",
+   "text": "Manage your time. Spend the first minutes reading the question and the dataset. Do the audit before anything else. Do the compulsory steps first, then the extras. Comment your code and write one sentence of interpretation after each result. Leave time to run the notebook from the top, with restart and run all.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/LA/slides/09.png",
+   "chapter": "Self-check",
+   "text": "Use this self-check before the assessment. Can you load and audit a dataset from memory? Describe and plot a numeric column? Count outliers with I Q R? Run correlation and a cross-tab? Impute missing values two ways? Encode categories correctly? Log-transform and scale? And explain each result in a sentence? If yes, you are ready. Good luck, and thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

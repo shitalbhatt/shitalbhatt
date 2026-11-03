@@ -1,0 +1,60 @@
+{
+ "out_name": "R4_Module_4_Revision_Features_Transformation_Pipeline",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/01.png",
+   "chapter": "Introduction",
+   "text": "This is the revision for module four, Feature Engineering, Transformation and Analytical Structure. The takeaway is: transform data and extract meaningful structure. We recap lectures twenty three to thirty and finish with questions to test yourself.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/02.png",
+   "chapter": "Lectures 23 and 24",
+   "text": "Lectures twenty three and twenty four. Transforming changes shape; scaling changes units. Log is a fixed-strength transform that can over-correct; Box-Cox lets the data choose the power, and Yeo-Johnson handles zeros and negatives. Standard, min-max and robust scalers are linear and never change skew. Min-max is fragile with outliers; robust scaling is best with them. Transform first, then scale, and fit on training data only.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/03.png",
+   "chapter": "Lectures 25 and 26",
+   "text": "Lectures twenty five and twenty six. Construct features with totals, ratios, flags, logs and bands, never from the target. Interactions state that the effect of A depends on B. Polynomial features grow fast, so use low degree. Too many columns cause the curse of dimensionality. Select features with filters, wrappers or embedded methods, using training rows only.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/04.png",
+   "chapter": "Lectures 27 and 28",
+   "text": "Lectures twenty seven and twenty eight. V I F finds linked features. P C A finds new uncorrelated axes; scale first, read variance explained with scree and Kaiser rules, and name components from loadings. L D A uses labels to separate classes, with at most classes minus one components. t-S N E and U M A P are for pictures only and should never feed a model.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/05.png",
+   "chapter": "Lectures 29 and 30",
+   "text": "Lectures twenty nine and thirty. Refine hypotheses and set the decision rule first. Split first, cross-validate on training rows, and test once. Data leakage makes scores lie: target leakage, contamination, preprocessing leakage and sampling leakage. For skewed targets judge by recall, F one and R O C A U C, and resample training rows only. An insight is observation, evidence, meaning and action.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/06.png",
+   "chapter": "Labs",
+   "text": "The labs for this module: practicals twenty three and twenty four compare log, Box-Cox and three scalers. Practicals twenty five and twenty six construct and select features. Practicals twenty seven and twenty eight apply P C A. Practicals twenty nine and thirty build the full pipeline and an industry-style notebook.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/07.png",
+   "chapter": "Test yourself",
+   "text": "Test yourself, part one. Question one: a symmetric column becomes skewed after a log transform. Why, and what do you do? Answer: log is too strong for it, so leave symmetric features alone or use Box-Cox, which picks a weak power. Question two: min-max scaling squeezes most values below zero point one. Why? Answer: one extreme value sets the maximum; use a transform first or the robust scaler.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/08.png",
+   "chapter": null,
+   "text": "Test yourself, part two. Question three: why must feature selection use only training rows? Answer: if test rows help choose features, the test score is no longer honest; that is leakage. Question four: a model has recall zero point nine nine on a test set after over-sampling. What should worry you? Answer: if you over-sampled before splitting, copies of rows sit in both parts. Question five: why is t-S N E not used as model input? Answer: its axes are not stable or meaningful, it changes with seed, and it cannot place new rows.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/dwork_new/R4/slides/09.png",
+   "chapter": "Summary",
+   "text": "That is module four, and the whole course. Transform then scale; engineer then select; reduce dimensions with P C A; split first and test once; and report honest insights. In the next videos we cover the lab assessment, the final project, and the complete workflow in one page. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

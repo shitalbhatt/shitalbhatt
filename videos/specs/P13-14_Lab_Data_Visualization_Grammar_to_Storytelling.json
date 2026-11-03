@@ -1,0 +1,108 @@
+{
+ "out_name": "P13-14_Lab_Data_Visualization_Grammar_to_Storytelling",
+ "voice": "en-US-JennyNeural",
+ "slides": [
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/01.png",
+   "chapter": "Introduction",
+   "text": "Welcome to practicals thirteen and fourteen: data visualization in Python. We cover the Grammar of Graphics, good versus misleading plots, visualizing non-numeric data, dashboard logic, and storytelling with data. We use the Superstore retail orders dataset, with nine thousand nine hundred ninety four orders.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/02.png",
+   "chapter": "Setup",
+   "text": "First, setup. Import pandas, numpy, seaborn and matplotlib, plus squarify for treemaps, network x for network diagrams, and word cloud. Load the Superstore file the same way as in earlier labs, with one addition: convert the order date from plain text into a real datetime type, which we need for the monthly trend chart later.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/03.png",
+   "chapter": "Grammar of Graphics",
+   "text": "Section two: the Grammar of Graphics, building a chart layer by layer. Every chart is composed the same way: data, then aesthetics such as x, y and colour, then geometry, the plot type, then scale labels and a theme. Once you can name these layers, you can build or debug any chart.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/04.png",
+   "chapter": null,
+   "text": "Here is one chart mapped to the grammar. The data layer is the data frame. The aesthetics layer is x equals category, y equals sales, and colour by region. The geometry layer is the bar plot itself, with the mean as the estimator. Then we add a title and labels. Reading the code layer by layer is exactly how you would build or debug it.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/05.png",
+   "chapter": null,
+   "text": "Facets repeat the same chart once per group. With col equals region and col wrap equals two, we get one small bar chart of average profit by segment for each region, arranged in a grid, from one line of code instead of four separate charts. This is the grammar's answer to how do I compare a chart across many groups.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/06.png",
+   "chapter": "Good vs misleading plots",
+   "text": "Section three: good versus misleading plots. The same data, drawn two different ways, can leave a viewer with very different impressions. The most common culprit is the y axis baseline.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/07.png",
+   "chapter": null,
+   "text": "On the left, the y axis is forced to start at point one oh, making Central's discount look several times taller than West's. On the right, the axis starts at zero and shows the true, much smaller difference. Same data, different story. When bars encode a quantity, the axis must start at zero.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/08.png",
+   "chapter": "Visualizing non-numeric data",
+   "text": "Section four: visualizing non-numeric data. Numeric summaries like mean and correlation do not apply to categories, hierarchies or text, so each needs its own technique. For categories, use a sorted bar chart. The order argument sorts bars by value instead of alphabetically, so Phones and Chairs lead and Fasteners and Labels trail. Sorting lets the pattern make the point on its own.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/09.png",
+   "chapter": null,
+   "text": "For hierarchical data, use a treemap. Squarify draws one rectangle per category, with area proportional to total sales. Technology, furniture and office supplies are close in size, which a treemap makes easy to compare without reading exact numbers off an axis.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/10.png",
+   "chapter": null,
+   "text": "For text, use a word cloud. Join every product name into one long string, and word cloud counts word frequency and sizes each word by how often it appears. It is good for a quick skim of what dominates a text field, though not for precise comparison.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/11.png",
+   "chapter": null,
+   "text": "For relationships, use a network diagram. We connect each of the top fifteen customers to every sub-category they have bought from. That makes a bipartite network, with two kinds of nodes, customers and sub-categories. It shows which sub-categories are shared across customers and which are niche.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/12.png",
+   "chapter": "Dashboard logic",
+   "text": "Section five: dashboard logic. A dashboard is several panels sharing one figure, organised around a purpose: key numbers first, supporting detail below. Here is the layout. Add gridspec reserves a three by three grid, with a shorter top row for the three K P I cards, and a taller row below with a wide trend panel and a smaller mix panel. Each add subplot claims a region of that grid. Then each panel is filled the normal way: ax text for the K P I cards showing orders, total sales and total profit, a seaborn line plot for the monthly sales trend, and a bar plot for the sales share by category. The only new idea is that every plotting call targets a specific panel instead of the whole figure.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/13.png",
+   "chapter": "Storytelling with data",
+   "text": "Section six: storytelling with data. First, highlight the one bar that matters. A short list comprehension picks one strong colour for Central and a muted grey for every other bar: gray out the rest. And the chart title states the insight, Central's discount rate stands out from the rest, instead of just naming the variables.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/14.png",
+   "chapter": null,
+   "text": "Second, annotate the key moment directly on the chart. Idx min finds the exact month where profit was lowest, so we let the data locate the annotation instead of guessing. Then annotate draws a label and an arrow pointing at that point. A short label at the key moment saves the viewer from hunting for it.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/15.png",
+   "chapter": "Second dataset: Titanic",
+   "text": "Section seven: the same techniques on a second dataset, Titanic. The same grammar pattern as before: data, aesthetics with passenger class on x, fare on y and sex as colour, and bars for geometry.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/16.png",
+   "chapter": null,
+   "text": "And the same treemap pattern, now showing the relative size of each passenger class. Swap the data frame and column names, and the same techniques apply to any dataset.",
+   "pdf": ""
+  },
+  {
+   "image": "/tmp/claude-0/-home-user-shitalbhatt/b3644d76-0373-536c-89d2-71ac9e4a6be5/scratchpad/p13work/slides/17.png",
+   "chapter": "Practice exercises",
+   "text": "To practise, try these. Rebuild the grammar bar chart with region on the x axis and see whether the story changes. Make a treemap of sub-category sales within a single category. And redraw the discount chart with an honest axis and a highlighted bar, then write an insight title. The code patterns in this lab, layered charts, honest axes, treemaps, word clouds, network diagrams, gridspec dashboards and annotated highlights, are general purpose. Swap the data and the same techniques apply to any dataset. Thanks for watching.",
+   "pdf": ""
+  }
+ ]
+}

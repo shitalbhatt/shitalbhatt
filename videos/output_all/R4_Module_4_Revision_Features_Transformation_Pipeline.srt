@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:07,686
+This is the revision for module four, Feature Engineering, Transformation and Analytical Structure.
+
+2
+00:00:07,686 --> 00:00:08,928
+The takeaway is:
+
+3
+00:00:08,928 --> 00:00:12,655
+transform data and extract meaningful structure.
+
+4
+00:00:12,655 --> 00:00:19,176
+We recap lectures twenty three to thirty and finish with questions to test yourself.
+
+5
+00:00:19,976 --> 00:00:23,173
+Lectures twenty three and twenty four.
+
+6
+00:00:23,173 --> 00:00:27,380
+Transforming changes shape; scaling changes units.
+
+7
+00:00:27,380 --> 00:00:39,244
+Log is a fixed-strength transform that can over-correct; Box-Cox lets the data choose the power, and Yeo-Johnson handles zeros and negatives.
+
+8
+00:00:39,244 --> 00:00:45,134
+Standard, min-max and robust scalers are linear and never change skew.
+
+9
+00:00:45,134 --> 00:00:50,772
+Min-max is fragile with outliers; robust scaling is best with them.
+
+10
+00:00:50,772 --> 00:00:55,736
+Transform first, then scale, and fit on training data only.
+
+11
+00:00:56,536 --> 00:00:59,583
+Lectures twenty five and twenty six.
+
+12
+00:00:59,583 --> 00:01:06,777
+Construct features with totals, ratios, flags, logs and bands, never from the target.
+
+13
+00:01:06,777 --> 00:01:11,263
+Interactions state that the effect of A depends on B.
+
+14
+00:01:11,263 --> 00:01:15,410
+Polynomial features grow fast, so use low degree.
+
+15
+00:01:15,410 --> 00:01:19,726
+Too many columns cause the curse of dimensionality.
+
+16
+00:01:19,726 --> 00:01:26,920
+Select features with filters, wrappers or embedded methods, using training rows only.
+
+17
+00:01:27,720 --> 00:01:31,116
+Lectures twenty seven and twenty eight.
+
+18
+00:01:31,116 --> 00:01:33,554
+V I F finds linked features.
+
+19
+00:01:33,554 --> 00:01:45,309
+P C A finds new uncorrelated axes; scale first, read variance explained with scree and Kaiser rules, and name components from loadings.
+
+20
+00:01:45,309 --> 00:01:52,363
+L D A uses labels to separate classes, with at most classes minus one components.
+
+21
+00:01:52,363 --> 00:01:58,632
+t-S N E and U M A P are for pictures only and should never feed a model.
+
+22
+00:01:59,432 --> 00:02:02,252
+Lectures twenty nine and thirty.
+
+23
+00:02:02,252 --> 00:02:06,658
+Refine hypotheses and set the decision rule first.
+
+24
+00:02:06,658 --> 00:02:11,945
+Split first, cross-validate on training rows, and test once.
+
+25
+00:02:11,945 --> 00:02:14,589
+Data leakage makes scores lie:
+
+26
+00:02:14,589 --> 00:02:21,110
+target leakage, contamination, preprocessing leakage and sampling leakage.
+
+27
+00:02:21,110 --> 00:02:29,129
+For skewed targets judge by recall, F one and R O C A U C, and resample training rows only.
+
+28
+00:02:29,129 --> 00:02:34,064
+An insight is observation, evidence, meaning and action.
+
+29
+00:02:34,864 --> 00:02:36,800
+The labs for this module:
+
+30
+00:02:36,800 --> 00:02:42,916
+practicals twenty three and twenty four compare log, Box-Cox and three scalers.
+
+31
+00:02:42,916 --> 00:02:48,181
+Practicals twenty five and twenty six construct and select features.
+
+32
+00:02:48,181 --> 00:02:52,285
+Practicals twenty seven and twenty eight apply P C A.
+
+33
+00:02:52,285 --> 00:02:59,176
+Practicals twenty nine and thirty build the full pipeline and an industry-style notebook.
+
+34
+00:02:59,976 --> 00:03:02,244
+Test yourself, part one.
+
+35
+00:03:02,244 --> 00:03:03,473
+Question one:
+
+36
+00:03:03,473 --> 00:03:08,765
+a symmetric column becomes skewed after a log transform.
+
+37
+00:03:08,765 --> 00:03:11,033
+Why, and what do you do?
+
+38
+00:03:11,033 --> 00:03:11,695
+Answer:
+
+39
+00:03:11,695 --> 00:03:21,240
+log is too strong for it, so leave symmetric features alone or use Box-Cox, which picks a weak power.
+
+40
+00:03:21,240 --> 00:03:22,469
+Question two:
+
+41
+00:03:22,469 --> 00:03:27,950
+min-max scaling squeezes most values below zero point one.
+
+42
+00:03:27,950 --> 00:03:28,328
+Why?
+
+43
+00:03:28,328 --> 00:03:28,990
+Answer:
+
+44
+00:03:28,990 --> 00:03:36,456
+one extreme value sets the maximum; use a transform first or the robust scaler.
+
+45
+00:03:37,256 --> 00:03:39,378
+Test yourself, part two.
+
+46
+00:03:39,378 --> 00:03:40,704
+Question three:
+
+47
+00:03:40,704 --> 00:03:45,124
+why must feature selection use only training rows?
+
+48
+00:03:45,124 --> 00:03:45,742
+Answer:
+
+49
+00:03:45,742 --> 00:03:53,433
+if test rows help choose features, the test score is no longer honest; that is leakage.
+
+50
+00:03:53,433 --> 00:03:54,671
+Question four:
+
+51
+00:03:54,671 --> 00:04:01,212
+a model has recall zero point nine nine on a test set after over-sampling.
+
+52
+00:04:01,212 --> 00:04:03,157
+What should worry you?
+
+53
+00:04:03,157 --> 00:04:03,776
+Answer:
+
+54
+00:04:03,776 --> 00:04:10,052
+if you over-sampled before splitting, copies of rows sit in both parts.
+
+55
+00:04:10,052 --> 00:04:11,290
+Question five:
+
+56
+00:04:11,290 --> 00:04:14,737
+why is t-S N E not used as model input?
+
+57
+00:04:14,737 --> 00:04:15,356
+Answer:
+
+58
+00:04:15,356 --> 00:04:23,312
+its axes are not stable or meaningful, it changes with seed, and it cannot place new rows.
+
+59
+00:04:24,112 --> 00:04:27,703
+That is module four, and the whole course.
+
+60
+00:04:27,703 --> 00:04:38,648
+Transform then scale; engineer then select; reduce dimensions with P C A; split first and test once; and report honest insights.
+
+61
+00:04:38,648 --> 00:04:47,626
+In the next videos we cover the lab assessment, the final project, and the complete workflow in one page.
+
+62
+00:04:47,626 --> 00:04:49,336
+Thanks for watching.
+
